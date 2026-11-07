@@ -39,19 +39,19 @@ export const siteData = {
   heroSlides: [
     {
       id: 1,
-      image: "/assets/hr_talent.jpg",
+      image: "/assets/hr_carousel_1.jpg",
       badge: "Strategic Talent Acquisition & HR Solutions",
       caption: "Sourcing pre-screened technical and leadership talent for high-growth enterprises."
     },
     {
       id: 2,
-      image: "/assets/team_conf.jpg",
+      image: "/assets/hr_carousel_2.jpg",
       badge: "Workforce Consulting & RPO Advisory",
       caption: "Tailored executive search, workforce planning, and organizational talent strategy."
     },
     {
       id: 3,
-      image: "/assets/hero_bg.jpg",
+      image: "/assets/hr_carousel_3.jpg",
       badge: "Industry-Aligned IT Training Division",
       caption: "Empowering software engineers with live enterprise labs and career mentorship."
     }
@@ -263,7 +263,7 @@ export const siteData = {
       badge: "Core Practice",
       shortDescription: "End-to-end recruitment matching enterprise hiring demands with pre-assessed, high-caliber tech talent in Hyderabad and pan-India.",
       description: "End-to-end permanent recruitment matching enterprise tech demands with pre-assessed, high-caliber talent evaluated on live cloud labs.",
-      image: "/assets/hr_talent.jpg",
+      image: "/assets/hr_carousel_1.jpg",
       stats: [
         { label: "Average Time-to-Hire", value: "< 14 Days" },
         { label: "Technical Pass Rate", value: "96.4%" },
@@ -331,7 +331,7 @@ export const siteData = {
       badge: "Enterprise Scale",
       shortDescription: "Scalable recruitment outsourcing and contract staffing taking over part or all of your talent acquisition to reduce cost and time-to-hire.",
       description: "Flexible contract-to-hire staffing, project teams, and scalable Recruitment Process Outsourcing (RPO) to dramatically cut time-to-hire.",
-      image: "/assets/team_conf.jpg",
+      image: "/assets/hr_carousel_2.jpg",
       stats: [
         { label: "Cost Per Hire Reduction", value: "35% – 45%" },
         { label: "SLA Adherence Rate", value: "99.1%" },
@@ -399,7 +399,7 @@ export const siteData = {
       badge: "C-Suite & Directors",
       shortDescription: "Confidential and specialized headhunting for leadership positions, IT directors, architects, and C-suite innovators.",
       description: "Confidential and specialized headhunting for VP of Engineering, IT Directors, Chief Technology Officers, and senior management leaders.",
-      image: "/assets/hr_executive.jpg",
+      image: "/assets/hr_carousel_3.jpg",
       stats: [
         { label: "Search Success Rate", value: "98.5%" },
         { label: "Leadership Network", value: "12,000+" },
@@ -467,7 +467,7 @@ export const siteData = {
       badge: "Strategic Advisory",
       shortDescription: "Comprehensive workplace advisory: organizational design, performance appraisal frameworks, HR policy creation, and compliance audits.",
       description: "Strategic workplace advisory helping growing companies establish scalable HR systems, modern workplace policies, and high-performance cultures.",
-      image: "/assets/experience_discussion.jpg",
+      image: "/assets/hr_carousel_2.jpg",
       stats: [
         { label: "Client Retainers", value: "85+" },
         { label: "Policy Compliance", value: "100%" },
@@ -535,7 +535,7 @@ export const siteData = {
       badge: "Culture & Retention",
       shortDescription: "Capacity planning, skills gap audits, attrition mitigation, and inclusive hiring frameworks ensuring 94%+ long-term retention.",
       description: "Data-driven workforce optimization, talent retention architecture, and diversity hiring strategies for high-performance workplaces.",
-      image: "/assets/experience_collab.jpg",
+      image: "/assets/hr_carousel_3.jpg",
       stats: [
         { label: "Retention Rate", value: "94.2%" },
         { label: "DE&I Placement Ratio", value: "38%" },
@@ -603,7 +603,7 @@ export const siteData = {
       badge: "Operations & Compliance",
       shortDescription: "End-to-end payroll processing, statutory compliance (PF, ESI, TDS, PT), attendance automation, and employee self-service governance.",
       description: "Error-free payroll execution, statutory regulatory filings, and digitized employee lifecycle administration for organizations of all sizes.",
-      image: "/assets/experience_presentation.jpg",
+      image: "/assets/hr_carousel_1.jpg",
       stats: [
         { label: "Payroll Accuracy", value: "99.98%" },
         { label: "On-Time Disbursement", value: "100%" },

@@ -16,7 +16,8 @@ export default function HRServices() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-  const total = siteData.hrServices.length;
+  const carouselServices = siteData.hrServices.slice(0, 3);
+  const total = carouselServices.length;
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + total) % total);
@@ -50,7 +51,7 @@ export default function HRServices() {
     }
   };
 
-  const activeService = siteData.hrServices[activeIndex];
+  const activeService = carouselServices[activeIndex];
 
   // Helper to calculate relative circular distance & layout attributes
   const getCardTransform = (index) => {
@@ -235,7 +236,7 @@ export default function HRServices() {
               window.addEventListener('touchend', handleTouchEnd);
             }}
           >
-            {siteData.hrServices.map((service, idx) => {
+            {carouselServices.map((service, idx) => {
               const { diff, x, y, scale, rotate, zIndex, opacity } = getCardTransform(idx);
               const isCenter = diff === 0;
 
@@ -365,7 +366,7 @@ export default function HRServices() {
 
             {/* Clickable Pagination Dots */}
             <div className="flex items-center justify-center gap-2 pt-6">
-              {siteData.hrServices.map((srv, idx) => (
+              {carouselServices.map((srv, idx) => (
                 <button
                   key={srv.id}
                   onClick={() => setActiveIndex(idx)}
