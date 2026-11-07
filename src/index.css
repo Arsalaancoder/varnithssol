@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Typography Variables */
+:root {
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    background-color: #111a14;
+    color: #202923;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, .font-serif, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+  }
+
+  p, span, a, button, input, select, textarea, label, nav, .font-sans, .font-body {
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background-color: #F2C94C;
+    color: #183629;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EAF0E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #899C75;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #173B2C;
+}
+
+/* Reusable Yellow Button System (Requirement 6) */
+.btn-primary {
+  background-color: #F2C94C;
+  color: #183629;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:hover {
+  background-color: #DFAE22;
+  color: #102A21;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1.5px solid #DFAE22;
+  color: #183629;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-secondary:hover {
+  background-color: rgba(242, 201, 76, 0.12);
+  border-color: #F2C94C;
+}
+
+.btn-secondary-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #DFAE22;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-secondary-light:hover {
+  background-color: rgba(242, 201, 76, 0.2);
+  border-color: #F2C94C;
+  color: #ffffff;
+}
+
+/* Card Zoom & Hover */
+.img-zoom-container {
+  overflow: hidden;
+}
+.img-zoom-container img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* Tabbed Information Panel Shape for Course Cards */
+.course-card-tab {
+  position: relative;
+  border-radius: 20px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Watermark text */
+.watermark-text {
+  font-family: var(--font-heading);
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+}

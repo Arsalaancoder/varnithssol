@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#ffffff" />
+  <!-- Left Blue Figure -->
+  <circle cx="23" cy="20" r="5" fill="#0b4d8c" />
+  <path d="M12 21 C15 28 22 41 29 48 C28 40 25 32 23 27 C21 24 16 22 12 21 Z" fill="#0b4d8c" />
+  <!-- Center/Bottom Connector -->
+  <path d="M25 43 L31 51 L35 43 C33 46 29 46 25 43 Z" fill="#0b4d8c" />
+  <!-- Right Orange Figure -->
+  <circle cx="35" cy="20" r="4.5" fill="#f38b00" />
+  <path d="M30 45 C35 38 41 28 49 21 C45 23 40 26 37 31 C34 36 32 40 30 45 Z" fill="#f38b00" />
+</svg>
