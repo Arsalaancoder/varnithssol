@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteData } from '../data/siteData';
 import {
@@ -15,11 +15,17 @@ import {
 import CTASection from '../components/CTASection';
 
 export default function HRServiceDetail() {
-  const { slug } = useParams();
+  const params = useParams();
+  const location = useLocation();
+
+  // Extract slug from params or last segment of pathname
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const pathSlug = pathParts[pathParts.length - 1];
+  const activeSlug = params.slug || (pathSlug !== 'hr-services' ? pathSlug : null);
 
   // Find matching service by slug or aliases or id, fallback to first service
   const service = siteData.hrServices.find(
-    s => s.slug === slug || s.id === slug || (s.aliases && s.aliases.includes(slug))
+    s => s.slug === activeSlug || s.id === activeSlug || (s.aliases && s.aliases.includes(activeSlug))
   ) || siteData.hrServices[0];
 
   const [openFaq, setOpenFaq] = useState(0);
@@ -33,7 +39,8 @@ export default function HRServiceDetail() {
     requirements: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedSlug, setSubmittedSlug] = useState(null);
+  const isSubmitted = submittedSlug === activeSlug;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,7 +55,7 @@ export default function HRServiceDetail() {
       });
       localStorage.setItem('varnith_hr_inquiries', JSON.stringify(stored));
       setIsSubmitting(false);
-      setIsSubmitted(true);
+      setSubmittedSlug(activeSlug);
     }, 600);
   };
 
@@ -420,7 +427,7 @@ export default function HRServiceDetail() {
                   Thank you! Our senior HR partner has received your request regarding <strong>{service.title}</strong> and will reach out with a candidate strategy plan.
                 </p>
                 <button
-                  onClick={() => setIsSubmitted(false)}
+                  onClick={() => setSubmittedSlug(null)}
                   className="px-6 py-2.5 rounded-full bg-[#F2C94C] text-[#183629] text-xs font-bold uppercase tracking-wider"
                 >
                   Submit Another Inquiry

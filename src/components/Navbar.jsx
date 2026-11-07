@@ -87,11 +87,10 @@ export default function Navbar() {
               {/* HOME */}
               <Link
                 to="/and"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${
-                  location.pathname === '/and' || location.pathname === '/'
+                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${location.pathname === '/and' || location.pathname === '/'
                     ? 'text-[#F2C94C] font-bold'
                     : 'text-[#202923]/75 hover:text-[#183629]'
-                }`}
+                  }`}
               >
                 {(location.pathname === '/and' || location.pathname === '/') && (
                   <motion.span
@@ -111,11 +110,10 @@ export default function Navbar() {
               >
                 <Link
                   to="/and/hr-services"
-                  className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 inline-flex items-center gap-1 ${
-                    location.pathname.startsWith('/and/hr-services')
+                  className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 inline-flex items-center gap-1 ${location.pathname.startsWith('/and/hr-services')
                       ? 'text-[#F2C94C] font-bold'
                       : 'text-[#202923]/75 hover:text-[#183629]'
-                  }`}
+                    }`}
                 >
                   {location.pathname.startsWith('/and/hr-services') && (
                     <motion.span
@@ -140,7 +138,7 @@ export default function Navbar() {
                     >
                       <div className="px-3 py-2 border-b border-stone-100 flex items-center justify-between">
                         <span className="text-[10px] font-bold tracking-widest uppercase text-[#737D73] font-mono">
-                          PRIMARY PRACTICE • 6 OFFERINGS
+
                         </span>
                         <Briefcase className="w-3.5 h-3.5 text-[#DFAE22]" />
                       </div>
@@ -187,11 +185,10 @@ export default function Navbar() {
               >
                 <Link
                   to="/and/courses"
-                  className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 inline-flex items-center gap-1 ${
-                    location.pathname.startsWith('/and/courses')
+                  className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 inline-flex items-center gap-1 ${location.pathname.startsWith('/and/courses')
                       ? 'text-[#F2C94C] font-bold'
                       : 'text-[#202923]/75 hover:text-[#183629]'
-                  }`}
+                    }`}
                 >
                   {location.pathname.startsWith('/and/courses') && (
                     <motion.span
@@ -258,11 +255,10 @@ export default function Navbar() {
               {/* ABOUT */}
               <Link
                 to="/and/about"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${
-                  isCurrentActive('/and/about')
+                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/about')
                     ? 'text-[#F2C94C] font-bold'
                     : 'text-[#202923]/75 hover:text-[#183629]'
-                }`}
+                  }`}
               >
                 {isCurrentActive('/and/about') && (
                   <motion.span
@@ -277,11 +273,10 @@ export default function Navbar() {
               {/* WHY US */}
               <Link
                 to="/and/why-us"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${
-                  isCurrentActive('/and/why-us')
+                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/why-us')
                     ? 'text-[#F2C94C] font-bold'
                     : 'text-[#202923]/75 hover:text-[#183629]'
-                }`}
+                  }`}
               >
                 {isCurrentActive('/and/why-us') && (
                   <motion.span
@@ -296,11 +291,10 @@ export default function Navbar() {
               {/* TESTIMONIALS */}
               <Link
                 to="/and/testimonials"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${
-                  isCurrentActive('/and/testimonials')
+                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/testimonials')
                     ? 'text-[#F2C94C] font-bold'
                     : 'text-[#202923]/75 hover:text-[#183629]'
-                }`}
+                  }`}
               >
                 {isCurrentActive('/and/testimonials') && (
                   <motion.span
@@ -315,11 +309,10 @@ export default function Navbar() {
               {/* CONTACT */}
               <Link
                 to="/and/contact"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${
-                  isCurrentActive('/and/contact')
+                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/contact')
                     ? 'text-[#F2C94C] font-bold'
                     : 'text-[#202923]/75 hover:text-[#183629]'
-                }`}
+                  }`}
               >
                 {isCurrentActive('/and/contact') && (
                   <motion.span

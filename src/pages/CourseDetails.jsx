@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { siteData } from '../data/siteData';
 import { ArrowLeft, Clock, BarChart3, Award, Send, Sparkles, Briefcase, ShieldCheck, ArrowRight, ArrowUpRight } from 'lucide-react';
 import CTASection from '../components/CTASection';
 
 export default function CourseDetails() {
-  const { slug } = useParams();
+  const params = useParams();
+  const location = useLocation();
   
+  // Extract slug from params or last segment of pathname
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const pathSlug = pathParts[pathParts.length - 1];
+  const activeSlug = params.slug || (pathSlug !== 'courses' ? pathSlug : null);
+
   // Find matching course by slug, fallback to first course
-  const course = siteData.courses.find(c => c.slug === slug || c.id === slug) || siteData.courses[0];
+  const course = siteData.courses.find(
+    c => c.slug === activeSlug || c.id === activeSlug
+  ) || siteData.courses[0];
 
   const [formData, setFormData] = useState({
     name: '',
@@ -18,8 +26,9 @@ export default function CourseDetails() {
     learningMode: 'hybrid',
     message: ''
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [submittedSlug, setSubmittedSlug] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  const isSubmitted = submittedSlug === activeSlug;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +43,7 @@ export default function CourseDetails() {
       });
       localStorage.setItem('varnith_course_inquiries', JSON.stringify(stored));
       setSubmitting(false);
-      setSubmitted(true);
+      setSubmittedSlug(activeSlug);
     }, 600);
   };
 
@@ -211,7 +220,7 @@ export default function CourseDetails() {
           {/* Right Column: Sticky Registration / Syllabus Form */}
           <div className="lg:col-span-5">
             <div className="p-6 sm:p-8 rounded-[32px] bg-[#183629] text-white shadow-xl sticky top-28 space-y-6">
-              {submitted ? (
+              {isSubmitted ? (
                 <div className="text-center py-8 space-y-3">
                   <div className="w-12 h-12 rounded-full bg-[#F2C94C]/20 text-[#F2C94C] mx-auto flex items-center justify-center">
                     <Sparkles className="w-6 h-6" />
@@ -223,7 +232,7 @@ export default function CourseDetails() {
                     Thank you for your interest in {course.title}. Our academic counselor in Hyderabad will reach out with batch timings, fee structures, and customized learning tracks.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => setSubmittedSlug(null)}
                     className="text-xs underline text-[#F2C94C] hover:text-white pt-2 inline-block"
                   >
                     Submit another query

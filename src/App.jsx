@@ -26,26 +26,10 @@ export default function App() {
           
           {/* Dedicated Course Routes */}
           <Route path="courses/:slug" element={<CourseDetails />} />
-          <Route path="courses/devops" element={<CourseDetails />} />
-          <Route path="courses/sap-basis-security" element={<CourseDetails />} />
-          <Route path="courses/sap-grc" element={<CourseDetails />} />
-          <Route path="courses/data-analyst" element={<CourseDetails />} />
-          <Route path="courses/software-testing" element={<CourseDetails />} />
-          <Route path="courses/python" element={<CourseDetails />} />
 
           {/* Dedicated HR Services Routes (Priority 1) */}
           <Route path="hr-services" element={<HRServicesPage />} />
           <Route path="hr-services/:slug" element={<HRServiceDetail />} />
-          <Route path="hr-services/recruitment" element={<HRServiceDetail />} />
-          <Route path="hr-services/talent-acquisition" element={<HRServiceDetail />} />
-          <Route path="hr-services/staffing" element={<HRServiceDetail />} />
-          <Route path="hr-services/rpo" element={<HRServiceDetail />} />
-          <Route path="hr-services/executive-search" element={<HRServiceDetail />} />
-          <Route path="hr-services/executive-hiring" element={<HRServiceDetail />} />
-          <Route path="hr-services/hr-consulting" element={<HRServiceDetail />} />
-          <Route path="hr-services/workforce-management" element={<HRServiceDetail />} />
-          <Route path="hr-services/payroll" element={<HRServiceDetail />} />
-          <Route path="hr-services/payroll-administration" element={<HRServiceDetail />} />
 
           {/* Other Core Multi-Page Routes */}
           <Route path="why-us" element={<WhyUsPage />} />
