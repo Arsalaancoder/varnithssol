@@ -243,6 +243,22 @@ export default function HRServicesPage() {
                       </div>
                     ))}
                   </div>
+
+                  <div className="pt-4 flex items-center gap-4">
+                    <Link
+                      to={`/and/hr-services/${service.slug}`}
+                      className="px-6 py-2.5 rounded-full bg-[#183629] text-[#F2C94C] text-xs font-bold uppercase tracking-wider hover:bg-[#102A21] transition-all inline-flex items-center gap-2 group/btn"
+                    >
+                      <span>Explore Practice Details</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </Link>
+                    <a
+                      href="#consultation-inquiry"
+                      className="text-xs font-semibold text-[#183629] hover:underline"
+                    >
+                      Request Proposal
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -251,7 +267,7 @@ export default function HRServicesPage() {
       </section>
 
       {/* Corporate Consultation Inquiry Form */}
-      <section className="px-6 sm:px-12 lg:px-16 py-12">
+      <section id="consultation-inquiry" className="px-6 sm:px-12 lg:px-16 py-12 scroll-mt-28">
         <div className="max-w-[1360px] mx-auto p-8 sm:p-14 rounded-[36px] bg-[#183629] text-white shadow-2xl">
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="text-center space-y-3">

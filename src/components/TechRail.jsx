@@ -36,16 +36,16 @@ export default function TechRail() {
         <div className="flex items-center gap-2.5">
           <div className="w-2 h-2 rounded-full bg-[#183629] animate-pulse" />
           <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-[#183629]">
-            Enterprise Technologies & Cloud Sandboxes
+            Enterprise Sourcing Stacks & Practical Training Labs
           </span>
           <span className="hidden md:inline-block px-2.5 py-0.5 rounded-full bg-[#183629]/10 text-[10px] font-bold text-[#183629] tracking-wider uppercase">
-            Official Toolchain
+            Verified Toolchain
           </span>
         </div>
 
         <div className="flex items-center gap-2 text-xs text-[#737D73] font-medium">
           <Terminal className="w-3.5 h-3.5 text-[#183629]" />
-          <span>Mastered across DevOps, SAP, Data, QA & Python Tracks</span>
+          <span>Sourced for Enterprise Employers & Mastered in Hands-on Labs</span>
         </div>
       </div>
 

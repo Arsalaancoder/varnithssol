@@ -2,9 +2,9 @@ export const siteData = {
   brand: {
     name: "Varnith Global",
     legalName: "Varnith Technologies Private Limited",
-    tagline: "Build Skills. Shape Your Future.",
-    eyebrow: "LEARN • GROW • LEAD",
-    heroDescription: "Expert IT training, career development and strategic HR solutions designed to move individuals and businesses forward.",
+    tagline: "Build Strong Teams. Shape Better Futures.",
+    eyebrow: "STRATEGIC HR SOLUTIONS • IT TRAINING",
+    heroDescription: "Empowering businesses through strategic HR solutions and helping professionals grow through industry-focused IT training.",
     phone: "(+91) 7995483137",
     rawPhone: "+917995483137",
     whatsapp: "https://wa.me/917995483137?text=Hi%20Varnith%20Global%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs.",
@@ -39,21 +39,21 @@ export const siteData = {
   heroSlides: [
     {
       id: 1,
-      image: "/assets/hero_bg.jpg",
-      badge: "Professional IT Training & Modern Labs",
-      caption: "Interactive classroom immersion and hands-on cloud workstations."
+      image: "/assets/hr_talent.jpg",
+      badge: "Strategic Talent Acquisition & HR Solutions",
+      caption: "Sourcing pre-screened technical and leadership talent for high-growth enterprises."
     },
     {
       id: 2,
-      image: "/assets/experience_collab.jpg",
-      badge: "Corporate Teamwork & Technical Synergy",
-      caption: "Peer-driven problem solving and real-time enterprise scenarios."
+      image: "/assets/team_conf.jpg",
+      badge: "Workforce Consulting & RPO Advisory",
+      caption: "Tailored executive search, workforce planning, and organizational talent strategy."
     },
     {
       id: 3,
-      image: "/assets/about_mentor.jpg",
-      badge: "Career Mentoring & Strategic Placement",
-      caption: "Direct 1-on-1 guidance from 10+ year IT industry veterans."
+      image: "/assets/hero_bg.jpg",
+      badge: "Industry-Aligned IT Training Division",
+      caption: "Empowering software engineers with live enterprise labs and career mentorship."
     }
   ],
 
@@ -254,44 +254,412 @@ export const siteData = {
 
   hrServices: [
     {
-      id: "talent-acquisition",
+      id: "recruitment",
+      slug: "recruitment",
+      aliases: ["talent-acquisition"],
       number: "01",
-      title: "Talent Acquisition",
-      description: "End-to-end recruitment matching enterprise hiring demands with pre-assessed, high-caliber tech talent in Hyderabad and pan-India.",
-      features: ["Custom Sourcing Strategies", "Technical Pre-Screening in Real Labs", "Rapid Turnaround Times"],
-      image: "/assets/hr_talent.jpg"
+      title: "Recruitment & Talent Acquisition",
+      fullTitle: "Enterprise Recruitment & Technical Talent Acquisition",
+      badge: "Core Practice",
+      shortDescription: "End-to-end recruitment matching enterprise hiring demands with pre-assessed, high-caliber tech talent in Hyderabad and pan-India.",
+      description: "End-to-end permanent recruitment matching enterprise tech demands with pre-assessed, high-caliber talent evaluated on live cloud labs.",
+      image: "/assets/hr_talent.jpg",
+      stats: [
+        { label: "Average Time-to-Hire", value: "< 14 Days" },
+        { label: "Technical Pass Rate", value: "96.4%" },
+        { label: "First-Year Retention", value: "94.2%" }
+      ],
+      features: [
+        "Live Lab Technical Pre-Screening",
+        "Custom Enterprise Sourcing Pipelines",
+        "Role-Specific Competency Mapping",
+        "Behavioral & Culture Alignment Audits",
+        "Rapid 14-Day Delivery SLA",
+        "Post-Placement Replacement Guarantee"
+      ],
+      whatItIncludes: [
+        {
+          title: "Technical Code & Sandbox Vetting",
+          description: "Candidates solve real-world architectural challenges and deploy on live cloud workstations before interview presentation."
+        },
+        {
+          title: "Deep Passive Talent Mapping",
+          description: "Direct outreach to top 15% engineers across Hyderabad, Bengaluru, Pune, and pan-India tech ecosystems."
+        },
+        {
+          title: "Comprehensive Candidate Dossiers",
+          description: "Every shortlisted profile includes sandbox evaluation scorecards, peer feedback, and compensation expectations."
+        },
+        {
+          title: "End-to-End Interview Coordination",
+          description: "Dedicated account managers schedule technical rounds, manage candidate communication, and ensure zero offer drops."
+        },
+        {
+          title: "Counter-Offer & Joining Assurance",
+          description: "Active engagement during the 60-90 day notice window to minimize dropouts and accelerate start dates."
+        },
+        {
+          title: "90-Day Performance Guarantee",
+          description: "Full replacement warranty within the first 90 days ensuring complete hiring peace of mind."
+        }
+      ],
+      deliveryModel: [
+        { step: "01", title: "Technical Alignment", desc: "We interview hiring managers to map stack requirements, team culture, and business milestones." },
+        { step: "02", title: "Targeted Sourcing", desc: "AI-assisted search combined with our proprietary database of 45,000+ verified tech professionals." },
+        { step: "03", title: "Practical Lab Audit", desc: "Every engineer is vetted inside our hands-on IT labs to verify genuine hands-on ability." },
+        { step: "04", title: "Offer & Onboarding", desc: "Offer advisory, notice period engagement, and seamless enterprise day-one integration." }
+      ],
+      businessBenefits: [
+        { metric: "68%", title: "Reduction in Hiring Time", desc: "Fill critical engineering roles in under 14 business days." },
+        { metric: "4.5x", title: "Interview-to-Offer Ratio", desc: "Stop wasting engineering manager time on unvetted resumes." },
+        { metric: "94%", title: "Long-Term Retention", desc: "Hires stay, contribute, and advance within your organization." }
+      ],
+      faqs: [
+        { q: "How does Varnith Global evaluate candidate technical ability?", a: "Unlike conventional agencies that rely solely on keyword matching, candidates must demonstrate practical delivery inside live sandbox environments before recommendation." },
+        { q: "What is your typical turnaround time for senior roles?", a: "First calibrated shortlists are delivered within 48 to 72 hours. Placements typically close in 10 to 14 business days." },
+        { q: "Do you offer placement replacement guarantees?", a: "Yes. All permanent placements include a comprehensive 90-day replacement warranty." },
+        { q: "Can you support bulk hiring drives?", a: "Yes. We regularly execute dedicated recruitment sprint campaigns for enterprise scale-ups." }
+      ]
     },
     {
-      id: "rpo",
+      id: "staffing",
+      slug: "staffing",
+      aliases: ["rpo"],
       number: "02",
-      title: "Recruitment Process Outsourcing (RPO)",
-      description: "Scalable recruitment outsourcing taking over part or all of your internal talent acquisition function to reduce time-to-hire and cost-per-hire.",
-      features: ["Dedicated Onsite/Offsite Recruiters", "Applicant Tracking Integration", "Transparent Metrics & SLA Management"],
-      image: "/assets/team_conf.jpg"
+      title: "Staffing & RPO Solutions",
+      fullTitle: "Scalable Contract Staffing & Recruitment Process Outsourcing",
+      badge: "Enterprise Scale",
+      shortDescription: "Scalable recruitment outsourcing and contract staffing taking over part or all of your talent acquisition to reduce cost and time-to-hire.",
+      description: "Flexible contract-to-hire staffing, project teams, and scalable Recruitment Process Outsourcing (RPO) to dramatically cut time-to-hire.",
+      image: "/assets/team_conf.jpg",
+      stats: [
+        { label: "Cost Per Hire Reduction", value: "35% – 45%" },
+        { label: "SLA Adherence Rate", value: "99.1%" },
+        { label: "Scalability Window", value: "72 Hours" }
+      ],
+      features: [
+        "Dedicated Onsite / Offsite Recruiting Pods",
+        "Contract & Contract-to-Hire IT Staffing",
+        "Applicant Tracking System Integration",
+        "Employer Brand & Candidate Experience Management",
+        "Transparent SLA & Metrics Dashboards",
+        "Direct Payroll & Compliance Coverage"
+      ],
+      whatItIncludes: [
+        {
+          title: "Full Lifecycle RPO",
+          description: "End-to-end management from requisition approval, candidate attraction, screening, to offer rollout and onboarding."
+        },
+        {
+          title: "Project-Based Staffing Sprints",
+          description: "Rapid deployment of 10 to 50+ specialized software engineers for time-sensitive enterprise client deliveries."
+        },
+        {
+          title: "Enterprise ATS & Pipeline Integration",
+          description: "Seamless workflows directly inside your Workday, Greenhouse, Lever, or BambooHR ecosystems."
+        },
+        {
+          title: "Dedicated Talent Acquisition Pods",
+          description: "Full-time senior recruiters, sourcers, and technical interviewers embedded directly with your team."
+        },
+        {
+          title: "Contract-to-Hire Flexibility",
+          description: "Evaluate engineering contractors in production before making long-term permanent commitments."
+        },
+        {
+          title: "Real-Time Analytics & Reporting",
+          description: "Weekly dashboards tracking pipeline conversion, time-to-fill, cost savings, and candidate satisfaction."
+        }
+      ],
+      deliveryModel: [
+        { step: "01", title: "Audit & Architecture", desc: "Detailed diagnostic of your current recruitment bottlenecks, tooling, and cost structures." },
+        { step: "02", title: "Pod Deployment", desc: "Deploy dedicated tech recruiters trained on your brand identity and technical stacks." },
+        { step: "03", title: "Execution Sprints", desc: "High-velocity sourcing, screening, and scheduling according to committed SLAs." },
+        { step: "04", title: "Continuous Optimization", desc: "Iterative analytics reviews to reduce cost-per-hire and elevate hiring quality." }
+      ],
+      businessBenefits: [
+        { metric: "40%", title: "Cost-Per-Hire Savings", desc: "Eliminate expensive ad-hoc placement agency fees." },
+        { metric: "72h", title: "Contract Deployment", desc: "Deploy pre-vetted contractors on active projects in days." },
+        { metric: "100%", title: "Compliance Assurance", desc: "Zero statutory or labor regulation risk for your organization." }
+      ],
+      faqs: [
+        { q: "What is the difference between RPO and standard staffing?", a: "Standard staffing fills individual openings on contingency. RPO embeds dedicated talent experts into your company, managing your entire hiring function with guaranteed SLAs and measurable cost reductions." },
+        { q: "Can we transition contract staff to full-time employees?", a: "Yes, our contract-to-hire model features seamless transition clauses with no surprise conversion fees." },
+        { q: "How quickly can you deploy a dedicated recruitment pod?", a: "A tailored pod of recruiters can be fully integrated and operational within 5 business days." },
+        { q: "Do you handle contractor payroll and statutory benefits?", a: "Yes, we handle complete contractor payroll, statutory filings, insurances, and compliance." }
+      ]
     },
     {
-      id: "executive-hiring",
+      id: "executive-search",
+      slug: "executive-search",
+      aliases: ["executive-hiring"],
       number: "03",
-      title: "Executive Hiring Services",
-      description: "Confidential and specialized headhunting for leadership positions, architects, IT directors, and C-suite innovators.",
-      features: ["Leadership Market Mapping", "Discreet Outreach", "Culture-Fit & Strategic Alignment"],
-      image: "/assets/hr_executive.jpg"
+      title: "Executive Search & Leadership Hiring",
+      fullTitle: "Confidential Executive Search & Technology Leadership Headhunting",
+      badge: "C-Suite & Directors",
+      shortDescription: "Confidential and specialized headhunting for leadership positions, IT directors, architects, and C-suite innovators.",
+      description: "Confidential and specialized headhunting for VP of Engineering, IT Directors, Chief Technology Officers, and senior management leaders.",
+      image: "/assets/hr_executive.jpg",
+      stats: [
+        { label: "Search Success Rate", value: "98.5%" },
+        { label: "Leadership Network", value: "12,000+" },
+        { label: "Confidentiality Rating", value: "100%" }
+      ],
+      features: [
+        "Confidential C-Suite Headhunting",
+        "Competitor Market & Organizational Mapping",
+        "Architectural & Strategic Competency Assessment",
+        "Compensation Benchmarking & Equity Advisory",
+        "Discreet Outreach & Brand Protection",
+        "One-Year Leadership Success Warranty"
+      ],
+      whatItIncludes: [
+        {
+          title: "Comprehensive Market Mapping",
+          description: "Detailed breakdown of leadership structures across top enterprise competitors and growth firms."
+        },
+        {
+          title: "Discreet Confidential Outreach",
+          description: "White-glove executive representation preserving confidentiality for sensitive organizational transitions."
+        },
+        {
+          title: "Leadership Competency Benchmarking",
+          description: "Rigorous assessment of strategic vision, technical architecture stewardship, and team leadership history."
+        },
+        {
+          title: "Executive Compensation Structuring",
+          description: "Market-calibrated structuring of fixed compensation, performance bonuses, and equity/ESOP packages."
+        },
+        {
+          title: "Extensive 360-Degree Referencing",
+          description: "Unfiltered references from past board members, peer executives, and direct engineering reports."
+        },
+        {
+          title: "Executive Onboarding Support",
+          description: "Structured integration advisory across the first 180 days to maximize executive impact."
+        }
+      ],
+      deliveryModel: [
+        { step: "01", title: "Mandate Briefing", desc: "Confidential strategy session with Founders, Board members, or HR Leadership." },
+        { step: "02", title: "Market Intelligence", desc: "Mapping target companies, active leaders, and evaluating availability indicators." },
+        { step: "03", title: "Discreet Dialogues", desc: "Engaging senior executives directly on strategic alignment and career milestones." },
+        { step: "04", title: "Offer & Integration", desc: "Package negotiation, governance alignment, and long-term onboarding support." }
+      ],
+      businessBenefits: [
+        { metric: "100%", title: "Discretion Guaranteed", desc: "Completely protected confidential corporate searches." },
+        { metric: "12k+", title: "Executive Network", desc: "Direct relationships with proven technology leaders across India." },
+        { metric: "1 Yr", title: "Leadership Warranty", desc: "Extended placement warranty on all C-suite and Director roles." }
+      ],
+      faqs: [
+        { q: "What leadership levels do you recruit for?", a: "We specialize in VP of Engineering, CTO, Chief Information Security Officer (CISO), Enterprise Architects, Head of Product, and Senior Directors." },
+        { q: "How do you protect organizational confidentiality?", a: "All executive searches operate under strict NDAs, presenting opportunities blindly until mutual interest and credentials are confirmed." },
+        { q: "How long does a typical executive search take?", a: "Shortlists of exceptional finalists are typically presented in 3 to 4 weeks, with offers finalized in 6 to 8 weeks." },
+        { q: "What is your leadership warranty?", a: "We offer an industry-leading 1-year replacement warranty on senior executive placements." }
+      ]
     },
     {
-      id: "dei-hiring",
+      id: "hr-consulting",
+      slug: "hr-consulting",
+      aliases: ["hr-strategy"],
       number: "04",
-      title: "Diversity, Equity & Inclusion (DE&I) Hiring",
-      description: "Tailored talent programs designed to build balanced, diverse, and innovative engineering and management teams.",
-      features: ["Bias-Free Candidate Shortlisting", "Inclusive Sourcing Channels", "Retention & Workplace Mentorship Advisory"],
-      image: "/assets/experience_discussion.jpg"
+      title: "HR Consulting & Strategy",
+      fullTitle: "Strategic HR Advisory, Organizational Design & Policy Frameworks",
+      badge: "Strategic Advisory",
+      shortDescription: "Comprehensive workplace advisory: organizational design, performance appraisal frameworks, HR policy creation, and compliance audits.",
+      description: "Strategic workplace advisory helping growing companies establish scalable HR systems, modern workplace policies, and high-performance cultures.",
+      image: "/assets/experience_discussion.jpg",
+      stats: [
+        { label: "Client Retainers", value: "85+" },
+        { label: "Policy Compliance", value: "100%" },
+        { label: "Performance Uplift", value: "28%" }
+      ],
+      features: [
+        "Organizational Structure & Hierarchy Design",
+        "Performance Management & OKR Systems",
+        "Statutory HR Compliance & Labor Audits",
+        "Compensation & Benefits Frameworks",
+        "Employee Handbook & Policy Architecture",
+        "Workplace Culture & Engagement Diagnostic"
+      ],
+      whatItIncludes: [
+        {
+          title: "Organizational Design & Banding",
+          description: "Clear career ladders, role hierarchies, and competency matrices that inspire employee growth."
+        },
+        {
+          title: "Modern Performance Appraisal Systems",
+          description: "Design and rollout of OKR frameworks, 360-degree feedback reviews, and merit-based compensation structures."
+        },
+        {
+          title: "Comprehensive HR Policy Playbooks",
+          description: "Legally compliant, employee-friendly handbooks covering POSH, leave, remote work, code of conduct, and IP protection."
+        },
+        {
+          title: "Statutory Compliance Audit",
+          description: "Thorough health checks ensuring 100% compliance with labor laws, employment agreements, and state regulations."
+        },
+        {
+          title: "Culture & Retention Strategy",
+          description: "Diagnostic surveys, engagement initiatives, and leadership coaching to build resilient company culture."
+        },
+        {
+          title: "Change Management Advisory",
+          description: "Navigating team restructuring, mergers, acquisitions, and rapid scale-up transitions smoothly."
+        }
+      ],
+      deliveryModel: [
+        { step: "01", title: "Diagnostic Audit", desc: "Comprehensive review of current HR policies, workflows, compliance, and team sentiment." },
+        { step: "02", title: "Strategic Roadmap", desc: "Co-creating tailored solutions aligned directly with your enterprise business goals." },
+        { step: "03", title: "System Rollout", desc: "Hands-on implementation of policies, manager training, and modern HR software tools." },
+        { step: "04", title: "Audit & Evolution", desc: "Quarterly health-checks to adapt policies as your business expands." }
+      ],
+      businessBenefits: [
+        { metric: "100%", title: "Labor Law Compliance", desc: "Eliminate statutory fines, litigation risks, and regulatory penalties." },
+        { metric: "30%", title: "Productivity Increase", desc: "Clear OKRs and structured role ladders align teams to business objectives." },
+        { metric: "Zero", title: "Policy Ambiguity", desc: "Transparent guidelines reduce friction and foster high workplace trust." }
+      ],
+      faqs: [
+        { q: "Is this consulting service suitable for startups?", a: "Yes. We help fast-growing startups build their initial HR architecture, employment contracts, and employee handbooks from ground zero." },
+        { q: "How long does an HR compliance audit take?", a: "A complete statutory and operational HR compliance audit is typically completed within 7 to 10 business days." },
+        { q: "Can you help us implement an OKR or performance system?", a: "Yes. We design customized performance frameworks and train team leads and managers on effective implementation." },
+        { q: "Do you provide ongoing monthly HR advisory?", a: "Yes. Many enterprise clients engage us on a retained fractional Chief Human Resources Officer (CHRO) model." }
+      ]
     },
     {
-      id: "talent-intelligence",
+      id: "workforce-management",
+      slug: "workforce-management",
+      aliases: ["dei-hiring"],
       number: "05",
-      title: "Talent Intelligence",
-      description: "Data-backed labor market analytics, compensation benchmarking, and talent availability insights across South India.",
-      features: ["Salary Benchmarking Reports", "Competitor Talent Mapping", "Hiring Feasibility Forecasting"],
-      image: "/assets/experience_presentation.jpg"
+      title: "Workforce Management & DE&I",
+      fullTitle: "Workforce Planning, Attrition Mitigation & Inclusive Hiring",
+      badge: "Culture & Retention",
+      shortDescription: "Capacity planning, skills gap audits, attrition mitigation, and inclusive hiring frameworks ensuring 94%+ long-term retention.",
+      description: "Data-driven workforce optimization, talent retention architecture, and diversity hiring strategies for high-performance workplaces.",
+      image: "/assets/experience_collab.jpg",
+      stats: [
+        { label: "Retention Rate", value: "94.2%" },
+        { label: "DE&I Placement Ratio", value: "38%" },
+        { label: "Productivity Boost", value: "+24%" }
+      ],
+      features: [
+        "Workforce Capacity & Skills Gap Audits",
+        "Attrition Risk Prediction & Mitigation",
+        "Inclusive Sourcing & Bias-Free Screening",
+        "Women in Tech & Diversity Hiring Drives",
+        "Employee Retention & Engagement Architecture",
+        "Succession Planning & Leadership Pipelines"
+      ],
+      whatItIncludes: [
+        {
+          title: "Workforce Capacity Planning",
+          description: "Forecasting talent needs 6-12 months ahead to prevent delivery bottlenecks and understaffing."
+        },
+        {
+          title: "Targeted Diversity Hiring Campaigns",
+          description: "Dedicated pipelines to source and place skilled female engineers and diverse talent in leadership."
+        },
+        {
+          title: "Attrition Root-Cause Analysis",
+          description: "Actionable diagnostics uncovering why key performers leave and establishing interventions that retain them."
+        },
+        {
+          title: "Internal Skills Upgrading Alignment",
+          description: "Leveraging our in-house IT training division to cross-skill existing employees for emerging stack demands."
+        },
+        {
+          title: "Workplace Belonging Frameworks",
+          description: "Designing mentorship circles, employee resource groups (ERGs), and inclusive leadership practices."
+        },
+        {
+          title: "Succession & Continuity Planning",
+          description: "Identifying and grooming internal champions to protect vital business knowledge and delivery continuity."
+        }
+      ],
+      deliveryModel: [
+        { step: "01", title: "Talent Inventory", desc: "Detailed audit of existing workforce skills, attrition trends, and diversity ratios." },
+        { step: "02", title: "Capacity Blueprint", desc: "Modeling hiring needs against product roadmaps and enterprise client commitments." },
+        { step: "03", title: "Inclusive Sourcing", desc: "Engaging specialized candidate communities and executing unbiased evaluations." },
+        { step: "04", title: "Retention Monitoring", desc: "Tracking quarterly retention and team engagement metrics to ensure lasting outcomes." }
+      ],
+      businessBenefits: [
+        { metric: "94%", title: "Employee Stability", desc: "Drastically reduce the disruptive costs of team turnover." },
+        { metric: "2.8x", title: "Innovation Output", desc: "Diverse, balanced engineering teams solve complex problems faster." },
+        { metric: "Zero", title: "Delivery Gaps", desc: "Proactive capacity forecasting keeps enterprise projects on schedule." }
+      ],
+      faqs: [
+        { q: "What is your approach to DE&I hiring?", a: "We believe diversity must be paired with technical excellence. All candidates are evaluated on objective sandbox performance while expanding recruitment channels to underrepresented groups." },
+        { q: "How can you help reduce engineering attrition?", a: "We conduct deep confidential exit diagnostics, benchmark compensation, and design growth ladders that give employees clear incentives to stay." },
+        { q: "Can our existing staff benefit from Varnith's IT training?", a: "Yes. Our unique advantage is our in-house IT academy, allowing us to upskill and cross-train your current workforce." },
+        { q: "What metrics are tracked during workforce planning?", a: "We track utilization rates, skill gaps, time-to-productivity, turnover risk scores, and team diversity benchmarks." }
+      ]
+    },
+    {
+      id: "payroll",
+      slug: "payroll",
+      aliases: ["payroll-administration", "talent-intelligence"],
+      number: "06",
+      title: "Payroll & HR Administration",
+      fullTitle: "End-to-End Payroll Processing, Statutory Compliance & HR Operations",
+      badge: "Operations & Compliance",
+      shortDescription: "End-to-end payroll processing, statutory compliance (PF, ESI, TDS, PT), attendance automation, and employee self-service governance.",
+      description: "Error-free payroll execution, statutory regulatory filings, and digitized employee lifecycle administration for organizations of all sizes.",
+      image: "/assets/experience_presentation.jpg",
+      stats: [
+        { label: "Payroll Accuracy", value: "99.98%" },
+        { label: "On-Time Disbursement", value: "100%" },
+        { label: "Statutory Filing SLA", value: "Zero Delay" }
+      ],
+      features: [
+        "100% Error-Free Monthly Payroll Processing",
+        "Statutory PF, ESI, TDS, & PT Compliance Filings",
+        "Attendance, Shift & Leave Management Integration",
+        "Digital Payslip Distribution & Tax Deduction Forms (Form 16)",
+        "Employee Reimbursement & Expense Audits",
+        "Dedicated Helpdesk for Employee Payroll Inquiries"
+      ],
+      whatItIncludes: [
+        {
+          title: "Automated Monthly Payroll Execution",
+          description: "Accurate salary calculations, variable pay, deductions, bonuses, and direct bank disbursement files."
+        },
+        {
+          title: "Complete Statutory Compliance Filings",
+          description: "Timely monthly filing of Provident Fund (PF), Employee State Insurance (ESI), Professional Tax (PT), and TDS."
+        },
+        {
+          title: "Employee Tax Computations & Form 16",
+          description: "Investment declaration portals, proof verification, tax computation sheets, and automated year-end Form 16 generation."
+        },
+        {
+          title: "Attendance & Leave System Integration",
+          description: "Seamless synchronization with biometric devices, Slack/Teams check-ins, and HRMS platforms."
+        },
+        {
+          title: "Expense Claims & Reimbursement Auditing",
+          description: "Policy verification and automated processing for travel, equipment, and health reimbursements."
+        },
+        {
+          title: "Full & Final Settlement (FnF) Governance",
+          description: "Prompt, compliant exit calculations, gratuity payouts, leave encashment, and documentation."
+        }
+      ],
+      deliveryModel: [
+        { step: "01", title: "Setup & Integration", desc: "Configuring company salary structures, tax slabs, pay cycles, and statutory registries." },
+        { step: "02", title: "Monthly Cutoff Run", desc: "Processing attendance, incentives, and deductions with multi-tier validation checks." },
+        { step: "03", title: "Disbursement & Payslips", desc: "Bank file generation and secure instant delivery of payslips to employee inboxes." },
+        { step: "04", title: "Statutory Remittance", desc: "Submitting challans and filing returns with government authorities prior to deadlines." }
+      ],
+      businessBenefits: [
+        { metric: "99.98%", title: "Payroll Accuracy", desc: "Eliminate costly salary calculation errors and disputes." },
+        { metric: "100%", title: "Statutory Protection", desc: "Never miss a PF, ESI, or tax filing deadline again." },
+        { metric: "40 hrs", title: "Admin Time Saved", desc: "Free your internal finance and HR teams to focus on business growth." }
+      ],
+      faqs: [
+        { q: "How do you ensure data confidentiality and bank security?", a: "We utilize banking-grade 256-bit encryption, strict role-based access control, and ISO-compliant data protection protocols." },
+        { q: "Can you handle payroll for multiple state entities in India?", a: "Yes. We manage multi-state professional tax, local labor welfare funds, and state-specific statutory registrations." },
+        { q: "How do employees access their payslips and tax sheets?", a: "Employees receive encrypted PDF payslips directly via email and have access to a secure digital self-service portal." },
+        { q: "Do you assist during statutory inspections and audits?", a: "Yes. Our compliance specialists handle documentation, records reconciliation, and representation during PF/ESI audits." }
+      ]
     }
   ],
 

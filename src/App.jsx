@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import CoursesPage from './pages/CoursesPage';
 import CourseDetails from './pages/CourseDetails';
 import HRServicesPage from './pages/HRServicesPage';
+import HRServiceDetail from './pages/HRServiceDetail';
 import WhyUsPage from './pages/WhyUsPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import ContactPage from './pages/ContactPage';
@@ -32,8 +33,21 @@ export default function App() {
           <Route path="courses/software-testing" element={<CourseDetails />} />
           <Route path="courses/python" element={<CourseDetails />} />
 
-          {/* Other Core Multi-Page Routes */}
+          {/* Dedicated HR Services Routes (Priority 1) */}
           <Route path="hr-services" element={<HRServicesPage />} />
+          <Route path="hr-services/:slug" element={<HRServiceDetail />} />
+          <Route path="hr-services/recruitment" element={<HRServiceDetail />} />
+          <Route path="hr-services/talent-acquisition" element={<HRServiceDetail />} />
+          <Route path="hr-services/staffing" element={<HRServiceDetail />} />
+          <Route path="hr-services/rpo" element={<HRServiceDetail />} />
+          <Route path="hr-services/executive-search" element={<HRServiceDetail />} />
+          <Route path="hr-services/executive-hiring" element={<HRServiceDetail />} />
+          <Route path="hr-services/hr-consulting" element={<HRServiceDetail />} />
+          <Route path="hr-services/workforce-management" element={<HRServiceDetail />} />
+          <Route path="hr-services/payroll" element={<HRServiceDetail />} />
+          <Route path="hr-services/payroll-administration" element={<HRServiceDetail />} />
+
+          {/* Other Core Multi-Page Routes */}
           <Route path="why-us" element={<WhyUsPage />} />
           <Route path="testimonials" element={<TestimonialsPage />} />
           <Route path="contact" element={<ContactPage />} />

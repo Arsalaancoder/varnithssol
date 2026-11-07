@@ -119,35 +119,22 @@ export default function Courses() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2"
         >
-          <div className="space-y-2">
+          <div className="space-y-3 max-w-2xl">
             <span className="text-xs font-bold tracking-widest uppercase text-[#737D73] block">
-              OUR PROGRAMS
+              PRACTICAL IT ACADEMY • CAREER MASTERY
             </span>
-            <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-[#183629] leading-[1.08]">
-              <span className="block overflow-hidden py-0.5">
-                <motion.span
-                  initial={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
-                  animate={isInView ? { y: '0%' } : { y: '100%' }}
-                  transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="inline-block"
-                >
-                  GOOD SKILLS
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden py-0.5 text-[#79984E]">
-                <motion.span
-                  initial={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
-                  animate={isInView ? { y: '0%' } : { y: '100%' }}
-                  transition={{ duration: 0.8, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                  className="inline-block"
-                >
-                  FOR A BETTER FUTURE
-                </motion.span>
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#183629] leading-[1.08]">
+              Advance Your Career Through{' '}
+              <span className="italic font-light text-[#DFAE22] block sm:inline">
+                Industry-Focused Training
               </span>
             </h2>
+            <p className="text-sm sm:text-base text-[#202923]/80 font-light leading-relaxed">
+              Gain practical knowledge, develop in-demand technical skills and prepare for real-world industry opportunities.
+            </p>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 shrink-0">
             {/* Previous / Next Arrow Controls with Spring Tap */}
             <div className="flex items-center gap-2">
               <motion.button
@@ -170,14 +157,14 @@ export default function Courses() {
               </motion.button>
             </div>
 
-            {/* View All Courses Link with Animated Circular Arrow Button */}
+            {/* View All Programs Link with Animated Circular Arrow Button */}
             <Link
               to="/and/courses"
-              className="group inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-[#183629] hover:text-[#79984E] transition-colors pl-2"
+              className="group inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-[#183629] hover:text-[#DFAE22] transition-colors pl-2"
             >
-              <span>VIEW ALL COURSES</span>
-              <div className="w-8 h-8 rounded-full bg-[#F4F5EF] group-hover:bg-[#79984E] flex items-center justify-center transition-colors shadow-xs">
-                <ArrowUpRight className="w-4 h-4 text-[#183629] group-hover:text-white group-hover:rotate-45 transition-transform duration-300" />
+              <span>Explore All Training Programs</span>
+              <div className="w-8 h-8 rounded-full bg-[#F4F5EF] group-hover:bg-[#F2C94C] flex items-center justify-center transition-colors shadow-xs">
+                <ArrowUpRight className="w-4 h-4 text-[#183629] group-hover:rotate-45 transition-transform duration-300" />
               </div>
             </Link>
           </div>

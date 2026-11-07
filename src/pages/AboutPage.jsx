@@ -127,14 +127,22 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="pt-2">
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Link
-                  to="/and/courses"
+                  to="/and/hr-services"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#F2C94C] text-[#183629] font-bold text-xs uppercase tracking-wider hover:bg-[#DFAE22] hover:text-[#102A21] transition-all shadow-md group"
                 >
-                  <span>Explore Our Programs</span>
+                  <span>Explore HR Services</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="/and/courses"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#183629] border border-stone-200 text-xs font-semibold uppercase tracking-wider hover:bg-[#F4F5EF] transition-all"
+                >
+                  <span>Training Programs</span>
                 </Link>
               </motion.div>
             </div>

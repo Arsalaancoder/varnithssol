@@ -158,7 +158,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-xs text-white/70 leading-relaxed font-light">
-              Hyderabad's premier destination for industry-aligned IT certifications and end-to-end corporate talent acquisition. Dedicated to preparing learners for high-impact software careers.
+              Hyderabad's premier corporate HR consulting firm and strategic talent partner, delivering high-impact recruitment solutions alongside practical enterprise IT training.
             </p>
             <div className="space-y-2 pt-2 text-xs text-white/80">
               <div className="flex items-center gap-2">
@@ -186,19 +186,22 @@ export default function Footer() {
                 <Link to="/and" className="hover:text-[#F2C94C] transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/and/about" className="hover:text-[#F2C94C] transition-colors">About Varnith</Link>
+                <Link to="/and/hr-services" className="hover:text-[#F2C94C] transition-colors font-medium">HR Services</Link>
               </li>
               <li>
-                <Link to="/and/courses" className="hover:text-[#F2C94C] transition-colors">All Courses</Link>
+                <Link to="/and/courses" className="hover:text-[#F2C94C] transition-colors">IT Training</Link>
+              </li>
+              <li>
+                <Link to="/and/about" className="hover:text-[#F2C94C] transition-colors">About Varnith</Link>
               </li>
               <li>
                 <Link to="/and/why-us" className="hover:text-[#F2C94C] transition-colors">Why Choose Us</Link>
               </li>
               <li>
-                <Link to="/and/hr-services" className="hover:text-[#F2C94C] transition-colors">HR Solutions</Link>
+                <Link to="/and/testimonials" className="hover:text-[#F2C94C] transition-colors">Testimonials</Link>
               </li>
               <li>
-                <Link to="/and/testimonials" className="hover:text-[#F2C94C] transition-colors">Testimonials</Link>
+                <Link to="/and/contact" className="hover:text-[#F2C94C] transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
