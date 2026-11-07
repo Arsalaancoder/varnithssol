@@ -61,9 +61,9 @@ export default function ContactPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-[1360px] mx-auto rounded-[32px] overflow-hidden bg-white border border-stone-200/70 p-6 sm:p-8 shadow-sm"
+          className="max-w-[1360px] mx-auto rounded-[32px] overflow-hidden bg-white/65 backdrop-blur-2xl border border-white/80 p-6 sm:p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)]"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/60">
             <div>
               <span className="text-xs uppercase font-bold tracking-widest text-[#DFAE22]">
                 CAMPUS LOCATION

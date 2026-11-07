@@ -159,9 +159,9 @@ export default function CourseDetails() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                  className="p-5 rounded-[22px] bg-white border border-stone-200/70 shadow-xs flex items-start gap-4 hover:shadow-sm transition-shadow"
+                  className="p-5 rounded-[22px] bg-white/70 backdrop-blur-xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_20px_-4px_rgba(24,54,41,0.06)] flex items-start gap-4 hover:bg-white/85 hover:shadow-sm transition-all"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#FEF8E7] flex items-center justify-center text-[#DFAE22] font-serif font-bold text-sm shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full bg-white/80 border border-white/90 flex items-center justify-center text-[#DFAE22] font-serif font-bold text-sm shrink-0 mt-0.5 shadow-2xs">
                     {idx + 1}
                   </div>
                   <div>
@@ -178,12 +178,17 @@ export default function CourseDetails() {
 
             {/* Career Outcomes & Who Should Enroll */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
-              <div className="p-6 rounded-[24px] bg-white border border-stone-200/70 shadow-xs space-y-3">
-                <div className="flex items-center gap-2 text-[#183629]">
-                  <Briefcase className="w-4 h-4 text-[#DFAE22]" />
-                  <h4 className="text-xs uppercase font-bold tracking-wider">
-                    Target Job Roles
-                  </h4>
+              <div className="p-6 rounded-[28px] bg-white/65 backdrop-blur-2xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_36px_-6px_rgba(24,54,41,0.08)] space-y-3">
+                <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                  <div className="flex items-center gap-2 text-[#183629]">
+                    <Briefcase className="w-4 h-4 text-[#DFAE22]" />
+                    <h4 className="text-xs uppercase font-bold tracking-wider">
+                      Target Job Roles
+                    </h4>
+                  </div>
+                  <div className="w-7 h-7 rounded-full bg-white/80 border border-white/90 flex items-center justify-center text-[#183629]">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </div>
                 <ul className="space-y-2 text-xs text-[#202923]/80">
                   {course.careerOutcomes?.map((role, i) => (
@@ -195,17 +200,22 @@ export default function CourseDetails() {
                 </ul>
               </div>
 
-              <div className="p-6 rounded-[24px] bg-white border border-stone-200/70 shadow-xs space-y-3">
-                <div className="flex items-center gap-2 text-[#183629]">
-                  <ShieldCheck className="w-4 h-4 text-[#DFAE22]" />
-                  <h4 className="text-xs uppercase font-bold tracking-wider">
-                    Target Audience
-                  </h4>
+              <div className="p-6 rounded-[28px] bg-white/65 backdrop-blur-2xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_36px_-6px_rgba(24,54,41,0.08)] space-y-3">
+                <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                  <div className="flex items-center gap-2 text-[#183629]">
+                    <ShieldCheck className="w-4 h-4 text-[#DFAE22]" />
+                    <h4 className="text-xs uppercase font-bold tracking-wider">
+                      Target Audience
+                    </h4>
+                  </div>
+                  <div className="w-7 h-7 rounded-full bg-white/80 border border-white/90 flex items-center justify-center text-[#183629]">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </div>
                 <p className="text-xs text-[#202923]/80 leading-relaxed font-light">
                   {course.targetAudience}
                 </p>
-                <div className="pt-2 border-t border-stone-100">
+                <div className="pt-2 border-t border-white/60">
                   <span className="text-[10px] uppercase font-bold tracking-wider text-[#737D73] block">
                     Credential Awarded:
                   </span>
@@ -369,13 +379,18 @@ export default function CourseDetails() {
                 <Link
                   key={c.id}
                   to={`/and/courses/${c.slug}`}
-                  className="group relative bg-white rounded-[32px] p-7 sm:p-8 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-[#F2C94C]"
+                  className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-[#F2C94C]"
                 >
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
                   <div className="relative z-10 space-y-4">
-                    <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                      VG • TRACK 0{c.number}
-                    </span>
+                    <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                      <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
+                        VG • TRACK 0{c.number}
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                        <ArrowUpRight className="w-4 h-4 stroke-[2]" />
+                      </div>
+                    </div>
                     <h4 className="font-sans text-2xl sm:text-3xl font-light text-[#183629] tracking-tight leading-[1.15] pt-1">
                       {c.title}
                     </h4>
@@ -383,9 +398,9 @@ export default function CourseDetails() {
                       {c.description}
                     </p>
                     <div className="pt-2">
-                      <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-stone-200/70 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-300">
-                        <span className="text-xs font-medium text-[#183629] tracking-tight">Explore Track</span>
-                        <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                      <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/75 hover:bg-white backdrop-blur-md border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:bg-[#183629] group-hover:text-white group-hover:border-[#183629] transition-all duration-300">
+                        <span className="text-xs font-medium tracking-tight">Explore Track</span>
+                        <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-white/20 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
@@ -393,7 +408,7 @@ export default function CourseDetails() {
                   </div>
                   <div className="relative mt-8 pt-4 z-10">
                     <div className="absolute -bottom-8 -right-8 w-44 h-32 rounded-tl-[80px] bg-gradient-to-tl from-[#B2E869]/30 to-transparent backdrop-blur-md border-t border-l border-white/70 pointer-events-none group-hover:scale-105 transition-transform duration-700" />
-                    <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs">
+                    <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
                       <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-[#183629]">
                         100% PRACTICAL
                       </span>

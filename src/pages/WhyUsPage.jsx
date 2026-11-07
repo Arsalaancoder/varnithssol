@@ -83,26 +83,22 @@ export default function WhyUsPage() {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="group relative rounded-[32px] sm:rounded-[36px] bg-[#121614] border border-white/10 p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col justify-between overflow-hidden cursor-pointer"
-                style={{
-                  background:
-                    'radial-gradient(circle at 50% 12%, rgba(242, 201, 76, 0.14), transparent 60%), #121614',
-                }}
+                className="group relative rounded-[32px] sm:rounded-[36px] bg-white/65 backdrop-blur-2xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 p-6 sm:p-7 flex flex-col justify-between overflow-hidden cursor-pointer"
               >
-                {/* Top Bar: Left Pictogram & Right Circular Beige Arrow Button */}
-                <div className="flex items-center justify-between">
+                {/* Top Bar: Left Pictogram & Right Circular Glass Arrow Button (matching reference) */}
+                <div className="flex items-center justify-between pb-3 border-b border-white/60">
                   <div className="flex items-center gap-2">
-                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[#E5D7BE]">
+                    <div className="w-9 h-9 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-2xs">
                       <Icon className="w-4.5 h-4.5" />
                     </div>
-                    <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#E5D7BE]/70">
+                    <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-[#183629]">
                       PILLAR {diff.number}
                     </span>
                   </div>
 
                   <Link
                     to="/and/courses"
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#E5D7BE] text-[#183629] flex items-center justify-center shadow-md hover:bg-[#F2C94C] hover:scale-105 transition-all"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-[#183629] flex items-center justify-center shadow-xs hover:bg-[#183629] hover:text-white transition-all"
                     aria-label={`Explore ${diff.title}`}
                   >
                     <ArrowUpRight className="w-4.5 h-4.5" />
@@ -111,13 +107,13 @@ export default function WhyUsPage() {
 
                 {/* Centered Large Title in Serif Typography */}
                 <div className="text-center my-3 sm:my-4">
-                  <h3 className="font-serif text-xl sm:text-2xl text-white font-normal uppercase tracking-[0.16em]">
+                  <h3 className="font-serif text-xl sm:text-2xl text-[#183629] font-normal uppercase tracking-[0.16em]">
                     {diff.title}
                   </h3>
                 </div>
 
-                {/* Central Media Container: 16:10 Rounded Rectangle with Play Button & Frosted Pill */}
-                <div className="relative w-full rounded-2xl overflow-hidden aspect-[16/10] bg-black/50 border border-white/10 shadow-inner group-hover:border-white/20 transition-all">
+                {/* Central Media Container: 16:10 Rounded Rectangle with Frosted Pill */}
+                <div className="relative w-full rounded-2xl overflow-hidden aspect-[16/10] bg-black/5 border border-white/60 shadow-inner group-hover:border-white/80 transition-all">
                   <img
                     src={media.image}
                     alt={diff.title}
@@ -125,7 +121,7 @@ export default function WhyUsPage() {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
                   {/* Bottom Frosted Pill Badge */}
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md text-white/95 text-[10px] sm:text-[11px] font-medium border border-white/15 inline-flex items-center gap-1.5 shadow-md whitespace-nowrap">
@@ -135,7 +131,7 @@ export default function WhyUsPage() {
 
                 {/* Bottom Text Description */}
                 <div className="text-center px-1 mt-4">
-                  <p className="text-xs sm:text-[13px] text-stone-300/85 font-light leading-relaxed line-clamp-3">
+                  <p className="text-xs sm:text-[13px] text-[#202923]/75 font-light leading-relaxed line-clamp-3">
                     {diff.description}
                   </p>
                 </div>

@@ -122,7 +122,7 @@ export default function Hero() {
                 transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 className="inline-block"
               >
-                Build Strong Teams.
+                Empowering People.
               </motion.span>
             </span>
             <span className="block overflow-hidden py-1">
@@ -132,7 +132,7 @@ export default function Hero() {
                 transition={{ duration: 0.9, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
                 className="italic font-light inline-block text-[#F2C94C]"
               >
-                Shape Better Futures.
+                Strengthening Businesses.
               </motion.span>
             </span>
           </h1>
@@ -161,17 +161,17 @@ export default function Hero() {
               >
                 {/* Shine Sweep Overlay */}
                 <span className="absolute inset-0 w-1/2 h-full bg-white/35 transform -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-700 ease-out" />
-                <span className="relative z-10">Explore HR Services</span>
+                <span className="relative z-10">Explore HR Solutions</span>
                 <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
-                to="/and/courses"
+                to="/and/contact"
                 className="px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-md border border-[#DFAE22]/90 text-white font-semibold text-xs sm:text-sm tracking-wider uppercase hover:bg-[#F2C94C]/20 transition-all duration-300 block"
               >
-                <span>Explore IT Training</span>
+                <span>Talk to Our Team</span>
               </Link>
             </motion.div>
           </motion.div>

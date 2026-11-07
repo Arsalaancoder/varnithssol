@@ -106,16 +106,21 @@ export default function CoursesPage() {
         </motion.div>
       </section>
 
-      {/* Program Benefits Strip: Wispr Flow Glassmorphism Cards */}
+      {/* Program Benefits Strip: Glass Depth Cards (matching reference) */}
       <section className="px-6 sm:px-12 lg:px-16 py-12">
         <div className="max-w-[1360px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Benefit Card 1 */}
-          <div className="group relative bg-white rounded-[32px] p-7 sm:p-8 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5">
+          <div className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
             <div className="relative z-10 space-y-4">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                VG • ADVANTAGE 01
-              </span>
+              <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
+                  VG • ADVANTAGE 01
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                  <span className="text-xs font-bold">↗</span>
+                </div>
+              </div>
               <h3 className="font-sans text-3xl font-light text-[#183629] tracking-tight leading-[1.1] pt-1">
                 10+ Years Veteran Mentors
               </h3>
@@ -125,7 +130,7 @@ export default function CoursesPage() {
             </div>
             <div className="relative mt-8 pt-4 z-10">
               <div className="absolute -bottom-8 -right-8 w-44 h-32 rounded-tl-[80px] bg-gradient-to-tl from-[#B2E869]/30 to-transparent backdrop-blur-md border-t border-l border-white/70 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
-              <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
                 <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-[#183629]">
                   ENTERPRISE MENTORS
                 </span>
@@ -137,12 +142,17 @@ export default function CoursesPage() {
           </div>
 
           {/* Benefit Card 2 */}
-          <div className="group relative bg-white rounded-[32px] p-7 sm:p-8 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5">
+          <div className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
             <div className="relative z-10 space-y-4">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                VG • ADVANTAGE 02
-              </span>
+              <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
+                  VG • ADVANTAGE 02
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                  <span className="text-xs font-bold">↗</span>
+                </div>
+              </div>
               <h3 className="font-sans text-3xl font-light text-[#183629] tracking-tight leading-[1.1] pt-1">
                 Live Production Sandboxes
               </h3>
@@ -152,7 +162,7 @@ export default function CoursesPage() {
             </div>
             <div className="relative mt-8 pt-4 z-10">
               <div className="absolute -bottom-8 -left-8 w-44 h-32 rounded-tr-[70px] bg-gradient-to-tr from-[#38C8B5]/25 to-transparent backdrop-blur-md border-t border-r border-white/60 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
-              <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
                 <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-[#183629]">
                   80% LAB IMMERSION
                 </span>
@@ -164,12 +174,17 @@ export default function CoursesPage() {
           </div>
 
           {/* Benefit Card 3 */}
-          <div className="group relative bg-white rounded-[32px] p-7 sm:p-8 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5">
+          <div className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
             <div className="relative z-10 space-y-4">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                VG • ADVANTAGE 03
-              </span>
+              <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
+                  VG • ADVANTAGE 03
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                  <span className="text-xs font-bold">↗</span>
+                </div>
+              </div>
               <h3 className="font-sans text-3xl font-light text-[#183629] tracking-tight leading-[1.1] pt-1">
                 Direct Placement Highway
               </h3>
@@ -179,12 +194,12 @@ export default function CoursesPage() {
             </div>
             <div className="relative mt-8 pt-4 z-10">
               <div className="absolute -bottom-8 -right-8 w-44 h-32 rounded-tl-[80px] bg-gradient-to-tl from-[#B2E869]/30 to-transparent backdrop-blur-md border-t border-l border-white/70 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
-              <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
                 <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-[#183629]">
                   HR PARTNERSHIPS
                 </span>
                 <span className="font-bold text-[11px] text-[#183629]">
-                  Verified Hires
+                  Recruitment Arm
                 </span>
               </div>
             </div>

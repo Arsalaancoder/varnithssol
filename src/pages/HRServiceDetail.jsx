@@ -243,11 +243,16 @@ export default function HRServiceDetail() {
                 key={idx}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
-                className="p-7 rounded-[28px] bg-white border border-stone-200/80 shadow-sm hover:shadow-lg hover:border-[#183629]/30 transition-all flex flex-col justify-between"
+                className="p-7 rounded-[28px] bg-white/65 backdrop-blur-2xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_36px_-6px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_20px_45px_-10px_rgba(24,54,41,0.14)] transition-all flex flex-col justify-between"
               >
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-2xl bg-[#183629]/5 flex items-center justify-center text-[#183629] mb-4">
-                    <span className="font-mono text-sm font-bold">0{idx + 1}</span>
+                  <div className="flex items-center justify-between pb-3 border-b border-white/60 mb-2">
+                    <div className="w-10 h-10 rounded-2xl bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-2xs">
+                      <span className="font-mono text-sm font-bold">0{idx + 1}</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs">
+                      <ArrowUpRight className="w-4 h-4 stroke-[2]" />
+                    </div>
                   </div>
                   <h3 className="font-serif text-xl sm:text-2xl text-[#183629] font-normal">
                     {item.title}
@@ -256,7 +261,7 @@ export default function HRServiceDetail() {
                     {item.description}
                   </p>
                 </div>
-                <div className="pt-4 mt-4 border-t border-stone-100 flex items-center text-[11px] font-semibold text-[#183629]">
+                <div className="pt-4 mt-4 border-t border-white/60 flex items-center text-[11px] font-semibold text-[#183629]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#DFAE22] mr-1.5" />
                   <span>Standard Included Deliverable</span>
                 </div>
@@ -327,7 +332,7 @@ export default function HRServiceDetail() {
             {service.businessBenefits.map((bb, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-[28px] bg-white border border-stone-200/80 shadow-sm text-center space-y-3"
+                className="p-8 rounded-[28px] bg-white/65 backdrop-blur-2xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_36px_-6px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white transition-all text-center space-y-3"
               >
                 <span className="font-mono text-4xl sm:text-5xl font-bold text-[#183629] block">
                   {bb.metric}
@@ -362,7 +367,7 @@ export default function HRServiceDetail() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white border border-stone-200/80 overflow-hidden shadow-xs transition-colors"
+                  className="rounded-2xl bg-white/70 backdrop-blur-xl border border-white/80 overflow-hidden shadow-xs transition-colors"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? -1 : idx)}

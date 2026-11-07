@@ -78,12 +78,17 @@ export default function HRServicesPage() {
       <section className="px-6 sm:px-12 lg:px-16 py-8">
         <div className="max-w-[1360px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Synergy Card 1 */}
-          <div className="group relative bg-white rounded-[32px] p-7 sm:p-8 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[400px] hover:-translate-y-1.5">
+          <div className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[400px] hover:-translate-y-1.5">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
             <div className="relative z-10 space-y-4">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                VG • RECRUITMENT 01
-              </span>
+              <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
+                  VG • RECRUITMENT 01
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                  <ArrowUpRight className="w-4 h-4 stroke-[2]" />
+                </div>
+              </div>
               <h3 className="font-sans text-2xl sm:text-3xl font-light text-[#183629] tracking-tight leading-[1.15] pt-1">
                 Technical Competence Guarantee
               </h3>
@@ -91,9 +96,9 @@ export default function HRServicesPage() {
                 Unlike traditional headhunters, candidates are evaluated on live servers, Docker clusters, and SAP sandboxes before recommendation.
               </p>
               <div className="pt-2">
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-stone-200/70 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-300">
-                  <span className="text-xs font-medium text-[#183629] tracking-tight">Pre-Screened in Labs</span>
-                  <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/75 hover:bg-white backdrop-blur-md border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:bg-[#183629] group-hover:text-white group-hover:border-[#183629] transition-all duration-300">
+                  <span className="text-xs font-medium tracking-tight">Pre-Screened in Labs</span>
+                  <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-white/20 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -101,7 +106,7 @@ export default function HRServicesPage() {
             </div>
             <div className="relative mt-8 pt-4 z-10">
               <div className="absolute -bottom-8 -right-8 w-44 h-32 rounded-tl-[80px] bg-gradient-to-tl from-[#B2E869]/30 to-transparent backdrop-blur-md border-t border-l border-white/70 pointer-events-none group-hover:scale-105 transition-transform duration-700" />
-              <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
                 <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-[#183629]">
                   01 / LIVE LAB AUDIT
                 </span>
@@ -113,12 +118,17 @@ export default function HRServicesPage() {
           </div>
 
           {/* Synergy Card 2 */}
-          <div className="group relative bg-white rounded-[32px] p-7 sm:p-8 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[400px] hover:-translate-y-1.5">
+          <div className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[400px] hover:-translate-y-1.5">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
             <div className="relative z-10 space-y-4">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                VG • RECRUITMENT 02
-              </span>
+              <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
+                  VG • RECRUITMENT 02
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                  <ArrowUpRight className="w-4 h-4 stroke-[2]" />
+                </div>
+              </div>
               <h3 className="font-sans text-2xl sm:text-3xl font-light text-[#183629] tracking-tight leading-[1.15] pt-1">
                 Accelerated Turnaround Time
               </h3>
@@ -126,9 +136,9 @@ export default function HRServicesPage() {
                 Cut your recruiting timeline from 60 days to under 14 days with our active talent pipelines in Hyderabad and South India.
               </p>
               <div className="pt-2">
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-stone-200/70 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-300">
-                  <span className="text-xs font-medium text-[#183629] tracking-tight">Speed to Hire</span>
-                  <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/75 hover:bg-white backdrop-blur-md border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:bg-[#183629] group-hover:text-white group-hover:border-[#183629] transition-all duration-300">
+                  <span className="text-xs font-medium tracking-tight">Speed to Hire</span>
+                  <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-white/20 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -136,7 +146,7 @@ export default function HRServicesPage() {
             </div>
             <div className="relative mt-8 pt-4 z-10">
               <div className="absolute -bottom-8 -left-8 w-44 h-32 rounded-tr-[70px] bg-gradient-to-tr from-[#38C8B5]/25 to-transparent backdrop-blur-md border-t border-r border-white/60 pointer-events-none group-hover:scale-105 transition-transform duration-700" />
-              <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
                 <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-[#183629]">
                   02 / PIPELINE HIGHWAY
                 </span>
@@ -148,12 +158,17 @@ export default function HRServicesPage() {
           </div>
 
           {/* Synergy Card 3 */}
-          <div className="group relative bg-white rounded-[32px] p-7 sm:p-8 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[400px] hover:-translate-y-1.5">
+          <div className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[400px] hover:-translate-y-1.5">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
             <div className="relative z-10 space-y-4">
-              <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                VG • RECRUITMENT 03
-              </span>
+              <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
+                  VG • RECRUITMENT 03
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                  <ArrowUpRight className="w-4 h-4 stroke-[2]" />
+                </div>
+              </div>
               <h3 className="font-sans text-2xl sm:text-3xl font-light text-[#183629] tracking-tight leading-[1.15] pt-1">
                 Culture & Technical Alignment
               </h3>
@@ -161,9 +176,9 @@ export default function HRServicesPage() {
                 Every profile is mapped for architectural readiness and behavioral alignment to maximize long-term retention and minimize attrition.
               </p>
               <div className="pt-2">
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-stone-200/70 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-300">
-                  <span className="text-xs font-medium text-[#183629] tracking-tight">Retention Advantage</span>
-                  <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/75 hover:bg-white backdrop-blur-md border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:bg-[#183629] group-hover:text-white group-hover:border-[#183629] transition-all duration-300">
+                  <span className="text-xs font-medium tracking-tight">Retention Advantage</span>
+                  <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-white/20 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -171,7 +186,7 @@ export default function HRServicesPage() {
             </div>
             <div className="relative mt-8 pt-4 z-10">
               <div className="absolute -bottom-8 -right-8 w-44 h-32 rounded-tl-[80px] bg-gradient-to-tl from-[#B2E869]/30 to-transparent backdrop-blur-md border-t border-l border-white/70 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
-              <div className="pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
                 <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-[#183629]">
                   03 / RETENTION RATE
                 </span>
@@ -200,13 +215,13 @@ export default function HRServicesPage() {
             {siteData.hrServices.map((service) => (
               <div
                 key={service.id}
-                className="group relative bg-white rounded-[32px] p-8 sm:p-10 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-8 sm:p-10 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
                 {/* Background Subtle Pinstripe Grid */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
 
                 {/* Left Visual with Glassmorphism Ribbons */}
-                <div className="lg:col-span-4 relative rounded-2xl overflow-hidden aspect-[16/10] shadow-sm z-10">
+                <div className="lg:col-span-4 relative rounded-2xl overflow-hidden aspect-[16/10] shadow-sm z-10 border border-white/80">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -215,16 +230,19 @@ export default function HRServicesPage() {
                   {/* Cyan / Lime Glass Curve */}
                   <div className="absolute -bottom-6 -right-6 w-32 h-24 rounded-tl-[50px] bg-gradient-to-tl from-[#B2E869]/30 to-transparent backdrop-blur-md border-t border-l border-white/70 pointer-events-none" />
                   <div className="absolute top-3 left-3 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-[#183629] font-mono uppercase tracking-wider shadow-xs">
-                    PRACTICE 0{service.number}
+                    00{service.number}
                   </div>
                 </div>
 
-                {/* Right Details */}
+                {/* Right Details with Glass Header & Divider */}
                 <div className="lg:col-span-8 space-y-4 relative z-10">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs font-bold text-[#183629] uppercase tracking-widest px-3 py-1 rounded-full bg-[#183629]/5 border border-[#183629]/10">
-                      VG • TALENT 0{service.number}
+                  <div className="flex items-center justify-between pb-3 border-b border-white/60">
+                    <span className="font-mono text-xs font-bold text-[#183629] uppercase tracking-widest px-3 py-1 rounded-full bg-white/80 border border-white/90 shadow-2xs">
+                      VG • TALENT 00{service.number}
                     </span>
+                    <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                      <ArrowUpRight className="w-4 h-4 stroke-[2]" />
+                    </div>
                   </div>
 
                   <h3 className="font-sans text-3xl sm:text-4xl font-light text-[#183629] tracking-tight leading-[1.15]">
@@ -237,7 +255,7 @@ export default function HRServicesPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                     {service.features.map((feature, i) => (
-                      <div key={i} className="p-3.5 rounded-xl bg-white/80 border border-stone-200/80 shadow-xs flex items-center gap-2.5 text-xs text-[#183629] font-medium">
+                      <div key={i} className="p-3.5 rounded-xl bg-white/85 border border-white/90 backdrop-blur-sm shadow-xs flex items-center gap-2.5 text-xs text-[#183629] font-medium">
                         <CheckCircle2 className="w-4 h-4 text-[#DFAE22] shrink-0" />
                         <span>{feature}</span>
                       </div>
@@ -247,7 +265,7 @@ export default function HRServicesPage() {
                   <div className="pt-4 flex items-center gap-4">
                     <Link
                       to={`/and/hr-services/${service.slug}`}
-                      className="px-6 py-2.5 rounded-full bg-[#183629] text-[#F2C94C] text-xs font-bold uppercase tracking-wider hover:bg-[#102A21] transition-all inline-flex items-center gap-2 group/btn"
+                      className="px-6 py-2.5 rounded-full bg-[#183629] text-[#F2C94C] text-xs font-bold uppercase tracking-wider hover:bg-[#102A21] transition-all inline-flex items-center gap-2 group/btn shadow-sm"
                     >
                       <span>Explore Practice Details</span>
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

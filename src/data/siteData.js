@@ -2,9 +2,9 @@ export const siteData = {
   brand: {
     name: "Varnith Global",
     legalName: "Varnith Technologies Private Limited",
-    tagline: "Build Strong Teams. Shape Better Futures.",
+    tagline: "Empowering People. Strengthening Businesses.",
     eyebrow: "STRATEGIC HR SOLUTIONS • IT TRAINING",
-    heroDescription: "Empowering businesses through strategic HR solutions and helping professionals grow through industry-focused IT training.",
+    heroDescription: "Delivering strategic HR solutions, exceptional talent acquisition and workforce consulting to help businesses build stronger teams and achieve sustainable growth.",
     phone: "(+91) 7995483137",
     rawPhone: "+917995483137",
     whatsapp: "https://wa.me/917995483137?text=Hi%20Varnith%20Global%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs.",
@@ -467,7 +467,7 @@ export const siteData = {
       badge: "Strategic Advisory",
       shortDescription: "Comprehensive workplace advisory: organizational design, performance appraisal frameworks, HR policy creation, and compliance audits.",
       description: "Strategic workplace advisory helping growing companies establish scalable HR systems, modern workplace policies, and high-performance cultures.",
-      image: "/assets/hr_carousel_2.jpg",
+      image: "/assets/hr_carousel_4.jpg",
       stats: [
         { label: "Client Retainers", value: "85+" },
         { label: "Policy Compliance", value: "100%" },
@@ -535,7 +535,7 @@ export const siteData = {
       badge: "Culture & Retention",
       shortDescription: "Capacity planning, skills gap audits, attrition mitigation, and inclusive hiring frameworks ensuring 94%+ long-term retention.",
       description: "Data-driven workforce optimization, talent retention architecture, and diversity hiring strategies for high-performance workplaces.",
-      image: "/assets/hr_carousel_3.jpg",
+      image: "/assets/hr_carousel_5.jpg",
       stats: [
         { label: "Retention Rate", value: "94.2%" },
         { label: "DE&I Placement Ratio", value: "38%" },
@@ -603,9 +603,9 @@ export const siteData = {
       badge: "Operations & Compliance",
       shortDescription: "End-to-end payroll processing, statutory compliance (PF, ESI, TDS, PT), attendance automation, and employee self-service governance.",
       description: "Error-free payroll execution, statutory regulatory filings, and digitized employee lifecycle administration for organizations of all sizes.",
-      image: "/assets/hr_carousel_1.jpg",
+      image: "/assets/hr_carousel_6.jpg",
       stats: [
-        { label: "Payroll Accuracy", value: "99.98%" },
+        { label: "Payroll Accuracy", value: "99.9%" },
         { label: "On-Time Disbursement", value: "100%" },
         { label: "Statutory Filing SLA", value: "Zero Delay" }
       ],

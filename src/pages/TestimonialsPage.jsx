@@ -62,22 +62,27 @@ export default function TestimonialsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative bg-white rounded-[32px] p-8 sm:p-10 border border-stone-200/90 hover:border-[#183629]/30 shadow-[0_10px_30px_-10px_rgba(24,54,41,0.06)] hover:shadow-[0_25px_50px_-15px_rgba(24,54,41,0.14)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[440px] hover:-translate-y-1.5"
+              className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-8 sm:p-10 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[440px] hover:-translate-y-1.5"
             >
               {/* Background Subtle Pinstripe Grid */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
 
-              {/* Top Block */}
+              {/* Top Block with Glass Depth */}
               <div className="relative z-10 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pb-3 border-b border-white/60">
                   <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
                     VG • ALUMNI 0{idx + 1}
                   </span>
-                  <div className="flex items-center gap-1 bg-white/90 px-3 py-1 rounded-full border border-stone-200/80 shadow-xs">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#F2C94C] text-[#DFAE22]" />
-                    ))}
-                    <span className="text-[11px] font-bold text-[#183629] ml-1">5.0</span>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/90 shadow-2xs">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#F2C94C] text-[#DFAE22]" />
+                      ))}
+                      <span className="text-[11px] font-bold text-[#183629] ml-1">5.0</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                      <ArrowUpRight className="w-4 h-4 stroke-[2]" />
+                    </div>
                   </div>
                 </div>
 
@@ -88,9 +93,9 @@ export default function TestimonialsPage() {
 
                 {/* Frosted Glassmorphism Pill */}
                 <div className="pt-2">
-                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-stone-200/70 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-300">
-                    <span className="text-xs font-medium text-[#183629] tracking-tight">Verified Placement</span>
-                    <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/75 hover:bg-white backdrop-blur-md border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:bg-[#183629] group-hover:text-white group-hover:border-[#183629] transition-all duration-300">
+                    <span className="text-xs font-medium tracking-tight">Verified Placement</span>
+                    <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-white/20 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>
                   </div>

@@ -16,7 +16,7 @@ export default function HRServices() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-  const carouselServices = siteData.hrServices.slice(0, 3);
+  const carouselServices = siteData.hrServices;
   const total = carouselServices.length;
 
   const handlePrev = () => {
@@ -264,9 +264,9 @@ export default function HRServices() {
                   onClick={() => {
                     if (!isCenter) setActiveIndex(idx);
                   }}
-                  className={`absolute w-[200px] sm:w-[260px] aspect-square rounded-[26px] sm:rounded-[32px] overflow-hidden cursor-pointer shadow-xl transition-shadow ${
+                  className={`absolute w-[205px] sm:w-[265px] aspect-square rounded-[28px] sm:rounded-[34px] overflow-hidden cursor-pointer shadow-xl transition-shadow ${
                     isCenter
-                      ? 'ring-4 ring-[#BEE644] ring-offset-2 ring-offset-[#EAF0E8] shadow-[0_20px_45px_-12px_rgba(24,54,41,0.32)]'
+                      ? 'ring-[5px] ring-[#BEE644] ring-offset-2 ring-offset-[#EAF0E8] shadow-[0_20px_45px_-12px_rgba(24,54,41,0.32)]'
                       : 'hover:opacity-95'
                   }`}
                   style={{
@@ -281,25 +281,25 @@ export default function HRServices() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
 
-                  {/* Practice Badge Top Left */}
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold text-[#183629] font-mono uppercase tracking-wider shadow-xs">
-                    0{service.number}
+                  {/* Practice Badge Top Left — Matching 002, 003, 004 in reference */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white text-[11px] font-bold text-[#183629] font-mono tracking-wider shadow-xs">
+                    00{service.number}
                   </div>
 
                   {/* Corner Accent on Center Card */}
                   {isCenter && (
-                    <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-[#BEE644] text-[#183629] flex items-center justify-center shadow-xs">
-                      <ArrowUpRight className="w-4 h-4" />
+                    <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#BEE644] text-[#183629] flex items-center justify-center shadow-md">
+                      <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                     </div>
                   )}
 
                   {/* Badge Bottom Overlay */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[10px]">
-                    <span className="px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 font-medium">
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px]">
+                    <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 font-semibold text-white tracking-wide">
                       {service.badge}
                     </span>
                     {service.stats && service.stats[0] && (
-                      <span className="font-mono font-bold text-[#F2C94C]">
+                      <span className="font-mono font-bold text-[#F2C94C] drop-shadow-sm text-xs">
                         {service.stats[0].value}
                       </span>
                     )}
