@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { siteData } from '../data/siteData';
-import { ArrowLeft, Clock, BarChart3, Award, Send, Sparkles, Briefcase, ShieldCheck, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, Clock, BarChart3, Award, Send, CheckCircle2, ArrowRight } from 'lucide-react';
 import CTASection from '../components/CTASection';
 
 export default function CourseDetails() {
   const params = useParams();
   const location = useLocation();
-  
-  // Extract slug from params or last segment of pathname
+
   const pathParts = location.pathname.split('/').filter(Boolean);
   const pathSlug = pathParts[pathParts.length - 1];
   const activeSlug = params.slug || (pathSlug !== 'courses' ? pathSlug : null);
 
-  // Find matching course by slug, fallback to first course
   const course = siteData.courses.find(
     c => c.slug === activeSlug || c.id === activeSlug
   ) || siteData.courses[0];
@@ -23,7 +20,7 @@ export default function CourseDetails() {
     name: '',
     email: '',
     phone: '',
-    learningMode: 'hybrid',
+    learningMode: 'online',
     message: ''
   });
   const [submittedSlug, setSubmittedSlug] = useState(null);
@@ -44,380 +41,298 @@ export default function CourseDetails() {
       localStorage.setItem('varnith_course_inquiries', JSON.stringify(stored));
       setSubmitting(false);
       setSubmittedSlug(activeSlug);
-    }, 600);
+    }, 400);
   };
 
   return (
-    <div className="pt-28 pb-16 bg-[#EAF0E8]">
-      {/* Top Breadcrumb Header */}
-      <section className="px-6 sm:px-12 lg:px-16 pb-8">
-        <div className="max-w-[1360px] mx-auto flex items-center justify-between">
-          <Link
-            to="/and/courses"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#183629] hover:text-[#DFAE22] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to All Programs</span>
-          </Link>
-          <span className="text-xs font-semibold text-[#737D73] uppercase tracking-wider">
-            Track {course.number} of 06
-          </span>
-        </div>
-      </section>
-
-      {/* Course Hero Banner */}
-      <section className="px-6 sm:px-12 lg:px-16 pb-12">
-        <div className="max-w-[1360px] mx-auto relative rounded-[36px] overflow-hidden shadow-2xl min-h-[380px] sm:min-h-[440px] flex flex-col justify-end p-8 sm:p-14 text-white bg-gradient-to-br from-[#102A21] via-[#183629] to-[#0D221A] border border-white/10">
-          {/* Subtle ambient lighting */}
-          <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.06] pointer-events-none" />
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#F2C94C]/10 blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="max-w-3xl space-y-4">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="px-3.5 py-1 rounded-full bg-[#F2C94C] text-[#183629] text-xs font-bold uppercase tracking-wider shadow-sm">
-                  {course.category}
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider">
-                  {course.badge}
-                </span>
-              </div>
-
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight">
-                <span className="block overflow-hidden py-0.5">
-                  <motion.span
-                    initial={{ y: '100%' }}
-                    animate={{ y: '0%' }}
-                    transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-block"
-                  >
-                    {course.fullTitle}
-                  </motion.span>
-                </span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-white/90 font-light leading-relaxed max-w-2xl">
-                {course.description}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-6 text-xs sm:text-sm text-white/80 pt-2 border-t border-white/20">
-                <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#F2C94C]" />
-                  {course.duration} Duration
-                </span>
-                <span className="flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4 text-[#F2C94C]" />
-                  {course.level}
-                </span>
-                <span className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-[#F2C94C]" />
-                  Industry Certification
-                </span>
-              </div>
-            </div>
-
-            {/* Official Course Emblem Card with Hover Physics */}
-            <motion.div
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              transition={{ type: 'spring', stiffness: 350, damping: 20 }}
-              className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl bg-white p-3.5 shadow-2xl shrink-0 flex items-center justify-center border-2 border-white/30 self-start md:self-end"
-            >
-              <img
-                src={course.image}
-                alt={course.title}
-                className="w-full h-full object-contain"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content Grid: Detailed Syllabus + Registration Form */}
-      <section className="px-6 sm:px-12 lg:px-16 py-8">
-        <div className="max-w-[1360px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Modules & Roadmap */}
-          <div className="lg:col-span-7 space-y-10">
-            {/* Overview */}
-            <div className="space-y-3">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#737D73]">
-                CURRICULUM ARCHITECTURE
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#183629] font-normal">
-                Hands-On Enterprise Lab Modules
-              </h2>
-              <p className="text-sm sm:text-base text-[#202923]/80 leading-relaxed font-light">
-                Our curriculum emphasizes practical problem-solving over abstract theory. You will work directly with industry-standard toolsets and implement end-to-end scenarios.
-              </p>
-            </div>
-
-            {/* Syllabus Modules with Staggered Entrance */}
-            <div className="space-y-4">
-              {course.highlights.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                  className="p-5 rounded-[22px] bg-white/70 backdrop-blur-xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_20px_-4px_rgba(24,54,41,0.06)] flex items-start gap-4 hover:bg-white/85 hover:shadow-sm transition-all"
-                >
-                  <div className="w-8 h-8 rounded-full bg-white/80 border border-white/90 flex items-center justify-center text-[#DFAE22] font-serif font-bold text-sm shrink-0 mt-0.5 shadow-2xs">
-                    {idx + 1}
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-lg text-[#183629] font-normal">
-                      Module 0{idx + 1}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-[#202923]/80 font-light mt-0.5">
-                      {item}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Career Outcomes & Who Should Enroll */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
-              <div className="p-6 rounded-[28px] bg-white/65 backdrop-blur-2xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_36px_-6px_rgba(24,54,41,0.08)] space-y-3">
-                <div className="flex items-center justify-between pb-3 border-b border-white/60">
-                  <div className="flex items-center gap-2 text-[#183629]">
-                    <Briefcase className="w-4 h-4 text-[#DFAE22]" />
-                    <h4 className="text-xs uppercase font-bold tracking-wider">
-                      Target Job Roles
-                    </h4>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-white/80 border border-white/90 flex items-center justify-center text-[#183629]">
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-                <ul className="space-y-2 text-xs text-[#202923]/80">
-                  {course.careerOutcomes?.map((role, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#DFAE22]" />
-                      <span>{role}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="p-6 rounded-[28px] bg-white/65 backdrop-blur-2xl border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_36px_-6px_rgba(24,54,41,0.08)] space-y-3">
-                <div className="flex items-center justify-between pb-3 border-b border-white/60">
-                  <div className="flex items-center gap-2 text-[#183629]">
-                    <ShieldCheck className="w-4 h-4 text-[#DFAE22]" />
-                    <h4 className="text-xs uppercase font-bold tracking-wider">
-                      Target Audience
-                    </h4>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-white/80 border border-white/90 flex items-center justify-center text-[#183629]">
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-                <p className="text-xs text-[#202923]/80 leading-relaxed font-light">
-                  {course.targetAudience}
-                </p>
-                <div className="pt-2 border-t border-white/60">
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#737D73] block">
-                    Credential Awarded:
-                  </span>
-                  <p className="text-xs text-[#183629] font-semibold mt-0.5">
-                    {course.certification}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Sticky Registration / Syllabus Form */}
-          <div className="lg:col-span-5">
-            <div className="p-6 sm:p-8 rounded-[32px] bg-[#183629] text-white shadow-xl sticky top-28 space-y-6">
-              {isSubmitted ? (
-                <div className="text-center py-8 space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-[#F2C94C]/20 text-[#F2C94C] mx-auto flex items-center justify-center">
-                    <Sparkles className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-serif text-2xl font-normal">
-                    Enquiry Received!
-                  </h3>
-                  <p className="text-xs text-white/80 max-w-sm mx-auto">
-                    Thank you for your interest in {course.title}. Our academic counselor in Hyderabad will reach out with batch timings, fee structures, and customized learning tracks.
-                  </p>
-                  <button
-                    onClick={() => setSubmittedSlug(null)}
-                    className="text-xs underline text-[#F2C94C] hover:text-white pt-2 inline-block"
-                  >
-                    Submit another query
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#F2C94C]">
-                      ENROLLMENT & SYLLABUS REQUEST
-                    </span>
-                    <h3 className="font-serif text-2xl font-normal mt-1">
-                      Request Course Syllabus
-                    </h3>
-                    <p className="text-xs text-white/70 mt-1 font-light">
-                      Connect with our counselors for batch start dates and classroom/online scheduling options.
-                    </p>
-                  </div>
-
-                  <div className="space-y-3 pt-2">
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your Full Name *"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-[#F2C94C]"
-                    />
-                    <input
-                      type="email"
-                      required
-                      placeholder="Email Address *"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-[#F2C94C]"
-                    />
-                    <input
-                      type="tel"
-                      required
-                      placeholder="Phone Number *"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-[#F2C94C]"
-                    />
-                  </div>
-
-                  {/* Mode Selector */}
-                  <div className="pt-1">
-                    <span className="text-xs text-white/80 block mb-2 font-medium">Preferred Mode:</span>
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <label className={`p-2.5 rounded-xl border text-center cursor-pointer transition-colors ${
-                        formData.learningMode === 'hybrid'
-                          ? 'bg-[#F2C94C] text-[#183629] font-bold border-[#F2C94C]'
-                          : 'bg-white/5 border-white/20 text-white hover:bg-white/10'
-                      }`}>
-                        <input
-                          type="radio"
-                          name="mode"
-                          value="hybrid"
-                          checked={formData.learningMode === 'hybrid'}
-                          onChange={() => setFormData({ ...formData, learningMode: 'hybrid' })}
-                          className="sr-only"
-                        />
-                        <span>Classroom (Hyd)</span>
-                      </label>
-
-                      <label className={`p-2.5 rounded-xl border text-center cursor-pointer transition-colors ${
-                        formData.learningMode === 'online'
-                          ? 'bg-[#F2C94C] text-[#183629] font-bold border-[#F2C94C]'
-                          : 'bg-white/5 border-white/20 text-white hover:bg-white/10'
-                      }`}>
-                        <input
-                          type="radio"
-                          name="mode"
-                          value="online"
-                          checked={formData.learningMode === 'online'}
-                          onChange={() => setFormData({ ...formData, learningMode: 'online' })}
-                          className="sr-only"
-                        />
-                        <span>Live Online</span>
-                      </label>
-                    </div>
-                  </div>
-
-                  {/* Yellow Primary Button */}
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full py-4 rounded-full bg-[#F2C94C] text-[#183629] text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#DFAE22] hover:text-[#102A21] transition-all disabled:opacity-50 shadow-md mt-4"
-                  >
-                    <span>{submitting ? 'Submitting...' : 'Request Syllabus & Schedule'}</span>
-                    <Send className="w-3.5 h-3.5" />
-                  </button>
-
-                  <p className="text-[11px] text-white/60 text-center pt-2">
-                    Or call our Hyderabad campus directly at{' '}
-                    <a href={`tel:${siteData.brand.rawPhone}`} className="text-[#F2C94C] underline">
-                      {siteData.brand.phone}
-                    </a>
-                  </p>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Explore Other Tracks Strip */}
-      <section className="px-6 sm:px-12 lg:px-16 py-12 border-t border-stone-200/80">
-        <div className="max-w-[1360px] mx-auto space-y-6">
+    <div className="bg-white">
+      {/* Top Banner */}
+      <section className="bg-[#f7f9fc] py-12 sm:py-16 border-b border-[#e3e8f0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="flex items-center justify-between">
-            <div>
-              <span className="text-xs uppercase font-bold tracking-widest text-[#DFAE22]">
-                DISCOVER MORE PROGRAMS
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#183629] font-normal mt-1">
-                Explore Other Professional Tracks
-              </h3>
-            </div>
             <Link
               to="/and/courses"
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#183629] hover:text-[#DFAE22] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1e5bc6] hover:underline"
             >
-              <span>View All Tracks</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to all programmes</span>
+            </Link>
+            <span className="text-xs font-semibold text-[#5b6b85] uppercase">
+              Track 0{course.number} of 06
+            </span>
+          </div>
+
+          <div className="max-w-3xl space-y-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#f6650a]/10 text-[#f6650a] text-xs font-semibold">
+                {course.category}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full bg-[#1e5bc6]/10 text-[#1e5bc6] text-xs font-semibold">
+                {course.badge}
+              </span>
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl font-bold text-[#00184a] tracking-tight">
+              {course.fullTitle}
+            </h1>
+
+            <p className="text-base sm:text-lg text-[#5b6b85] leading-relaxed">
+              {course.description}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-6 pt-3 text-xs text-[#00184a] font-medium border-t border-[#e3e8f0]">
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-[#f6650a]" />
+                {course.duration} Duration
+              </span>
+              <span className="flex items-center gap-1.5">
+                <BarChart3 className="w-4 h-4 text-[#f6650a]" />
+                {course.level}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Award className="w-4 h-4 text-[#f6650a]" />
+                Certificate Awarded
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content: Curriculum + Enrollment Form */}
+      <section className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            {/* Left Column: Curriculum Modules & Audience */}
+            <div className="lg:col-span-7 space-y-8">
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#00184a] mb-2">
+                  Hands-On Curriculum Modules
+                </h2>
+                <p className="text-sm text-[#5b6b85]">
+                  Practical, lab-first curriculum designed with real project tasks and architecture capstones.
+                </p>
+              </div>
+
+              {/* Modules list */}
+              <div className="space-y-3">
+                {course.highlights.map((mod, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-xl border border-[#e3e8f0] bg-white hover:border-[#f6650a] transition-colors flex items-start gap-3.5"
+                  >
+                    <div className="w-7 h-7 rounded-md bg-[#f6650a]/10 text-[#f6650a] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                      0{idx + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-[#00184a]">
+                        Module {idx + 1}
+                      </h3>
+                      <p className="text-xs text-[#5b6b85] mt-0.5 leading-relaxed">
+                        {mod}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Job Roles & Audience */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-5 rounded-xl border border-[#e3e8f0] bg-[#f7f9fc] space-y-2">
+                  <h3 className="text-sm font-bold text-[#00184a]">Target Job Roles</h3>
+                  <ul className="space-y-1.5 text-xs text-[#5b6b85]">
+                    {course.careerOutcomes?.map((role, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e5bc6]" />
+                        <span>{role}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="p-5 rounded-xl border border-[#e3e8f0] bg-[#f7f9fc] space-y-2">
+                  <h3 className="text-sm font-bold text-[#00184a]">Who Should Enrol</h3>
+                  <p className="text-xs text-[#5b6b85] leading-relaxed">
+                    {course.targetAudience}
+                  </p>
+                  <div className="pt-2 text-xs font-semibold text-[#00184a]">
+                    Credential: {course.certification}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Inquiry / Registration Form */}
+            <div className="lg:col-span-5">
+              <div className="border border-[#e3e8f0] rounded-2xl p-6 sm:p-8 bg-white shadow-xs sticky top-24">
+                <div className="mb-6 space-y-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#f6650a]">
+                    Enquire for Next Batch
+                  </span>
+                  <h3 className="text-xl font-bold text-[#00184a]">
+                    Enrol in {course.title}
+                  </h3>
+                  <p className="text-xs text-[#5b6b85]">
+                    Submit your details to receive the comprehensive syllabus and batch schedules.
+                  </p>
+                </div>
+
+                {isSubmitted ? (
+                  <div className="p-6 rounded-xl bg-[#f7f9fc] border border-[#e3e8f0] text-center space-y-3">
+                    <div className="w-12 h-12 rounded-full bg-[#f6650a]/10 text-[#f6650a] mx-auto flex items-center justify-center">
+                      <CheckCircle2 className="w-6 h-6" />
+                    </div>
+                    <h4 className="text-base font-bold text-[#00184a]">Enquiry Received</h4>
+                    <p className="text-xs text-[#5b6b85]">
+                      Thank you! Our academic coordinator will contact you with batch dates, timings, and fee details.
+                    </p>
+                    <button
+                      onClick={() => setSubmittedSlug(null)}
+                      className="btn-outline text-xs mt-2"
+                    >
+                      Submit Another Enquiry
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-[#00184a] mb-1">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="e.g. Anand Kumar"
+                        className="w-full px-3 py-2 rounded-lg border border-[#cbd5e1] text-xs text-[#00184a] focus:outline-none focus:border-[#f6650a]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-[#00184a] mb-1">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="e.g. anand@gmail.com"
+                        className="w-full px-3 py-2 rounded-lg border border-[#cbd5e1] text-xs text-[#00184a] focus:outline-none focus:border-[#f6650a]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-[#00184a] mb-1">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="+91 98765 43210"
+                        className="w-full px-3 py-2 rounded-lg border border-[#cbd5e1] text-xs text-[#00184a] focus:outline-none focus:border-[#f6650a]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-[#00184a] mb-1">
+                        Preferred Learning Mode
+                      </label>
+                      <select
+                        value={formData.learningMode}
+                        onChange={(e) => setFormData({ ...formData, learningMode: e.target.value })}
+                        className="w-full px-3 py-2 rounded-lg border border-[#cbd5e1] text-xs text-[#00184a] focus:outline-none focus:border-[#f6650a] bg-white"
+                      >
+                        <option value="online">Live Online (Interactive)</option>
+                        <option value="hybrid">Hyderabad Campus / Hybrid</option>
+                        <option value="weekend">Weekend Executive Batch</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-[#00184a] mb-1">
+                        Questions or Educational Background
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder="e.g. Looking for weekend batch, currently working in IT support..."
+                        className="w-full px-3 py-2 rounded-lg border border-[#cbd5e1] text-xs text-[#00184a] focus:outline-none focus:border-[#f6650a] resize-none"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="btn-orange w-full justify-center"
+                    >
+                      <Send className="w-4 h-4" />
+                      <span>{submitting ? 'Submitting...' : 'Request Batch Details'}</span>
+                    </button>
+
+                    <p className="text-[11px] text-[#5b6b85] text-center">
+                      Or call directly at{' '}
+                      <a href={`tel:${siteData.brand.rawPhone}`} className="text-[#1e5bc6] underline">
+                        {siteData.brand.phone}
+                      </a>
+                    </p>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore Other Programmes */}
+      <section className="bg-[#f7f9fc] py-12 border-t border-[#e3e8f0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-bold text-[#00184a]">
+              Other Professional Tracks
+            </h3>
+            <Link
+              to="/and/courses"
+              className="text-xs font-semibold text-[#1e5bc6] hover:underline"
+            >
+              View all tracks →
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {siteData.courses
               .filter(c => c.slug !== course.slug)
               .slice(0, 3)
               .map(c => (
-                <Link
+                <div
                   key={c.id}
-                  to={`/and/courses/${c.slug}`}
-                  className="group relative bg-white/65 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),0_12px_40px_-8px_rgba(24,54,41,0.08)] hover:bg-white/80 hover:border-white hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),0_24px_50px_-10px_rgba(24,54,41,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[380px] hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-[#F2C94C]"
+                  className="bg-white border border-[#e3e8f0] rounded-xl p-5 space-y-3 flex flex-col justify-between"
                 >
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
-                  <div className="relative z-10 space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-white/60">
-                      <span className="font-mono text-xs font-bold tracking-widest text-[#183629] uppercase">
-                        VG • TRACK 0{c.number}
-                      </span>
-                      <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md border border-white/90 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-[#183629] group-hover:text-white transition-all duration-300">
-                        <ArrowUpRight className="w-4 h-4 stroke-[2]" />
-                      </div>
-                    </div>
-                    <h4 className="font-sans text-2xl sm:text-3xl font-light text-[#183629] tracking-tight leading-[1.15] pt-1">
+                  <div className="space-y-2">
+                    <span className="text-[11px] font-semibold text-[#f6650a] uppercase">
+                      {c.category}
+                    </span>
+                    <h4 className="text-base font-bold text-[#00184a]">
                       {c.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#202923]/75 font-light leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#5b6b85] line-clamp-2">
                       {c.description}
                     </p>
-                    <div className="pt-2">
-                      <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/75 hover:bg-white backdrop-blur-md border border-white/90 shadow-[0_4px_16px_rgba(0,0,0,0.04)] group-hover:bg-[#183629] group-hover:text-white group-hover:border-[#183629] transition-all duration-300">
-                        <span className="text-xs font-medium tracking-tight">Explore Track</span>
-                        <span className="w-6 h-6 rounded-full bg-white border border-stone-200/80 flex items-center justify-center text-[#183629] shadow-xs group-hover:bg-white/20 group-hover:text-white group-hover:border-transparent transition-all duration-300">
-                          <ArrowUpRight className="w-3.5 h-3.5" />
-                        </span>
-                      </div>
-                    </div>
                   </div>
-                  <div className="relative mt-8 pt-4 z-10">
-                    <div className="absolute -bottom-8 -right-8 w-44 h-32 rounded-tl-[80px] bg-gradient-to-tl from-[#B2E869]/30 to-transparent backdrop-blur-md border-t border-l border-white/70 pointer-events-none group-hover:scale-105 transition-transform duration-700" />
-                    <div className="pt-3 border-t border-white/60 flex items-center justify-between text-xs">
-                      <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-[#183629]">
-                        100% PRACTICAL
-                      </span>
-                      <span className="font-bold text-[11px] text-[#183629]">
-                        {c.duration}
-                      </span>
-                    </div>
+                  <div className="pt-3 border-t border-[#e3e8f0] flex items-center justify-between text-xs">
+                    <span className="text-[#5b6b85]">{c.duration}</span>
+                    <Link
+                      to={`/and/courses/${c.slug}`}
+                      className="font-semibold text-[#f6650a] hover:underline inline-flex items-center gap-1"
+                    >
+                      <span>Explore</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
-                </Link>
+                </div>
               ))}
           </div>
         </div>

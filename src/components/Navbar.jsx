@@ -1,21 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Phone, Mail, MapPin, ChevronDown, ArrowRight, Briefcase, GraduationCap } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { siteData } from '../data/siteData';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hrDropdownOpen, setHrDropdownOpen] = useState(false);
   const [trainingDropdownOpen, setTrainingDropdownOpen] = useState(false);
-  const [mobileHrExpanded, setMobileHrExpanded] = useState(false);
-  const [mobileTrainingExpanded, setMobileTrainingExpanded] = useState(false);
+  const [mobileHrOpen, setMobileHrOpen] = useState(false);
+  const [mobileTrainingOpen, setMobileTrainingOpen] = useState(false);
 
-  const hrTimeoutRef = useRef(null);
-  const trainingTimeoutRef = useRef(null);
+  const hrTimeout = useRef(null);
+  const trainingTimeout = useRef(null);
   const location = useLocation();
 
-  // Close menus on route change during render
+  // Close menus on navigation
   const [prevPath, setPrevPath] = useState(location.pathname);
   if (prevPath !== location.pathname) {
     setPrevPath(location.pathname);
@@ -25,546 +24,327 @@ export default function Navbar() {
   }
 
   const handleHrEnter = () => {
-    if (hrTimeoutRef.current) clearTimeout(hrTimeoutRef.current);
+    if (hrTimeout.current) clearTimeout(hrTimeout.current);
     setHrDropdownOpen(true);
     setTrainingDropdownOpen(false);
   };
-
   const handleHrLeave = () => {
-    hrTimeoutRef.current = setTimeout(() => {
-      setHrDropdownOpen(false);
-    }, 150);
+    hrTimeout.current = setTimeout(() => setHrDropdownOpen(false), 120);
   };
 
   const handleTrainingEnter = () => {
-    if (trainingTimeoutRef.current) clearTimeout(trainingTimeoutRef.current);
+    if (trainingTimeout.current) clearTimeout(trainingTimeout.current);
     setTrainingDropdownOpen(true);
     setHrDropdownOpen(false);
   };
-
   const handleTrainingLeave = () => {
-    trainingTimeoutRef.current = setTimeout(() => {
-      setTrainingDropdownOpen(false);
-    }, 150);
+    trainingTimeout.current = setTimeout(() => setTrainingDropdownOpen(false), 120);
   };
 
-  const isCurrentActive = (href) => {
-    if (href === '/and') {
+  const isActive = (path) => {
+    if (path === '/and') {
       return location.pathname === '/and' || location.pathname === '/';
     }
-    return location.pathname.startsWith(href);
+    return location.pathname.startsWith(path);
   };
 
   return (
-    <>
-      {/* Solid Opaque White Navbar with Agevia-inspired entrance & layout transitions */}
-      <motion.header
-        initial={{ y: -25, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 py-3 bg-white/95 backdrop-blur-md shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] border-b border-stone-200/90"
-      >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex items-center justify-between">
-          {/* Official Varnith Global Site Logo */}
-          <Link
-            to="/and"
-            className="flex items-center group shrink-0"
-            aria-label="Varnith Global Home"
-          >
-            <motion.img
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-              src="/assets/varnith_logo.jpg"
-              alt="Varnith Global — IT Training & HR Solutions"
-              className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply"
+    <header className="sticky top-0 z-50 bg-white border-b border-[#e3e8f0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-18">
+          {/* Logo */}
+          <Link to="/and" className="flex items-center shrink-0 py-2">
+            <img
+              src="/assets/varnith-logo-ref.svg"
+              alt="Varnith Technologies Private Limited"
+              className="h-8 sm:h-9 w-auto"
             />
           </Link>
 
-          {/* Navigation Links in Center with Dropdown Menus */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 mx-4">
-            <div className="px-2 py-1 rounded-full flex items-center gap-0.5 bg-[#F4F5EF] border border-[#183629]/10 shadow-inner">
-              {/* HOME */}
-              <Link
-                to="/and"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${location.pathname === '/and' || location.pathname === '/'
-                    ? 'text-[#F2C94C] font-bold'
-                    : 'text-[#202923]/75 hover:text-[#183629]'
-                  }`}
-              >
-                {(location.pathname === '/and' || location.pathname === '/') && (
-                  <motion.span
-                    layoutId="activeNavIndicator"
-                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 bg-[#183629] rounded-full shadow-sm -z-10"
-                  />
-                )}
-                <span>Home</span>
-              </Link>
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center space-x-7">
+            {/* Home */}
+            <Link
+              to="/and"
+              className={`text-[15px] font-medium transition-colors ${
+                isActive('/and') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              }`}
+            >
+              Home
+            </Link>
 
-              {/* HR SERVICES (Priority 1) with Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={handleHrEnter}
-                onMouseLeave={handleHrLeave}
-              >
-                <Link
-                  to="/and/hr-services"
-                  className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 inline-flex items-center gap-1 ${location.pathname.startsWith('/and/hr-services')
-                      ? 'text-[#F2C94C] font-bold'
-                      : 'text-[#202923]/75 hover:text-[#183629]'
-                    }`}
-                >
-                  {location.pathname.startsWith('/and/hr-services') && (
-                    <motion.span
-                      layoutId="activeNavIndicator"
-                      transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                      className="absolute inset-0 bg-[#183629] rounded-full shadow-sm -z-10"
-                    />
-                  )}
-                  <span>HR Services</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${hrDropdownOpen ? 'rotate-180' : ''}`} />
-                </Link>
-
-                {/* HR Services Dropdown Menu */}
-                <AnimatePresence>
-                  {hrDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl p-3 shadow-xl border border-stone-200/90 z-50 space-y-1"
-                    >
-                      <div className="px-3 py-2 border-b border-stone-100 flex items-center justify-between">
-                        <span className="text-[10px] font-bold tracking-widest uppercase text-[#737D73] font-mono">
-
-                        </span>
-                        <Briefcase className="w-3.5 h-3.5 text-[#DFAE22]" />
-                      </div>
-
-                      <div className="space-y-0.5 pt-1">
-                        {siteData.hrServices.map((srv) => (
-                          <Link
-                            key={srv.id}
-                            to={`/and/hr-services/${srv.slug}`}
-                            className="p-2.5 rounded-xl hover:bg-[#F4F5EF] transition-colors flex items-center justify-between group block"
-                          >
-                            <div>
-                              <p className="text-xs font-semibold text-[#183629] group-hover:text-[#DFAE22] transition-colors">
-                                {srv.title}
-                              </p>
-                              <span className="text-[10px] text-[#737D73]">
-                                Practice 0{srv.number} • {srv.badge}
-                              </span>
-                            </div>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-stone-300 group-hover:text-[#183629] transition-colors" />
-                          </Link>
-                        ))}
-                      </div>
-
-                      <div className="pt-2 border-t border-stone-100 mt-1">
-                        <Link
-                          to="/and/hr-services"
-                          className="w-full px-3 py-2 rounded-xl bg-[#183629] text-[#F2C94C] text-[11px] font-bold uppercase tracking-wider hover:bg-[#102A21] transition-colors flex items-center justify-between group"
-                        >
-                          <span>Explore All HR Services</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* TRAINING (Priority 2) with Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={handleTrainingEnter}
-                onMouseLeave={handleTrainingLeave}
-              >
-                <Link
-                  to="/and/courses"
-                  className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 inline-flex items-center gap-1 ${location.pathname.startsWith('/and/courses')
-                      ? 'text-[#F2C94C] font-bold'
-                      : 'text-[#202923]/75 hover:text-[#183629]'
-                    }`}
-                >
-                  {location.pathname.startsWith('/and/courses') && (
-                    <motion.span
-                      layoutId="activeNavIndicator"
-                      transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                      className="absolute inset-0 bg-[#183629] rounded-full shadow-sm -z-10"
-                    />
-                  )}
-                  <span>Training</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${trainingDropdownOpen ? 'rotate-180' : ''}`} />
-                </Link>
-
-                {/* Training Dropdown Menu */}
-                <AnimatePresence>
-                  {trainingDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl p-3 shadow-xl border border-stone-200/90 z-50 space-y-1"
-                    >
-                      <div className="px-3 py-2 border-b border-stone-100 flex items-center justify-between">
-                        <span className="text-[10px] font-bold tracking-widest uppercase text-[#737D73] font-mono">
-                          IT ACADEMY • 6 TRACKS
-                        </span>
-                        <GraduationCap className="w-3.5 h-3.5 text-[#DFAE22]" />
-                      </div>
-
-                      <div className="space-y-0.5 pt-1">
-                        {siteData.courses.map((crs) => (
-                          <Link
-                            key={crs.id}
-                            to={`/and/courses/${crs.slug}`}
-                            className="p-2.5 rounded-xl hover:bg-[#F4F5EF] transition-colors flex items-center justify-between group block"
-                          >
-                            <div>
-                              <p className="text-xs font-semibold text-[#183629] group-hover:text-[#DFAE22] transition-colors">
-                                {crs.title}
-                              </p>
-                              <span className="text-[10px] text-[#737D73]">
-                                Track {crs.number} • {crs.duration}
-                              </span>
-                            </div>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-stone-300 group-hover:text-[#183629] transition-colors" />
-                          </Link>
-                        ))}
-                      </div>
-
-                      <div className="pt-2 border-t border-stone-100 mt-1">
-                        <Link
-                          to="/and/courses"
-                          className="w-full px-3 py-2 rounded-xl bg-[#183629] text-[#F2C94C] text-[11px] font-bold uppercase tracking-wider hover:bg-[#102A21] transition-colors flex items-center justify-between group"
-                        >
-                          <span>Explore All Programs</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* ABOUT */}
-              <Link
-                to="/and/about"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/about')
-                    ? 'text-[#F2C94C] font-bold'
-                    : 'text-[#202923]/75 hover:text-[#183629]'
-                  }`}
-              >
-                {isCurrentActive('/and/about') && (
-                  <motion.span
-                    layoutId="activeNavIndicator"
-                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 bg-[#183629] rounded-full shadow-sm -z-10"
-                  />
-                )}
-                <span>About</span>
-              </Link>
-
-              {/* WHY US */}
-              <Link
-                to="/and/why-us"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/why-us')
-                    ? 'text-[#F2C94C] font-bold'
-                    : 'text-[#202923]/75 hover:text-[#183629]'
-                  }`}
-              >
-                {isCurrentActive('/and/why-us') && (
-                  <motion.span
-                    layoutId="activeNavIndicator"
-                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 bg-[#183629] rounded-full shadow-sm -z-10"
-                  />
-                )}
-                <span>Why Us</span>
-              </Link>
-
-              {/* TESTIMONIALS */}
-              <Link
-                to="/and/testimonials"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/testimonials')
-                    ? 'text-[#F2C94C] font-bold'
-                    : 'text-[#202923]/75 hover:text-[#183629]'
-                  }`}
-              >
-                {isCurrentActive('/and/testimonials') && (
-                  <motion.span
-                    layoutId="activeNavIndicator"
-                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 bg-[#183629] rounded-full shadow-sm -z-10"
-                  />
-                )}
-                <span>Testimonials</span>
-              </Link>
-
-              {/* CONTACT */}
-              <Link
-                to="/and/contact"
-                className={`relative px-3 py-1.5 text-xs font-semibold tracking-wide uppercase rounded-full whitespace-nowrap transition-colors duration-200 z-10 ${isCurrentActive('/and/contact')
-                    ? 'text-[#F2C94C] font-bold'
-                    : 'text-[#202923]/75 hover:text-[#183629]'
-                  }`}
-              >
-                {isCurrentActive('/and/contact') && (
-                  <motion.span
-                    layoutId="activeNavIndicator"
-                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 bg-[#183629] rounded-full shadow-sm -z-10"
-                  />
-                )}
-                <span>Contact</span>
-              </Link>
-            </div>
-          </nav>
-
-          {/* Explore HR Solutions CTA on Right (Yellow CTA Button with shine animation) */}
-          <div className="flex items-center gap-3 shrink-0">
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            {/* HR Services Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleHrEnter}
+              onMouseLeave={handleHrLeave}
+            >
               <Link
                 to="/and/hr-services"
-                className="relative hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-md bg-[#F2C94C] text-[#183629] hover:bg-[#DFAE22] hover:text-[#102A21] overflow-hidden group"
+                className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors py-2 ${
+                  isActive('/and/hr-services') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+                }`}
               >
-                {/* Shine Sweep Overlay */}
-                <span className="absolute inset-0 w-1/2 h-full bg-white/30 transform -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-700 ease-out" />
-                <span className="relative z-10">Explore HR Solutions</span>
-                <ArrowUpRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <span>HR Consulting</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${hrDropdownOpen ? 'rotate-180 text-[#1e5bc6]' : 'text-[#5b6b85]'}`} />
               </Link>
-            </motion.div>
 
-            {/* Mobile Hamburger Toggle */}
-            <motion.button
-              whileTap={{ scale: 0.92 }}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Navigation Menu"
-              className="lg:hidden p-2.5 rounded-full text-[#183629] bg-[#F4F5EF] hover:bg-[#EAF0E8] border border-[#183629]/10 transition-colors"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </motion.button>
-          </div>
-        </div>
-      </motion.header>
-
-      {/* Mobile Drawer Menu with Collapsible Accordions for HR & Courses */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden pt-20"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <motion.div
-              initial={{ y: -30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -30, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white mx-4 rounded-[28px] p-6 shadow-2xl border border-stone-200/90 space-y-4 max-h-[85vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="pb-3 border-b border-stone-100 flex items-center justify-between">
-                <Link to="/and" onClick={() => setMobileMenuOpen(false)}>
-                  <img
-                    src="/assets/varnith_logo.jpg"
-                    alt="Varnith Global"
-                    className="h-8 w-auto object-contain mix-blend-multiply"
-                  />
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="p-1 rounded-full text-stone-400 hover:text-[#183629]"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Mobile Nav Links */}
-              <div className="space-y-1">
-                <Link
-                  to="/and"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-xl text-sm font-semibold text-[#183629] hover:bg-[#F4F5EF] transition-colors"
-                >
-                  Home
-                </Link>
-
-                {/* Mobile HR Services Collapsible */}
-                <div>
-                  <div className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-[#183629] hover:bg-[#F4F5EF]">
+              {hrDropdownOpen && (
+                <div className="absolute top-full left-0 w-72 bg-white rounded-lg shadow-lg border border-[#e3e8f0] py-2 mt-1">
+                  <div className="px-3.5 py-1.5 text-[11px] font-bold text-[#5b6b85] uppercase tracking-wider border-b border-[#e3e8f0] mb-1">
+                    HR Practice Offerings
+                  </div>
+                  {siteData.hrServices.map((svc) => (
+                    <Link
+                      key={svc.id}
+                      to={`/and/hr-services/${svc.slug}`}
+                      className="block px-3.5 py-2 text-sm text-[#00184a] hover:bg-[#f7f9fc] hover:text-[#1e5bc6] transition-colors"
+                    >
+                      <div className="font-medium">{svc.title}</div>
+                      <div className="text-xs text-[#5b6b85] truncate">{svc.shortDesc}</div>
+                    </Link>
+                  ))}
+                  <div className="border-t border-[#e3e8f0] mt-1 pt-1">
                     <Link
                       to="/and/hr-services"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex-1 font-bold text-[#183629]"
+                      className="block px-3.5 py-1.5 text-xs font-semibold text-[#1e5bc6] hover:underline"
                     >
-                      HR Services (Priority 1)
+                      View All HR Practices →
                     </Link>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setMobileHrExpanded(!mobileHrExpanded);
-                      }}
-                      className="p-1 text-stone-500"
-                    >
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileHrExpanded ? 'rotate-180' : ''}`} />
-                    </button>
                   </div>
-                  <AnimatePresence>
-                    {mobileHrExpanded && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="pl-6 pr-2 space-y-1 overflow-hidden"
-                      >
-                        {siteData.hrServices.map((srv) => (
-                          <Link
-                            key={srv.id}
-                            to={`/and/hr-services/${srv.slug}`}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block px-3 py-1.5 rounded-lg text-xs text-[#202923]/80 hover:text-[#183629] hover:bg-[#F4F5EF]"
-                          >
-                            • {srv.title}
-                          </Link>
-                        ))}
-                        <Link
-                          to="/and/hr-services"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-3 py-1.5 text-xs font-bold text-[#DFAE22] uppercase tracking-wider"
-                        >
-                          View All HR Practices →
-                        </Link>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
+              )}
+            </div>
 
-                {/* Mobile Training Collapsible */}
-                <div>
-                  <div className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-[#183629] hover:bg-[#F4F5EF]">
+            {/* Training Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleTrainingEnter}
+              onMouseLeave={handleTrainingLeave}
+            >
+              <Link
+                to="/and/courses"
+                className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors py-2 ${
+                  isActive('/and/courses') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+                }`}
+              >
+                <span>Training & Development</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${trainingDropdownOpen ? 'rotate-180 text-[#1e5bc6]' : 'text-[#5b6b85]'}`} />
+              </Link>
+
+              {trainingDropdownOpen && (
+                <div className="absolute top-full left-0 w-72 bg-white rounded-lg shadow-lg border border-[#e3e8f0] py-2 mt-1">
+                  <div className="px-3.5 py-1.5 text-[11px] font-bold text-[#5b6b85] uppercase tracking-wider border-b border-[#e3e8f0] mb-1">
+                    Programmes & Tracks
+                  </div>
+                  {siteData.courses.map((course) => (
+                    <Link
+                      key={course.id}
+                      to={`/and/courses/${course.slug}`}
+                      className="block px-3.5 py-2 text-sm text-[#00184a] hover:bg-[#f7f9fc] hover:text-[#1e5bc6] transition-colors"
+                    >
+                      <div className="font-medium">{course.title}</div>
+                      <div className="text-xs text-[#5b6b85]">{course.category} • {course.duration}</div>
+                    </Link>
+                  ))}
+                  <div className="border-t border-[#e3e8f0] mt-1 pt-1">
                     <Link
                       to="/and/courses"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex-1 font-bold text-[#183629]"
+                      className="block px-3.5 py-1.5 text-xs font-semibold text-[#1e5bc6] hover:underline"
                     >
-                      IT Training (Priority 2)
+                      View All Programmes →
                     </Link>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setMobileTrainingExpanded(!mobileTrainingExpanded);
-                      }}
-                      className="p-1 text-stone-500"
-                    >
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileTrainingExpanded ? 'rotate-180' : ''}`} />
-                    </button>
                   </div>
-                  <AnimatePresence>
-                    {mobileTrainingExpanded && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="pl-6 pr-2 space-y-1 overflow-hidden"
-                      >
-                        {siteData.courses.map((crs) => (
-                          <Link
-                            key={crs.id}
-                            to={`/and/courses/${crs.slug}`}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block px-3 py-1.5 rounded-lg text-xs text-[#202923]/80 hover:text-[#183629] hover:bg-[#F4F5EF]"
-                          >
-                            • {crs.title}
-                          </Link>
-                        ))}
-                        <Link
-                          to="/and/courses"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-3 py-1.5 text-xs font-bold text-[#DFAE22] uppercase tracking-wider"
-                        >
-                          View All Training Programs →
-                        </Link>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
+              )}
+            </div>
 
-                <Link
-                  to="/and/about"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-xl text-sm font-semibold text-[#183629] hover:bg-[#F4F5EF] transition-colors"
-                >
-                  About
-                </Link>
+            {/* About */}
+            <Link
+              to="/and/about"
+              className={`text-[15px] font-medium transition-colors ${
+                isActive('/and/about') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              }`}
+            >
+              About
+            </Link>
 
-                <Link
-                  to="/and/why-us"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-xl text-sm font-semibold text-[#183629] hover:bg-[#F4F5EF] transition-colors"
-                >
-                  Why Us
-                </Link>
+            {/* Why Us */}
+            <Link
+              to="/and/why-us"
+              className={`text-[15px] font-medium transition-colors ${
+                isActive('/and/why-us') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              }`}
+            >
+              Why Us
+            </Link>
 
-                <Link
-                  to="/and/testimonials"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-xl text-sm font-semibold text-[#183629] hover:bg-[#F4F5EF] transition-colors"
-                >
-                  Testimonials
-                </Link>
+            {/* Testimonials */}
+            <Link
+              to="/and/testimonials"
+              className={`text-[15px] font-medium transition-colors ${
+                isActive('/and/testimonials') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              }`}
+            >
+              Testimonials
+            </Link>
 
-                <Link
-                  to="/and/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-xl text-sm font-semibold text-[#183629] hover:bg-[#F4F5EF] transition-colors"
-                >
-                  Contact
-                </Link>
-              </div>
+            {/* Contact */}
+            <Link
+              to="/and/contact"
+              className={`text-[15px] font-medium transition-colors ${
+                isActive('/and/contact') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              }`}
+            >
+              Contact
+            </Link>
+          </nav>
 
-              {/* Mobile CTA Button */}
-              <div className="pt-2">
+          {/* Right Action Buttons matching reference */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <a
+              href={`tel:${siteData.brand.rawPhone}`}
+              className="text-xs font-medium text-[#5b6b85] hover:text-[#00184a] px-2 py-1 inline-flex items-center gap-1.5"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#1e5bc6]" />
+              <span>{siteData.brand.phone}</span>
+            </a>
+
+            <Link
+              to="/and/contact"
+              className="btn-orange"
+            >
+              Talk to us
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-[#00184a] hover:bg-[#f7f9fc] rounded-md transition-colors"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden border-t border-[#e3e8f0] bg-white px-4 py-5 space-y-3">
+          <Link
+            to="/and"
+            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+          >
+            Home
+          </Link>
+
+          {/* Mobile HR Services Accordion */}
+          <div>
+            <button
+              onClick={() => setMobileHrOpen(!mobileHrOpen)}
+              className="w-full flex items-center justify-between py-2 text-base font-medium text-[#00184a]"
+            >
+              <span>HR Consulting</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileHrOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileHrOpen && (
+              <div className="pl-4 py-1 space-y-2 border-l-2 border-[#1e5bc6]/20 mt-1">
                 <Link
                   to="/and/hr-services"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-3.5 rounded-full bg-[#F2C94C] text-[#183629] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:bg-[#DFAE22]"
+                  className="block text-sm font-semibold text-[#1e5bc6] py-1"
                 >
-                  <span>Explore HR Solutions</span>
-                  <ArrowRight className="w-4 h-4" />
+                  All HR Services →
                 </Link>
+                {siteData.hrServices.map((svc) => (
+                  <Link
+                    key={svc.id}
+                    to={`/and/hr-services/${svc.slug}`}
+                    className="block text-sm text-[#5b6b85] hover:text-[#00184a] py-1"
+                  >
+                    {svc.title}
+                  </Link>
+                ))}
               </div>
+            )}
+          </div>
 
-              {/* Mobile Drawer Footer Info */}
-              <div className="pt-3 border-t border-stone-100 text-xs text-[#737D73] space-y-1 text-center">
-                <p className="flex items-center justify-center gap-1.5 font-medium text-[#183629]">
-                  <Phone className="w-3.5 h-3.5 text-[#DFAE22]" />
-                  <span>{siteData.brand.phone}</span>
-                </p>
-                <p className="flex items-center justify-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5 text-[#DFAE22]" />
-                  <span>{siteData.brand.email}</span>
-                </p>
-                <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#737D73]">
-                  <MapPin className="w-3.5 h-3.5 text-[#DFAE22]" />
-                  <span>Bhanu Elite, Madhapur, Hyderabad</span>
-                </p>
+          {/* Mobile Training Accordion */}
+          <div>
+            <button
+              onClick={() => setMobileTrainingOpen(!mobileTrainingOpen)}
+              className="w-full flex items-center justify-between py-2 text-base font-medium text-[#00184a]"
+            >
+              <span>Training & Development</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileTrainingOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileTrainingOpen && (
+              <div className="pl-4 py-1 space-y-2 border-l-2 border-[#f6650a]/20 mt-1">
+                <Link
+                  to="/and/courses"
+                  className="block text-sm font-semibold text-[#f6650a] py-1"
+                >
+                  All Training Programmes →
+                </Link>
+                {siteData.courses.map((course) => (
+                  <Link
+                    key={course.id}
+                    to={`/and/courses/${course.slug}`}
+                    className="block text-sm text-[#5b6b85] hover:text-[#00184a] py-1"
+                  >
+                    {course.title}
+                  </Link>
+                ))}
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+            )}
+          </div>
+
+          <Link
+            to="/and/about"
+            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+          >
+            About
+          </Link>
+
+          <Link
+            to="/and/why-us"
+            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+          >
+            Why Us
+          </Link>
+
+          <Link
+            to="/and/testimonials"
+            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+          >
+            Testimonials
+          </Link>
+
+          <Link
+            to="/and/contact"
+            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+          >
+            Contact
+          </Link>
+
+          <div className="pt-4 border-t border-[#e3e8f0] flex flex-col gap-2.5">
+            <Link
+              to="/and/contact"
+              className="btn-orange w-full text-center"
+            >
+              Talk to us
+            </Link>
+            <a
+              href={`tel:${siteData.brand.rawPhone}`}
+              className="btn-outline w-full text-center"
+            >
+              Call {siteData.brand.phone}
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }
