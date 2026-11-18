@@ -25,7 +25,7 @@ export default function FAQ() {
         </div>
 
         <div className="space-y-3">
-          {siteData.faq.map((item, idx) => {
+          {(siteData.faqs || siteData.faq || []).map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
