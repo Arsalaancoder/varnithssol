@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { siteData } from '../data/siteData';
@@ -14,14 +14,12 @@ export default function Navbar() {
   const trainingTimeout = useRef(null);
   const location = useLocation();
 
-  // Close menus on navigation
-  const [prevPath, setPrevPath] = useState(location.pathname);
-  if (prevPath !== location.pathname) {
-    setPrevPath(location.pathname);
+  // Close menus on route change
+  useEffect(() => {
     setMobileMenuOpen(false);
     setHrDropdownOpen(false);
     setTrainingDropdownOpen(false);
-  }
+  }, [location.pathname]);
 
   const handleHrEnter = () => {
     if (hrTimeout.current) clearTimeout(hrTimeout.current);

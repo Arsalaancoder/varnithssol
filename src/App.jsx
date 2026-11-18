@@ -15,30 +15,34 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Redirect root / to /and */}
-        <Route path="/" element={<Navigate to="/and" replace />} />
-
-        {/* All /and routes wrapped in Shared Layout */}
-        <Route path="/and" element={<Layout />}>
+        {/* Support root path / */}
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="courses" element={<CoursesPage />} />
-          
-          {/* Dedicated Course Routes */}
           <Route path="courses/:slug" element={<CourseDetails />} />
-
-          {/* Dedicated HR Services Routes (Priority 1) */}
           <Route path="hr-services" element={<HRServicesPage />} />
           <Route path="hr-services/:slug" element={<HRServiceDetail />} />
-
-          {/* Other Core Multi-Page Routes */}
           <Route path="why-us" element={<WhyUsPage />} />
           <Route path="testimonials" element={<TestimonialsPage />} />
           <Route path="contact" element={<ContactPage />} />
         </Route>
 
-        {/* Fallback to /and */}
-        <Route path="*" element={<Navigate to="/and" replace />} />
+        {/* Support /and path */}
+        <Route path="/and" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="courses" element={<CoursesPage />} />
+          <Route path="courses/:slug" element={<CourseDetails />} />
+          <Route path="hr-services" element={<HRServicesPage />} />
+          <Route path="hr-services/:slug" element={<HRServiceDetail />} />
+          <Route path="why-us" element={<WhyUsPage />} />
+          <Route path="testimonials" element={<TestimonialsPage />} />
+          <Route path="contact" element={<ContactPage />} />
+        </Route>
+
+        {/* Fallback to / */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
