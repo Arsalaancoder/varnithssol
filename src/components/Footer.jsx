@@ -152,11 +152,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-white transition-colors">
-                  Find a Role (Candidates)
-                </Link>
-              </li>
-              <li>
                 <Link to="/contact" className="hover:text-white transition-colors">
                   Contact & Support
                 </Link>

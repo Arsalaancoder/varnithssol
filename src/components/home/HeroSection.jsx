@@ -35,7 +35,8 @@ export default function HeroSection() {
 
             {/* Main Headline */}
             <h1 className="font-['Familjen_Grotesk'] text-[#0D5C91] text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-medium leading-[1.2] tracking-tight mb-6">
-              We find people Talent Leaders
+              We find people Talent Leaders <br />
+
               We grow skills Careers Confidence
             </h1>
 
@@ -48,15 +49,19 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/hire"
-                className="inline-flex items-center justify-center font-['Familjen_Grotesk'] text-[17px] text-white bg-[#056EB5] hover:bg-[#045992] rounded-full px-7 py-3.5 min-h-[50px] transition-all duration-200 hover:-translate-y-0.5 shadow-xs font-normal"
+                className="relative inline-flex items-center justify-center font-['Familjen_Grotesk'] text-[17px] font-semibold text-white bg-[#056EB5] rounded-full px-7 py-3.5 min-h-[50px] backdrop-blur-md border-2 border-transparent shadow-md shadow-blue-500/20 hover:bg-gradient-to-r hover:from-orange-100/95 hover:via-orange-50 hover:to-orange-100/90 hover:text-[#C2410C] hover:border-orange-300/80 hover:shadow-lg hover:shadow-orange-400/25 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden group cursor-pointer"
               >
-                I'm hiring
+                {/* Glass reflection shimmer */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
+                <span className="relative z-10">I'm hiring</span>
               </Link>
               <Link
                 to="/academy"
-                className="inline-flex items-center justify-center font-['Familjen_Grotesk'] text-[17px] text-white bg-[#269C85] hover:bg-[#1f826f] rounded-full px-7 py-3.5 min-h-[50px] transition-all duration-200 hover:-translate-y-0.5 shadow-xs font-normal"
+                className="relative inline-flex items-center justify-center font-['Familjen_Grotesk'] text-[17px] font-semibold text-white bg-[#269C85] rounded-full px-7 py-3.5 min-h-[50px] backdrop-blur-md border-2 border-transparent shadow-md shadow-emerald-600/20 hover:bg-gradient-to-r hover:from-orange-100/95 hover:via-orange-50 hover:to-orange-100/90 hover:text-[#C2410C] hover:border-orange-300/80 hover:shadow-lg hover:shadow-orange-400/25 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden group cursor-pointer"
               >
-                I want to upskill
+                {/* Glass reflection shimmer */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
+                <span className="relative z-10">I want to upskill</span>
               </Link>
             </div>
           </motion.div>

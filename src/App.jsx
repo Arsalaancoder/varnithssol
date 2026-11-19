@@ -8,7 +8,6 @@ import SAPBasisSecurityPage from './pages/SAPBasisSecurityPage';
 import SAPGRCPage from './pages/SAPGRCPage';
 import CollegeProgrammesPage from './pages/CollegeProgrammesPage';
 import AboutPage from './pages/AboutPage';
-import CareersPage from './pages/CareersPage';
 import IndustriesPage from './pages/IndustriesPage';
 import ContactPage from './pages/ContactPage';
 import ClientLoginPage from './pages/ClientLoginPage';
@@ -29,7 +28,7 @@ export default function App() {
           <Route path="academy/sap-grc" element={<SAPGRCPage />} />
           <Route path="academy/college-programmes" element={<CollegeProgrammesPage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="careers" element={<CareersPage />} />
+          <Route path="careers" element={<Navigate to="/" replace />} />
           <Route path="industries" element={<IndustriesPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="client-login" element={<ClientLoginPage />} />
@@ -44,7 +43,7 @@ export default function App() {
           <Route path="courses/:slug" element={<Navigate to="/academy" replace />} />
           <Route path="hr-services" element={<Navigate to="/hire" replace />} />
           <Route path="hr-services/:slug" element={<Navigate to="/hire" replace />} />
-          <Route path="find-a-role" element={<Navigate to="/careers" replace />} />
+          <Route path="find-a-role" element={<Navigate to="/" replace />} />
           <Route path="who-we-hire-for" element={<Navigate to="/industries" replace />} />
           <Route path="why-us" element={<Navigate to="/about" replace />} />
           <Route path="testimonials" element={<Navigate to="/about" replace />} />
@@ -62,7 +61,7 @@ export default function App() {
           <Route path="academy/sap-grc" element={<SAPGRCPage />} />
           <Route path="academy/college-programmes" element={<CollegeProgrammesPage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="careers" element={<CareersPage />} />
+          <Route path="careers" element={<Navigate to="/" replace />} />
           <Route path="industries" element={<IndustriesPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="client-login" element={<ClientLoginPage />} />

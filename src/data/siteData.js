@@ -27,7 +27,6 @@ export const siteData = {
     { label: "Home", href: "/" },
     { label: "HR Consulting", href: "/hire" },
     { label: "Training & Development", href: "/academy" },
-    { label: "Find a Role", href: "/careers" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" }
   ],

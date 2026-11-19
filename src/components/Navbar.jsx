@@ -194,16 +194,6 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Find a Role */}
-            <Link
-              to="/careers"
-              className={`px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
-                isActive('/careers') ? 'text-[#0A3857] bg-slate-100/70' : 'text-slate-700 hover:text-[#0A3857] hover:bg-slate-50'
-              }`}
-            >
-              Find a Role
-            </Link>
-
             {/* About */}
             <Link
               to="/about"
@@ -274,14 +264,6 @@ export default function Navbar() {
             className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0A3857] border-t border-slate-100 transition-colors"
           >
             Training &amp; Development
-          </Link>
-
-          <Link
-            to="/careers"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0A3857] border-t border-slate-100 transition-colors"
-          >
-            Find a Role
           </Link>
 
           <Link
