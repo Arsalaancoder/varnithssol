@@ -1,266 +1,175 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Briefcase, UserCheck, ShieldCheck, FileCheck, Brain, Server, Shield, GraduationCap, Code2, LineChart, CheckCircle2 } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import { Users, Briefcase, UserCheck, FileCheck, Server, Shield, Cloud, Database } from 'lucide-react';
+import ServiceCard from './ServiceCard';
 
-// All verified offerings specified by client
-const allServicesList = [
-  // HR Consulting Offerings
+const servicesList = [
   {
     id: 'talent-acquisition',
-    category: 'hr',
-    categoryLabel: 'HR Consulting',
-    title: 'Talent Acquisition',
-    shortDesc: 'End-to-end recruitment matching enterprise hiring demands with pre-assessed, high-caliber tech talent in Hyderabad and pan-India.',
+    category: 'TALENT ACQUISITION',
+    title: 'Source top talent',
+    titleMuted: 'with precision vetting',
+    subtitle: 'built directly into',
+    subtitleMuted: 'your tech stack.',
+    description: 'Pre-assessed software engineers evaluated in live cloud sandboxes with a 14-day turnaround SLA.',
     icon: Users,
-    link: '/and/hr-services/recruitment',
-    points: ['Live sandbox technical evaluation', 'Screened shortlists within 48-72h', '90-day replacement guarantee']
+    link: '/and/hr-services/recruitment'
   },
   {
-    id: 'rpo',
-    category: 'hr',
-    categoryLabel: 'HR Consulting',
-    title: 'Recruitment Process Outsourcing',
-    shortDesc: 'Scalable recruitment outsourcing taking over part or all of your talent acquisition lifecycle to reduce cost and time-to-hire.',
+    id: 'hr-consulting',
+    category: 'HR CONSULTING',
+    title: 'Align HR strategy',
+    titleMuted: 'at every growth stage',
+    subtitle: 'with data-backed',
+    subtitleMuted: 'advisory frameworks.',
+    description: 'Compensation benchmarking, org restructuring, and workplace retention roadmaps.',
     icon: Briefcase,
-    link: '/and/hr-services/staffing',
-    points: ['Dedicated recruiter pods', 'ATS workflow integration', 'Transparent SLA & metrics reporting']
+    link: '/and/hr-services/hr-consulting'
   },
   {
-    id: 'executive-hiring',
-    category: 'hr',
-    categoryLabel: 'HR Consulting',
-    title: 'Executive Hiring',
-    shortDesc: 'Discreet search and placement for technology leaders, VP of Engineering, Directors, and senior architectural consultants.',
+    id: 'executive-search',
+    category: 'EXECUTIVE SEARCH',
+    title: 'Secure tech leaders',
+    titleMuted: 'with discreet search',
+    subtitle: 'for VP & Director',
+    subtitleMuted: 'strategic roles.',
+    description: 'Targeted leadership mapping for VP of Engineering, Practice Leads, and Principal Architects.',
     icon: UserCheck,
-    link: '/and/hr-services/recruitment',
-    points: ['Confidential leadership mapping', 'Deep technical competency audits', 'Executive offer negotiation']
+    link: '/and/hr-services/recruitment'
   },
   {
     id: 'contract-staffing',
-    category: 'hr',
-    categoryLabel: 'HR Consulting',
-    title: 'Contract Staffing',
-    shortDesc: 'Flexible contingent and contract-to-hire tech talent with direct payroll, statutory compliance, and onboarding coverage.',
+    category: 'CONTRACT STAFFING',
+    title: 'Scale flexible teams',
+    titleMuted: 'with fast deployment',
+    subtitle: 'and full statutory',
+    subtitleMuted: 'payroll coverage.',
+    description: 'Contract-to-hire tech talent with 72-hour onboarding, PF/ESI compliance, and replacement assurance.',
     icon: FileCheck,
-    link: '/and/hr-services/staffing',
-    points: ['Rapid 72-hour deployment window', '100% PF/ESI/statutory compliance', 'Contract-to-hire flexibility']
+    link: '/and/hr-services/staffing'
   },
-  {
-    id: 'hr-advisory',
-    category: 'hr',
-    categoryLabel: 'HR Consulting',
-    title: 'HR Advisory & Strategy',
-    shortDesc: 'Strategic guidance on organization structure, compensation benchmarking, retention frameworks, and performance metrics.',
-    icon: Brain,
-    link: '/and/hr-services/hr-consulting',
-    points: ['Compensation & salary banding', 'Workplace culture assessments', 'Retention & succession roadmaps']
-  },
-  {
-    id: 'talent-intelligence',
-    category: 'hr',
-    categoryLabel: 'HR Consulting',
-    title: 'Talent Intelligence & Workforce Planning',
-    shortDesc: 'Data-driven talent mapping, market salary insights, and competitive availability reports across Tier-1 tech ecosystems.',
-    icon: LineChart,
-    link: '/and/hr-services/workforce-management',
-    points: ['Tech ecosystem talent mapping', 'Real-time compensation analytics', 'Capacity & demand forecasting']
-  },
-
-  // Training & Development Offerings
   {
     id: 'sap-basis-security',
-    category: 'training',
-    categoryLabel: 'Training & Development',
-    title: 'SAP Basis Security',
-    shortDesc: 'Hands-on enterprise SAP Basis administration, system architecture, role design, client copies, and kernel management.',
+    category: 'SAP BASIS SECURITY',
+    title: 'Master ERP systems',
+    titleMuted: 'with SU01 & PFCG',
+    subtitle: 'authorizations in',
+    subtitleMuted: 'live cloud labs.',
+    description: 'Enterprise SAP Basis administration, TMS transports, kernel updates, and audit hardening.',
     icon: Server,
-    link: '/and/courses/sap-basis-security',
-    points: ['Live SAP NetWeaver sandbox labs', 'Authorizations & SU01/PFCG workflows', 'Transport Management System (TMS)']
+    link: '/and/courses/sap-basis-security'
   },
   {
     id: 'sap-grc',
-    category: 'training',
-    categoryLabel: 'Training & Development',
-    title: 'SAP GRC & Access Control',
-    shortDesc: 'Master SAP Governance, Risk, and Compliance (GRC 12.0/10.1) Access Control (ARA, ARM, EAM/Firefighter, and BRM).',
+    category: 'SAP GRC 12.0',
+    title: 'Enforce compliance',
+    titleMuted: 'with ARA rulesets',
+    subtitle: 'and Firefighter EAM',
+    subtitleMuted: 'audit controls.',
+    description: 'Segregation of Duties (SoD) matrices, ARM provisioning workflows, and emergency access.',
     icon: Shield,
-    link: '/and/courses/sap-grc',
-    points: ['Segregation of Duties (SoD) matrices', 'Firefighter / Emergency access config', 'Audit readiness & remediation workflows']
+    link: '/and/courses/sap-grc'
   },
   {
-    id: 'college-engagements',
-    category: 'training',
-    categoryLabel: 'Training & Development',
-    title: 'College Engagements & Campus Drives',
-    shortDesc: 'Collaborative programs partnering with universities and colleges for specialized technical training and campus placement drives.',
-    icon: GraduationCap,
-    link: '/and/courses',
-    points: ['Curriculum alignment with IT industry', 'Faculty development programs (FDP)', 'Structured campus placement drives']
+    id: 'devops',
+    category: 'CLOUD & DEVOPS',
+    title: 'Automate delivery',
+    titleMuted: 'with CI/CD pipelines',
+    subtitle: 'and Kubernetes',
+    subtitleMuted: 'orchestrations.',
+    description: 'Docker containers, Terraform infrastructure as code, AWS cloud architectures, and monitoring.',
+    icon: Cloud,
+    link: '/and/courses/devops'
   },
   {
-    id: 'devops-cloud',
-    category: 'training',
-    categoryLabel: 'Training & Development',
-    title: 'Technology Training: DevOps & Cloud',
-    shortDesc: 'Production-grade CI/CD pipelines, Docker containers, Kubernetes orchestration, and AWS cloud infrastructure automation.',
-    icon: Code2,
-    link: '/and/courses/devops',
-    points: ['Jenkins & GitHub Actions CI/CD', 'Terraform & Infrastructure-as-Code', 'AWS Cloud Architecture & Kubernetes']
-  },
-  {
-    id: 'career-development',
-    category: 'training',
-    categoryLabel: 'Training & Development',
-    title: 'Career Development & QA Engineering',
-    shortDesc: 'Comprehensive manual, automation, and API testing tracks paired with resume engineering and mock technical interviews.',
-    icon: ShieldCheck,
-    link: '/and/courses/testing',
-    points: ['Selenium WebDriver & Postman automation', 'Resume architecture & GitHub profiles', 'Direct interview referrals']
+    id: 'data-analytics',
+    category: 'DATA ANALYTICS',
+    title: 'Drive actionable insights',
+    titleMuted: 'with Power BI dashboards',
+    subtitle: 'and scalable SQL',
+    subtitleMuted: 'ETL pipelines.',
+    description: 'Business intelligence modeling, automated reporting, and enterprise data warehousing.',
+    icon: Database,
+    link: '/and/courses'
   }
 ];
 
 export default function HRServices() {
   const [activeTab, setActiveTab] = useState('all');
 
-  const filteredServices = activeTab === 'all'
-    ? allServicesList
-    : allServicesList.filter(s => s.category === activeTab);
+  const filtered = activeTab === 'all'
+    ? servicesList
+    : activeTab === 'hr'
+      ? servicesList.filter(s => s.category.includes('TALENT') || s.category.includes('HR') || s.category.includes('EXECUTIVE') || s.category.includes('STAFFING'))
+      : servicesList.filter(s => s.category.includes('SAP') || s.category.includes('CLOUD') || s.category.includes('DATA'));
 
   return (
-    <section id="services" className="bg-white py-16 sm:py-20 lg:py-24 border-b border-[#E5E7EB]">
+    <section id="services" className="bg-[#F8F9FA] py-16 sm:py-20 lg:py-24 border-b border-[#EAEAEA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header matching Template: Business Shaped Solutions */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-[#00A859] uppercase">
-              OUR SERVICE OFFERINGS
-            </span>
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-          </div>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <span className="text-xs font-bold text-[#00A859] uppercase tracking-widest block">
+            OUR BUSINESS OFFERINGS
+          </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#16191D] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#261C4E] tracking-tight">
             Business <span className="text-[#00A859]">Shaped</span> Solutions
           </h2>
 
-          <p className="text-base sm:text-lg text-[#5E6874] leading-relaxed">
-            From strategic talent sourcing and leadership hiring to practical technology training, we help organizations build and scale high-performing technical teams.
+          <p className="text-xs sm:text-sm text-[#666F7B] leading-relaxed pt-1">
+            Explore our specialized talent acquisition, workforce consulting, and enterprise technical training practices.
           </p>
 
-          {/* Clean Category Filter Tabs matching Template */}
-          <div className="inline-flex p-1 bg-[#F8F9FA] border border-[#E5E7EB] rounded-lg mt-6">
+          {/* Simple Clean Tabs */}
+          <div className="pt-4 flex items-center justify-center gap-2">
             <button
               onClick={() => setActiveTab('all')}
-              className={`px-5 py-2 text-xs sm:text-sm font-semibold rounded-md transition-all cursor-pointer ${
+              className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                 activeTab === 'all'
                   ? 'bg-[#00A859] text-white shadow-xs'
-                  : 'text-[#5E6874] hover:text-[#16191D]'
+                  : 'bg-white border border-slate-200 text-[#261C4E] hover:text-[#00A859]'
               }`}
             >
-              All Solutions ({allServicesList.length})
+              All Services
             </button>
             <button
               onClick={() => setActiveTab('hr')}
-              className={`px-5 py-2 text-xs sm:text-sm font-semibold rounded-md transition-all cursor-pointer ${
+              className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                 activeTab === 'hr'
                   ? 'bg-[#00A859] text-white shadow-xs'
-                  : 'text-[#5E6874] hover:text-[#16191D]'
+                  : 'bg-white border border-slate-200 text-[#261C4E] hover:text-[#00A859]'
               }`}
             >
-              HR Consulting (6)
+              HR Consulting
             </button>
             <button
               onClick={() => setActiveTab('training')}
-              className={`px-5 py-2 text-xs sm:text-sm font-semibold rounded-md transition-all cursor-pointer ${
+              className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                 activeTab === 'training'
                   ? 'bg-[#00A859] text-white shadow-xs'
-                  : 'text-[#5E6874] hover:text-[#16191D]'
+                  : 'bg-white border border-slate-200 text-[#261C4E] hover:text-[#00A859]'
               }`}
             >
-              Training & Development (5)
+              IT Training
             </button>
           </div>
         </div>
 
-        {/* Clean Service Cards Grid matching Template */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredServices.map((service) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={service.id}
-                className="bg-white border border-[#E5E7EB] rounded-xl p-6 sm:p-7 hover:border-[#00A859] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group relative"
-              >
-                {/* Top subtle green accent line on hover */}
-                <div className="absolute top-0 left-6 right-6 h-0.5 bg-[#00A859] opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
-
-                <div className="space-y-4">
-                  {/* Category Pill and Icon */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-lg bg-[#EAF7EE] text-[#00A859] group-hover:bg-[#00A859] group-hover:text-white transition-colors flex items-center justify-center">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[11px] font-bold text-[#5E6874] uppercase tracking-wider bg-[#F8F9FA] px-2.5 py-1 rounded border border-[#E5E7EB]">
-                      {service.categoryLabel}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-[#16191D] group-hover:text-[#00A859] transition-colors">
-                    {service.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-[#5E6874] leading-relaxed line-clamp-3">
-                    {service.shortDesc}
-                  </p>
-
-                  {/* Inclusions list */}
-                  <ul className="space-y-2 pt-3 border-t border-[#E5E7EB] text-xs text-[#16191D]">
-                    {service.points.map((pt, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00A859] shrink-0 mt-0.5" />
-                        <span className="text-[#5E6874]">{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Bottom Read More Action Link */}
-                <div className="pt-5 mt-5 border-t border-[#E5E7EB]">
-                  <Link
-                    to={service.link}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#00A859] group-hover:text-[#008F4C] transition-colors"
-                  >
-                    <span>Read More</span>
-                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Section Bottom Banner Note */}
-        <div className="mt-12 bg-[#F8F9FA] border border-[#E5E7EB] rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center md:text-left">
-            <h4 className="text-base font-bold text-[#16191D]">
-              Looking for a custom hiring package or corporate batch training?
-            </h4>
-            <p className="text-xs sm:text-sm text-[#5E6874]">
-              Speak directly with our technical staffing leads in Madhapur, Hyderabad.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <Link to="/and/contact" className="btn-green text-xs px-5 py-2.5">
-              Talk to Our Team
-            </Link>
-            <a href={`tel:${siteData.brand.rawPhone}`} className="btn-outline text-xs px-5 py-2.5">
-              Call {siteData.brand.phone}
-            </a>
-          </div>
+        {/* 4-Column Clean Grid matching Reference Image */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filtered.map((service) => (
+            <ServiceCard
+              key={service.id}
+              icon={service.icon}
+              category={service.category}
+              title={service.title}
+              titleMuted={service.titleMuted}
+              subtitle={service.subtitle}
+              subtitleMuted={service.subtitleMuted}
+              description={service.description}
+              link={service.link}
+            />
+          ))}
         </div>
 
       </div>

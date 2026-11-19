@@ -37,7 +37,8 @@ export default {
         body: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       maxWidth: {
-        'canvas': '1440px',
+        canvas: '1440px',
+        container: '1280px',
       },
       borderRadius: {
         'sm': '4px',
@@ -51,6 +52,15 @@ export default {
         'card': '0 2px 8px -2px rgba(16, 24, 40, 0.06), 0 1px 4px -1px rgba(16, 24, 40, 0.04)',
         'card-hover': '0 12px 24px -6px rgba(0, 168, 89, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.06)',
       },
+      animation: {
+        marquee: 'marquee var(--duration, 40s) linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap, 1rem)))' }
+        }
+      }
     },
   },
   plugins: [],

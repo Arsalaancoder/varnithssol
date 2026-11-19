@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { siteData } from '../data/siteData';
-import { Clock, BarChart3, Award, Send, CheckCircle2, ArrowRight, ShieldCheck, FileText, Calendar } from 'lucide-react';
+import { Clock, BarChart3, Award, CheckCircle2 } from 'lucide-react';
 import InnerPageLayout from '../components/InnerPageLayout';
 
 export default function CourseDetails() {

@@ -51,42 +51,42 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[#E5E7EB] shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-18">
           
           {/* Left: Varnith Technologies Logo */}
-          <Link to="/and" className="flex items-center shrink-0 py-2">
+          <Link to="/and" className="flex items-center shrink-0 py-1.5">
             <img
               src="/assets/varnith-logo-ref.svg"
               alt="Varnith Technologies Private Limited"
-              className="h-9 sm:h-10 w-auto"
+              className="h-8 sm:h-9 w-auto"
             />
           </Link>
 
-          {/* Center: Desktop Navigation Links matching Template */}
-          <nav className="hidden lg:flex items-center space-x-7">
+          {/* Center: Desktop Navigation Links matching Acuvic */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {/* Home */}
             <Link
               to="/and"
-              className={`text-[15px] font-semibold transition-colors py-2 relative ${
-                isActive('/and') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
+              className={`text-[13px] xl:text-sm font-bold transition-colors py-2 relative ${
+                isActive('/and') ? 'text-[#00A859]' : 'text-[#261C4E] hover:text-[#00A859]'
               }`}
             >
               <span>Home</span>
               {isActive('/and') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859]" />
               )}
             </Link>
 
             {/* About */}
             <Link
               to="/and/about"
-              className={`text-[15px] font-semibold transition-colors py-2 relative ${
-                isActive('/and/about') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
+              className={`text-[13px] xl:text-sm font-bold transition-colors py-2 relative ${
+                isActive('/and/about') ? 'text-[#00A859]' : 'text-[#261C4E] hover:text-[#00A859]'
               }`}
             >
               <span>About</span>
               {isActive('/and/about') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859]" />
               )}
             </Link>
 
@@ -98,14 +98,14 @@ export default function Navbar() {
             >
               <Link
                 to="/and/hr-services"
-                className={`inline-flex items-center gap-1.5 text-[15px] font-semibold transition-colors py-2 relative ${
-                  isActive('/and/hr-services') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
+                className={`inline-flex items-center gap-1 text-[13px] xl:text-sm font-bold transition-colors py-2 relative ${
+                  isActive('/and/hr-services') ? 'text-[#00A859]' : 'text-[#261C4E] hover:text-[#00A859]'
                 }`}
               >
                 <span>HR Consulting</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${hrDropdownOpen ? 'rotate-180 text-[#00A859]' : 'text-[#5E6874]'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${hrDropdownOpen ? 'rotate-180 text-[#00A859]' : 'text-[#5E6874]'}`} />
                 {isActive('/and/hr-services') && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859]" />
                 )}
               </Link>
 
@@ -145,14 +145,14 @@ export default function Navbar() {
             >
               <Link
                 to="/and/courses"
-                className={`inline-flex items-center gap-1.5 text-[15px] font-semibold transition-colors py-2 relative ${
-                  isActive('/and/courses') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
+                className={`inline-flex items-center gap-1 text-[13px] xl:text-sm font-bold transition-colors py-2 relative ${
+                  isActive('/and/courses') ? 'text-[#00A859]' : 'text-[#261C4E] hover:text-[#00A859]'
                 }`}
               >
                 <span>Training & Development</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${trainingDropdownOpen ? 'rotate-180 text-[#00A859]' : 'text-[#5E6874]'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${trainingDropdownOpen ? 'rotate-180 text-[#00A859]' : 'text-[#5E6874]'}`} />
                 {isActive('/and/courses') && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859]" />
                 )}
               </Link>
 
@@ -187,35 +187,35 @@ export default function Navbar() {
             {/* Find a Role (or Why Us) */}
             <Link
               to="/and/why-us"
-              className={`text-[15px] font-semibold transition-colors py-2 relative ${
-                isActive('/and/why-us') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
+              className={`text-[13px] xl:text-sm font-bold transition-colors py-2 relative ${
+                isActive('/and/why-us') ? 'text-[#00A859]' : 'text-[#261C4E] hover:text-[#00A859]'
               }`}
             >
               <span>Why Us</span>
               {isActive('/and/why-us') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859]" />
               )}
             </Link>
 
             {/* Contact */}
             <Link
               to="/and/contact"
-              className={`text-[15px] font-semibold transition-colors py-2 relative ${
-                isActive('/and/contact') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
+              className={`text-[13px] xl:text-sm font-bold transition-colors py-2 relative ${
+                isActive('/and/contact') ? 'text-[#00A859]' : 'text-[#261C4E] hover:text-[#00A859]'
               }`}
             >
               <span>Contact</span>
               {isActive('/and/contact') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859]" />
               )}
             </Link>
           </nav>
 
           {/* Right Action Buttons matching Template: Client Login + Talk to Us */}
-          <div className="hidden lg:flex items-center space-x-5">
+          <div className="hidden lg:flex items-center space-x-4">
             <Link
               to="/and/contact"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5E6874] hover:text-[#00A859] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5E6874] hover:text-[#00A859] transition-colors"
             >
               <User className="w-3.5 h-3.5" />
               <span>Client Login</span>
@@ -223,7 +223,7 @@ export default function Navbar() {
 
             <Link
               to="/and/contact"
-              className="btn-green"
+              className="bg-[#00A859] hover:bg-[#008F4C] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-sm transition-colors shadow-xs"
             >
               Talk to Us
             </Link>

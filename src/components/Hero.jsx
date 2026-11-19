@@ -1,47 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, ShieldCheck, Users } from 'lucide-react';
+import { ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const heroSlides = [
   {
     id: 1,
-    tagline: "EASY SOLUTION FOR HR CONSULTING",
-    heading: "We find people. Talent. Leaders. We grow skills. Careers. Confidence.",
-    description: "Behind every good team is a good hire, and behind every good career is the right skill. We help software organisations find their people, and help people build the skills to grow.",
-    primaryBtn: { text: "I'm Hiring", link: "/and/hr-services" },
-    secondaryBtn: { text: "I Want to Upskill", link: "/and/courses" },
-    image: "/assets/hr_carousel_1.jpg",
-    badgeNumber: "100%",
-    badgeLabel: "Pre-screened In Live Labs"
+    tagline: "WELCOME TO THE BEST SOLUTION",
+    titleStart: "Easy Solution",
+    titleHighlight: "For HR Consulting",
+    description: "The right leadership and talent you can get with us. Expand capabilities for your business growth. We help software organisations find exceptional talent and professionals build career-defining skills.",
+    primaryBtn: { text: "Explore More", link: "/and/hr-services" },
+    secondaryBtn: { text: "How We Work", link: "/and/about" }
   },
   {
     id: 2,
-    tagline: "BUSINESS SHAPED WORKFORCE SOLUTIONS",
-    heading: "Build Strong Teams. Shape Better Futures.",
-    description: "Empowering businesses through strategic talent acquisition, executive search, and workforce management with transparent 14-day turnaround SLAs.",
-    primaryBtn: { text: "Explore HR Services", link: "/and/hr-services" },
-    secondaryBtn: { text: "Consult With Us", link: "/and/contact" },
-    image: "/assets/hr_carousel_2.jpg",
-    badgeNumber: "< 14 Days",
-    badgeLabel: "Average Sourcing Turnaround"
+    tagline: "EMPOWERING PEOPLE & BUSINESSES",
+    titleStart: "We Find People.",
+    titleHighlight: "We Grow Skills.",
+    description: "Behind every high-performing team is a verified hire, and behind every good career is real technical depth. Sourcing pre-screened talent with a guaranteed 14-day delivery SLA.",
+    primaryBtn: { text: "Find Talent", link: "/and/hr-services" },
+    secondaryBtn: { text: "Our Methodology", link: "/and/about" }
   },
   {
     id: 3,
-    tagline: "INDUSTRY-FOCUSED IT TRAINING DIVISION",
-    heading: "Bridging Practical Labs & Enterprise Standards.",
-    description: "Hands-on technical upskilling in SAP Basis Security, SAP GRC, DevOps, and Data Analytics taught by senior industry practitioners in Hyderabad.",
+    tagline: "ENTERPRISE TECHNICAL TRAINING",
+    titleStart: "Bridging Practical Labs",
+    titleHighlight: "& Industry Standards",
+    description: "Hands-on ERP, Cloud and Data upskilling taught by active software practitioners in Madhapur, Hyderabad. 80% practical immersion with real live system access.",
     primaryBtn: { text: "Explore Courses", link: "/and/courses" },
-    secondaryBtn: { text: "Download Syllabus", link: "/and/contact" },
-    image: "/assets/hr_carousel_3.jpg",
-    badgeNumber: "80%",
-    badgeLabel: "Hands-on Practical Labs"
+    secondaryBtn: { text: "View Lab Curriculum", link: "/and/courses" }
   }
 ];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-advance slides every 7 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -49,62 +42,74 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
 
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="relative bg-white py-12 sm:py-16 lg:py-20 overflow-hidden border-b border-[#E5E7EB]">
-      {/* Background Decorative Accents matching Template Reference */}
-      <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none opacity-40 hidden lg:block overflow-hidden">
-        {/* Soft geometric green facet triangles */}
+    <section className="relative w-full bg-[#F7F9FB] overflow-hidden border-b border-[#EAEAEA] min-h-[560px] lg:min-h-[640px] flex items-center">
+      {/* Background photographic texture overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none mix-blend-multiply"
+        style={{ backgroundImage: `url('/assets/hero_bg.jpg')` }}
+      />
+
+      {/* Acuvic Geometric Faceted Origami Triangles on Right Edge */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none hidden lg:block overflow-hidden z-0">
         <svg
-          className="absolute right-0 top-0 h-full w-auto text-[#EAF7EE]"
-          viewBox="0 0 500 600"
+          className="absolute right-0 top-0 h-full w-[600px] text-[#00A859]"
+          viewBox="0 0 600 700"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M500 0L300 200L500 450V0Z" fill="currentColor" fillOpacity="0.7" />
-          <path d="M450 150L250 350L450 550V150Z" fill="#00A859" fillOpacity="0.08" />
-          <path d="M500 350L350 500L500 600V350Z" fill="currentColor" fillOpacity="0.5" />
+          {/* Main green geometric facet */}
+          <polygon points="450,0 600,0 600,320 380,180" fill="#00A859" fillOpacity="0.85" />
+          {/* Dark blue / deep purple facet */}
+          <polygon points="600,320 600,580 480,480 380,180" fill="#261C4E" fillOpacity="0.9" />
+          {/* Light teal facet */}
+          <polygon points="480,480 600,580 600,700 360,650" fill="#10B981" fillOpacity="0.75" />
+          {/* Accent small facets */}
+          <polygon points="320,240 380,180 480,480 340,380" fill="#008F4C" fillOpacity="0.4" />
+          <polygon points="520,80 600,160 580,260" fill="#FFFFFF" fillOpacity="0.2" />
+          {/* Subtle grid lines */}
+          <line x1="380" y1="180" x2="600" y2="320" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.4" />
+          <line x1="480" y1="480" x2="380" y2="180" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.3" />
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-12 lg:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
           
-          {/* Left Column: Text Content */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Left Column: Left-aligned content matching Acuvic */}
+          <div className="lg:col-span-7 space-y-6 pt-4 lg:pt-0">
             
             {/* Template-style small green tag */}
-            <div className="inline-flex items-center gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/80 border border-slate-200/60 rounded-full shadow-xs">
               <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-              <span className="text-xs sm:text-sm font-bold tracking-wider text-[#00A859] uppercase">
+              <span className="text-[11px] sm:text-xs font-bold tracking-widest text-[#00A859] uppercase">
                 {slide.tagline}
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-3xl sm:text-5xl lg:text-[50px] font-bold text-[#16191D] leading-[1.18] tracking-tight transition-all duration-300">
-              {slide.heading}
+            {/* Acuvic Dark Purple Heading */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#261C4E] leading-[1.14] tracking-tight">
+              {slide.titleStart}{' '}
+              <span className="block text-[#00A859] mt-1 sm:mt-2">
+                {slide.titleHighlight}
+              </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-base sm:text-lg text-[#5E6874] leading-relaxed max-w-xl transition-all duration-300">
+            {/* Supporting Description */}
+            <p className="text-sm sm:text-base lg:text-lg text-[#5E6874] leading-relaxed max-w-xl">
               {slide.description}
             </p>
 
-            {/* Simple rectangular CTA buttons matching Template */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Acuvic CTA Buttons: Green Rectangular Explore More + Play-circle How We Work */}
+            <div className="flex flex-wrap items-center gap-4 pt-3">
               <Link
                 to={slide.primaryBtn.link}
-                className="btn-green text-sm px-7 py-3 rounded-md font-semibold"
+                className="bg-[#00A859] hover:bg-[#008F4C] text-white text-sm font-bold px-7 py-3 rounded-sm shadow-sm transition-all duration-200 inline-flex items-center gap-2 cursor-pointer"
               >
                 <span>{slide.primaryBtn.text}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -112,59 +117,46 @@ export default function Hero() {
 
               <Link
                 to={slide.secondaryBtn.link}
-                className="btn-outline text-sm px-7 py-3 rounded-md font-semibold"
+                className="inline-flex items-center gap-3 text-sm font-bold text-[#261C4E] hover:text-[#00A859] px-4 py-3 transition-colors cursor-pointer group"
               >
+                <div className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#00A859] group-hover:bg-[#00A859] group-hover:text-white group-hover:border-[#00A859] transition-all">
+                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                </div>
                 <span>{slide.secondaryBtn.text}</span>
               </Link>
             </div>
 
-            {/* Trust highlights under buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-6 text-xs text-[#5E6874] font-medium border-t border-[#E5E7EB]">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#00A859]" />
-                <span>Single Point of Contact</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#00A859]" />
-                <span>Screened Shortlists Only</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#00A859]" />
-                <span>Enterprise SLA Guaranteed</span>
-              </div>
-            </div>
-
             {/* Slider Navigation Controls matching Template */}
-            <div className="flex items-center gap-4 pt-4">
-              <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-4 pt-6 border-t border-slate-200/80">
+              <div className="flex items-center space-x-1.5">
                 {heroSlides.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentSlide(idx)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      currentSlide === idx ? 'w-8 bg-[#00A859]' : 'w-2.5 bg-[#E5E7EB] hover:bg-gray-300'
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      currentSlide === idx ? 'w-7 bg-[#00A859]' : 'w-2 bg-slate-300 hover:bg-slate-400'
                     }`}
                     aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
               </div>
 
-              <div className="flex items-center space-x-1 pl-4 border-l border-[#E5E7EB]">
+              <div className="flex items-center space-x-1 pl-4 border-l border-slate-300">
                 <button
                   onClick={prevSlide}
-                  className="p-1.5 rounded border border-[#E5E7EB] bg-white text-[#16191D] hover:bg-[#EAF7EE] hover:text-[#00A859] hover:border-[#00A859] transition-colors"
+                  className="p-1.5 rounded-sm border border-slate-200 bg-white text-[#261C4E] hover:bg-[#00A859] hover:text-white hover:border-[#00A859] transition-colors cursor-pointer"
                   aria-label="Previous slide"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="p-1.5 rounded border border-[#E5E7EB] bg-white text-[#16191D] hover:bg-[#EAF7EE] hover:text-[#00A859] hover:border-[#00A859] transition-colors"
+                  className="p-1.5 rounded-sm border border-slate-200 bg-white text-[#261C4E] hover:bg-[#00A859] hover:text-white hover:border-[#00A859] transition-colors cursor-pointer"
                   aria-label="Next slide"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
-                <span className="text-xs font-semibold text-[#5E6874] ml-2">
+                <span className="text-xs font-bold text-[#64748B] ml-2">
                   0{currentSlide + 1} / 0{heroSlides.length}
                 </span>
               </div>
@@ -172,39 +164,23 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: Hero Image with Geometric Green Polygon Background */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            
-            {/* Green geometric accent polygon matching Acuvic template screenshot */}
-            <div className="relative w-full max-w-lg aspect-4/3 sm:aspect-square">
+          {/* Right Column: Standing Business Executive Cutout matching Acuvic Reference */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end self-end pt-6 lg:pt-0">
+            <div className="relative w-full max-w-[420px] lg:max-w-[480px]">
               
-              {/* Decorative geometric green angular shape backdrop */}
-              <div className="absolute -top-4 -right-4 w-full h-full bg-[#EAF7EE] rounded-2xl transform rotate-1 pointer-events-none" />
-              <div className="absolute top-2 -left-3 w-28 h-28 bg-[#00A859]/10 rounded-xl transform -rotate-6 pointer-events-none" />
-              
-              {/* Main Photograph Container */}
-              <div className="relative z-10 w-full h-full rounded-xl overflow-hidden border border-[#E5E7EB] shadow-card bg-white">
-                <img
-                  src={slide.image}
-                  alt={slide.heading}
-                  className="w-full h-full object-cover object-center transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#16191D]/30 via-transparent to-transparent pointer-events-none" />
-              </div>
+              {/* Soft glow circle behind person */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white/70 rounded-full blur-2xl pointer-events-none" />
 
-              {/* Overlapping Floating Metric Badge matching Template */}
-              <div className="absolute -bottom-5 -left-4 z-20 bg-white border border-[#E5E7EB] rounded-lg p-4 shadow-card-hover flex items-center gap-3">
-                <div className="w-11 h-11 rounded-md bg-[#00A859] text-white flex items-center justify-center font-bold text-sm shrink-0">
-                  {slide.badgeNumber}
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-[#16191D]">Verified Track Record</div>
-                  <div className="text-[11px] text-[#5E6874]">{slide.badgeLabel}</div>
-                </div>
+              {/* Standing Cutout Corporate Executive holding tablet */}
+              <div className="relative z-10 flex justify-center items-end">
+                <img
+                  src="/assets/acuvic_hero_person.jpg"
+                  alt="Varnith Corporate Executive"
+                  className="w-full h-auto max-h-[520px] object-contain drop-shadow-2xl"
+                />
               </div>
 
             </div>
-
           </div>
 
         </div>

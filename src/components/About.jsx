@@ -1,12 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Award, Briefcase, GraduationCap } from 'lucide-react';
-import { siteData } from '../data/siteData';
+import { ArrowRight, CheckCircle2, Award } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#F8F9FA] py-16 sm:py-20 lg:py-24 border-b border-[#E5E7EB]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="bg-[#F8F9FA] py-16 sm:py-20 lg:py-24 border-b border-[#E5E7EB] relative overflow-hidden">
+      {/* Decorative circular doodle curve across background matching Acuvic */}
+      <svg
+        className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[400px] pointer-events-none opacity-20 hidden md:block"
+        viewBox="0 0 1440 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M-50 200 C 200 80, 350 320, 600 200 C 850 80, 1000 340, 1250 180 C 1380 90, 1450 150, 1500 220"
+          stroke="#00A859"
+          strokeWidth="1.5"
+          strokeDasharray="6 6"
+        />
+        <circle cx="600" cy="200" r="40" stroke="#00A859" strokeWidth="1" fill="none" opacity="0.4" />
+        <circle cx="1000" cy="340" r="25" stroke="#261C4E" strokeWidth="1" fill="none" opacity="0.3" />
+      </svg>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Image with Overlapping Green Statistics Card matching Template */}
@@ -57,14 +73,14 @@ export default function About() {
               </span>
             </div>
 
-            {/* Main Welcome Heading */}
-            <h2 className="text-2xl sm:text-4xl font-bold text-[#16191D] tracking-tight leading-tight">
-              Bridging Strategic HR Consulting & Enterprise Technical Training
+            {/* Main Welcome Heading matching Acuvic */}
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#261C4E] tracking-tight leading-tight">
+              Bridging Strategic <span className="text-[#00A859]">HR Consulting</span> & Workforce Solutions
             </h2>
 
             {/* Narrative using existing website content */}
             <p className="text-base text-[#5E6874] leading-relaxed">
-              Based in Madhapur, Hyderabad, <strong className="text-[#16191D]">Varnith Technologies Private Limited</strong> is a dual-practice consultancy. We help fast-growing software companies source pre-screened technical and leadership talent, while empowering professionals through rigorous, industry-aligned training programs.
+              Based in Madhapur, Hyderabad, <strong className="text-[#261C4E]">Varnith Technologies Private Limited</strong> is a dual-practice consultancy. We help fast-growing software companies source pre-screened technical and leadership talent, while empowering professionals through rigorous, industry-aligned training programs.
             </p>
 
             <p className="text-base text-[#5E6874] leading-relaxed">
@@ -76,7 +92,7 @@ export default function About() {
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-[#16191D]">Screened Shortlists Only</h4>
+                  <h4 className="text-sm font-bold text-[#261C4E]">Screened Shortlists Only</h4>
                   <p className="text-xs text-[#5E6874]">Candidates assessed in live sandboxes, not just resumes.</p>
                 </div>
               </div>
@@ -84,7 +100,7 @@ export default function About() {
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-[#16191D]">14-Day Delivery SLA</h4>
+                  <h4 className="text-sm font-bold text-[#261C4E]">14-Day Delivery SLA</h4>
                   <p className="text-xs text-[#5E6874]">Rapid hiring turnaround for critical tech roles.</p>
                 </div>
               </div>
@@ -92,7 +108,7 @@ export default function About() {
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-[#16191D]">Hands-On IT Labs</h4>
+                  <h4 className="text-sm font-bold text-[#261C4E]">Hands-On IT Labs</h4>
                   <p className="text-xs text-[#5E6874]">80% practical immersion with real enterprise systems.</p>
                 </div>
               </div>
@@ -100,7 +116,7 @@ export default function About() {
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-[#16191D]">Dedicated Lead Support</h4>
+                  <h4 className="text-sm font-bold text-[#261C4E]">Dedicated Lead Support</h4>
                   <p className="text-xs text-[#5E6874]">One single point of contact without chasing.</p>
                 </div>
               </div>
@@ -112,7 +128,7 @@ export default function About() {
                 to="/and/about"
                 className="btn-green text-sm px-6 py-2.5"
               >
-                <span>About Our Agency</span>
+                <span>Learn More</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 

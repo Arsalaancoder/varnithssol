@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { siteData } from '../data/siteData';
-import { CheckCircle2, ArrowRight, ShieldCheck, Clock, Award, Users } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import InnerPageLayout from '../components/InnerPageLayout';
 
 export default function HRServicesPage() {

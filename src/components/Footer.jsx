@@ -1,24 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
 import { siteData } from '../data/siteData';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    const existing = JSON.parse(localStorage.getItem('varnith_newsletter') || '[]');
-    existing.push({ email, date: new Date().toISOString() });
-    localStorage.setItem('varnith_newsletter', JSON.stringify(existing));
-    setSubscribed(true);
-    setEmail('');
-  };
-
   return (
     <footer className="bg-[#16191D] text-white pt-16 pb-8 border-t border-[#2A3036]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">

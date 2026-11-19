@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import StatisticsBanner from '../components/StatisticsBanner';
 import HRServices from '../components/HRServices';
 import LearningJourney from '../components/LearningJourney';
 import WhoWeHireFor from '../components/WhoWeHireFor';
@@ -19,28 +20,31 @@ export default function Home() {
       {/* 02. Welcome / About Section with Overlapping Green Statistics Card */}
       <About />
 
-      {/* 03. Business Shaped Solutions — Comprehensive Service Offerings */}
+      {/* 03. Acuvic Full-Width Corporate Green Statistics Banner */}
+      <StatisticsBanner />
+
+      {/* 04. Business Shaped Solutions — Comprehensive Service Offerings */}
       <HRServices />
 
-      {/* 04. How We Hire — 8-Stage Recruitment Methodology */}
+      {/* 05. How We Hire — 8-Stage Recruitment Methodology */}
       <LearningJourney />
 
-      {/* 05. Who We Hire For — 6 Enterprise Technical Specializations */}
+      {/* 06. Who We Hire For — 6 Enterprise Technical Specializations */}
       <WhoWeHireFor />
 
-      {/* 06. Why Choose Varnith — 4 Core Commitments & Verified SLAs */}
+      {/* 07. Why Choose Varnith — 4 Core Commitments & Verified SLAs */}
       <WhyChooseUs />
 
-      {/* 07. Enterprise Training CTA — SAP Security, GRC & College Engagements */}
+      {/* 08. Enterprise Training CTA — SAP Security, GRC & College Engagements */}
       <CTASection />
 
-      {/* 08. Client & Alumni Testimonials */}
+      {/* 09. Client & Alumni Testimonials */}
       <Testimonials />
 
-      {/* 09. Frequently Asked Questions */}
+      {/* 10. Frequently Asked Questions */}
       <FAQ />
 
-      {/* 10. Traditional Corporate Contact Section */}
+      {/* 11. Traditional Corporate Contact Section */}
       <Contact />
     </>
   );
