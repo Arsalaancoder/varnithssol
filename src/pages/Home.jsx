@@ -6,7 +6,6 @@ import HRServices from '../components/HRServices';
 import LearningJourney from '../components/LearningJourney';
 import WhoWeHireFor from '../components/WhoWeHireFor';
 import WhyChooseUs from '../components/WhyChooseUs';
-import CTASection from '../components/CTASection';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
@@ -35,16 +34,13 @@ export default function Home() {
       {/* 07. Why Choose Varnith — 4 Core Commitments & Verified SLAs */}
       <WhyChooseUs />
 
-      {/* 08. Enterprise Training CTA — SAP Security, GRC & College Engagements */}
-      <CTASection />
-
-      {/* 09. Client & Alumni Testimonials */}
+      {/* 08. Client & Alumni Testimonials */}
       <Testimonials />
 
-      {/* 10. Frequently Asked Questions */}
+      {/* 09. Frequently Asked Questions */}
       <FAQ />
 
-      {/* 11. Traditional Corporate Contact Section */}
+      {/* 10. Traditional Corporate Contact Section */}
       <Contact />
     </>
   );

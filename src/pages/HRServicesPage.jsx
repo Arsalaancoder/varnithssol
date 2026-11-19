@@ -1,251 +1,292 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { siteData } from '../data/siteData';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
-import InnerPageLayout from '../components/InnerPageLayout';
+import React from 'react';
+import { 
+  Users, 
+  UserCheck, 
+  FileCheck, 
+  ShieldCheck, 
+  TrendingUp,
+  Search,
+  Clock,
+  Layers
+} from 'lucide-react';
+
+import CorporateHero from '../components/lumintu/CorporateHero';
+import StatisticsBar from '../components/lumintu/StatisticsBar';
+import IntroductionCollage from '../components/lumintu/IntroductionCollage';
+import PartnerLogoStrip from '../components/lumintu/PartnerLogoStrip';
+import ServiceGrid from '../components/lumintu/ServiceGrid';
+import NavyFeatureSection from '../components/lumintu/NavyFeatureSection';
+import OfferingCards from '../components/lumintu/OfferingCards';
+import ProcessSection from '../components/lumintu/ProcessSection';
+import TestimonialSection from '../components/lumintu/TestimonialSection';
+import EnquirySection from '../components/lumintu/EnquirySection';
 
 export default function HRServicesPage() {
-  const [formData, setFormData] = useState({
-    company: '',
-    name: '',
-    email: '',
-    phone: '',
-    serviceInterest: 'Recruitment & Talent Acquisition',
-    headcount: '1-5 Hires',
-    notes: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  // 1. Statistics Bar Items
+  const stats = [
+    { title: '14-Day SLA', subtitle: 'RECRUITMENT SOLUTIONS', desc: 'Average turnaround to first calibrated shortlist' },
+    { title: '100% Vetted', subtitle: 'TALENT ACQUISITION', desc: 'Evaluated in technical cloud sandboxes' },
+    { title: 'C-Suite & VP', subtitle: 'EXECUTIVE SEARCH', desc: 'Discreet, retained practice leadership mapping' },
+    { title: 'Full Compliance', subtitle: 'HR ADVISORY', desc: 'Statutory PF, ESI, gratuity & contracts governance' }
+  ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      const stored = JSON.parse(localStorage.getItem('varnith_hr_inquiries') || '[]');
-      stored.push({ ...formData, date: new Date().toISOString() });
-      localStorage.setItem('varnith_hr_inquiries', JSON.stringify(stored));
-      setSubmitting(false);
-      setSubmitted(true);
-    }, 400);
-  };
+  // 2. Services Grid (6 Cards with Navy Square Icon Container)
+  const hrServices = [
+    {
+      title: 'Talent Acquisition',
+      description: 'Precision full-cycle sourcing for software engineers, principal architects, and engineering managers evaluated against production-grade criteria.',
+      icon: Users,
+      actionText: 'Explore Talent Search',
+      link: '#enquiry'
+    },
+    {
+      title: 'Recruitment Process Outsourcing',
+      description: 'Dedicated embedded recruiting squads acting as your internal talent team, handling sourcing, pipeline velocity, ATS workflows, and hiring SLAs.',
+      icon: Layers,
+      actionText: 'Discuss RPO Engagement',
+      link: '#enquiry'
+    },
+    {
+      title: 'Executive Search',
+      description: 'Discreet leadership mapping for VP of Engineering, Practice Directors, and Principal Cloud Architects with exhaustive confidential market dossiers.',
+      icon: UserCheck,
+      actionText: 'Leadership Inquiry',
+      link: '#enquiry'
+    },
+    {
+      title: 'Contract Staffing',
+      description: 'Flexible technical contractors with 72-hour onboarding, complete statutory PF/ESI compliance, and guaranteed talent replacement assurance.',
+      icon: FileCheck,
+      actionText: 'Scale Contract Squads',
+      link: '#enquiry'
+    },
+    {
+      title: 'HR Advisory & Governance',
+      description: 'Compensation benchmarking, organizational restructuring, compliant employment policies, and structured retention frameworks.',
+      icon: ShieldCheck,
+      actionText: 'Consult on Advisory',
+      link: '#enquiry'
+    },
+    {
+      title: 'Talent Intelligence',
+      description: 'Real-time hiring market insights, skill scarcity mapping, competitor compensation analytics, and hiring timeline forecasting.',
+      icon: TrendingUp,
+      actionText: 'Request Market Intel',
+      link: '#enquiry'
+    }
+  ];
+
+  // 3. Dark Navy Feature Section Benefits
+  const featureBenefits = [
+    {
+      title: 'Structured Recruitment Process',
+      desc: 'Our disciplined 8-stage methodology turns ambiguous job specifications into calibrated engineering scorecards and high-retention hires.',
+      icon: Search
+    },
+    {
+      title: 'Industry-Focused Talent Search',
+      desc: 'Our recruiters actively recruit for cloud, ERP, and software teams, meaning we evaluate actual code repositories and architecture depth.',
+      icon: Users
+    },
+    {
+      title: 'Dedicated Hiring Support',
+      desc: 'One consistent account lead who understands your tech stack, hiring managers, and delivery timelines without handoff friction.',
+      icon: UserCheck
+    },
+    {
+      title: 'Transparent Communication',
+      desc: 'Weekly calibration calls, real-time pipeline visibility, and objective feedback so you never have to chase candidate updates.',
+      icon: Clock
+    }
+  ];
+
+  // 4. 3-Column Offering Cards
+  const offerings = [
+    {
+      category: 'FOCUSED HIRING',
+      title: 'Talent Acquisition',
+      description: 'Targeted single-role and batch hiring for critical engineering, cloud, and technical leadership vacancies.',
+      features: [
+        'Dedicated Technical Sourcing Squad',
+        '14-Day Delivery SLA for First Shortlist',
+        'Live Cloud Sandbox Candidate Audits',
+        'Transparent Evaluation Scorecards',
+        '90-Day Candidate Replacement Warranty'
+      ],
+      ctaText: 'Discuss Requirements',
+      ctaHref: '#enquiry'
+    },
+    {
+      category: 'RETAINED SEARCH',
+      title: 'Executive Hiring',
+      description: 'Confidential retained search for Vice Presidents, Technical Directors, and Principal Enterprise Architects.',
+      isFeatured: true,
+      features: [
+        'Confidential Market & Competitor Mapping',
+        'Exhaustive Candidate Leadership Dossiers',
+        'Senior Partner-Led Search Process',
+        'Comprehensive Reference & Reputation Check',
+        'Offer Alignment & Counter-Offer Mitigation'
+      ],
+      ctaText: 'Enquire for Leadership',
+      ctaHref: '#enquiry'
+    },
+    {
+      category: 'EMBEDDED TEAM',
+      title: 'Recruitment Outsourcing',
+      description: 'Turnkey RPO solutions providing scalable talent infrastructure and embedded recruiters for high-growth software firms.',
+      features: [
+        'Embedded Recruiters in Your Slack/ATS',
+        'Custom Pipeline Sourcing Velocity',
+        'End-to-End Interview Scheduling Logistics',
+        'Cost-Per-Hire & Cycle Time Optimization',
+        'Monthly Predictable Subscription Model'
+      ],
+      ctaText: 'Discuss RPO Model',
+      ctaHref: '#enquiry'
+    }
+  ];
+
+  // 5. 6-Step Methodology
+  const processSteps = [
+    {
+      num: '01',
+      title: 'Requirement Discussion',
+      desc: 'We conduct a detailed discovery call with your engineering leads to map technical stack requirements, cultural dynamics, and milestones.'
+    },
+    {
+      num: '02',
+      title: 'Role Understanding & Briefing',
+      desc: 'We draft and calibrate a comprehensive evaluation scorecard upfront, agreeing on non-negotiable skills before initiating market outreach.'
+    },
+    {
+      num: '03',
+      title: 'Candidate Sourcing & Outreach',
+      desc: 'Direct outreach across proprietary talent communities and verified engineering networks to engage passive, high-caliber practitioners.'
+    },
+    {
+      num: '04',
+      title: 'Screening and Shortlisting',
+      desc: 'Rigorous competency verification in sandbox environments, ensuring only thoroughly vetted, interview-ready candidates are presented.'
+    },
+    {
+      num: '05',
+      title: 'Interview Coordination',
+      desc: 'We handle calendar synchronization, candidate briefing notes, round debriefs, and real-time compensation expectations.'
+    },
+    {
+      num: '06',
+      title: 'Final Selection & Onboarding',
+      desc: 'Offer negotiation, counter-offer resistance counseling, joining assurance, and a binding 90-day replacement warranty.'
+    }
+  ];
 
   return (
-    <InnerPageLayout
-      title="HR Consulting Services"
-      subtitle="Strategic talent acquisition, contract staffing, and workforce advisory for technology enterprises across India."
-      breadcrumb={[{ label: 'HR Consulting' }]}
-      activePath="/and/hr-services"
-    >
-      <div className="space-y-12">
-        
-        {/* Featured Image */}
-        <div className="rounded-xl overflow-hidden border border-[#E5E7EB] shadow-card">
-          <img
-            src="/assets/hr_carousel_1.jpg"
-            alt="Corporate HR Consulting"
-            className="w-full h-72 sm:h-80 object-cover"
-          />
-        </div>
+    <div className="bg-white min-h-screen">
+      
+      {/* 01. Lumintu Hero Section */}
+      <CorporateHero
+        eyebrow="STRATEGIC HR CONSULTING"
+        heading="Building Stronger Teams Through Smarter HR Consulting"
+        description="Connecting businesses with the right talent through structured recruitment, executive search, and people-focused HR solutions."
+        primaryBtn={{ text: "Explore HR Services", href: "#services" }}
+        secondaryBtn={{ text: "Talk to Our Team", href: "#enquiry" }}
+        mainImage="/assets/hr_talent.jpg"
+        secondaryImage="/assets/experience_discussion.jpg"
+        badgeNumber="14-Day SLA"
+        badgeLabel="Average Turnaround to Shortlist"
+      />
 
-        {/* Section Intro */}
-        <div className="space-y-3">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider">
-              ENTERPRISE TALENT PRACTICE
-            </span>
-          </div>
+      {/* 02. Full-Width Navy Statistics Bar */}
+      <StatisticsBar items={stats} />
 
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#16191D]">
-            Strategic HR Solutions Designed for Scale
-          </h2>
+      {/* 03. Introduction Section (Lumintu Collage) */}
+      <IntroductionCollage
+        eyebrow="ABOUT OUR HR PRACTICE"
+        title="People Solutions That Drive Business Growth"
+        leadParagraph="Varnith Technologies partners with high-growth software enterprises to solve complex hiring bottlenecks, source pre-assessed talent, and build compliant workforce structures."
+        secondaryDescription="Unlike conventional agencies that flood hiring inboxes with unvetted resumes, our recruiters evaluate candidate competencies against real enterprise production benchmarks. We combine deep technology comprehension with transparent, SLA-governed recruitment practices."
+        highlights={[
+          "Pre-assessed technical candidates evaluated in live sandboxes",
+          "Dedicated 14-day turnaround SLA for critical software roles",
+          "Comprehensive compensation benchmarking and talent market intel",
+          "Binding 90-day candidate replacement warranty"
+        ]}
+        ctaText="Discuss Your Hiring Needs"
+        ctaHref="#enquiry"
+        primaryImage="/assets/experience_collab.jpg"
+        secondaryImage="/assets/team_conf.jpg"
+      />
 
-          <p className="text-sm sm:text-base text-[#5E6874] leading-relaxed">
-            We help technology firms and software engineering teams find, evaluate, and retain critical technical talent. Every practice is backed by documented role briefs, hands-on lab evaluations, and transparent SLAs.
-          </p>
-        </div>
+      {/* 04. Client & Technology Ecosystem Strip */}
+      <PartnerLogoStrip title="SUPPORTING MODERN ENTERPRISE TECH STACKS & HIRING PIPELINES" />
 
-        {/* 6 Core HR Practices Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {siteData.hrServices.map((service, idx) => (
-            <div
-              key={service.id}
-              className="bg-white border border-[#E5E7EB] rounded-xl p-6 hover:border-[#00A859] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#00A859] bg-[#EAF7EE] px-2.5 py-0.5 rounded">
-                    0{idx + 1} / PRACTICE
-                  </span>
-                  <span className="text-[11px] font-semibold text-[#5E6874]">
-                    14-Day SLA
-                  </span>
-                </div>
+      {/* 05. Our Range of Services (Exact Lumintu Service Cards) */}
+      <ServiceGrid
+        eyebrow="OUR HR PRACTICES"
+        title="Our Range of HR Services"
+        description="Scalable talent acquisition, executive leadership search, and compliant workforce advisory designed for modern software enterprises."
+        services={hrServices}
+        id="services"
+      />
 
-                <h3 className="text-lg font-bold text-[#16191D] group-hover:text-[#00A859] transition-colors">
-                  {service.title}
-                </h3>
+      {/* 06. Full-Width Navy Feature Section */}
+      <NavyFeatureSection
+        eyebrow="WHY VARNITH STANDS OUT"
+        heading="Why Businesses Choose Varnith"
+        benefits={featureBenefits}
+        image="/assets/about_empowering.jpg"
+        badgeTitle="10+ Years"
+        badgeSubtitle="Corporate Recruitment Experience"
+      />
 
-                <p className="text-xs sm:text-sm text-[#5E6874] leading-relaxed">
-                  {service.shortDescription || service.description}
-                </p>
+      {/* 07. Three-Column Offering Section (Lumintu Pricing / Packages style) */}
+      <OfferingCards
+        eyebrow="ENGAGEMENT MODELS"
+        title="Flexible Hiring Engagements Built for Scale"
+        description="Choose the recruitment model that aligns with your headcount requirements and delivery milestones."
+        offerings={offerings}
+      />
 
-                {service.whatItIncludes && (
-                  <ul className="space-y-1.5 pt-3 border-t border-[#E5E7EB] text-xs text-[#16191D]">
-                    {service.whatItIncludes.slice(0, 3).map((item, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00A859] shrink-0 mt-0.5" />
-                        <span className="text-[#5E6874] truncate">{item.title}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+      {/* 08. How Our Process Works Section */}
+      <ProcessSection
+        eyebrow="RECRUITMENT METHODOLOGY"
+        title="How Our Process Works"
+        subtitle="A disciplined 6-stage sequence turning ambiguous hiring needs into verified, long-term engineering placements."
+        steps={processSteps}
+        featuredImage="/assets/experience_discussion.jpg"
+      />
 
-              <div className="pt-4 mt-4 border-t border-[#E5E7EB]">
-                <Link
-                  to={`/and/hr-services/${service.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A859] group-hover:text-[#008F4C]"
-                >
-                  <span>Explore practice details</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* 09. Testimonials Section */}
+      <TestimonialSection
+        eyebrow="CLIENT & PARTNER TESTIMONIALS"
+        title="What Our Enterprise Partners Say"
+        description="Real feedback from corporate technology teams who scaled their engineering teams with Varnith Technologies."
+      />
 
-        {/* Hiring Consultation Card / Form */}
-        <div id="consultation-form" className="bg-[#F8F9FA] border border-[#E5E7EB] rounded-xl p-6 sm:p-8 space-y-6">
-          <div className="space-y-1">
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
-              GET A TAILORED RECRUITMENT PLAN
-            </span>
-            <h3 className="text-xl font-bold text-[#16191D]">
-              Request an Enterprise Talent Consultation
-            </h3>
-            <p className="text-xs sm:text-sm text-[#5E6874]">
-              Share your current hiring requirements. We will review stack availability and return a calibrated talent brief within 24 hours.
-            </p>
-          </div>
+      {/* 10. Contact / Enquiry Section */}
+      <EnquirySection
+        eyebrow="START HIRING TODAY"
+        title="Ready to Strengthen Your Team?"
+        description="Schedule a consultation with our senior talent acquisition practice leads in Madhapur, Hyderabad. We'll analyze your open roles and present a calibrated hiring strategy."
+        checklist={[
+          "Calibrated candidate shortlists delivered within 14 days",
+          "Dedicated account manager with single point of contact",
+          "90-day candidate replacement assurance",
+          "Transparent, non-binding initial requirement consultation"
+        ]}
+        serviceOptions={[
+          "Talent Acquisition (Software & Cloud)",
+          "Executive Search (VP & Director)",
+          "Recruitment Process Outsourcing (RPO)",
+          "Contract Staffing & Squad Deployment",
+          "HR Advisory & Compliance Support",
+          "General HR Consulting Enquiry"
+        ]}
+        storageKey="varnith_hr_enquiries"
+        id="enquiry"
+      />
 
-          {submitted ? (
-            <div className="bg-[#EAF7EE] border border-[#00A859] rounded-lg p-6 text-center space-y-2">
-              <CheckCircle2 className="w-8 h-8 text-[#00A859] mx-auto" />
-              <h4 className="text-base font-bold text-[#16191D]">Consultation Request Received</h4>
-              <p className="text-xs sm:text-sm text-[#5E6874]">
-                A senior talent lead will reach out to schedule an initial role brief discussion.
-              </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="btn-outline text-xs mt-2"
-              >
-                Submit another requirement
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#16191D] mb-1">Company Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="e.g. Acme Tech India"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#16191D] mb-1">Your Full Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Anand Varma"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#16191D] mb-1">Work Email *</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. anand@acme.com"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#16191D] mb-1">Phone Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="e.g. +91 98765 43210"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#16191D] mb-1">Practice of Interest</label>
-                  <select
-                    value={formData.serviceInterest}
-                    onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                  >
-                    {siteData.hrServices.map((s) => (
-                      <option key={s.id} value={s.title}>{s.title}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#16191D] mb-1">Hiring Volume</label>
-                  <select
-                    value={formData.headcount}
-                    onChange={(e) => setFormData({ ...formData, headcount: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                  >
-                    <option value="1-2 Niche Hires">1-2 Niche / Senior Hires</option>
-                    <option value="3-10 Team Ramp">3-10 Team Ramp</option>
-                    <option value="10+ Bulk Scaling">10+ Enterprise Bulk Scaling</option>
-                    <option value="Full RPO Partnership">Full RPO Partnership</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#16191D] mb-1">Role Brief or Tech Stack Requirements</label>
-                <textarea
-                  rows={3}
-                  value={formData.notes}
-                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  placeholder="Specify skill sets, years of experience, budget range, and location (Hyderabad, Remote, or pan-India)..."
-                  className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={submitting}
-                className="btn-green text-xs px-6 py-2.5"
-              >
-                {submitting ? 'Submitting...' : 'Submit Hiring Brief'}
-              </button>
-            </form>
-          )}
-        </div>
-
-      </div>
-    </InnerPageLayout>
+    </div>
   );
 }
