@@ -1,8 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, useLocation } from 'react-router-dom';
+import { 
+  Users, 
+  Search, 
+  UserCheck, 
+  FileCheck, 
+  ShieldCheck, 
+  TrendingUp, 
+  Clock, 
+  Award 
+} from 'lucide-react';
 import { siteData } from '../data/siteData';
-import { CheckCircle2, ChevronDown } from 'lucide-react';
-import InnerPageLayout from '../components/InnerPageLayout';
+
+import CorporateHero from '../components/lumintu/CorporateHero';
+import StatisticsBar from '../components/lumintu/StatisticsBar';
+import IntroductionCollage from '../components/lumintu/IntroductionCollage';
+import PartnerLogoStrip from '../components/lumintu/PartnerLogoStrip';
+import ServiceGrid from '../components/lumintu/ServiceGrid';
+import NavyFeatureSection from '../components/lumintu/NavyFeatureSection';
+import OfferingCards from '../components/lumintu/OfferingCards';
+import ProcessSection from '../components/lumintu/ProcessSection';
+import TestimonialSection from '../components/lumintu/TestimonialSection';
+import EnquirySection from '../components/lumintu/EnquirySection';
 
 export default function HRServiceDetail() {
   const params = useParams();
@@ -16,307 +35,282 @@ export default function HRServiceDetail() {
     s => s.slug === activeSlug || s.id === activeSlug
   ) || siteData.hrServices[0];
 
-  const [openFaq, setOpenFaq] = useState(0);
-  const [formData, setFormData] = useState({
-    company: '',
-    name: '',
-    email: '',
-    phone: '',
-    headcount: '1-5 Hires',
-    notes: ''
-  });
-  const [submittedSlug, setSubmittedSlug] = useState(null);
-  const [submitting, setSubmitting] = useState(false);
-  const isSubmitted = submittedSlug === activeSlug;
+  // 1. Statistics Bar Items
+  const stats = [
+    { title: '< 14 Days', subtitle: 'AVERAGE TURNAROUND', desc: 'From requirement briefing to calibrated shortlist' },
+    { title: '100% Vetted', subtitle: 'SANDBOX EVALUATION', desc: 'Assessed on live cloud infrastructure' },
+    { title: '96.4%', subtitle: 'ACCEPTANCE RATE', desc: 'First-round interview candidate approval' },
+    { title: '90-Day', subtitle: 'REPLACEMENT WARRANTY', desc: 'Comprehensive post-placement probation assurance' }
+  ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      const stored = JSON.parse(localStorage.getItem('varnith_service_consultations') || '[]');
-      stored.push({
-        service: service.title,
-        slug: service.slug,
-        ...formData,
-        date: new Date().toISOString()
-      });
-      localStorage.setItem('varnith_service_consultations', JSON.stringify(stored));
-      setSubmitting(false);
-      setSubmittedSlug(activeSlug);
-    }, 400);
-  };
+  // 2. Service Grid Items (mapped from whatItIncludes or fallback)
+  const serviceCards = (service.whatItIncludes && service.whatItIncludes.length > 0)
+    ? service.whatItIncludes.map((inc, i) => {
+        const icons = [Users, Search, UserCheck, FileCheck, ShieldCheck, TrendingUp];
+        return {
+          title: inc.title,
+          description: inc.description,
+          icon: icons[i % icons.length],
+          actionText: 'Discuss Scope',
+          link: '#enquiry'
+        };
+      })
+    : [
+        {
+          title: 'Requirement & Architecture Calibration',
+          description: 'We align technical stack expectations, team dynamics, and business milestones before outreach.',
+          icon: Search,
+          actionText: 'Learn More',
+          link: '#enquiry'
+        },
+        {
+          title: 'Live Lab Sandbox Evaluation',
+          description: 'Candidates deploy code and troubleshoot real scenarios to verify genuine production competence.',
+          icon: Terminal,
+          actionText: 'Learn More',
+          link: '#enquiry'
+        },
+        {
+          title: 'Dedicated Account Pod',
+          description: 'One consistent technical talent partner managing communications, interviews, and debrief notes.',
+          icon: UserCheck,
+          actionText: 'Learn More',
+          link: '#enquiry'
+        },
+        {
+          title: 'Market Intelligence & Benchmarks',
+          description: 'Objective compensation data and hiring availability mapping for competitive talent acquisition.',
+          icon: TrendingUp,
+          actionText: 'Learn More',
+          link: '#enquiry'
+        },
+        {
+          title: 'Offer & Counter-Offer Advisory',
+          description: 'Active candidate engagement to protect against last-minute dropouts and competing offers.',
+          icon: ShieldCheck,
+          actionText: 'Learn More',
+          link: '#enquiry'
+        },
+        {
+          title: '90-Day Replacement Assurance',
+          description: 'Guaranteed no-cost replacement within the 90-day probationary window for total peace of mind.',
+          icon: Award,
+          actionText: 'Learn More',
+          link: '#enquiry'
+        }
+      ];
+
+  // 3. Dark Navy Feature Benefits
+  const featureBenefits = [
+    {
+      title: 'Structured Recruitment Process',
+      desc: `Our disciplined 8-stage methodology turns ambiguous job requirements into calibrated engineering shortlists.`,
+      icon: Search
+    },
+    {
+      title: 'Industry-Focused Talent Search',
+      desc: `We understand software architectures, microservices, and ERP ecosystems, vetting real production ability.`,
+      icon: Users
+    },
+    {
+      title: 'Dedicated Hiring Support',
+      desc: 'One consistent account manager who understands your engineering stack and delivery deadlines.',
+      icon: UserCheck
+    },
+    {
+      title: 'Transparent Communication',
+      desc: 'Regular milestone updates, transparent candidate scorecards, and zero chasing required.',
+      icon: Clock
+    }
+  ];
+
+  // 4. Offering Cards
+  const offerings = [
+    {
+      category: 'SINGLE & NICHE',
+      title: 'Individual Role Search',
+      description: `Targeted sourcing for specialized technical vacancies and immediate project requirements.`,
+      features: [
+        'Dedicated Technical Sourcing Squad',
+        '14-Day Delivery SLA for First Shortlist',
+        'Live Cloud Sandbox Candidate Audits',
+        'Transparent Evaluation Scorecards',
+        '90-Day Candidate Replacement Warranty'
+      ],
+      ctaText: 'Discuss Role Scope',
+      ctaHref: '#enquiry'
+    },
+    {
+      category: 'TEAM SCALING',
+      title: 'Dedicated Sourcing Pod',
+      description: `Embedded technical talent team delivering calibrated shortlists for multiple concurrent hires.`,
+      isFeatured: true,
+      features: [
+        'Dedicated Senior Tech Recruiter & Researcher',
+        'Accelerated Multi-Role Sourcing Pipeline',
+        'Customized Technical Assessment Framework',
+        'Weekly Hiring Manager Debrief Sessions',
+        'Volume Discounted Placement Fee Structure'
+      ],
+      ctaText: 'Enquire for Pod',
+      ctaHref: '#enquiry'
+    },
+    {
+      category: 'ENTERPRISE RPO',
+      title: 'Recruitment Outsourcing',
+      description: `Turnkey talent acquisition outsourcing managing full-lifecycle hiring, logistics, and reporting.`,
+      features: [
+        'Embedded Recruiters in Your ATS & Slack',
+        'Full Pipeline & Candidate Experience Management',
+        'Comprehensive Employer Branding Advisory',
+        'Predictable Monthly Subscription Model',
+        'Enterprise SLA & Retention Warranty'
+      ],
+      ctaText: 'Discuss RPO Model',
+      ctaHref: '#enquiry'
+    }
+  ];
+
+  // 5. 6-Step Process
+  const processSteps = [
+    {
+      num: '01',
+      title: 'Requirement Discovery',
+      desc: `We evaluate your technical stack, seniority expectations, budget, and culture to build a clear role profile.`
+    },
+    {
+      num: '02',
+      title: 'Role Understanding & Scorecard',
+      desc: 'We draft and calibrate a comprehensive evaluation scorecard upfront, agreeing on non-negotiable skills.'
+    },
+    {
+      num: '03',
+      title: 'Candidate Sourcing & Outreach',
+      desc: 'Direct outreach across verified candidate networks and proprietary developer communities for passive talent.'
+    },
+    {
+      num: '04',
+      title: 'Screening and Shortlisting',
+      desc: 'Rigorous competency verification in sandbox environments, ensuring only thoroughly vetted candidates are presented.'
+    },
+    {
+      num: '05',
+      title: 'Interview Coordination',
+      desc: 'We manage round schedules, candidate technical briefings, debrief feedback, and expectations alignment.'
+    },
+    {
+      num: '06',
+      title: 'Final Selection & Onboarding',
+      desc: 'Offer negotiation, counter-offer resistance counseling, joining assurance, and a binding 90-day replacement warranty.'
+    }
+  ];
 
   return (
-    <InnerPageLayout
-      title={service.title}
-      subtitle={service.shortDescription || service.description}
-      breadcrumb={[
-        { label: 'HR Consulting', href: '/and/hr-services' },
-        { label: service.title }
-      ]}
-      activePath={`/and/hr-services/${service.slug}`}
-      bannerImage={service.image || '/assets/hr_carousel_1.jpg'}
-    >
-      <div className="space-y-12">
-        
-        {/* Featured Service Photograph matching Template Slide 3 */}
-        <div className="rounded-xl overflow-hidden border border-[#E5E7EB] shadow-card">
-          <img
-            src={service.image || '/assets/hr_carousel_1.jpg'}
-            alt={service.fullTitle}
-            className="w-full h-72 sm:h-96 object-cover"
-          />
-        </div>
+    <div className="bg-white min-h-screen">
+      
+      {/* 01. Lumintu Hero Section */}
+      <CorporateHero
+        eyebrow={`ENTERPRISE HR PRACTICE • ${service.title.toUpperCase()}`}
+        heading={service.fullTitle || `${service.title} for Growing Businesses`}
+        description={service.shortDescription || service.description}
+        primaryBtn={{ text: "Explore Capabilities", href: "#services" }}
+        secondaryBtn={{ text: "Talk to Our Team", href: "#enquiry" }}
+        mainImage={service.image || "/assets/hr_talent.jpg"}
+        secondaryImage="/assets/experience_discussion.jpg"
+        badgeNumber="14-Day SLA"
+        badgeLabel="Average Time-to-Shortlist"
+      />
 
-        {/* Narrative & Overview */}
-        <div className="space-y-4">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider">
-              {service.badge || "ENTERPRISE PRACTICE"}
-            </span>
-          </div>
+      {/* 02. Full-Width Navy Statistics Bar */}
+      <StatisticsBar items={stats} />
 
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#16191D]">
-            {service.fullTitle}
-          </h2>
+      {/* 03. Introduction Section (Lumintu Collage) */}
+      <IntroductionCollage
+        eyebrow="PRACTICE OVERVIEW"
+        title={`People Solutions That Power Business Growth`}
+        leadParagraph={service.description}
+        secondaryDescription="At Varnith Technologies, we combine deep technology comprehension with transparent, SLA-governed recruitment practices. Every candidate we submit has been technically evaluated against real enterprise benchmarks."
+        highlights={service.features || [
+          "Pre-assessed technical candidates evaluated in live sandboxes",
+          "Dedicated 14-day turnaround SLA for critical roles",
+          "Comprehensive compensation benchmarking and talent market intel",
+          "Binding 90-day candidate replacement warranty"
+        ]}
+        ctaText="Discuss Your Hiring Scope"
+        ctaHref="#enquiry"
+        primaryImage={service.image || "/assets/experience_collab.jpg"}
+        secondaryImage="/assets/team_conf.jpg"
+      />
 
-          <p className="text-sm sm:text-base text-[#5E6874] leading-relaxed">
-            {service.description}
-          </p>
-        </div>
+      {/* 04. Technology Ecosystem Strip */}
+      <PartnerLogoStrip title={`SUPPORTING ENTERPRISE TECH STACKS & HIRING PIPELINES`} />
 
-        {/* Key Metrics Bar */}
-        {service.stats && (
-          <div className="bg-[#F8F9FA] border border-[#E5E7EB] rounded-xl p-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            {service.stats.map((st, idx) => (
-              <div key={idx} className="space-y-1">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#00A859]">
-                  {st.value}
-                </div>
-                <div className="text-xs text-[#5E6874] font-medium">
-                  {st.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+      {/* 05. Range of Practice Capabilities (Lumintu Service Cards) */}
+      <ServiceGrid
+        eyebrow="PRACTICE SCOPE"
+        title={`Core Capabilities & Deliverables`}
+        description={`Comprehensive hiring methodologies and talent solutions delivered under our ${service.title} practice.`}
+        services={serviceCards}
+        id="services"
+      />
 
-        {/* What This Service Includes */}
-        {service.whatItIncludes && (
-          <div className="space-y-6">
-            <div>
-              <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
-                PRACTICE CAPABILITIES
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#16191D]">
-                What This Service Includes
-              </h3>
-            </div>
+      {/* 06. Full-Width Navy Feature Section */}
+      <NavyFeatureSection
+        eyebrow="WHY VARNITH STANDS OUT"
+        heading={`Why Businesses Choose Varnith for ${service.title}`}
+        benefits={featureBenefits}
+        image="/assets/about_empowering.jpg"
+        badgeTitle="10+ Years"
+        badgeSubtitle="Corporate Recruitment Experience"
+      />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {service.whatItIncludes.map((inc, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white border border-[#E5E7EB] rounded-lg p-5 space-y-2 hover:border-[#00A859] transition-colors"
-                >
-                  <div className="flex items-center gap-2 text-sm font-bold text-[#16191D]">
-                    <CheckCircle2 className="w-4 h-4 text-[#00A859] shrink-0" />
-                    <span>{inc.title}</span>
-                  </div>
-                  <p className="text-xs text-[#5E6874] leading-relaxed pl-6">
-                    {inc.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+      {/* 07. Three-Column Offering Section (Lumintu Pricing / Packages style) */}
+      <OfferingCards
+        eyebrow="ENGAGEMENT TIERS"
+        title={`Flexible Engagement Models`}
+        description={`Choose the collaboration model that matches your hiring velocity and delivery milestones.`}
+        offerings={offerings}
+      />
 
-        {/* Delivery Model / Process Workflow */}
-        {service.deliveryModel && (
-          <div className="space-y-6">
-            <div>
-              <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
-                EXECUTION FRAMEWORK
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#16191D]">
-                How Varnith Delivers This Service
-              </h3>
-            </div>
+      {/* 08. How Our Process Works Section */}
+      <ProcessSection
+        eyebrow="RECRUITMENT METHODOLOGY"
+        title="How Our Process Works"
+        subtitle="A disciplined 6-stage sequence turning ambiguous hiring needs into verified, long-term engineering placements."
+        steps={processSteps}
+        featuredImage="/assets/experience_discussion.jpg"
+      />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {service.deliveryModel.map((dm, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#F8F9FA] border border-[#E5E7EB] rounded-lg p-5 space-y-2"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-[#00A859] bg-white px-2 py-0.5 rounded border border-[#E5E7EB]">
-                      Step {dm.step}
-                    </span>
-                    <span className="text-[11px] text-[#5E6874] font-semibold">Stage</span>
-                  </div>
-                  <h4 className="text-sm font-bold text-[#16191D]">{dm.title}</h4>
-                  <p className="text-xs text-[#5E6874] leading-relaxed">{dm.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+      {/* 09. Testimonials Section */}
+      <TestimonialSection
+        eyebrow="CLIENT & PARTNER TESTIMONIALS"
+        title="What Our Enterprise Partners Say"
+        description="Real feedback from corporate technology teams who scaled their engineering squads with Varnith Technologies."
+      />
 
-        {/* Business Benefits */}
-        {service.businessBenefits && (
-          <div className="space-y-6">
-            <div>
-              <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
-                MEASURABLE ROI
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#16191D]">
-                Business Benefits & Outcomes
-              </h3>
-            </div>
+      {/* 10. Contact / Enquiry Section */}
+      <EnquirySection
+        eyebrow="START HIRING TODAY"
+        title={`Ready to Strengthen Your Team?`}
+        description={`Schedule a consultation with our senior talent acquisition leads in Madhapur, Hyderabad regarding ${service.title}.`}
+        checklist={[
+          "Calibrated candidate shortlists delivered within 14 days",
+          "Dedicated account manager with single point of contact",
+          "90-day candidate replacement assurance",
+          "Transparent, non-binding initial requirement consultation"
+        ]}
+        serviceOptions={[
+          service.title,
+          "Talent Acquisition & Sourcing",
+          "Executive Leadership Search",
+          "Contract Staffing & Deployment",
+          "Recruitment Process Outsourcing (RPO)",
+          "General HR Consulting Enquiry"
+        ]}
+        storageKey="varnith_service_enquiries"
+        id="enquiry"
+      />
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {service.businessBenefits.map((ben, idx) => (
-                <div
-                  key={idx}
-                  className="border border-[#E5E7EB] rounded-lg p-5 bg-white space-y-2 text-center hover:border-[#00A859] transition-colors"
-                >
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[#00A859]">
-                    {ben.metric}
-                  </div>
-                  <h4 className="text-xs sm:text-sm font-bold text-[#16191D]">{ben.title}</h4>
-                  <p className="text-xs text-[#5E6874] leading-relaxed">{ben.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* FAQs */}
-        {service.faqs && (
-          <div className="space-y-4">
-            <div>
-              <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
-                FREQUENT QUESTIONS
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#16191D]">
-                Practice FAQs
-              </h3>
-            </div>
-
-            <div className="space-y-3">
-              {service.faqs.map((faq, idx) => {
-                const isOpen = openFaq === idx;
-                return (
-                  <div key={idx} className="border border-[#E5E7EB] rounded-lg overflow-hidden bg-white">
-                    <button
-                      onClick={() => setOpenFaq(isOpen ? null : idx)}
-                      className="w-full text-left p-4 flex items-center justify-between gap-4 font-bold text-sm text-[#16191D] hover:text-[#00A859] transition-colors focus:outline-hidden"
-                    >
-                      <span>{faq.q}</span>
-                      <ChevronDown
-                        className={`w-4 h-4 text-[#5E6874] shrink-0 transition-transform ${
-                          isOpen ? 'rotate-180 text-[#00A859]' : ''
-                        }`}
-                      />
-                    </button>
-                    {isOpen && (
-                      <div className="px-4 pb-4 text-xs sm:text-sm text-[#5E6874] leading-relaxed border-t border-[#E5E7EB] pt-3 bg-[#F8F9FA]/50">
-                        {faq.a}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Bottom Consultation Form for this Service */}
-        <div id="service-inquiry" className="bg-[#F8F9FA] border border-[#E5E7EB] rounded-xl p-6 sm:p-8 space-y-5">
-          <div>
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
-              ENGAGE THIS PRACTICE
-            </span>
-            <h3 className="text-xl font-bold text-[#16191D]">
-              Consult with Our {service.title} Lead
-            </h3>
-            <p className="text-xs text-[#5E6874]">
-              Share your team specifications to receive calibrated profiles or contract staffing terms within 24 hours.
-            </p>
-          </div>
-
-          {isSubmitted ? (
-            <div className="bg-[#EAF7EE] border border-[#00A859] rounded-lg p-5 text-center space-y-2">
-              <CheckCircle2 className="w-8 h-8 text-[#00A859] mx-auto" />
-              <h4 className="text-sm font-bold text-[#16191D]">Inquiry Logged</h4>
-              <p className="text-xs text-[#5E6874]">Our Hyderabad lead will contact you shortly.</p>
-              <button onClick={() => setSubmittedSlug(null)} className="btn-outline text-xs mt-2">
-                Send another message
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input
-                  type="text"
-                  required
-                  placeholder="Your Name *"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                />
-                <input
-                  type="text"
-                  required
-                  placeholder="Company Name *"
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input
-                  type="email"
-                  required
-                  placeholder="Corporate Email *"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                />
-                <input
-                  type="tel"
-                  required
-                  placeholder="Phone Number *"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
-                />
-              </div>
-
-              <textarea
-                rows={3}
-                placeholder="Describe your role brief, skills, budget, or timelines..."
-                value={formData.notes}
-                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white resize-none"
-              />
-
-              <button
-                type="submit"
-                disabled={submitting}
-                className="btn-green text-xs px-6 py-2.5"
-              >
-                {submitting ? 'Submitting...' : 'Request Practice Consultation'}
-              </button>
-            </form>
-          )}
-        </div>
-
-      </div>
-    </InnerPageLayout>
+    </div>
   );
 }
