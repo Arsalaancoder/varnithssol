@@ -18,18 +18,19 @@ export default function SolutionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="rounded-lg overflow-hidden border border-slate-200 shadow-xs bg-white aspect-4/3 sm:aspect-16/10">
+            <div className="rounded-2xl overflow-hidden border-2 border-slate-200/90 shadow-[0_12px_32px_-4px_rgba(5,110,181,0.12),0_4px_16px_rgba(244,138,37,0.08)] bg-white aspect-4/3 sm:aspect-16/10 relative group">
               <img
-                src="/assets/experience_collab.jpg"
-                alt="Varnith Technologies HR Consulting and SAP Training Collaboration"
-                className="w-full h-full object-cover"
+                src="/assets/people_and_skills.jpg"
+                alt="People and Skills, Under One Roof - Varnith Technologies"
+                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
               />
             </div>
             
-            {/* Minimal Stat Box */}
-            <div className="mt-4 p-4 bg-white border border-slate-200 rounded-lg flex items-center justify-between text-xs sm:text-sm">
-              <div className="font-semibold text-[#0A3857]">Two practices, one integrated vision</div>
-              <div className="text-slate-500">Recruitment &amp; SAP Training</div>
+            {/* Minimal Stat Box with Light Blue & Light Orange Glass */}
+            <div className="mt-4 p-4.5 backdrop-blur-md bg-gradient-to-br from-blue-50/80 via-white/95 to-orange-50/70 border-2 border-slate-200/90 rounded-2xl flex items-center justify-between text-xs sm:text-sm shadow-xs relative overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#056EB5] via-[#38BDF8] to-[#F48A25] opacity-85" />
+              <div className="font-bold text-[#0D5C91] font-['Familjen_Grotesk']">Two practices, one integrated vision</div>
+              <div className="text-slate-500 font-semibold font-['Familjen_Grotesk']">Recruitment &amp; SAP Training</div>
             </div>
           </motion.div>
 
