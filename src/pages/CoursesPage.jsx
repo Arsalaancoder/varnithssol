@@ -41,8 +41,8 @@ export default function CoursesPage() {
         {/* Section Intro & Filter Pills */}
         <div className="space-y-4">
           <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider">
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-wider">
               ENTERPRISE LAB CURRICULA
             </span>
           </div>
@@ -63,8 +63,8 @@ export default function CoursesPage() {
                 onClick={() => setActiveFilter(cat)}
                 className={`px-3.5 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer ${
                   activeFilter === cat
-                    ? 'bg-[#00A859] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] border border-[#E5E7EB] text-[#16191D] hover:bg-[#EAF7EE] hover:text-[#00A859]'
+                    ? 'bg-[#063568] text-white shadow-xs'
+                    : 'bg-[#F8F9FA] border border-[#E5E7EB] text-[#16191D] hover:bg-[#F2F3FC] hover:text-[#063568]'
                 }`}
               >
                 {cat}
@@ -78,7 +78,7 @@ export default function CoursesPage() {
           {filteredCourses.map((course) => (
             <div
               key={course.id}
-              className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden hover:border-[#00A859] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden hover:border-[#063568] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Course Image */}
@@ -91,13 +91,13 @@ export default function CoursesPage() {
                   <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded text-[11px] font-bold bg-white text-[#16191D] shadow-xs">
                     {course.category}
                   </span>
-                  <span className="absolute top-3 right-3 px-2 py-0.5 rounded text-[11px] font-bold bg-[#00A859] text-white shadow-xs">
+                  <span className="absolute top-3 right-3 px-2 py-0.5 rounded text-[11px] font-bold bg-[#063568] text-white shadow-xs">
                     Track 0{course.number}
                   </span>
                 </div>
 
                 <div className="p-5 space-y-3">
-                  <h3 className="text-lg font-bold text-[#16191D] group-hover:text-[#00A859] transition-colors">
+                  <h3 className="text-lg font-bold text-[#16191D] group-hover:text-[#063568] transition-colors">
                     {course.title}
                   </h3>
 
@@ -107,11 +107,11 @@ export default function CoursesPage() {
 
                   <div className="flex flex-wrap items-center gap-4 text-xs text-[#5E6874] pt-2 border-t border-[#E5E7EB]">
                     <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-[#00A859]" />
+                      <Clock className="w-3.5 h-3.5 text-[#063568]" />
                       {course.duration}
                     </span>
                     <span className="flex items-center gap-1">
-                      <BarChart3 className="w-3.5 h-3.5 text-[#00A859]" />
+                      <BarChart3 className="w-3.5 h-3.5 text-[#063568]" />
                       {course.level}
                     </span>
                   </div>
@@ -121,7 +121,7 @@ export default function CoursesPage() {
               <div className="p-5 pt-0">
                 <Link
                   to={`/and/courses/${course.slug}`}
-                  className="w-full btn-outline text-xs py-2.5 justify-center font-bold group-hover:bg-[#00A859] group-hover:text-white group-hover:border-[#00A859] transition-all"
+                  className="w-full btn-outline text-xs py-2.5 justify-center font-bold group-hover:bg-[#063568] group-hover:text-white group-hover:border-[#063568] transition-all"
                 >
                   <span>View Syllabus & Details</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -134,7 +134,7 @@ export default function CoursesPage() {
         {/* 3 Training Pillars */}
         <div className="bg-[#F8F9FA] border border-[#E5E7EB] rounded-xl p-6 sm:p-8 space-y-6">
           <div className="space-y-1">
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-wider block">
               TRAINING STANDARD
             </span>
             <h3 className="text-xl font-bold text-[#16191D]">
@@ -144,7 +144,7 @@ export default function CoursesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="bg-white border border-[#E5E7EB] rounded-lg p-5 space-y-2">
-              <Laptop className="w-6 h-6 text-[#00A859]" />
+              <Laptop className="w-6 h-6 text-[#063568]" />
               <h4 className="text-sm font-bold text-[#16191D]">Enterprise Practitioners</h4>
               <p className="text-xs text-[#5E6874] leading-relaxed">
                 Taught directly by senior architects who design and administer live systems on client accounts.
@@ -152,7 +152,7 @@ export default function CoursesPage() {
             </div>
 
             <div className="bg-white border border-[#E5E7EB] rounded-lg p-5 space-y-2">
-              <Database className="w-6 h-6 text-[#00A859]" />
+              <Database className="w-6 h-6 text-[#063568]" />
               <h4 className="text-sm font-bold text-[#16191D]">24/7 Cloud Sandboxes</h4>
               <p className="text-xs text-[#5E6874] leading-relaxed">
                 Complete hands-on configuration inside dedicated SAP, AWS, and Kubernetes cloud workstations.
@@ -160,7 +160,7 @@ export default function CoursesPage() {
             </div>
 
             <div className="bg-white border border-[#E5E7EB] rounded-lg p-5 space-y-2">
-              <Award className="w-6 h-6 text-[#00A859]" />
+              <Award className="w-6 h-6 text-[#063568]" />
               <h4 className="text-sm font-bold text-[#16191D]">Corporate Placement Pipeline</h4>
               <p className="text-xs text-[#5E6874] leading-relaxed">
                 Top performers receive immediate interview introductions to our corporate recruitment clients.

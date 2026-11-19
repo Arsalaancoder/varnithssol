@@ -60,12 +60,12 @@ export default function WhoWeHireFor() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-2">
-          <span className="text-xs font-bold text-[#00A859] uppercase tracking-widest block">
+          <span className="text-xs font-bold text-[#063568] uppercase tracking-widest block">
             TECHNICAL SPECIALIZATION
           </span>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#261C4E] tracking-tight">
-            Who We <span className="text-[#00A859]">Hire For</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
+            Who We <span className="text-[#063568]">Hire For</span>
           </h2>
 
           <p className="text-xs sm:text-sm text-[#666F7B] leading-relaxed">
@@ -80,14 +80,14 @@ export default function WhoWeHireFor() {
             return (
               <div
                 key={idx}
-                className="relative bg-gradient-to-br from-white via-white to-blue-50/30 border border-slate-100 rounded-2xl p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(0,168,89,0.12)] hover:border-[#00A859]/30 transition-all duration-300 flex flex-col justify-between group"
+                className="relative bg-gradient-to-br from-white via-white to-blue-50/30 border border-slate-100 rounded-2xl p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(6,53,104,0.12)] hover:border-[#063568]/30 transition-all duration-300 flex flex-col justify-between group"
               >
                 {/* Top Corner Subtle Wash */}
                 <div className="absolute top-0 right-0 w-28 h-28 bg-blue-100/20 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="relative z-10 space-y-4">
                   {/* Circular Icon Badge */}
-                  <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#16191D] group-hover:text-[#00A859] group-hover:border-[#00A859]/40 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#16191D] group-hover:text-[#063568] group-hover:border-[#063568]/40 transition-colors">
                     <Icon className="w-5 h-5 stroke-[1.75]" />
                   </div>
 
@@ -126,10 +126,10 @@ export default function WhoWeHireFor() {
                 <div className="relative z-10 pt-6 mt-4">
                   <Link
                     to="/and/contact"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs text-xs font-semibold text-[#0F172A] hover:border-[#00A859] hover:text-[#00A859] hover:shadow-sm transition-all"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 shadow-xs text-xs font-semibold text-[#0F172A] hover:border-[#063568] hover:text-[#063568] hover:shadow-sm transition-all"
                   >
                     <span>See More</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#00A859] group-hover:translate-x-0.5 transition-all" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#64748B] group-hover:text-[#063568] group-hover:translate-x-0.5 transition-all" />
                   </Link>
                 </div>
 

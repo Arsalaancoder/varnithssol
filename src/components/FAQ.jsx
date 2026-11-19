@@ -18,15 +18,15 @@ export default function FAQ() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
           <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-[#00A859] uppercase">
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
+            <span className="text-xs sm:text-sm font-bold tracking-wider text-[#063568] uppercase">
               FREQUENTLY ASKED QUESTIONS
             </span>
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#16191D] tracking-tight">
-            Clear Answers to <span className="text-[#00A859]">Common Questions</span>
+            Clear Answers to <span className="text-[#063568]">Common Questions</span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#5E6874]">
@@ -45,17 +45,17 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => toggleItem(idx)}
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-bold text-base text-[#16191D] hover:text-[#00A859] transition-colors focus:outline-hidden cursor-pointer"
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-bold text-base text-[#16191D] hover:text-[#063568] transition-colors focus:outline-hidden cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#EAF7EE] text-[#00A859] text-xs font-bold flex items-center justify-center shrink-0">
+                    <span className="w-6 h-6 rounded-full bg-[#F2F3FC] text-[#063568] text-xs font-bold flex items-center justify-center shrink-0">
                       Q
                     </span>
                     <span>{item.question}</span>
                   </span>
                   <ChevronDown
                     className={`w-5 h-5 text-[#5E6874] shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-[#00A859]' : ''
+                      isOpen ? 'rotate-180 text-[#063568]' : ''
                     }`}
                   />
                 </button>

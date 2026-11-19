@@ -27,13 +27,13 @@ export function TestimonialsSection({
       <div className="mx-auto flex max-w-container flex-col items-center gap-6 text-center sm:gap-12">
         <div className="flex flex-col items-center gap-3 px-4">
           <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-widest">
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-widest">
               CLIENT & LEARNER FEEDBACK
             </span>
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
           </div>
-          <h2 className="max-w-[720px] text-3xl font-extrabold tracking-tight sm:text-5xl text-[#261C4E]">
+          <h2 className="max-w-[720px] text-3xl font-extrabold tracking-tight sm:text-5xl text-[#171717]">
             {title}
           </h2>
           <p className="max-w-[640px] text-sm sm:text-base text-[#5E6874] leading-relaxed">

@@ -50,8 +50,8 @@ export default function HRServicesPage() {
         {/* Section Intro */}
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider">
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-wider">
               ENTERPRISE TALENT PRACTICE
             </span>
           </div>
@@ -70,11 +70,11 @@ export default function HRServicesPage() {
           {siteData.hrServices.map((service, idx) => (
             <div
               key={service.id}
-              className="bg-white border border-[#E5E7EB] rounded-xl p-6 hover:border-[#00A859] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white border border-[#E5E7EB] rounded-xl p-6 hover:border-[#063568] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#00A859] bg-[#EAF7EE] px-2.5 py-0.5 rounded">
+                  <span className="text-xs font-mono font-bold text-[#063568] bg-[#F2F3FC] px-2.5 py-0.5 rounded">
                     0{idx + 1} / PRACTICE
                   </span>
                   <span className="text-[11px] font-semibold text-[#5E6874]">
@@ -82,7 +82,7 @@ export default function HRServicesPage() {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-[#16191D] group-hover:text-[#00A859] transition-colors">
+                <h3 className="text-lg font-bold text-[#16191D] group-hover:text-[#063568] transition-colors">
                   {service.title}
                 </h3>
 
@@ -94,7 +94,7 @@ export default function HRServicesPage() {
                   <ul className="space-y-1.5 pt-3 border-t border-[#E5E7EB] text-xs text-[#16191D]">
                     {service.whatItIncludes.slice(0, 3).map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00A859] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#063568] shrink-0 mt-0.5" />
                         <span className="text-[#5E6874] truncate">{item.title}</span>
                       </li>
                     ))}
@@ -105,7 +105,7 @@ export default function HRServicesPage() {
               <div className="pt-4 mt-4 border-t border-[#E5E7EB]">
                 <Link
                   to={`/and/hr-services/${service.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A859] group-hover:text-[#008F4C]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#063568] group-hover:text-[#04274d]"
                 >
                   <span>Explore practice details</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -118,7 +118,7 @@ export default function HRServicesPage() {
         {/* Hiring Consultation Card / Form */}
         <div id="consultation-form" className="bg-[#F8F9FA] border border-[#E5E7EB] rounded-xl p-6 sm:p-8 space-y-6">
           <div className="space-y-1">
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-wider block">
               GET A TAILORED RECRUITMENT PLAN
             </span>
             <h3 className="text-xl font-bold text-[#16191D]">
@@ -130,8 +130,8 @@ export default function HRServicesPage() {
           </div>
 
           {submitted ? (
-            <div className="bg-[#EAF7EE] border border-[#00A859] rounded-lg p-6 text-center space-y-2">
-              <CheckCircle2 className="w-8 h-8 text-[#00A859] mx-auto" />
+            <div className="bg-[#F2F3FC] border border-[#063568] rounded-lg p-6 text-center space-y-2">
+              <CheckCircle2 className="w-8 h-8 text-[#063568] mx-auto" />
               <h4 className="text-base font-bold text-[#16191D]">Consultation Request Received</h4>
               <p className="text-xs sm:text-sm text-[#5E6874]">
                 A senior talent lead will reach out to schedule an initial role brief discussion.
@@ -154,7 +154,7 @@ export default function HRServicesPage() {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="e.g. Acme Tech India"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white"
                   />
                 </div>
                 <div>
@@ -165,7 +165,7 @@ export default function HRServicesPage() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Anand Varma"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white"
                   />
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default function HRServicesPage() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. anand@acme.com"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white"
                   />
                 </div>
                 <div>
@@ -190,7 +190,7 @@ export default function HRServicesPage() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="e.g. +91 98765 43210"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white"
                   />
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function HRServicesPage() {
                   <select
                     value={formData.serviceInterest}
                     onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white"
                   >
                     {siteData.hrServices.map((s) => (
                       <option key={s.id} value={s.title}>{s.title}</option>
@@ -213,7 +213,7 @@ export default function HRServicesPage() {
                   <select
                     value={formData.headcount}
                     onChange={(e) => setFormData({ ...formData, headcount: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white"
                   >
                     <option value="1-2 Niche Hires">1-2 Niche / Senior Hires</option>
                     <option value="3-10 Team Ramp">3-10 Team Ramp</option>
@@ -230,7 +230,7 @@ export default function HRServicesPage() {
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Specify skill sets, years of experience, budget range, and location (Hyderabad, Remote, or pan-India)..."
-                  className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white resize-none"
+                  className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white resize-none"
                 />
               </div>
 

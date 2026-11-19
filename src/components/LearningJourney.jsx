@@ -77,10 +77,10 @@ export default function LearningJourney() {
         <div className="relative">
           
           {/* Continuous Center Vertical Progress Line (Desktop) */}
-          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-[2px] -translate-x-1/2 bg-gradient-to-b from-[#00A859] via-slate-200 to-slate-200" />
+          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-[2px] -translate-x-1/2 bg-gradient-to-b from-[#063568] via-slate-200 to-slate-200" />
 
           {/* Continuous Left Vertical Progress Line (Mobile) */}
-          <div className="md:hidden absolute left-6 top-6 bottom-6 w-[2px] bg-gradient-to-b from-[#00A859] via-slate-200 to-slate-200" />
+          <div className="md:hidden absolute left-6 top-6 bottom-6 w-[2px] bg-gradient-to-b from-[#063568] via-slate-200 to-slate-200" />
 
           <div className="space-y-12 md:space-y-16">
             
@@ -98,7 +98,7 @@ export default function LearningJourney() {
                 {/* Squircle Dark Icon Badge matching Reference */}
                 <div className="w-14 h-14 rounded-2xl bg-[#16191D] text-white flex items-center justify-center shrink-0 shadow-sm relative group">
                   <Search className="w-6 h-6 stroke-[2]" />
-                  <span className="absolute -bottom-1 -right-1 text-[10px] font-extrabold bg-[#00A859] text-white px-1.5 py-0.5 rounded-sm">
+                  <span className="absolute -bottom-1 -right-1 text-[10px] font-extrabold bg-[#063568] text-white px-1.5 py-0.5 rounded-sm">
                     01
                   </span>
                 </div>
@@ -116,8 +116,8 @@ export default function LearningJourney() {
 
               {/* Center Glowing Progress Node below Step 1 */}
               <div className="hidden md:flex justify-center mt-6">
-                <div className="w-4 h-4 rounded-full bg-white border-2 border-[#00A859] shadow-[0_0_12px_rgba(0,168,89,0.5)] flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00A859]" />
+                <div className="w-4 h-4 rounded-full bg-white border-2 border-[#063568] shadow-[0_0_12px_rgba(6,53,104,0.5)] flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#063568]" />
                 </div>
               </div>
             </motion.div>
@@ -144,7 +144,7 @@ export default function LearningJourney() {
                     {isEven ? (
                       /* Text on Left (Steps 02, 04, 06) */
                       <div className="text-right pr-6 space-y-1">
-                        <span className="text-[11px] font-bold text-[#00A859] uppercase tracking-wider block">
+                        <span className="text-[11px] font-bold text-[#063568] uppercase tracking-wider block">
                           STAGE {st.num}
                         </span>
                         <h3 className="text-lg font-extrabold text-[#0F172A]">
@@ -161,7 +161,7 @@ export default function LearningJourney() {
                           <span className="text-xs font-bold text-[#64748B]">
                             {st.num}
                           </span>
-                          <div className="w-13 h-13 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#00A859] flex items-center justify-center text-[#16191D] hover:text-[#00A859] transition-all">
+                          <div className="w-13 h-13 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#063568] flex items-center justify-center text-[#16191D] hover:text-[#063568] transition-all">
                             <Icon className="w-6 h-6 stroke-[1.75]" />
                           </div>
                         </div>
@@ -173,7 +173,7 @@ export default function LearningJourney() {
                       /* Icon on Right (Steps 02, 04, 06) */
                       <div className="flex justify-start pl-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-13 h-13 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#00A859] flex items-center justify-center text-[#16191D] hover:text-[#00A859] transition-all">
+                          <div className="w-13 h-13 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-[#063568] flex items-center justify-center text-[#16191D] hover:text-[#063568] transition-all">
                             <Icon className="w-6 h-6 stroke-[1.75]" />
                           </div>
                           <span className="text-xs font-bold text-[#64748B]">
@@ -184,7 +184,7 @@ export default function LearningJourney() {
                     ) : (
                       /* Text on Right (Steps 03, 05) */
                       <div className="text-left pl-6 space-y-1">
-                        <span className="text-[11px] font-bold text-[#00A859] uppercase tracking-wider block">
+                        <span className="text-[11px] font-bold text-[#063568] uppercase tracking-wider block">
                           STAGE {st.num}
                         </span>
                         <h3 className="text-lg font-extrabold text-[#0F172A]">
@@ -200,14 +200,14 @@ export default function LearningJourney() {
 
                   {/* Center Node Dot directly on the vertical line (Desktop) */}
                   <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                    <div className="w-3.5 h-3.5 rounded-full bg-white border-2 border-slate-300 hover:border-[#00A859] transition-colors shadow-xs" />
+                    <div className="w-3.5 h-3.5 rounded-full bg-white border-2 border-slate-300 hover:border-[#063568] transition-colors shadow-xs" />
                   </div>
 
                   {/* Mobile Row: Node on left line + content on right */}
                   <div className="md:hidden flex items-start gap-5 pl-3">
                     {/* Node on mobile line */}
-                    <div className="w-6 h-6 rounded-full bg-white border-2 border-[#00A859] flex items-center justify-center shrink-0 mt-1 shadow-xs">
-                      <div className="w-2 h-2 rounded-full bg-[#00A859]" />
+                    <div className="w-6 h-6 rounded-full bg-white border-2 border-[#063568] flex items-center justify-center shrink-0 mt-1 shadow-xs">
+                      <div className="w-2 h-2 rounded-full bg-[#063568]" />
                     </div>
 
                     <div className="bg-slate-50/70 border border-slate-200/70 rounded-2xl p-5 space-y-2 flex-grow">
@@ -215,7 +215,7 @@ export default function LearningJourney() {
                         <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#16191D]">
                           <Icon className="w-5 h-5 stroke-[1.75]" />
                         </div>
-                        <span className="text-xs font-bold text-[#00A859]">
+                        <span className="text-xs font-bold text-[#063568]">
                           STAGE {st.num}
                         </span>
                       </div>
@@ -238,7 +238,7 @@ export default function LearningJourney() {
           <div className="text-center pt-16">
             <Link
               to="/and/hr-services"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#00A859] hover:bg-[#008F4C] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#063568] hover:bg-[#04274d] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs"
             >
               <span>Explore Hiring Services</span>
               <ArrowRight className="w-4 h-4" />

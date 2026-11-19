@@ -48,8 +48,8 @@ export default function WhyUsPage() {
         {/* Section Intro */}
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider">
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-wider">
               OUR SERVICE COMMITMENT
             </span>
           </div>
@@ -70,14 +70,14 @@ export default function WhyUsPage() {
             return (
               <div
                 key={idx}
-                className="bg-white border border-[#E5E7EB] rounded-xl p-6 hover:border-[#00A859] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white border border-[#E5E7EB] rounded-xl p-6 hover:border-[#063568] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#EAF7EE] text-[#00A859] group-hover:bg-[#00A859] group-hover:text-white transition-colors flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-lg bg-[#F2F3FC] text-[#063568] group-hover:bg-[#063568] group-hover:text-white transition-colors flex items-center justify-center font-bold">
                     <Icon className="w-5 h-5" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#16191D] group-hover:text-[#00A859] transition-colors">
+                  <h3 className="text-lg font-bold text-[#16191D] group-hover:text-[#063568] transition-colors">
                     {p.title}
                   </h3>
 
@@ -86,7 +86,7 @@ export default function WhyUsPage() {
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#E5E7EB] flex items-center gap-2 text-xs font-semibold text-[#00A859]">
+                <div className="pt-4 mt-4 border-t border-[#E5E7EB] flex items-center gap-2 text-xs font-semibold text-[#063568]">
                   <ShieldCheck className="w-4 h-4 shrink-0" />
                   <span>Verified Operating SLA</span>
                 </div>
@@ -98,7 +98,7 @@ export default function WhyUsPage() {
         {/* SLA Metrics Bar */}
         <div className="bg-[#16191D] text-white rounded-xl p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="text-3xl font-extrabold text-[#00A859]">&lt; 14 Days</div>
+            <div className="text-3xl font-extrabold text-[#063568]">&lt; 14 Days</div>
             <div className="text-xs text-gray-300 mt-1">Average Turnaround</div>
           </div>
           <div>
@@ -106,7 +106,7 @@ export default function WhyUsPage() {
             <div className="text-xs text-gray-300 mt-1">First-Round Pass Rate</div>
           </div>
           <div>
-            <div className="text-3xl font-extrabold text-[#00A859]">90 Days</div>
+            <div className="text-3xl font-extrabold text-[#063568]">90 Days</div>
             <div className="text-xs text-gray-300 mt-1">Replacement Warranty</div>
           </div>
           <div>

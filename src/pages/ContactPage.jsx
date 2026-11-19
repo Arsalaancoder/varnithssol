@@ -85,12 +85,12 @@ export default function ContactPage() {
         {/* Direct Contact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="p-5 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#00A859] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#063568] flex items-center justify-center shrink-0">
               <Phone className="w-5 h-5" />
             </div>
             <div>
               <div className="text-xs text-[#5E6874] font-medium">Telephone Direct</div>
-              <a href={`tel:${siteData.brand.rawPhone}`} className="text-sm font-bold text-[#16191D] hover:text-[#00A859] transition-colors">
+              <a href={`tel:${siteData.brand.rawPhone}`} className="text-sm font-bold text-[#16191D] hover:text-[#063568] transition-colors">
                 {siteData.brand.phone}
               </a>
               <div className="text-[11px] text-[#5E6874] mt-0.5">Mon – Sat: 9:00 AM – 7:00 PM IST</div>
@@ -98,12 +98,12 @@ export default function ContactPage() {
           </div>
 
           <div className="p-5 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#00A859] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#063568] flex items-center justify-center shrink-0">
               <Mail className="w-5 h-5" />
             </div>
             <div>
               <div className="text-xs text-[#5E6874] font-medium">Official Inquiries</div>
-              <a href={`mailto:${siteData.brand.email}`} className="text-sm font-bold text-[#16191D] hover:text-[#00A859] transition-colors">
+              <a href={`mailto:${siteData.brand.email}`} className="text-sm font-bold text-[#16191D] hover:text-[#063568] transition-colors">
                 {siteData.brand.email}
               </a>
               <div className="text-[11px] text-[#5E6874] mt-0.5">Response SLA: &lt; 2 Hours</div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
         {/* Corporate Contact Form */}
         <div className="border border-[#E5E7EB] rounded-2xl p-6 sm:p-8 bg-white shadow-card space-y-6">
           <div>
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-wider block">
               SEND AN INQUIRY
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-[#16191D]">
@@ -126,8 +126,8 @@ export default function ContactPage() {
           </div>
 
           {status === 'success' ? (
-            <div className="p-8 rounded-xl bg-[#EAF7EE] border border-[#00A859] text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-[#00A859] text-white mx-auto flex items-center justify-center">
+            <div className="p-8 rounded-xl bg-[#F2F3FC] border border-[#063568] text-center space-y-3">
+              <div className="w-12 h-12 rounded-full bg-[#063568] text-white mx-auto flex items-center justify-center">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <h4 className="text-lg font-bold text-[#16191D]">Message Sent Successfully</h4>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Rahul Sharma"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden"
                   />
                 </div>
 
@@ -172,7 +172,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. rahul@company.com"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden"
                   />
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function ContactPage() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="e.g. +91 98765 43210"
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden"
                   />
                 </div>
 
@@ -199,7 +199,7 @@ export default function ContactPage() {
                   <select
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden bg-white"
+                    className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden bg-white"
                   >
                     {subjects.map((sub, idx) => (
                       <option key={idx} value={sub}>{sub}</option>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us about the roles you are hiring for, or the course training details you need..."
-                  className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden resize-none"
+                  className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden resize-none"
                 />
               </div>
 
@@ -238,7 +238,7 @@ export default function ContactPage() {
         <div className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#00A859]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#063568]">
                 HEADQUARTERS
               </span>
               <h3 className="text-xl font-bold text-[#16191D]">

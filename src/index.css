@@ -4,15 +4,15 @@
 
 :root {
   --font-sans: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --corporate-green: #00A859;
-  --corporate-green-hover: #008F4C;
-  --corporate-green-dark: #00733D;
-  --corporate-green-light: #EAF7EE;
-  --ink: #16191D;
+  --corporate-navy: #063568;
+  --corporate-navy-hover: #04274d;
+  --corporate-navy-dark: #031E3D;
+  --corporate-lavender: #F2F3FC;
+  --ink: #171717;
   --muted: #5E6874;
   --surface: #ffffff;
-  --surface-alt: #F8F9FA;
-  --border: #E5E7EB;
+  --surface-alt: #F2F3FC;
+  --border: #E2E6F0;
 }
 
 @layer base {
@@ -44,17 +44,18 @@
   }
 
   ::selection {
-    background-color: var(--corporate-green);
+    background-color: var(--corporate-navy);
     color: #ffffff;
   }
 }
 
-/* Standard Rectangular Corporate Buttons matching Template Reference */
-.btn-green,
-.btn-primary {
-  background-color: #00A859;
+/* Standard Rectangular Corporate Buttons matching Lumintu Reference */
+.btn-primary,
+.btn-navy,
+.btn-green {
+  background-color: #063568;
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 4px;
   font-weight: 600;
   font-size: 14px;
   padding: 10px 22px;
@@ -63,24 +64,26 @@
   justify-content: center;
   gap: 8px;
   transition: all 0.2s ease;
-  border: 1px solid #00A859;
+  border: 1px solid #063568;
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-.btn-green:hover,
-.btn-primary:hover {
-  background-color: #008F4C;
-  border-color: #008F4C;
+.btn-primary:hover,
+.btn-navy:hover,
+.btn-green:hover {
+  background-color: #04274d;
+  border-color: #04274d;
   color: #ffffff;
 }
 
 .btn-outline,
+.btn-outline-navy,
 .btn-outline-green {
   background-color: #ffffff;
-  color: #00A859;
-  border: 1px solid #00A859;
-  border-radius: 6px;
+  color: #063568;
+  border: 1px solid #063568;
+  border-radius: 4px;
   font-weight: 600;
   font-size: 14px;
   padding: 9px 20px;
@@ -93,16 +96,18 @@
   cursor: pointer;
 }
 .btn-outline:hover,
+.btn-outline-navy:hover,
 .btn-outline-green:hover {
-  background-color: #EAF7EE;
-  color: #008F4C;
+  background-color: #F2F3FC;
+  color: #04274d;
+  border-color: #04274d;
 }
 
 .btn-dark {
-  background-color: #16191D;
+  background-color: #171717;
   color: #ffffff;
-  border: 1px solid #16191D;
-  border-radius: 6px;
+  border: 1px solid #171717;
+  border-radius: 4px;
   font-weight: 600;
   font-size: 14px;
   padding: 10px 22px;
@@ -115,27 +120,27 @@
   cursor: pointer;
 }
 .btn-dark:hover {
-  background-color: #2A3036;
-  border-color: #2A3036;
+  background-color: #063568;
+  border-color: #063568;
   color: #ffffff;
 }
 
 /* Backward compatibility aliases */
 .btn-blue {
-  @apply btn-green;
+  @apply btn-navy;
 }
 .btn-orange {
-  @apply btn-green;
+  @apply btn-navy;
 }
 
 /* Subtle corporate card */
 .corporate-card {
   background-color: #ffffff;
-  border: 1px solid #E5E7EB;
-  border-radius: 8px;
+  border: 1px solid #E2E6F0;
+  border-radius: 6px;
   transition: all 0.25s ease;
 }
 .corporate-card:hover {
-  border-color: #00A859;
-  box-shadow: 0 10px 25px -5px rgba(0, 168, 89, 0.1);
+  border-color: #063568;
+  box-shadow: 0 10px 25px -5px rgba(6, 53, 104, 0.08);
 }

@@ -108,12 +108,12 @@ export default function HRServices() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2">
-          <span className="text-xs font-bold text-[#00A859] uppercase tracking-widest block">
+          <span className="text-xs font-bold text-[#063568] uppercase tracking-widest block">
             OUR BUSINESS OFFERINGS
           </span>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#261C4E] tracking-tight">
-            Business <span className="text-[#00A859]">Shaped</span> Solutions
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
+            Business <span className="text-[#063568]">Shaped</span> Solutions
           </h2>
 
           <p className="text-xs sm:text-sm text-[#666F7B] leading-relaxed pt-1">
@@ -126,8 +126,8 @@ export default function HRServices() {
               onClick={() => setActiveTab('all')}
               className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                 activeTab === 'all'
-                  ? 'bg-[#00A859] text-white shadow-xs'
-                  : 'bg-white border border-slate-200 text-[#261C4E] hover:text-[#00A859]'
+                  ? 'bg-[#063568] text-white shadow-xs'
+                  : 'bg-white border border-slate-200 text-[#171717] hover:text-[#063568]'
               }`}
             >
               All Services
@@ -136,8 +136,8 @@ export default function HRServices() {
               onClick={() => setActiveTab('hr')}
               className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                 activeTab === 'hr'
-                  ? 'bg-[#00A859] text-white shadow-xs'
-                  : 'bg-white border border-slate-200 text-[#261C4E] hover:text-[#00A859]'
+                  ? 'bg-[#063568] text-white shadow-xs'
+                  : 'bg-white border border-slate-200 text-[#171717] hover:text-[#063568]'
               }`}
             >
               HR Consulting
@@ -146,8 +146,8 @@ export default function HRServices() {
               onClick={() => setActiveTab('training')}
               className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                 activeTab === 'training'
-                  ? 'bg-[#00A859] text-white shadow-xs'
-                  : 'bg-white border border-slate-200 text-[#261C4E] hover:text-[#00A859]'
+                  ? 'bg-[#063568] text-white shadow-xs'
+                  : 'bg-white border border-slate-200 text-[#171717] hover:text-[#063568]'
               }`}
             >
               IT Training

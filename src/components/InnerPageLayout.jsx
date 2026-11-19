@@ -78,7 +78,7 @@ export default function InnerPageLayout({
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#111827] via-[#111827]/90 to-[#111827]/75" />
           {/* Subtle green geometric decorative shape from template */}
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#00A859]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#063568]/15 rounded-full blur-3xl pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,13 +88,13 @@ export default function InnerPageLayout({
               <Link to="/and" className="hover:text-white transition-colors">Home</Link>
               {breadcrumb.map((crumb, idx) => (
                 <React.Fragment key={idx}>
-                  <ChevronRight className="w-3 h-3 text-[#00A859]" />
+                  <ChevronRight className="w-3 h-3 text-[#063568]" />
                   {crumb.href ? (
                     <Link to={crumb.href} className="hover:text-white transition-colors">
                       {crumb.label}
                     </Link>
                   ) : (
-                    <span className="text-[#00A859] font-semibold">{crumb.label}</span>
+                    <span className="text-[#063568] font-semibold">{crumb.label}</span>
                   )}
                 </React.Fragment>
               ))}
@@ -128,7 +128,7 @@ export default function InnerPageLayout({
                   <h3 className="text-base font-bold text-[#16191D] uppercase tracking-wide">
                     HR Consulting Services
                   </h3>
-                  <span className="text-[11px] font-semibold text-[#00A859] bg-[#EAF7EE] px-2 py-0.5 rounded">
+                  <span className="text-[11px] font-semibold text-[#063568] bg-[#F2F3FC] px-2 py-0.5 rounded">
                     Practice
                   </span>
                 </div>
@@ -142,8 +142,8 @@ export default function InnerPageLayout({
                         to={item.href}
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-sm font-semibold transition-all ${
                           active
-                            ? 'bg-[#00A859] text-white shadow-xs'
-                            : 'bg-white hover:bg-[#EAF7EE] text-[#16191D] hover:text-[#00A859] border border-[#E5E7EB]'
+                            ? 'bg-[#063568] text-white shadow-xs'
+                            : 'bg-white hover:bg-[#F2F3FC] text-[#16191D] hover:text-[#063568] border border-[#E5E7EB]'
                         }`}
                       >
                         <span>{item.label}</span>
@@ -160,7 +160,7 @@ export default function InnerPageLayout({
                   <h3 className="text-base font-bold text-[#16191D] uppercase tracking-wide">
                     Training & Development
                   </h3>
-                  <span className="text-[11px] font-semibold text-[#00A859] bg-[#EAF7EE] px-2 py-0.5 rounded">
+                  <span className="text-[11px] font-semibold text-[#063568] bg-[#F2F3FC] px-2 py-0.5 rounded">
                     Programs
                   </span>
                 </div>
@@ -174,8 +174,8 @@ export default function InnerPageLayout({
                         to={item.href}
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-sm font-semibold transition-all ${
                           active
-                            ? 'bg-[#00A859] text-white shadow-xs'
-                            : 'bg-white hover:bg-[#EAF7EE] text-[#16191D] hover:text-[#00A859] border border-[#E5E7EB]'
+                            ? 'bg-[#063568] text-white shadow-xs'
+                            : 'bg-white hover:bg-[#F2F3FC] text-[#16191D] hover:text-[#063568] border border-[#E5E7EB]'
                         }`}
                       >
                         <span>{item.label}</span>
@@ -206,8 +206,8 @@ export default function InnerPageLayout({
                         to={item.href}
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-sm font-semibold transition-all ${
                           active
-                            ? 'bg-[#00A859] text-white shadow-xs'
-                            : 'bg-white hover:bg-[#EAF7EE] text-[#16191D] hover:text-[#00A859] border border-[#E5E7EB]'
+                            ? 'bg-[#063568] text-white shadow-xs'
+                            : 'bg-white hover:bg-[#F2F3FC] text-[#16191D] hover:text-[#063568] border border-[#E5E7EB]'
                         }`}
                       >
                         <span>{item.label}</span>
@@ -219,9 +219,9 @@ export default function InnerPageLayout({
               </div>
 
               {/* Quick Contact Box matching Template Sidebar */}
-              <div className="bg-white border-2 border-[#00A859]/30 rounded-lg p-6 shadow-xs space-y-4">
+              <div className="bg-white border-2 border-[#063568]/30 rounded-lg p-6 shadow-xs space-y-4">
                 <div className="space-y-1">
-                  <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#063568] uppercase tracking-wider">
                     Immediate Support
                   </span>
                   <h4 className="text-lg font-bold text-[#16191D]">
@@ -233,15 +233,15 @@ export default function InnerPageLayout({
                 </div>
 
                 {submitted ? (
-                  <div className="bg-[#EAF7EE] border border-[#00A859] rounded-md p-4 text-center space-y-2">
-                    <CheckCircle2 className="w-8 h-8 text-[#00A859] mx-auto" />
+                  <div className="bg-[#F2F3FC] border border-[#063568] rounded-md p-4 text-center space-y-2">
+                    <CheckCircle2 className="w-8 h-8 text-[#063568] mx-auto" />
                     <p className="text-xs font-bold text-[#16191D]">Message Received!</p>
                     <p className="text-xs text-[#5E6874]">
                       Our corporate team in Madhapur will call or email you within 2 business hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="text-xs text-[#00A859] font-semibold underline mt-2"
+                      className="text-xs text-[#063568] font-semibold underline mt-2"
                     >
                       Send another query
                     </button>
@@ -255,7 +255,7 @@ export default function InnerPageLayout({
                         placeholder="Your Name *"
                         value={quickForm.name}
                         onChange={(e) => setQuickForm({ ...quickForm, name: e.target.value })}
-                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden"
+                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden"
                       />
                     </div>
                     <div>
@@ -265,7 +265,7 @@ export default function InnerPageLayout({
                         placeholder="Corporate Email *"
                         value={quickForm.email}
                         onChange={(e) => setQuickForm({ ...quickForm, email: e.target.value })}
-                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden"
+                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden"
                       />
                     </div>
                     <div>
@@ -274,7 +274,7 @@ export default function InnerPageLayout({
                         placeholder="Phone Number"
                         value={quickForm.phone}
                         onChange={(e) => setQuickForm({ ...quickForm, phone: e.target.value })}
-                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden"
+                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden"
                       />
                     </div>
                     <div>
@@ -283,7 +283,7 @@ export default function InnerPageLayout({
                         placeholder="How can we help you?"
                         value={quickForm.message}
                         onChange={(e) => setQuickForm({ ...quickForm, message: e.target.value })}
-                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#00A859] focus:outline-hidden resize-none"
+                        className="w-full px-3 py-2 text-xs border border-[#E5E7EB] rounded-md focus:border-[#063568] focus:outline-hidden resize-none"
                       />
                     </div>
                     <button
@@ -300,16 +300,16 @@ export default function InnerPageLayout({
                 <div className="pt-3 border-t border-[#E5E7EB] space-y-1.5 text-xs text-[#5E6874]">
                   <a
                     href={`tel:${siteData.brand.rawPhone}`}
-                    className="flex items-center gap-2 hover:text-[#00A859] transition-colors"
+                    className="flex items-center gap-2 hover:text-[#063568] transition-colors"
                   >
-                    <Phone className="w-3.5 h-3.5 text-[#00A859]" />
+                    <Phone className="w-3.5 h-3.5 text-[#063568]" />
                     <span>{siteData.brand.phone}</span>
                   </a>
                   <a
                     href={`mailto:${siteData.brand.email}`}
-                    className="flex items-center gap-2 hover:text-[#00A859] transition-colors"
+                    className="flex items-center gap-2 hover:text-[#063568] transition-colors"
                   >
-                    <Mail className="w-3.5 h-3.5 text-[#00A859]" />
+                    <Mail className="w-3.5 h-3.5 text-[#063568]" />
                     <span>{siteData.brand.email}</span>
                   </a>
                 </div>
@@ -318,7 +318,7 @@ export default function InnerPageLayout({
               {/* Download Brochure Widget */}
               <div className="bg-[#16191D] text-white rounded-lg p-5 space-y-3">
                 <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded bg-[#00A859] flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded bg-[#063568] flex items-center justify-center shrink-0">
                     <FileText className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -334,7 +334,7 @@ export default function InnerPageLayout({
                   href={`tel:${siteData.brand.rawPhone}`}
                   className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded transition-colors"
                 >
-                  <Download className="w-3.5 h-3.5 text-[#00A859]" />
+                  <Download className="w-3.5 h-3.5 text-[#063568]" />
                   <span>Request PDF via WhatsApp / Email</span>
                 </a>
               </div>

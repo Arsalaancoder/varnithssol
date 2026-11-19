@@ -30,7 +30,7 @@ const stats = [
 
 export default function StatisticsBanner() {
   return (
-    <section className="bg-[#00A859] text-white py-10 sm:py-12 border-y border-[#008F4C] relative overflow-hidden">
+    <section className="bg-[#063568] text-white py-10 sm:py-12 border-y border-[#04274d] relative overflow-hidden">
       {/* Subtle decorative geometric overlay */}
       <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
 

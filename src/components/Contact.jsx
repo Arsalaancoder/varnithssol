@@ -90,8 +90,8 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-                <span className="text-xs sm:text-sm font-bold tracking-wider text-[#00A859] uppercase">
+                <span className="h-2 w-2 rounded-full bg-[#063568]" />
+                <span className="text-xs sm:text-sm font-bold tracking-wider text-[#063568] uppercase">
                   TALK TO US
                 </span>
               </div>
@@ -105,34 +105,34 @@ export default function Contact() {
 
             <div className="space-y-4">
               {/* Phone Card */}
-              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#00A859] transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#00A859] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#063568] transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#063568] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs text-[#5E6874] font-medium">Direct Telephone</div>
-                  <a href={`tel:${siteData.brand.rawPhone}`} className="text-sm font-bold text-[#16191D] hover:text-[#00A859] transition-colors">
+                  <a href={`tel:${siteData.brand.rawPhone}`} className="text-sm font-bold text-[#16191D] hover:text-[#063568] transition-colors">
                     {siteData.brand.phone}
                   </a>
                 </div>
               </div>
 
               {/* Email Card */}
-              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#00A859] transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#00A859] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#063568] transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#063568] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs text-[#5E6874] font-medium">Official Inquiries</div>
-                  <a href={`mailto:${siteData.brand.email}`} className="text-sm font-bold text-[#16191D] hover:text-[#00A859] transition-colors">
+                  <a href={`mailto:${siteData.brand.email}`} className="text-sm font-bold text-[#16191D] hover:text-[#063568] transition-colors">
                     {siteData.brand.email}
                   </a>
                 </div>
               </div>
 
               {/* Office Address Card */}
-              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#00A859] transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#00A859] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#063568] transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#063568] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -144,8 +144,8 @@ export default function Contact() {
               </div>
 
               {/* Office Hours */}
-              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#00A859] transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#00A859] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+              <div className="p-4 rounded-xl border border-[#E5E7EB] bg-[#F8F9FA] flex items-start gap-3.5 hover:border-[#063568] transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-white border border-[#E5E7EB] text-[#063568] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -166,8 +166,8 @@ export default function Contact() {
               </h3>
 
               {status === 'success' ? (
-                <div className="p-8 rounded-xl bg-[#EAF7EE] border border-[#00A859] text-center space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-[#00A859] text-white mx-auto flex items-center justify-center">
+                <div className="p-8 rounded-xl bg-[#F2F3FC] border border-[#063568] text-center space-y-3">
+                  <div className="w-12 h-12 rounded-full bg-[#063568] text-white mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <h4 className="text-lg font-bold text-[#16191D]">Message Received</h4>
@@ -201,7 +201,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Rahul Sharma"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#00A859] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#063568] transition-colors"
                       />
                     </div>
 
@@ -215,7 +215,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="e.g. rahul@company.com"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#00A859] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#063568] transition-colors"
                       />
                     </div>
                   </div>
@@ -231,7 +231,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="e.g. +91 98765 43210"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#00A859] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#063568] transition-colors"
                       />
                     </div>
 
@@ -242,7 +242,7 @@ export default function Contact() {
                       <select
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] bg-white focus:outline-hidden focus:border-[#00A859] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] bg-white focus:outline-hidden focus:border-[#063568] transition-colors"
                       >
                         {subjects.map((sub, idx) => (
                           <option key={idx} value={sub}>{sub}</option>
@@ -261,7 +261,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Please describe roles you need to hire, headcount, target timeline, or course questions..."
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#00A859] transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-[#CBD5E1] text-sm text-[#16191D] focus:outline-hidden focus:border-[#063568] transition-colors resize-none"
                     />
                   </div>
 

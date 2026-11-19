@@ -12,20 +12,20 @@ export default function CTASection() {
         <div className="bg-[#16191D] text-white rounded-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-[#2A3036] shadow-xl">
           
           {/* Subtle green polygonal glow in the background */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#00A859]/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-10 -left-10 w-80 h-80 bg-[#00A859]/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#063568]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-80 h-80 bg-[#063568]/10 rounded-full blur-2xl pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00A859]/20 border border-[#00A859]/40 text-xs font-bold text-[#00A859] uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#063568]/20 border border-[#063568]/40 text-xs font-bold text-[#063568] uppercase tracking-wider">
                 <span>TECHNICAL TRAINING DIVISION</span>
               </div>
 
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 Advance Enterprise Capabilities: <br />
-                <span className="text-[#00A859]">SAP Security, GRC & College Engagements</span>
+                <span className="text-[#063568]">SAP Security, GRC & College Engagements</span>
               </h2>
 
               <p className="text-base text-gray-300 leading-relaxed max-w-xl">
@@ -35,7 +35,7 @@ export default function CTASection() {
               {/* 3 Promoted Tracks */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
                 <div className="bg-white/5 border border-white/10 rounded-lg p-3.5 space-y-1">
-                  <div className="flex items-center gap-2 text-[#00A859]">
+                  <div className="flex items-center gap-2 text-[#063568]">
                     <Server className="w-4 h-4" />
                     <span className="text-xs font-bold text-white">SAP Basis Security</span>
                   </div>
@@ -43,7 +43,7 @@ export default function CTASection() {
                 </div>
 
                 <div className="bg-white/5 border border-white/10 rounded-lg p-3.5 space-y-1">
-                  <div className="flex items-center gap-2 text-[#00A859]">
+                  <div className="flex items-center gap-2 text-[#063568]">
                     <Shield className="w-4 h-4" />
                     <span className="text-xs font-bold text-white">SAP GRC 12.0</span>
                   </div>
@@ -51,7 +51,7 @@ export default function CTASection() {
                 </div>
 
                 <div className="bg-white/5 border border-white/10 rounded-lg p-3.5 space-y-1">
-                  <div className="flex items-center gap-2 text-[#00A859]">
+                  <div className="flex items-center gap-2 text-[#063568]">
                     <GraduationCap className="w-4 h-4" />
                     <span className="text-xs font-bold text-white">College Engagements</span>
                   </div>
@@ -73,7 +73,7 @@ export default function CTASection() {
                   href={`tel:${siteData.brand.rawPhone}`}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition-colors"
                 >
-                  <FileText className="w-4 h-4 text-[#00A859]" />
+                  <FileText className="w-4 h-4 text-[#063568]" />
                   <span>Ask for the Syllabus</span>
                 </a>
               </div>
@@ -82,7 +82,7 @@ export default function CTASection() {
             {/* Right Card: Quick Batch & Placement Stats */}
             <div className="lg:col-span-5 bg-white text-[#16191D] rounded-xl p-6 sm:p-8 space-y-5 border border-white/20 shadow-2xl">
               <div className="border-b border-[#E5E7EB] pb-3">
-                <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider block">
+                <span className="text-xs font-bold text-[#063568] uppercase tracking-wider block">
                   Upcoming Cohort Details
                 </span>
                 <h3 className="text-xl font-bold text-[#16191D]">
@@ -97,7 +97,7 @@ export default function CTASection() {
                 </div>
                 <div className="flex items-center justify-between py-1.5 border-b border-[#E5E7EB]">
                   <span className="text-[#5E6874]">Lab Access</span>
-                  <span className="font-bold text-[#00A859]">24/7 Dedicated Sandbox</span>
+                  <span className="font-bold text-[#063568]">24/7 Dedicated Sandbox</span>
                 </div>
                 <div className="flex items-center justify-between py-1.5 border-b border-[#E5E7EB]">
                   <span className="text-[#5E6874]">Batch Size</span>

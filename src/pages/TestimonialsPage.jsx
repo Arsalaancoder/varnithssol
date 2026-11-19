@@ -17,8 +17,8 @@ export default function TestimonialsPage() {
         {/* Intro */}
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#00A859]" />
-            <span className="text-xs font-bold text-[#00A859] uppercase tracking-wider">
+            <span className="h-2 w-2 rounded-full bg-[#063568]" />
+            <span className="text-xs font-bold text-[#063568] uppercase tracking-wider">
               VERIFIED SUCCESS STORIES
             </span>
           </div>
@@ -37,16 +37,16 @@ export default function TestimonialsPage() {
           {siteData.testimonials.map((t) => (
             <div
               key={t.id}
-              className="bg-white border border-[#E5E7EB] rounded-xl p-6 sm:p-7 hover:border-[#00A859] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white border border-[#E5E7EB] rounded-xl p-6 sm:p-7 hover:border-[#063568] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-[#00A859]">
+                  <div className="flex items-center gap-1 text-[#063568]">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[11px] font-bold text-[#00A859] bg-[#EAF7EE] px-2 py-0.5 rounded">
+                  <span className="text-[11px] font-bold text-[#063568] bg-[#F2F3FC] px-2 py-0.5 rounded">
                     Verified
                   </span>
                 </div>
@@ -57,11 +57,11 @@ export default function TestimonialsPage() {
               </div>
 
               <div className="pt-4 mt-4 border-t border-[#E5E7EB] flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#00A859] text-white font-bold flex items-center justify-center text-sm shadow-xs">
+                <div className="w-10 h-10 rounded-full bg-[#063568] text-white font-bold flex items-center justify-center text-sm shadow-xs">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#16191D] group-hover:text-[#00A859] transition-colors">
+                  <h4 className="text-sm font-bold text-[#16191D] group-hover:text-[#063568] transition-colors">
                     {t.name}
                   </h4>
                   <p className="text-xs text-[#5E6874]">

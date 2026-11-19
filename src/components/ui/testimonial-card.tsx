@@ -29,7 +29,7 @@ export function TestimonialCard({
         "flex flex-col rounded-lg border border-[#EAEAEA]",
         "bg-white shadow-xs",
         "p-5 text-start sm:p-6",
-        "hover:border-[#00A859] hover:shadow-card-hover",
+        "hover:border-[#063568] hover:shadow-card-hover",
         "w-[300px] sm:w-[320px] shrink-0",
         "transition-all duration-300",
         className
@@ -43,7 +43,7 @@ export function TestimonialCard({
           <h3 className="text-sm font-bold text-[#16191D] leading-tight">
             {author.name}
           </h3>
-          <p className="text-xs text-[#00A859] font-medium mt-0.5">
+          <p className="text-xs text-[#063568] font-medium mt-0.5">
             {author.handle}
           </p>
         </div>
