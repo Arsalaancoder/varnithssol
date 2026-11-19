@@ -21,7 +21,7 @@ export function TestimonialsSection({
   return (
     <section className={cn(
       "bg-white text-[#16191D]",
-      "py-16 sm:py-20 lg:py-24 px-0 border-b border-[#EAEAEA]",
+      "py-16 sm:py-20 lg:py-24 px-0 border-b border-[#EAEAEA] overflow-hidden",
       className
     )}>
       <div className="mx-auto flex max-w-container flex-col items-center gap-6 text-center sm:gap-12">
@@ -41,25 +41,30 @@ export function TestimonialsSection({
           </p>
         </div>
 
+        {/* Seamless Infinite Marquee with Identical Parallel Sibling Tracks */}
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-          <div className="group flex overflow-hidden p-2 [--gap:1.25rem] [gap:var(--gap)] flex-row [--duration:35s]">
-            <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]">
-              {[...Array(4)].map((_, setIndex) => (
-                testimonials.map((testimonial, i) => (
+          <div className="group flex overflow-hidden p-2 [--gap:1.5rem] [gap:var(--gap)] flex-row [--duration:35s] w-full">
+            {[0, 1, 2, 3].map((trackIndex) => (
+              <div 
+                key={trackIndex}
+                className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]"
+                aria-hidden={trackIndex > 0 ? "true" : undefined}
+              >
+                {testimonials.map((testimonial, i) => (
                   <TestimonialCard 
-                    key={`${setIndex}-${i}`}
+                    key={`track-${trackIndex}-${i}`}
                     {...testimonial}
                   />
-                ))
-              ))}
-            </div>
+                ))}
+              </div>
+            ))}
           </div>
 
-          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/4 bg-gradient-to-r from-white to-transparent sm:block" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/4 bg-gradient-to-l from-white to-transparent sm:block" />
+          {/* Fade Gradients at Edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/4 bg-gradient-to-r from-white to-transparent sm:block z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/4 bg-gradient-to-l from-white to-transparent sm:block z-10" />
         </div>
       </div>
     </section>
   )
 }
-

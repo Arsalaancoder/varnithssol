@@ -114,3 +114,4 @@ export default function IntroductionCollage({
     </section>
   );
 }
+

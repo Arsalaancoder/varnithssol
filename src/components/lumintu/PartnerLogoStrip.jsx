@@ -35,3 +35,4 @@ export default function PartnerLogoStrip({ title = "TRUSTED BY ENTERPRISE PLATFO
     </div>
   );
 }
+
