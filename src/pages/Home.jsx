@@ -1,7 +1,6 @@
 import React from 'react';
 import HeroSection from '../components/home/HeroSection';
 import HighlightsSection from '../components/home/HighlightsSection';
-import ChallengesSection from '../components/home/ChallengesSection';
 import SolutionSection from '../components/home/SolutionSection';
 import HowWeHelpSection from '../components/home/HowWeHelpSection';
 import ServicesSection from '../components/home/ServicesSection';
@@ -21,34 +20,31 @@ export default function Home() {
       {/* SECTION 2: COMPANY HIGHLIGHTS */}
       <HighlightsSection />
 
-      {/* SECTION 3: COMMON CHALLENGES */}
-      <ChallengesSection />
-
-      {/* SECTION 4: OUR SOLUTION */}
+      {/* SECTION 3: OUR SOLUTION */}
       <SolutionSection />
 
-      {/* SECTION 5: HOW WE HELP */}
+      {/* SECTION 4: HOW WE HELP */}
       <HowWeHelpSection />
 
-      {/* SECTION 6: SERVICES */}
+      {/* SECTION 5: SERVICES */}
       <ServicesSection />
 
-      {/* SECTION 7: CONNECTED BY PEOPLE */}
+      {/* SECTION 6: CONNECTED BY PEOPLE */}
       <ConnectedSection />
 
-      {/* SECTION 8: HOW WE HIRE */}
+      {/* SECTION 7: HOW WE HIRE */}
       <HowWeHireSection />
 
-      {/* SECTION 9: WHO WE HIRE FOR */}
+      {/* SECTION 8: WHO WE HIRE FOR */}
       <WhoWeHireSection />
 
-      {/* SECTION 10: WHAT WORKING WITH US FEELS LIKE */}
+      {/* SECTION 9: WHAT WORKING WITH US FEELS LIKE */}
       <WorkingWithUsSection />
 
-      {/* SECTION 11: FAQ */}
+      {/* SECTION 10: FAQ */}
       <FAQSection />
 
-      {/* SECTION 12: CONTACT CTA */}
+      {/* SECTION 11: CONTACT CTA */}
       <ContactCtaSection />
     </div>
   );

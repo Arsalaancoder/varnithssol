@@ -91,13 +91,6 @@ export default function ContactPage() {
     <div className="bg-white">
       {/* 1. HERO SECTION */}
       <section className="bg-white pt-10 pb-16 lg:pt-16 lg:pb-20 border-b border-slate-200 relative overflow-hidden">
-        {/* Decorative Geometric Accents matching reference */}
-        <div className="hidden sm:block absolute top-12 left-6 lg:left-20 w-7 h-7 rounded-full bg-[#FBBF24] opacity-90 shadow-2xs pointer-events-none" />
-        <div className="hidden sm:block absolute top-10 right-4 lg:right-16 pointer-events-none">
-          <div className="w-7 h-7 rounded-full bg-[#FBBF24] mb-2 ml-auto opacity-90 shadow-2xs" />
-          <div className="w-10 h-7 rounded-b-full bg-[#056EB5] opacity-90" />
-        </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="flex items-center gap-2 text-xs text-slate-500 mb-6">

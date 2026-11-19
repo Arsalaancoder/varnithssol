@@ -166,34 +166,49 @@ export default function CollegeProgrammesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border border-slate-200 rounded-lg p-6 space-y-3">
-              <div className="w-10 h-10 rounded-md bg-[#0A3857] text-white flex items-center justify-center">
-                <BookOpen className="w-5 h-5" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 space-y-3 border border-slate-200/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.05)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+              <div className="relative z-10 space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <BookOpen className="w-5 h-5 transition-transform group-hover:scale-105" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0A3857] group-hover:text-[#056EB5] transition-colors">Skill Programmes</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Skill programmes delivered for a college's students across enterprise technology tracks, security, and cloud.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#0A3857]">Skill Programmes</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Skill programmes delivered for a college's students across enterprise technology tracks, security, and cloud.
-              </p>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-lg p-6 space-y-3">
-              <div className="w-10 h-10 rounded-md bg-[#127DC4] text-white flex items-center justify-center">
-                <Users className="w-5 h-5" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 space-y-3 border border-slate-200/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.05)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+              <div className="relative z-10 space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <Users className="w-5 h-5 transition-transform group-hover:scale-105" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0A3857] group-hover:text-[#056EB5] transition-colors">Workshops &amp; Guest Sessions</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Focused technical seminars, code reviews, and guest sessions delivered by active engineering practitioners.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#0A3857]">Workshops &amp; Guest Sessions</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Focused technical seminars, code reviews, and guest sessions delivered by active engineering practitioners.
-              </p>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-lg p-6 space-y-3">
-              <div className="w-10 h-10 rounded-md bg-[#0A3857] text-white flex items-center justify-center">
-                <Building className="w-5 h-5" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 space-y-3 border border-slate-200/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.05)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+              <div className="relative z-10 space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <Building className="w-5 h-5 transition-transform group-hover:scale-105" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0A3857] group-hover:text-[#056EB5] transition-colors">Industry Awareness</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Industry awareness sessions for final-year students on corporate hiring processes, technical portfolios, and tech interviews.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#0A3857]">Industry Awareness</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Industry awareness sessions for final-year students on corporate hiring processes, technical portfolios, and tech interviews.
-              </p>
             </div>
           </div>
 

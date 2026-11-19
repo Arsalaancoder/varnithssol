@@ -12,16 +12,6 @@ export default function FAQSection() {
 
   return (
     <section id="faq-section" className="bg-[#F8FAFC] py-16 sm:py-20 lg:py-24 border-b border-slate-200 relative overflow-hidden">
-      {/* Decorative Geometric Accents matching reference image */}
-      {/* Left Yellow Circle */}
-      <div className="hidden sm:block absolute top-6 left-8 lg:left-14 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-[#FBBF24] opacity-95 shadow-2xs pointer-events-none" />
-      
-      {/* Right Edge Stacked Geometric Shapes */}
-      <div className="hidden sm:flex absolute top-10 right-0 flex-col items-end pointer-events-none z-0">
-        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#FBBF24] opacity-95 mr-0 shadow-2xs mb-1" />
-        <div className="w-12 h-14 lg:w-14 lg:h-16 rounded-l-full bg-[#009CE8] opacity-95" />
-      </div>
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

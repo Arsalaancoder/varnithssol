@@ -15,8 +15,8 @@ const roleIcons = {
 
 export default function WhoWeHireSection() {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 lg:mb-16">
@@ -31,35 +31,39 @@ export default function WhoWeHireSection() {
           </p>
         </div>
 
-        {/* 6 Role Family Cards matching reference card design */}
+        {/* 6 Role Family Refined Glassmorphism Cards with Orange + Blue Sheen (NO DOTS) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {siteData.whoWeHireFor.map((item, idx) => {
             const Icon = roleIcons[item.icon] || Code2;
             return (
               <motion.div
                 key={item.title}
-                className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
+                className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.06)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.05 }}
               >
-                {/* Subtle Radial Glow */}
-                <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/40 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+                {/* Top reflection line */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
 
-                <div>
-                  {/* Top Circular Icon Badge */}
-                  <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                    <Icon className="w-5 h-5 text-slate-800" />
+                {/* Subtle blue & orange ambient glass reflections */}
+                <div className="absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 w-36 h-36 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+
+                <div className="relative z-10">
+                  {/* Clean Frosted Icon Badge (NO DOTS) */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                    <Icon className="w-5 h-5 transition-transform group-hover:scale-105" />
                   </div>
 
-                  {/* Category Eyebrow */}
+                  {/* Clean Category Eyebrow (NO DOTS) */}
                   <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
                     TECH VERTICAL • 0{idx + 1}
                   </div>
 
                   {/* Headline */}
-                  <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                  <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk'] group-hover:text-[#056EB5] transition-colors">
                     {item.title}
                   </h3>
 
@@ -70,13 +74,13 @@ export default function WhoWeHireSection() {
                 </div>
 
                 {/* Bottom Action */}
-                <div className="pt-4 mt-auto border-t border-slate-100/80">
+                <div className="pt-4 mt-auto border-t border-slate-100/90 relative z-10">
                   <Link
                     to="/industries"
-                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/80 rounded-md px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all font-['Familjen_Grotesk']"
+                    className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk']"
                   >
                     <span>View Specifications</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#F48A25] group-hover:translate-x-0.5 transition-all" />
                   </Link>
                 </div>
               </motion.div>
@@ -84,8 +88,8 @@ export default function WhoWeHireSection() {
           })}
         </div>
 
-        {/* Bottom CTA Banner */}
-        <div className="mt-12 p-8 bg-[#EDF3F5] border border-[#D8E3E8] rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-5">
+        {/* Bottom CTA Banner with subtle glassmorphism */}
+        <div className="mt-12 p-8 backdrop-blur-md bg-gradient-to-r from-blue-50/70 via-white/90 to-orange-50/50 border border-slate-200/80 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-5 shadow-[0_8px_30px_rgb(0,0,0,0.03)]">
           <div>
             <div className="text-lg font-bold text-[#0D5C91] font-['Familjen_Grotesk']">Need to fill a specialized engineering role?</div>
             <div className="text-sm text-slate-600 font-['Familjen_Grotesk']">Share your requirement and get a calibrated shortlist in days.</div>

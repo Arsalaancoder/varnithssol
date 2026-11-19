@@ -282,13 +282,21 @@ export default function SAPGRCPage() {
             {modules.map((m) => (
               <div
                 key={m.num}
-                className="bg-[#F8FAFC] border border-slate-200 rounded-lg p-6 space-y-3 hover:border-slate-300 transition-colors"
+                className="backdrop-blur-md bg-white/85 rounded-2xl p-6 space-y-3 border border-slate-200/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.05)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
               >
-                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#0A3857] text-white">
-                  Module {m.num}
-                </span>
-                <h3 className="text-base font-bold text-[#0A3857]">{m.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+
+                <div className="relative z-10 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-gradient-to-br from-blue-50 to-orange-50/50 border border-slate-200/60 text-[#056EB5] group-hover:text-[#F48A25] transition-colors">
+                      Module {m.num}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-[#0A3857] group-hover:text-[#056EB5] transition-colors">{m.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{m.desc}</p>
+                </div>
               </div>
             ))}
           </div>

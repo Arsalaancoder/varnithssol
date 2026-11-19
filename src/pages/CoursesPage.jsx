@@ -158,7 +158,6 @@ export default function CoursesPage() {
               transition={{ duration: 0.5 }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-xs font-semibold text-[#0A3857] uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#127DC4]"></span>
                 <span>IT Academy &amp; Campus Partnerships</span>
               </div>
 
@@ -220,13 +219,6 @@ export default function CoursesPage() {
 
       {/* 2. PROGRAMMES SECTION */}
       <section id="programmes" className="bg-[#F8FAFC] py-16 sm:py-20 lg:py-24 border-b border-slate-200 relative overflow-hidden">
-        {/* Decorative Geometric Accents */}
-        <div className="hidden sm:block absolute top-6 left-8 lg:left-14 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-[#FBBF24] opacity-95 shadow-2xs pointer-events-none" />
-        <div className="hidden sm:flex absolute top-10 right-0 flex-col items-end pointer-events-none z-0">
-          <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#FBBF24] opacity-95 mr-0 shadow-2xs mb-1" />
-          <div className="w-12 h-14 lg:w-14 lg:h-16 rounded-l-full bg-[#009CE8] opacity-95" />
-        </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 lg:mb-16">
@@ -244,17 +236,19 @@ export default function CoursesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             
             {/* Programme 1: SAP Basis Security */}
-            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.06)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
 
-              <div>
-                <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                  <ShieldCheck className="w-5 h-5 text-slate-800" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <ShieldCheck className="w-5 h-5 transition-transform group-hover:scale-105" />
                 </div>
                 <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
                   ACADEMY TRACK • 01
                 </div>
-                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk'] group-hover:text-[#056EB5] transition-colors">
                   SAP Basis Security
                 </h3>
                 <div className="text-xs text-[#056EB5] font-semibold mb-3 font-['Familjen_Grotesk']">
@@ -263,7 +257,7 @@ export default function CoursesPage() {
                 <p className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-4">
                   Secure SAP systems: users, roles, authorisations and audits. Learn user administration, PFCG role architecture, authorization concepts, and system hardening on real sandbox systems.
                 </p>
-                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/80 text-xs text-slate-700">
+                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/90 text-xs text-slate-700">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#056EB5]" />
                     <span>User lifecycle management (SU01, SU10)</span>
@@ -279,21 +273,21 @@ export default function CoursesPage() {
                 </div>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-slate-100/80 flex items-center justify-between">
+              <div className="pt-5 mt-4 border-t border-slate-100/90 flex items-center justify-between relative z-10">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedService('SAP Basis Security');
                     setModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
                 >
                   <span>Inquire about this service</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#F48A25] group-hover:translate-x-0.5 transition-all" />
                 </button>
                 <Link
                   to="/academy/sap-basis-security"
-                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
+                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#F48A25] transition-colors font-['Familjen_Grotesk']"
                 >
                   Details
                 </Link>
@@ -301,17 +295,19 @@ export default function CoursesPage() {
             </div>
 
             {/* Programme 2: SAP GRC */}
-            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.06)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
 
-              <div>
-                <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                  <FileCheck className="w-5 h-5 text-slate-800" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <FileCheck className="w-5 h-5 transition-transform group-hover:scale-105" />
                 </div>
                 <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
                   ACADEMY TRACK • 02
                 </div>
-                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk'] group-hover:text-[#056EB5] transition-colors">
                   SAP GRC
                 </h3>
                 <div className="text-xs text-[#056EB5] font-semibold mb-3 font-['Familjen_Grotesk']">
@@ -320,7 +316,7 @@ export default function CoursesPage() {
                 <p className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-4">
                   Who can do what, and who checks? Access governance, risk management and audit compliance in SAP. Master Segregation of Duties (SoD), emergency access (EAM), and automated user provisioning (ARM).
                 </p>
-                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/80 text-xs text-slate-700">
+                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/90 text-xs text-slate-700">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#056EB5]" />
                     <span>Access Risk Analysis (ARA) &amp; SoD rule sets</span>
@@ -336,21 +332,21 @@ export default function CoursesPage() {
                 </div>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-slate-100/80 flex items-center justify-between">
+              <div className="pt-5 mt-4 border-t border-slate-100/90 flex items-center justify-between relative z-10">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedService('SAP GRC');
                     setModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
                 >
                   <span>Inquire about this service</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#F48A25] group-hover:translate-x-0.5 transition-all" />
                 </button>
                 <Link
                   to="/academy/sap-grc"
-                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
+                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#F48A25] transition-colors font-['Familjen_Grotesk']"
                 >
                   Details
                 </Link>
@@ -358,17 +354,19 @@ export default function CoursesPage() {
             </div>
 
             {/* Programme 3: College Engagements */}
-            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.06)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
 
-              <div>
-                <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                  <GraduationCap className="w-5 h-5 text-slate-800" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <GraduationCap className="w-5 h-5 transition-transform group-hover:scale-105" />
                 </div>
                 <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
                   ACADEMY TRACK • 03
                 </div>
-                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk'] group-hover:text-[#056EB5] transition-colors">
                   College Engagements
                 </h3>
                 <div className="text-xs text-[#056EB5] font-semibold mb-3 font-['Familjen_Grotesk']">
@@ -377,7 +375,7 @@ export default function CoursesPage() {
                 <p className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-4">
                   Practical programmes that close the gap between college and the first job. Delivered in partnership with colleges across India, focusing on enterprise software engineering skills and interview readiness.
                 </p>
-                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/80 text-xs text-slate-700">
+                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/90 text-xs text-slate-700">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#056EB5]" />
                     <span>Tailored skill modules for engineering students</span>
@@ -393,21 +391,21 @@ export default function CoursesPage() {
                 </div>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-slate-100/80 flex items-center justify-between">
+              <div className="pt-5 mt-4 border-t border-slate-100/90 flex items-center justify-between relative z-10">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedService('College Engagements');
                     setModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
                 >
                   <span>Inquire about this service</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#F48A25] group-hover:translate-x-0.5 transition-all" />
                 </button>
                 <Link
                   to="/academy/college-programmes"
-                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
+                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#F48A25] transition-colors font-['Familjen_Grotesk']"
                 >
                   Details
                 </Link>
@@ -415,17 +413,19 @@ export default function CoursesPage() {
             </div>
 
             {/* Programme 4: SAP S/4HANA Security & Fiori Authorizations */}
-            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.06)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
 
-              <div>
-                <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                  <ShieldCheck className="w-5 h-5 text-slate-800" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <ShieldCheck className="w-5 h-5 transition-transform group-hover:scale-105" />
                 </div>
                 <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
                   ACADEMY TRACK • 04
                 </div>
-                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk'] group-hover:text-[#056EB5] transition-colors">
                   SAP S/4HANA Security &amp; Fiori
                 </h3>
                 <div className="text-xs text-[#056EB5] font-semibold mb-3 font-['Familjen_Grotesk']">
@@ -434,7 +434,7 @@ export default function CoursesPage() {
                 <p className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-4">
                   Master next-generation SAP S/4HANA authorizations, Fiori tile catalogue assignments, OData service privileges, and migrating traditional ERP security roles.
                 </p>
-                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/80 text-xs text-slate-700">
+                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/90 text-xs text-slate-700">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#056EB5]" />
                     <span>Fiori Launchpad spaces and pages authorization</span>
@@ -450,21 +450,21 @@ export default function CoursesPage() {
                 </div>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-slate-100/80 flex items-center justify-between">
+              <div className="pt-5 mt-4 border-t border-slate-100/90 flex items-center justify-between relative z-10">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedService('SAP S/4HANA Security & Fiori');
                     setModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
                 >
                   <span>Inquire about this service</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#F48A25] group-hover:translate-x-0.5 transition-all" />
                 </button>
                 <Link
                   to="/academy/sap-basis-security"
-                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
+                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#F48A25] transition-colors font-['Familjen_Grotesk']"
                 >
                   Details
                 </Link>
@@ -472,17 +472,19 @@ export default function CoursesPage() {
             </div>
 
             {/* Programme 5: Enterprise Cloud & DevSecOps */}
-            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+            <div className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.06)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
 
-              <div>
-                <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                  <Terminal className="w-5 h-5 text-slate-800" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                  <Terminal className="w-5 h-5 transition-transform group-hover:scale-105" />
                 </div>
                 <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
                   ACADEMY TRACK • 05
                 </div>
-                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk'] group-hover:text-[#056EB5] transition-colors">
                   Enterprise Cloud &amp; DevSecOps
                 </h3>
                 <div className="text-xs text-[#056EB5] font-semibold mb-3 font-['Familjen_Grotesk']">
@@ -491,7 +493,7 @@ export default function CoursesPage() {
                 <p className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-4">
                   Practical engineering program covering automated pipeline scanning, secrets management, Terraform infrastructure compliance, and container security on AWS and Azure.
                 </p>
-                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/80 text-xs text-slate-700">
+                <div className="pt-3 pb-2 space-y-2 border-t border-slate-100/90 text-xs text-slate-700">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#056EB5]" />
                     <span>Automated SAST/DAST pipeline integration</span>
@@ -507,21 +509,21 @@ export default function CoursesPage() {
                 </div>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-slate-100/80 flex items-center justify-between">
+              <div className="pt-5 mt-4 border-t border-slate-100/90 flex items-center justify-between relative z-10">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedService('Enterprise Cloud & DevSecOps');
                     setModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
                 >
                   <span>Inquire about this service</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#F48A25] group-hover:translate-x-0.5 transition-all" />
                 </button>
                 <Link
                   to="/academy"
-                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
+                  className="text-xs font-semibold text-[#0D5C91] hover:text-[#F48A25] transition-colors font-['Familjen_Grotesk']"
                 >
                   Details
                 </Link>
@@ -589,13 +591,6 @@ export default function CoursesPage() {
 
       {/* 4. LEARNER FAQS */}
       <section className="bg-[#F8FAFC] py-16 sm:py-20 border-b border-slate-200 relative overflow-hidden">
-        {/* Decorative Geometric Accents matching reference */}
-        <div className="hidden sm:block absolute top-10 left-6 lg:left-16 w-6 h-6 rounded-full bg-[#FBBF24] opacity-90 shadow-2xs pointer-events-none" />
-        <div className="hidden sm:block absolute top-8 right-4 lg:right-12 pointer-events-none">
-          <div className="w-6 h-6 rounded-full bg-[#FBBF24] mb-1.5 ml-auto opacity-90 shadow-2xs" />
-          <div className="w-8 h-5 rounded-b-full bg-[#056EB5] opacity-90" />
-        </div>
-
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center space-y-3 mb-10">

@@ -71,20 +71,9 @@ export default function HowWeHelpSection() {
         {/* Outer White Card Container matching process reference */}
         <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-12 lg:p-16 border border-slate-100 shadow-xl shadow-slate-200/40 relative">
           
-          {/* Section Header with Decorative Geometric Accents */}
+          {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto space-y-3 mb-12 sm:mb-16 relative">
-            
-            {/* Bluspark Yellow Circle Geometric Accent */}
-            <div className="hidden sm:block absolute -top-4 -left-6 w-5 h-5 rounded-full bg-[#FBBF24] opacity-90 shadow-xs pointer-events-none" />
-            
-            {/* Bluspark Right Side Geometric Accents */}
-            <div className="hidden sm:block absolute -top-2 -right-8 pointer-events-none">
-              <div className="w-5 h-5 rounded-full bg-[#FBBF24] mb-1.5 ml-auto opacity-90" />
-              <div className="w-7 h-4 rounded-b-full bg-[#056EB5] opacity-90" />
-            </div>
-
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 rounded-full text-[11px] font-bold text-slate-500 uppercase tracking-widest font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#056EB5] animate-pulse"></span>
               <span>004 • PROCESS</span>
             </div>
             

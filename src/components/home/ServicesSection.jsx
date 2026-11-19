@@ -49,13 +49,6 @@ export default function ServicesSection() {
 
   return (
     <section className="bg-[#F8FAFC] py-16 sm:py-20 lg:py-24 border-b border-slate-200 relative overflow-hidden">
-      {/* Decorative Geometric Accents matching reference */}
-      <div className="hidden sm:block absolute top-6 left-8 lg:left-14 w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-[#FBBF24] opacity-95 shadow-2xs pointer-events-none" />
-      <div className="hidden sm:flex absolute top-10 right-0 flex-col items-end pointer-events-none z-0">
-        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#FBBF24] opacity-95 mr-0 shadow-2xs mb-1" />
-        <div className="w-12 h-14 lg:w-14 lg:h-16 rounded-l-full bg-[#009CE8] opacity-95" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -97,38 +90,42 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        {/* Modern Card Grid matching reference layout */}
+        {/* Refined Glassmorphism Card Grid with Orange + Blue Identity */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {activeServices.map((service, idx) => {
             const Icon = currentIcons[idx % currentIcons.length];
             return (
               <motion.div
                 key={service.id}
-                className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
+                className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.06)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
               >
-                {/* Subtle Radial Glow */}
-                <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+                {/* Top reflection line */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
 
-                <div>
-                  {/* Top Circular Icon Badge */}
-                  <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                    <Icon className="w-5 h-5 text-slate-800" />
+                {/* Subtle blue & orange ambient glass reflections */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+
+                <div className="relative z-10">
+                  {/* Clean Frosted Icon Badge with subtle gradient tint (NO DOTS) */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                    <Icon className="w-5 h-5 transition-transform group-hover:scale-105" />
                   </div>
 
-                  {/* Category Eyebrow */}
+                  {/* Clean Category Eyebrow (NO DOTS) */}
                   <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
                     {activeTab === 'hr' ? 'HR CONSULTING' : 'ACADEMY TRACK'} • 0{idx + 1}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                  <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk'] group-hover:text-[#056EB5] transition-colors">
                     {service.title}
                   </h3>
 
-                  {/* Tagline */}
+                  {/* Tagline in Logo Blue */}
                   <p className="text-xs font-semibold text-[#056EB5] mb-3 font-['Familjen_Grotesk']">
                     {service.tagline}
                   </p>
@@ -140,22 +137,22 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Bottom Action Group */}
-                <div className="pt-4 mt-auto border-t border-slate-100/80 flex items-center justify-between">
+                <div className="pt-4 mt-auto border-t border-slate-100/90 flex items-center justify-between relative z-10">
                   <button
                     type="button"
                     onClick={() => {
                       setSelectedService(service.title);
                       setModalOpen(true);
                     }}
-                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
+                    className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
                   >
                     <span>Inquire about this service</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#F48A25] group-hover:translate-x-0.5 transition-all" />
                   </button>
 
                   <Link
                     to={service.href}
-                    className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
+                    className="text-xs font-semibold text-[#0D5C91] hover:text-[#F48A25] transition-colors font-['Familjen_Grotesk']"
                   >
                     Details
                   </Link>
