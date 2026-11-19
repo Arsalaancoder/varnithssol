@@ -9,26 +9,15 @@ import {
   LineChart, 
   Compass, 
   Clock,
-  ShieldCheck,
-  FileCheck,
-  GraduationCap,
-  Code,
-  Sparkles,
-  Terminal,
-  Layers,
-  Sparkle
+  ShieldCheck, 
+  FileCheck, 
+  GraduationCap, 
+  Code, 
+  Terminal
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { siteData } from '../../data/siteData';
 import InquiryModal from '../InquiryModal';
-import {
-  CardCurtainReveal,
-  CardCurtainRevealBody,
-  CardCurtainRevealDescription,
-  CardCurtainRevealFooter,
-  CardCurtainRevealTitle,
-  CardCurtain,
-} from '@/components/ui/card-curtain-reveal';
 
 const hrIcons = [
   Users,           // Talent Acquisition
@@ -52,7 +41,6 @@ const trainingIcons = [
 
 export default function ServicesSection() {
   const [activeTab, setActiveTab] = useState('hr'); // 'hr' | 'training'
-  const [viewMode, setViewMode] = useState('curtain'); // 'curtain' | 'classic'
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
 
@@ -83,9 +71,8 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Tab & View Mode Switcher */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10 lg:mb-12">
-          {/* Practice Tab Switcher */}
+        {/* Practice Tab Switcher */}
+        <div className="flex items-center justify-center mb-10 lg:mb-12">
           <div className="inline-flex p-1 bg-slate-200/80 rounded-full border border-slate-300/80">
             <button
               onClick={() => setActiveTab('hr')}
@@ -108,163 +95,75 @@ export default function ServicesSection() {
               Training &amp; Development ({siteData.servicesTraining.length})
             </button>
           </div>
-
-          {/* Interactive Card Presentation Toggle */}
-          <div className="inline-flex p-1 bg-slate-100 rounded-full border border-slate-200 text-xs font-semibold font-['Familjen_Grotesk']">
-            <button
-              onClick={() => setViewMode('curtain')}
-              className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer flex items-center gap-1.5 ${
-                viewMode === 'curtain'
-                  ? 'bg-[#056EB5] text-white shadow-2xs'
-                  : 'text-slate-600 hover:text-[#056EB5]'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Curtain Reveal</span>
-            </button>
-            <button
-              onClick={() => setViewMode('classic')}
-              className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
-                viewMode === 'classic'
-                  ? 'bg-white text-slate-800 shadow-2xs'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Classic Cards
-            </button>
-          </div>
         </div>
 
-        {/* Card Curtain Reveal Mode */}
-        {viewMode === 'curtain' ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {activeServices.map((service, idx) => {
-              const Icon = currentIcons[idx % currentIcons.length];
-              return (
-                <CardCurtainReveal
-                  key={service.id}
-                  className="h-[430px] rounded-2xl border border-slate-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
-                >
-                  <CardCurtainRevealBody className="p-7 flex flex-col justify-between h-full relative z-10">
-                    <div>
-                      {/* Top Circular Icon */}
-                      <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200 shadow-2xs flex items-center justify-center mb-4 text-[#0D5C91]">
-                        <Icon className="w-5 h-5 text-[#0D5C91]" />
-                      </div>
+        {/* Modern Card Grid matching reference layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {activeServices.map((service, idx) => {
+            const Icon = currentIcons[idx % currentIcons.length];
+            return (
+              <motion.div
+                key={service.id}
+                className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+              >
+                {/* Subtle Radial Glow */}
+                <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
 
-                      {/* Eyebrow */}
-                      <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 font-mono">
-                        {activeTab === 'hr' ? 'HR CONSULTING' : 'ACADEMY TRACK'} • 0{idx + 1}
-                      </div>
-
-                      {/* Title with Curtain Hover Reveal */}
-                      <CardCurtainRevealTitle className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
-                        {service.title}
-                      </CardCurtainRevealTitle>
-
-                      {/* Tagline */}
-                      <p className="text-xs font-semibold text-[#056EB5] mb-3 font-['Familjen_Grotesk']">
-                        {service.tagline}
-                      </p>
-
-                      {/* Description with Curtain Variants */}
-                      <CardCurtainRevealDescription className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-4">
-                        <p>{service.description}</p>
-                      </CardCurtainRevealDescription>
-                    </div>
-
-                    {/* Bottom Action Group */}
-                    <div className="pt-4 mt-auto border-t border-slate-100 flex items-center justify-between relative z-20">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedService(service.title);
-                          setModalOpen(true);
-                        }}
-                        className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
-                      >
-                        <span>Inquire about this service</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
-                      </button>
-
-                      <Link
-                        to={service.href}
-                        className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
-                      >
-                        Details
-                      </Link>
-                    </div>
-
-                    {/* Animated Curtain Layer */}
-                    <CardCurtain className="bg-gradient-to-t from-blue-50/50 via-white/20 to-transparent pointer-events-none" />
-                  </CardCurtainRevealBody>
-                </CardCurtainReveal>
-              );
-            })}
-          </div>
-        ) : (
-          /* Classic Frosted Card Design Grid */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {activeServices.map((service, idx) => {
-              const Icon = currentIcons[idx % currentIcons.length];
-              return (
-                <motion.div
-                  key={service.id}
-                  className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: idx * 0.05 }}
-                >
-                  <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-blue-100/50 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
-
-                  <div>
-                    <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
-                      <Icon className="w-5 h-5 text-slate-800" />
-                    </div>
-
-                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
-                      {activeTab === 'hr' ? 'HR CONSULTING' : 'ACADEMY TRACK'} • 0{idx + 1}
-                    </div>
-
-                    <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-xs font-semibold text-[#056EB5] mb-3 font-['Familjen_Grotesk']">
-                      {service.tagline}
-                    </p>
-
-                    <p className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-6">
-                      {service.description}
-                    </p>
+                <div>
+                  {/* Top Circular Icon Badge */}
+                  <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform text-slate-800">
+                    <Icon className="w-5 h-5 text-slate-800" />
                   </div>
 
-                  <div className="pt-4 mt-auto border-t border-slate-100/80 flex items-center justify-between">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedService(service.title);
-                        setModalOpen(true);
-                      }}
-                      className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
-                    >
-                      <span>Inquire about this service</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
-                    </button>
-
-                    <Link
-                      to={service.href}
-                      className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
-                    >
-                      Details
-                    </Link>
+                  {/* Category Eyebrow */}
+                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 font-['Familjen_Grotesk']">
+                    {activeTab === 'hr' ? 'HR CONSULTING' : 'ACADEMY TRACK'} • 0{idx + 1}
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        )}
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-[#0D5C91] mb-2 leading-snug font-['Familjen_Grotesk']">
+                    {service.title}
+                  </h3>
+
+                  {/* Tagline */}
+                  <p className="text-xs font-semibold text-[#056EB5] mb-3 font-['Familjen_Grotesk']">
+                    {service.tagline}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-sm text-slate-600 leading-relaxed font-['Familjen_Grotesk'] mb-6">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Bottom Action Group */}
+                <div className="pt-4 mt-auto border-t border-slate-100/80 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedService(service.title);
+                      setModalOpen(true);
+                    }}
+                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200/90 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:shadow-xs hover:border-[#056EB5] hover:text-[#056EB5] transition-all font-['Familjen_Grotesk'] cursor-pointer"
+                  >
+                    <span>Inquire about this service</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+
+                  <Link
+                    to={service.href}
+                    className="text-xs font-semibold text-[#0D5C91] hover:text-[#056EB5] transition-colors font-['Familjen_Grotesk']"
+                  >
+                    Details
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
         {/* Bottom Section Link */}
         <div className="mt-12 text-center">
