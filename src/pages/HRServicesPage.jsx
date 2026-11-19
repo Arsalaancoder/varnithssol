@@ -9,10 +9,7 @@ import {
   Clock,
   ArrowRight,
   CheckCircle2,
-  AlertCircle,
-  Send,
-  Sparkles,
-  Layers
+  AlertCircle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { siteData } from '../data/siteData';
@@ -181,10 +178,10 @@ export default function HRServicesPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <div className="rounded-lg overflow-hidden border border-slate-200 shadow-xs aspect-4/3 bg-slate-50">
+              <div className="rounded-xl overflow-hidden border border-slate-200 shadow-md aspect-4/3 bg-slate-50">
                 <img
-                  src="/assets/experience_presentation.jpg"
-                  alt="Varnith Technologies HR Consulting for Software Teams"
+                  src="/assets/hr_consulting_software.jpg"
+                  alt="HR Consulting for Software Organisations - Varnith Technologies"
                   className="w-full h-full object-cover"
                 />
               </div>

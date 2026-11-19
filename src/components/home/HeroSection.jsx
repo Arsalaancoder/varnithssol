@@ -25,12 +25,7 @@ export default function HeroSection() {
           >
             {/* Trust Indicator Eyebrow with Award Badge Icon */}
             <div className="flex items-center gap-2.5 text-[#5A5A5A] text-base mb-6 font-['Familjen_Grotesk'] font-normal">
-              <img
-                src="/assets/badge.svg"
-                alt=""
-                className="w-5 h-5 shrink-0 opacity-80"
-              />
-              <span>Recruitment &amp; SAP Training</span>
+
             </div>
 
             {/* Main Headline */}

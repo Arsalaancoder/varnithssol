@@ -17,7 +17,10 @@ export const siteData = {
       city: "Hyderabad",
       state: "Telangana",
       pincode: "500081",
-      full: "1-90/B/C/1, Flat No. 102, Bhanu Elite, Madhapur, Hyderabad – 500081, Telangana, India"
+      full: "1-90/B/C/1, Flat No. 102, Bhanu Elite, Madhapur, Hyderabad – 500081, Telangana, India",
+      landmark: "Near Image Hospital Road, Vittal Rao Nagar, Madhapur",
+      mapEmbedUrl: "https://maps.google.com/maps?q=Bhanu+Elite,+Vittal+Rao+Nagar,+Madhapur,+Hyderabad,+Telangana+500081&t=&z=16&ie=UTF8&iwloc=&output=embed",
+      mapDirectUrl: "https://www.google.com/maps/search/?api=1&query=Bhanu+Elite,+Vittal+Rao+Nagar,+Madhapur,+Hyderabad,+Telangana+500081"
     },
     hours: "Monday – Saturday: 9:00 AM – 7:00 PM IST",
     aboutShort: "Varnith Technologies is a young Hyderabad company with an old-fashioned belief: people matter most. We help software organisations hire well, and we help people build the skills those organisations need."

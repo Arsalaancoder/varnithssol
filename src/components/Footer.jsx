@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ArrowRight, ShieldCheck, User } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Navigation, ExternalLink } from 'lucide-react';
 import { siteData } from '../data/siteData';
 
 export default function Footer() {
@@ -32,7 +32,20 @@ export default function Footer() {
             <div className="pt-2 space-y-2 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#127DC4] shrink-0 mt-0.5" />
-                <span>{siteData.brand.address.full}</span>
+                <div>
+                  <span>{siteData.brand.address.full}</span>
+                  <div className="mt-1">
+                    <a
+                      href={siteData.brand.address.mapDirectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#38BDF8] hover:text-white inline-flex items-center gap-1 text-[11px] font-semibold transition-colors"
+                    >
+                      <span>View on Google Maps</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#127DC4] shrink-0" />
@@ -169,6 +182,54 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* Office Location & Map Strip */}
+        <div className="py-10 border-b border-slate-700/60">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#07273D]/60 border border-slate-700/70 rounded-xl p-6 sm:p-8">
+            <div className="lg:col-span-5 space-y-3">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#127DC4]/20 text-[#38BDF8] rounded text-xs font-semibold uppercase tracking-wider">
+                <MapPin className="w-3.5 h-3.5" />
+                <span>Our Office Location</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                Varnith Technologies – Madhapur, Hyderabad
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {siteData.brand.address.full}
+              </p>
+              <div className="text-xs text-slate-400">
+                Landmark: {siteData.brand.address.landmark}
+              </div>
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs">
+                <a
+                  href={siteData.brand.address.mapDirectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#127DC4] hover:bg-[#0f6aa7] text-white rounded-md font-semibold transition-colors shadow-sm"
+                >
+                  <Navigation className="w-3.5 h-3.5" />
+                  <span>Open in Google Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <span className="text-slate-400 font-medium">
+                  {siteData.brand.hours}
+                </span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 h-52 sm:h-56 w-full rounded-lg overflow-hidden border border-slate-700 shadow-md relative bg-slate-800">
+              <iframe
+                title="Varnith Technologies Office Location Map"
+                src={siteData.brand.address.mapEmbedUrl}
+                width="100%"
+                height="100%"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Bottom Legal & Copyright Strip */}

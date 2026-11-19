@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Building2, 
-  Users, 
-  ShieldCheck, 
-  Heart, 
-  CheckCircle, 
+import {
+  Building2,
+  ShieldCheck,
+  Heart,
+  CheckCircle,
   ArrowRight,
   Briefcase,
   GraduationCap
@@ -43,8 +42,8 @@ export default function AboutPage() {
       <section className="bg-white pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <motion.div 
+
+            <motion.div
               className="lg:col-span-7 space-y-6"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -73,16 +72,16 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="lg:col-span-5"
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <div className="rounded-lg overflow-hidden border border-slate-200 shadow-xs aspect-4/3 bg-slate-50">
+              <div className="rounded-xl overflow-hidden border border-slate-200 shadow-md aspect-4/3 bg-slate-50">
                 <img
-                  src="/assets/about_mentor.jpg"
-                  alt="Varnith Technologies Team and Office in Hyderabad"
+                  src="/assets/about_varnith_technologies.jpg"
+                  alt="About Varnith Technologies - Global Technology and Workforce Solutions"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -118,7 +117,7 @@ export default function AboutPage() {
       {/* 3. WHAT WE DO */}
       <section className="bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A3857] tracking-tight">
               What We Do
@@ -176,7 +175,7 @@ export default function AboutPage() {
       {/* 4. OUR VALUES */}
       <section className="bg-[#F8FAFC] py-16 sm:py-20 lg:py-24 border-b border-slate-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 lg:mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-semibold text-[#0A3857] uppercase tracking-wider">
               Guiding Principles
@@ -238,7 +237,7 @@ export default function AboutPage() {
       {/* 5. HOW WE WORK */}
       <section className="bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0D5C91] tracking-tight font-['Familjen_Grotesk']">
               How We Work
