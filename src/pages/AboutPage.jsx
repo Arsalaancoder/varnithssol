@@ -130,15 +130,18 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Box 1 */}
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-xl p-8 space-y-4 hover:border-slate-300 transition-colors">
-              <div className="w-12 h-12 rounded-lg bg-[#0A3857] text-white flex items-center justify-center">
+            <div className="backdrop-blur-md bg-gradient-to-br from-blue-50/80 via-white/95 to-orange-50/70 border-2 border-slate-200/90 rounded-2xl p-8 space-y-4 shadow-[0_8px_24px_-4px_rgba(5,110,181,0.12),0_4px_16px_rgba(244,138,37,0.08)] hover:shadow-[0_20px_40px_-4px_rgba(5,110,181,0.20),0_8px_24px_rgba(244,138,37,0.14)] hover:border-[#056EB5]/50 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#056EB5] via-[#38BDF8] to-[#F48A25] opacity-85 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#056EB5]/20 via-[#38BDF8]/10 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-36 h-36 bg-gradient-to-tr from-[#F48A25]/18 via-[#FB923C]/10 to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100/80 via-white to-orange-100/60 border-2 border-slate-200/80 shadow-xs flex items-center justify-center text-[#056EB5] group-hover:text-[#F48A25] transition-colors relative z-10">
                 <Briefcase className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold text-[#0A3857]">HR Consulting</h3>
-              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              <h3 className="text-2xl font-bold text-[#0A3857] relative z-10">HR Consulting</h3>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base relative z-10">
                 Hiring for software organisations across India – from one specialized engineering role to a complete recruitment process outsourcing (RPO) plan.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 relative z-10">
                 <Link to="/hire" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#127DC4] hover:text-[#0A3857]">
                   <span>Explore HR Services</span>
                   <ArrowRight className="w-4 h-4" />
@@ -147,15 +150,18 @@ export default function AboutPage() {
             </div>
 
             {/* Box 2 */}
-            <div className="bg-[#F8FAFC] border border-slate-200 rounded-xl p-8 space-y-4 hover:border-slate-300 transition-colors">
-              <div className="w-12 h-12 rounded-lg bg-[#127DC4] text-white flex items-center justify-center">
+            <div className="backdrop-blur-md bg-gradient-to-br from-blue-50/80 via-white/95 to-orange-50/70 border-2 border-slate-200/90 rounded-2xl p-8 space-y-4 shadow-[0_8px_24px_-4px_rgba(5,110,181,0.12),0_4px_16px_rgba(244,138,37,0.08)] hover:shadow-[0_20px_40px_-4px_rgba(5,110,181,0.20),0_8px_24px_rgba(244,138,37,0.14)] hover:border-[#056EB5]/50 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#056EB5] via-[#38BDF8] to-[#F48A25] opacity-85 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#056EB5]/20 via-[#38BDF8]/10 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 w-36 h-36 bg-gradient-to-tr from-[#F48A25]/18 via-[#FB923C]/10 to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100/80 via-white to-orange-100/60 border-2 border-slate-200/80 shadow-xs flex items-center justify-center text-[#056EB5] group-hover:text-[#F48A25] transition-colors relative z-10">
                 <GraduationCap className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold text-[#0A3857]">Training &amp; Development</h3>
-              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              <h3 className="text-2xl font-bold text-[#0A3857] relative z-10">Training &amp; Development</h3>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base relative z-10">
                 Live online SAP Basis Security and SAP GRC programmes for working professionals, plus training partnerships with colleges to prepare graduates for work.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 relative z-10">
                 <Link to="/academy" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#127DC4] hover:text-[#0A3857]">
                   <span>Explore Programmes</span>
                   <ArrowRight className="w-4 h-4" />
@@ -189,14 +195,17 @@ export default function AboutPage() {
               return (
                 <div
                   key={v.title}
-                  className="backdrop-blur-md bg-white/85 rounded-2xl p-7 border border-slate-200/80 shadow-[0_6px_24px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(5,110,181,0.08),0_4px_16px_rgba(244,138,37,0.05)] hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
+                  className="backdrop-blur-md bg-gradient-to-br from-blue-50/80 via-white/95 to-orange-50/70 rounded-2xl p-7 border-2 border-slate-200/90 shadow-[0_8px_24px_-4px_rgba(5,110,181,0.12),0_4px_16px_rgba(244,138,37,0.08)] hover:shadow-[0_20px_40px_-4px_rgba(5,110,181,0.20),0_8px_24px_rgba(244,138,37,0.14)] hover:border-[#056EB5]/50 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/40 to-transparent pointer-events-none" />
-                  <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-[#056EB5]/10 via-[#127DC4]/4 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#F48A25]/8 via-transparent to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+                  {/* Top thick dual-color brand accent line */}
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#056EB5] via-[#38BDF8] to-[#F48A25] opacity-85 group-hover:opacity-100 transition-opacity" />
+
+                  {/* Visible Light Blue & Light Orange glass reflections */}
+                  <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-[#056EB5]/20 via-[#38BDF8]/10 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#F48A25]/18 via-[#FB923C]/10 to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-120 transition-transform duration-500" />
 
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-orange-50/40 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100/80 via-white to-orange-100/60 border-2 border-slate-200/80 shadow-xs flex items-center justify-center mb-5 shrink-0 text-[#056EB5] group-hover:text-[#F48A25] transition-colors duration-300">
                       <Icon className="w-5 h-5 transition-transform group-hover:scale-105" />
                     </div>
 
@@ -243,12 +252,17 @@ export default function AboutPage() {
             {siteData.differentiators.map((diff) => (
               <div
                 key={diff.title}
-                className="bg-white rounded-2xl p-7 border border-slate-100 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/40 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
+                className="backdrop-blur-md bg-gradient-to-br from-blue-50/80 via-white/95 to-orange-50/70 rounded-2xl p-7 border-2 border-slate-200/90 shadow-[0_8px_24px_-4px_rgba(5,110,181,0.12),0_4px_16px_rgba(244,138,37,0.08)] hover:shadow-[0_20px_40px_-4px_rgba(5,110,181,0.20),0_8px_24px_rgba(244,138,37,0.14)] hover:border-[#056EB5]/50 hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100/40 via-blue-50/20 to-transparent rounded-tr-2xl pointer-events-none" />
+                {/* Top thick dual-color brand accent line */}
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#056EB5] via-[#38BDF8] to-[#F48A25] opacity-85 group-hover:opacity-100 transition-opacity" />
 
-                <div>
-                  <div className="w-11 h-11 rounded-full bg-white shadow-xs border border-slate-100/90 flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform font-mono font-bold text-xs text-[#056EB5]">
+                {/* Visible Light Blue & Light Orange glass reflections */}
+                <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-[#056EB5]/20 via-[#38BDF8]/10 to-transparent rounded-tr-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#F48A25]/18 via-[#FB923C]/10 to-transparent rounded-bl-2xl pointer-events-none group-hover:scale-115 transition-transform duration-500" />
+
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100/80 via-white to-orange-100/60 border-2 border-slate-200/80 shadow-xs flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform font-mono font-bold text-xs text-[#056EB5] group-hover:text-[#F48A25]">
                     {diff.number}
                   </div>
 
