@@ -88,31 +88,38 @@ export const siteData = {
   howWeHelp: [
     {
       step: "01",
-      title: "Understand Your Requirements",
-      description: "We thoroughly assess your unique situation, tech stack, team culture, and delivery milestones. A detailed analysis ensures we address all aspects of your talent or skill concerns comprehensively.",
+      title: "Discovery & Needs Audit",
+      description: "We analyze your workflows, bottlenecks, and engineering requirements. A comprehensive technical discovery ensures we pinpoint exact skill and delivery expectations.",
       image: "/assets/experience_discussion.jpg",
-      badge: "Discovery Phase"
+      badge: "Discovery & Audit"
     },
     {
       step: "02",
-      title: "Define the Right Approach",
-      description: "We outline precise action steps and clear role briefs. Whether creating an executive search mandate, a dedicated RPO pod, or a tailored training curriculum, you get a structured roadmap detailing every stage.",
+      title: "Strategy & Talent Blueprint",
+      description: "We design a detailed talent architecture and role roadmap aligned with your delivery milestones, technical stack, and organisational KPIs.",
       image: "/assets/experience_collab.jpg",
-      badge: "Action Roadmap"
+      badge: "Automation Blueprint"
     },
     {
       step: "03",
-      title: "Deliver the Right Solution",
-      description: "We execute with precision: sourcing rigorously vetted engineering candidates or delivering mentor-led live online classes with hands-on practice labs. We prioritize quality over raw volume at every step.",
+      title: "Sourcing & Curriculum Build",
+      description: "Our engineers and recruiters implement hands-on sourcing and integrate role-calibrated technical assessments matching your internal tools and team standards.",
       image: "/assets/hero_team_meeting.jpg",
-      badge: "Tailored Delivery"
+      badge: "Build & Integration"
     },
     {
       step: "04",
-      title: "Stay Connected",
-      description: "Our commitment does not end at an offer acceptance or course completion. We maintain continuous support through the 90-day onboarding window and post-course career mentoring to ensure lasting success.",
+      title: "Testing & Skill Optimization",
+      description: "Rigorous technical vetting, practical coding and SAP authorization validation, and candidate calibration to guarantee day-one team readiness.",
+      image: "/assets/experience_lab.jpg",
+      badge: "Testing & Optimization"
+    },
+    {
+      step: "05",
+      title: "Deployment & Scaling",
+      description: "Seamless offer rollout, structured 90-day onboarding support, and continuous skill upskilling to ensure long-term retention and high-impact growth.",
       image: "/assets/experience_presentation.jpg",
-      badge: "Ongoing Partnership"
+      badge: "Deployment & Scaling"
     }
   ],
 

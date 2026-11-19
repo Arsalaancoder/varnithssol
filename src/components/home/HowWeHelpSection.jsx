@@ -1,48 +1,55 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion';
-import { Search, Compass, Layers, HeartHandshake, ChevronRight, MousePointer } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { 
+  Search, 
+  Workflow, 
+  Code2, 
+  CheckCircle2, 
+  Rocket, 
+  MousePointer, 
+  ChevronRight 
+} from 'lucide-react';
 import { siteData } from '../../data/siteData';
+
+const stepIcons = [Search, Workflow, Code2, CheckCircle2, Rocket];
 
 export default function HowWeHelpSection() {
   const [activeStep, setActiveStep] = useState(1);
   const containerRef = useRef(null);
-  const stepRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const stepRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
+  const totalSteps = siteData.howWeHelp.length; // 5 steps
 
-  const stepIcons = [Search, Compass, Layers, HeartHandshake];
+  // Scroll detection: Use IntersectionObserver to update activeStep when scrolling
+  useEffect(() => {
+    const observers = [];
 
-  // Scroll-driven progress tracking across the section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 60%", "end 60%"]
-  });
+    stepRefs.forEach((ref, index) => {
+      if (!ref.current) return;
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 24,
-    restDelta: 0.001
-  });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+              setActiveStep(index + 1);
+            }
+          });
+        },
+        {
+          rootMargin: '-20% 0px -20% 0px',
+          threshold: [0.45, 0.7]
+        }
+      );
 
-  // Map scroll progress directly to line height from Node 1 (4%) to Node 4 (100%)
-  const lineHeight = useTransform(
-    smoothProgress,
-    [0, 0.28, 0.62, 0.95],
-    ["4%", "32.4%", "66.1%", "100%"]
-  );
+      observer.observe(ref.current);
+      observers.push(observer);
+    });
 
-  // Automatically update active step based on scroll position
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest < 0.24) {
-      setActiveStep(1);
-    } else if (latest < 0.55) {
-      setActiveStep(2);
-    } else if (latest < 0.85) {
-      setActiveStep(3);
-    } else {
-      setActiveStep(4);
-    }
-  });
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, [totalSteps]);
 
-  // Clicking a step scrolls that step smoothly into the active center viewport
+  // Click on a step or step pill: set activeStep immediately and scroll to it
   const handleStepClick = (stepIndex) => {
     setActiveStep(stepIndex);
     const targetRef = stepRefs[stepIndex - 1];
@@ -51,10 +58,13 @@ export default function HowWeHelpSection() {
     }
   };
 
+  // Exact progress percentage: Step 1 = 0%, Step 2 = 25%, Step 3 = 50%, Step 4 = 75%, Step 5 = 100%
+  const progressPercent = totalSteps > 1 ? ((activeStep - 1) / (totalSteps - 1)) * 100 : 0;
+
   return (
     <section 
       ref={containerRef}
-      className="bg-[#F8FAFC] py-20 sm:py-28 border-b border-slate-200 overflow-hidden relative"
+      className="bg-[#F8FAFC] py-16 sm:py-24 lg:py-28 border-b border-slate-200 overflow-hidden relative"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -62,7 +72,7 @@ export default function HowWeHelpSection() {
         <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-12 lg:p-16 border border-slate-100 shadow-xl shadow-slate-200/40 relative">
           
           {/* Section Header with Decorative Geometric Accents */}
-          <div className="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-14 relative">
+          <div className="text-center max-w-2xl mx-auto space-y-3 mb-12 sm:mb-16 relative">
             
             {/* Bluspark Yellow Circle Geometric Accent */}
             <div className="hidden sm:block absolute -top-4 -left-6 w-5 h-5 rounded-full bg-[#FBBF24] opacity-90 shadow-xs pointer-events-none" />
@@ -83,14 +93,14 @@ export default function HowWeHelpSection() {
             </h2>
             
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-['Familjen_Grotesk']">
-              A proven four-stage engagement process designed to solve complex software hiring and SAP skills gaps — transparently, reliably, and strategically.
+              A proven process designed to transform complex workflows into scalable systems — efficiently and strategically.
             </p>
 
-            {/* Scroll Indicator & Step Pills */}
-            <div className="pt-3 flex flex-wrap items-center justify-center gap-2">
+            {/* Clickable Step Pills */}
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
               <div className="inline-flex items-center gap-1.5 text-xs text-slate-400 font-medium mr-2 font-['Familjen_Grotesk']">
                 <MousePointer className="w-3.5 h-3.5 text-[#056EB5]" />
-                <span>Scroll to progress through stages</span>
+                <span>Click or scroll stages:</span>
               </div>
 
               {siteData.howWeHelp.map((item, idx) => {
@@ -108,7 +118,7 @@ export default function HowWeHelpSection() {
                     }`}
                   >
                     <span>0{stepNum}</span>
-                    <span className="hidden sm:inline font-normal opacity-90">{item.badge || item.title.split(' ')[0]}</span>
+                    <span className="hidden sm:inline font-normal opacity-90">{item.badge}</span>
                   </button>
                 );
               })}
@@ -118,30 +128,32 @@ export default function HowWeHelpSection() {
           {/* Central Vertical Process Bar Timeline */}
           <div className="relative">
             
-            {/* Desktop Center Vertical Track (Runs exactly from Node 1 center to Node 4 center) */}
-            <div className="hidden md:block absolute left-1/2 top-[91px] h-[672px] w-[2px] -translate-x-1/2 bg-slate-200/60 z-0">
-              {/* Dynamic Scroll-Driven Animated Progress Beam */}
+            {/* Desktop Center Vertical Track (Runs directly between Node 1 center and Node 5 center) */}
+            <div className="hidden md:block absolute left-1/2 top-7 bottom-7 w-[2px] -translate-x-1/2 bg-slate-200/80 z-0">
+              {/* Dynamic Animated Progress Beam */}
               <motion.div
-                style={{ height: lineHeight }}
+                animate={{ height: `${progressPercent}%` }}
+                transition={{ type: "spring", stiffness: 140, damping: 22 }}
                 className="w-full bg-gradient-to-b from-[#056EB5] via-[#127DC4] to-[#7C3AED] relative rounded-full"
               >
                 {/* Glowing beacon dot at current progress point */}
-                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#7C3AED] shadow-[0_0_12px_rgba(124,58,237,0.9)] ring-2 ring-white" />
+                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#7C3AED] shadow-[0_0_14px_rgba(124,58,237,0.95)] ring-2 ring-white" />
               </motion.div>
             </div>
 
-            {/* Mobile Vertical Track */}
-            <div className="md:hidden absolute left-[31px] top-[46px] bottom-[46px] w-[2px] bg-slate-200/60 z-0">
+            {/* Mobile Vertical Track along left side */}
+            <div className="md:hidden absolute left-[31px] top-6 bottom-6 w-[2px] bg-slate-200/80 z-0">
               <motion.div
-                style={{ height: lineHeight }}
+                animate={{ height: `${progressPercent}%` }}
+                transition={{ type: "spring", stiffness: 140, damping: 22 }}
                 className="w-full bg-gradient-to-b from-[#056EB5] via-[#127DC4] to-[#7C3AED] relative rounded-full"
               >
-                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#7C3AED] shadow-[0_0_12px_rgba(124,58,237,0.9)] ring-2 ring-white" />
+                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#7C3AED] shadow-[0_0_14px_rgba(124,58,237,0.95)] ring-2 ring-white" />
               </motion.div>
             </div>
 
             {/* Step Rows */}
-            <div className="space-y-6 sm:space-y-8 relative z-10">
+            <div className="space-y-4 sm:space-y-6 relative z-10">
               {siteData.howWeHelp.map((item, idx) => {
                 const IconComponent = stepIcons[idx] || Search;
                 const stepNum = idx + 1;
@@ -154,9 +166,9 @@ export default function HowWeHelpSection() {
                     key={item.step}
                     ref={stepRefs[idx]}
                     onClick={() => handleStepClick(stepNum)}
-                    className={`cursor-pointer transition-all duration-300 rounded-[28px] sm:rounded-[36px] ${
+                    className={`cursor-pointer transition-all duration-300 rounded-[24px] sm:rounded-[32px] ${
                       isActive
-                        ? 'bg-[#F4F6F8] border border-slate-200/70 shadow-xs p-3.5 sm:p-5'
+                        ? 'bg-[#F1F3F5] border border-slate-200/80 shadow-xs p-3.5 sm:p-5'
                         : 'p-3.5 sm:p-5 hover:bg-slate-50/70 border border-transparent'
                     }`}
                   >
@@ -168,10 +180,7 @@ export default function HowWeHelpSection() {
                         {isEven ? (
                           /* Even Step: Content on Left */
                           <div className="space-y-1 pr-2">
-                            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest font-mono">
-                              PHASE 0{stepNum}
-                            </div>
-                            <h3 className={`text-lg font-bold font-['Familjen_Grotesk'] transition-colors ${
+                            <h3 className={`text-base sm:text-lg font-bold font-['Familjen_Grotesk'] transition-colors ${
                               isActive ? 'text-[#0D5C91]' : 'text-slate-900'
                             }`}>
                               {item.title}
@@ -186,7 +195,7 @@ export default function HowWeHelpSection() {
                             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${
                               isActive
                                 ? 'bg-slate-900 text-white shadow-md scale-105'
-                                : 'bg-white text-slate-700 border border-slate-200/70 shadow-2xs'
+                                : 'bg-white text-slate-700 border border-slate-200/80 shadow-2xs'
                             }`}>
                               <IconComponent className="w-5 h-5" />
                             </div>
@@ -201,16 +210,16 @@ export default function HowWeHelpSection() {
                         )}
                       </div>
 
-                      {/* Center Node (Connecting to vertical line) */}
+                      {/* Center Node (Connecting directly to the vertical progress line) */}
                       <div className="col-span-2 flex justify-center items-center relative">
                         <div className={`rounded-full transition-all duration-300 flex items-center justify-center ${
                           isActive
-                            ? 'w-5 h-5 bg-gradient-to-tr from-[#056EB5] to-[#7C3AED] ring-4 ring-blue-100 shadow-[0_0_16px_rgba(5,110,181,0.8)] scale-110'
+                            ? 'w-5 h-5 bg-gradient-to-tr from-[#056EB5] to-[#7C3AED] ring-4 ring-blue-100 shadow-[0_0_16px_rgba(5,110,181,0.85)] scale-110'
                             : isPast
                             ? 'w-4 h-4 bg-[#056EB5] ring-2 ring-white shadow-2xs'
                             : 'w-3.5 h-3.5 bg-white border-2 border-slate-300'
                         }`}>
-                          {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                          {isActive && <div className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />}
                         </div>
                       </div>
 
@@ -219,10 +228,7 @@ export default function HowWeHelpSection() {
                         {!isEven ? (
                           /* Odd Step: Content on Right */
                           <div className="space-y-1 pl-2">
-                            <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest font-mono">
-                              PHASE 0{stepNum}
-                            </div>
-                            <h3 className={`text-lg font-bold font-['Familjen_Grotesk'] transition-colors ${
+                            <h3 className={`text-base sm:text-lg font-bold font-['Familjen_Grotesk'] transition-colors ${
                               isActive ? 'text-[#0D5C91]' : 'text-slate-900'
                             }`}>
                               {item.title}
@@ -244,7 +250,7 @@ export default function HowWeHelpSection() {
                             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${
                               isActive
                                 ? 'bg-slate-900 text-white shadow-md scale-105'
-                                : 'bg-white text-slate-700 border border-slate-200/70 shadow-2xs'
+                                : 'bg-white text-slate-700 border border-slate-200/80 shadow-2xs'
                             }`}>
                               <IconComponent className="w-5 h-5" />
                             </div>
@@ -260,7 +266,7 @@ export default function HowWeHelpSection() {
                         <div className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-all ${
                           isActive
                             ? 'bg-slate-900 text-white shadow-md scale-105'
-                            : 'bg-white text-slate-700 border border-slate-200/70'
+                            : 'bg-white text-slate-700 border border-slate-200/80'
                         }`}>
                           <IconComponent className="w-5 h-5" />
                         </div>
@@ -273,9 +279,6 @@ export default function HowWeHelpSection() {
                         </span>
                       </div>
                       <div className="flex-1 pt-0.5 space-y-1">
-                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono">
-                          PHASE 0{stepNum}
-                        </div>
                         <h3 className={`text-base font-bold font-['Familjen_Grotesk'] ${
                           isActive ? 'text-[#0D5C91]' : 'text-slate-900'
                         }`}>
@@ -295,7 +298,7 @@ export default function HowWeHelpSection() {
           </div>
 
           {/* Bottom Active Phase Notice */}
-          <div className="mt-10 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-['Familjen_Grotesk'] gap-2">
+          <div className="mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-['Familjen_Grotesk'] gap-2">
             <div>
               <span>Active stage: </span>
               <span className="font-semibold text-slate-700">
@@ -303,7 +306,7 @@ export default function HowWeHelpSection() {
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-slate-500">
-              <span>Scroll down through page to progress through all 4 stages</span>
+              <span>Progress updates automatically on scroll or click</span>
               <ChevronRight className="w-3.5 h-3.5 text-[#056EB5]" />
             </div>
           </div>
