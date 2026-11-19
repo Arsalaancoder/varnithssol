@@ -1,48 +1,46 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import TechRail from '../components/TechRail';
-import HRServices from '../components/HRServices';
-import Courses from '../components/Courses';
-import WhyChooseUs from '../components/WhyChooseUs';
-import LearningJourney from '../components/LearningJourney';
-import Testimonials from '../components/Testimonials';
 import About from '../components/About';
-import FAQ from '../components/FAQ';
+import HRServices from '../components/HRServices';
+import LearningJourney from '../components/LearningJourney';
+import WhoWeHireFor from '../components/WhoWeHireFor';
+import WhyChooseUs from '../components/WhyChooseUs';
 import CTASection from '../components/CTASection';
+import Testimonials from '../components/Testimonials';
+import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 
 export default function Home() {
   return (
     <>
-      {/* 01. Hero — HR-focused introduction */}
+      {/* 01. Homepage Hero Slider matching Template */}
       <Hero />
 
-      {/* Enterprise Tech & Client Infrastructure Marquee */}
-      <TechRail />
-
-      {/* 02. HR Services — First Priority (Strategic HR Solutions for Growing Businesses) */}
-      <HRServices />
-
-      {/* 03. IT Training — Second Priority (Advance Your Career Through Industry-Focused Training) */}
-      <Courses />
-
-      {/* 04. Why Choose Varnith Global — The Varnith Advantage 3D Deck */}
-      <WhyChooseUs />
-
-      {/* 05. Our Approach / How We Work — 4-Stage Pathway */}
-      <LearningJourney />
-
-      {/* 06. Client & Alumni Testimonials */}
-      <Testimonials />
-
-      {/* 07. Career Development / Empowering People. Elevating Businesses */}
+      {/* 02. Welcome / About Section with Overlapping Green Statistics Card */}
       <About />
 
-      {/* 08. Frequently Asked Questions */}
+      {/* 03. Business Shaped Solutions — Comprehensive Service Offerings */}
+      <HRServices />
+
+      {/* 04. How We Hire — 8-Stage Recruitment Methodology */}
+      <LearningJourney />
+
+      {/* 05. Who We Hire For — 6 Enterprise Technical Specializations */}
+      <WhoWeHireFor />
+
+      {/* 06. Why Choose Varnith — 4 Core Commitments & Verified SLAs */}
+      <WhyChooseUs />
+
+      {/* 07. Enterprise Training CTA — SAP Security, GRC & College Engagements */}
+      <CTASection />
+
+      {/* 08. Client & Alumni Testimonials */}
+      <Testimonials />
+
+      {/* 09. Frequently Asked Questions */}
       <FAQ />
 
-      {/* 09. Enterprise Partnership CTA & Campus Contact */}
-      <CTASection />
+      {/* 10. Traditional Corporate Contact Section */}
       <Contact />
     </>
   );

@@ -26,6 +26,13 @@ export default function App() {
           <Route path="why-us" element={<WhyUsPage />} />
           <Route path="testimonials" element={<TestimonialsPage />} />
           <Route path="contact" element={<ContactPage />} />
+
+          {/* Explicit route aliases from prompt */}
+          <Route path="find-a-role" element={<Navigate to="/contact" replace />} />
+          <Route path="who-we-hire-for" element={<Navigate to="/why-us" replace />} />
+          <Route path="sap-basis-security" element={<Navigate to="/courses/sap-basis-security" replace />} />
+          <Route path="sap-grc" element={<Navigate to="/courses/sap-grc" replace />} />
+          <Route path="college-engagements" element={<Navigate to="/courses" replace />} />
         </Route>
 
         {/* Support /and path */}
@@ -39,6 +46,13 @@ export default function App() {
           <Route path="why-us" element={<WhyUsPage />} />
           <Route path="testimonials" element={<TestimonialsPage />} />
           <Route path="contact" element={<ContactPage />} />
+
+          {/* Explicit route aliases under /and */}
+          <Route path="find-a-role" element={<Navigate to="/and/contact" replace />} />
+          <Route path="who-we-hire-for" element={<Navigate to="/and/why-us" replace />} />
+          <Route path="sap-basis-security" element={<Navigate to="/and/courses/sap-basis-security" replace />} />
+          <Route path="sap-grc" element={<Navigate to="/and/courses/sap-grc" replace />} />
+          <Route path="college-engagements" element={<Navigate to="/and/courses" replace />} />
         </Route>
 
         {/* Fallback to / */}

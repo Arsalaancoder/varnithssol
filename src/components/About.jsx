@@ -1,93 +1,131 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Building, Award, Target } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Award, Briefcase, GraduationCap } from 'lucide-react';
+import { siteData } from '../data/siteData';
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#f7f9fc] py-16 sm:py-20 border-b border-[#e3e8f0]">
+    <section id="about" className="bg-[#F8F9FA] py-16 sm:py-20 lg:py-24 border-b border-[#E5E7EB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Narrative */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#1e5bc6]">
-              Connected by People
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Image with Overlapping Green Statistics Card matching Template */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
+              
+              {/* Background decorative corner accent */}
+              <div className="absolute -top-4 -left-4 w-40 h-40 bg-[#EAF7EE] rounded-xl -z-10" />
+
+              {/* Main Photograph */}
+              <div className="rounded-xl overflow-hidden border border-[#E5E7EB] shadow-card bg-white">
+                <img
+                  src="/assets/experience_collab.jpg"
+                  alt="Varnith Technologies Team Collaboration"
+                  className="w-full h-auto object-cover aspect-4/3"
+                />
+              </div>
+
+              {/* Prominent Overlapping Solid Green Statistics Card matching Template */}
+              <div className="absolute -bottom-6 sm:-bottom-8 -right-3 sm:-right-6 bg-[#00A859] text-white p-6 sm:p-7 rounded-xl shadow-xl max-w-xs sm:max-w-sm space-y-2 border-4 border-white">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl sm:text-5xl font-black tracking-tight">10+</span>
+                  <span className="text-sm sm:text-base font-semibold text-white/90 leading-tight">
+                    Years Corporate Experience
+                  </span>
+                </div>
+                <div className="h-0.5 bg-white/20 w-full my-2" />
+                <p className="text-xs sm:text-sm font-medium text-white/95 leading-relaxed">
+                  Trusted by top software enterprises across India. Delivering verified tech talent & specialized SAP consulting.
+                </p>
+                <div className="text-[11px] font-bold text-white/80 uppercase tracking-wider pt-1 flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5" />
+                  <span>Verified Placement Track Record</span>
+                </div>
+              </div>
+
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-[#00184a] tracking-tight">
-              Bridging Corporate Recruitment & Technical Capability
+          </div>
+
+          {/* Right Column: Welcome Content & Details */}
+          <div className="lg:col-span-6 space-y-6 pt-6 lg:pt-0">
+            
+            {/* Template-style Eyebrow */}
+            <div className="inline-flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#00A859]" />
+              <span className="text-xs sm:text-sm font-bold tracking-wider text-[#00A859] uppercase">
+                WELCOME TO VARNITH TECHNOLOGIES
+              </span>
+            </div>
+
+            {/* Main Welcome Heading */}
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#16191D] tracking-tight leading-tight">
+              Bridging Strategic HR Consulting & Enterprise Technical Training
             </h2>
-            <p className="text-base text-[#5b6b85] leading-relaxed">
-              Because we actively hire for software and ERP teams across India, we know the exact tools and architectural standards companies demand. That intelligence directly shapes our training programmes.
-            </p>
-            <p className="text-base text-[#5b6b85] leading-relaxed">
-              Whether you are an engineering director looking to scale an infrastructure team or an aspiring consultant aiming for an SAP career, Varnith provides direct, high-trust execution.
+
+            {/* Narrative using existing website content */}
+            <p className="text-base text-[#5E6874] leading-relaxed">
+              Based in Madhapur, Hyderabad, <strong className="text-[#16191D]">Varnith Technologies Private Limited</strong> is a dual-practice consultancy. We help fast-growing software companies source pre-screened technical and leadership talent, while empowering professionals through rigorous, industry-aligned training programs.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="bg-white border border-[#e3e8f0] p-4 rounded-xl">
-                <div className="text-2xl font-bold text-[#1e5bc6]">80%</div>
-                <div className="text-xs text-[#5b6b85] mt-1">Practical Lab Immersion</div>
+            <p className="text-base text-[#5E6874] leading-relaxed">
+              Because our recruiters actively hire for software and ERP teams across India, we know the exact tools and architectural standards companies evaluate. That real-time intelligence directly shapes our training delivery.
+            </p>
+
+            {/* Checkpoint highlights matching template */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-sm font-bold text-[#16191D]">Screened Shortlists Only</h4>
+                  <p className="text-xs text-[#5E6874]">Candidates assessed in live sandboxes, not just resumes.</p>
+                </div>
               </div>
-              <div className="bg-white border border-[#e3e8f0] p-4 rounded-xl">
-                <div className="text-2xl font-bold text-[#f6650a]">&lt; 14 Days</div>
-                <div className="text-xs text-[#5b6b85] mt-1">Average Sourcing Turnaround</div>
+
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-sm font-bold text-[#16191D]">14-Day Delivery SLA</h4>
+                  <p className="text-xs text-[#5E6874]">Rapid hiring turnaround for critical tech roles.</p>
+                </div>
               </div>
-              <div className="bg-white border border-[#e3e8f0] p-4 rounded-xl">
-                <div className="text-2xl font-bold text-[#00184a]">10+ Yrs</div>
-                <div className="text-xs text-[#5b6b85] mt-1">Mentor Industry Experience</div>
+
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-sm font-bold text-[#16191D]">Hands-On IT Labs</h4>
+                  <p className="text-xs text-[#5E6874]">80% practical immersion with real enterprise systems.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-5 h-5 text-[#00A859] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-sm font-bold text-[#16191D]">Dedicated Lead Support</h4>
+                  <p className="text-xs text-[#5E6874]">One single point of contact without chasing.</p>
+                </div>
               </div>
             </div>
 
-            <div className="pt-2 flex flex-wrap gap-3">
-              <Link to="/and/about" className="btn-blue">
-                <span>About Varnith Technologies</span>
+            {/* Simple rectangular CTA button matching template */}
+            <div className="pt-4 flex flex-wrap items-center gap-4">
+              <Link
+                to="/and/about"
+                className="btn-green text-sm px-6 py-2.5"
+              >
+                <span>About Our Agency</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/and/why-us" className="btn-outline">
-                Our Differentiators
+
+              <Link
+                to="/and/hr-services"
+                className="btn-outline text-sm px-6 py-2.5"
+              >
+                <span>Our HR Practices</span>
               </Link>
             </div>
+
           </div>
 
-          {/* Right Visual Container */}
-          <div className="lg:col-span-5">
-            <div className="bg-white border border-[#e3e8f0] rounded-2xl p-6 sm:p-8 space-y-6">
-              <h3 className="text-lg font-bold text-[#00184a] border-b border-[#e3e8f0] pb-3">
-                Corporate Overview
-              </h3>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Building className="w-5 h-5 text-[#1e5bc6] shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm font-bold text-[#00184a]">Hyderabad Headquarters</h4>
-                    <p className="text-xs text-[#5b6b85] mt-0.5">
-                      Bhanu Elite, Madhapur, Hyderabad – 500081, Telangana, India.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Target className="w-5 h-5 text-[#f6650a] shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm font-bold text-[#00184a]">Core Business Mission</h4>
-                    <p className="text-xs text-[#5b6b85] mt-0.5">
-                      Strategic HR consulting for tech enterprises & job-ready technical upskilling.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Award className="w-5 h-5 text-[#1e5bc6] shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm font-bold text-[#00184a]">SLA Guarantees</h4>
-                    <p className="text-xs text-[#5b6b85] mt-0.5">
-                      Milestone-driven hiring warranties and genuine sandbox learning capstones.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

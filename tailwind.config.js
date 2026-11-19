@@ -7,35 +7,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        border: '#e3e8f0',
+        corporate: {
+          green: '#00A859',
+          greenHover: '#008F4C',
+          greenDark: '#00733D',
+          greenLight: '#EAF7EE',
+          greenBorder: '#A7E4BF',
+        },
+        border: '#E5E7EB',
         background: '#ffffff',
-        foreground: '#00184a',
+        foreground: '#16191D',
         canvas: '#ffffff',
-        ink: '#00184a',
-        brandBlue: {
-          DEFAULT: '#1e5bc6',
-          hover: '#15469e',
-        },
-        accent: {
-          DEFAULT: '#f6650a',
-          hover: '#c2410c',
-        },
+        ink: '#16191D',
         surface: '#ffffff',
-        surfaceAlt: '#f7f9fc',
+        surfaceAlt: '#F8F9FA',
         card: {
           DEFAULT: '#FFFFFF',
-          foreground: '#00184a',
+          foreground: '#16191D',
         },
         muted: {
-          DEFAULT: '#5b6b85',
-          foreground: '#5b6b85',
+          DEFAULT: '#5E6874',
+          foreground: '#5E6874',
         },
-        softBorder: '#e3e8f0',
+        softBorder: '#E5E7EB',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        serif: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         heading: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         body: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
@@ -43,29 +40,16 @@ export default {
         'canvas': '1440px',
       },
       borderRadius: {
-        'editorial': '24px',
-        'editorial-lg': '32px',
-        'editorial-xl': '40px',
+        'sm': '4px',
+        'md': '6px',
+        'lg': '8px',
+        'xl': '12px',
+        '2xl': '16px',
       },
       boxShadow: {
-        'soft-card': '0 10px 30px -10px rgba(16, 42, 33, 0.08)',
-        'elevated': '0 20px 45px -15px rgba(16, 42, 33, 0.14)',
-        'glow': '0 0 40px rgba(137, 156, 117, 0.25)',
-        'cta': '0 4px 18px rgba(242, 201, 76, 0.35)',
-      },
-      keyframes: {
-        marquee: {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - var(--gap, 1rem)))" },
-        },
-        "marquee-vertical": {
-          from: { transform: "translateY(0)" },
-          to: { transform: "translateY(calc(-100% - var(--gap, 1rem)))" },
-        },
-      },
-      animation: {
-        marquee: "marquee var(--duration, 20s) linear infinite",
-        "marquee-vertical": "marquee-vertical var(--duration, 20s) linear infinite",
+        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'card': '0 2px 8px -2px rgba(16, 24, 40, 0.06), 0 1px 4px -1px rgba(16, 24, 40, 0.04)',
+        'card-hover': '0 12px 24px -6px rgba(0, 168, 89, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.06)',
       },
     },
   },

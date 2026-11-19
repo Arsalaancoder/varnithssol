@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
+import { Menu, X, ChevronDown, User, ArrowRight } from 'lucide-react';
 import { siteData } from '../data/siteData';
 
 export default function Navbar() {
@@ -14,12 +14,14 @@ export default function Navbar() {
   const trainingTimeout = useRef(null);
   const location = useLocation();
 
-  // Close menus on route change
-  useEffect(() => {
+  // Adjust menus during render on route transition
+  const [prevPath, setPrevPath] = useState(location.pathname);
+  if (prevPath !== location.pathname) {
+    setPrevPath(location.pathname);
     setMobileMenuOpen(false);
     setHrDropdownOpen(false);
     setTrainingDropdownOpen(false);
-  }, [location.pathname]);
+  }
 
   const handleHrEnter = () => {
     if (hrTimeout.current) clearTimeout(hrTimeout.current);
@@ -40,38 +42,55 @@ export default function Navbar() {
   };
 
   const isActive = (path) => {
-    if (path === '/and') {
+    if (path === '/and' || path === '/') {
       return location.pathname === '/and' || location.pathname === '/';
     }
     return location.pathname.startsWith(path);
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#e3e8f0]">
+    <header className="sticky top-0 z-50 bg-white border-b border-[#E5E7EB] shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-20">
+          
+          {/* Left: Varnith Technologies Logo */}
           <Link to="/and" className="flex items-center shrink-0 py-2">
             <img
               src="/assets/varnith-logo-ref.svg"
               alt="Varnith Technologies Private Limited"
-              className="h-8 sm:h-9 w-auto"
+              className="h-9 sm:h-10 w-auto"
             />
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Center: Desktop Navigation Links matching Template */}
           <nav className="hidden lg:flex items-center space-x-7">
             {/* Home */}
             <Link
               to="/and"
-              className={`text-[15px] font-medium transition-colors ${
-                isActive('/and') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              className={`text-[15px] font-semibold transition-colors py-2 relative ${
+                isActive('/and') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
               }`}
             >
-              Home
+              <span>Home</span>
+              {isActive('/and') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+              )}
             </Link>
 
-            {/* HR Services Dropdown */}
+            {/* About */}
+            <Link
+              to="/and/about"
+              className={`text-[15px] font-semibold transition-colors py-2 relative ${
+                isActive('/and/about') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
+              }`}
+            >
+              <span>About</span>
+              {isActive('/and/about') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+              )}
+            </Link>
+
+            {/* HR Consulting Dropdown */}
             <div
               className="relative"
               onMouseEnter={handleHrEnter}
@@ -79,42 +98,46 @@ export default function Navbar() {
             >
               <Link
                 to="/and/hr-services"
-                className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors py-2 ${
-                  isActive('/and/hr-services') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+                className={`inline-flex items-center gap-1.5 text-[15px] font-semibold transition-colors py-2 relative ${
+                  isActive('/and/hr-services') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
                 }`}
               >
                 <span>HR Consulting</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${hrDropdownOpen ? 'rotate-180 text-[#1e5bc6]' : 'text-[#5b6b85]'}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform ${hrDropdownOpen ? 'rotate-180 text-[#00A859]' : 'text-[#5E6874]'}`} />
+                {isActive('/and/hr-services') && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                )}
               </Link>
 
               {hrDropdownOpen && (
-                <div className="absolute top-full left-0 w-72 bg-white rounded-lg shadow-lg border border-[#e3e8f0] py-2 mt-1">
-                  <div className="px-3.5 py-1.5 text-[11px] font-bold text-[#5b6b85] uppercase tracking-wider border-b border-[#e3e8f0] mb-1">
-                    HR Practice Offerings
+                <div className="absolute top-full left-0 w-80 bg-white rounded-md shadow-xl border border-[#E5E7EB] py-2 mt-1 animate-fadeIn">
+                  <div className="px-4 py-2 text-[11px] font-bold text-[#5E6874] uppercase tracking-wider border-b border-[#E5E7EB] mb-1 bg-[#F8F9FA]">
+                    Enterprise HR Practice
                   </div>
                   {siteData.hrServices.map((svc) => (
                     <Link
                       key={svc.id}
                       to={`/and/hr-services/${svc.slug}`}
-                      className="block px-3.5 py-2 text-sm text-[#00184a] hover:bg-[#f7f9fc] hover:text-[#1e5bc6] transition-colors"
+                      className="block px-4 py-2.5 text-sm text-[#16191D] hover:bg-[#EAF7EE] hover:text-[#00A859] transition-colors"
                     >
-                      <div className="font-medium">{svc.title}</div>
-                      <div className="text-xs text-[#5b6b85] truncate">{svc.shortDesc}</div>
+                      <div className="font-semibold">{svc.title}</div>
+                      <div className="text-xs text-[#5E6874] truncate">{svc.shortDescription || svc.description}</div>
                     </Link>
                   ))}
-                  <div className="border-t border-[#e3e8f0] mt-1 pt-1">
+                  <div className="border-t border-[#E5E7EB] mt-1 pt-2 px-4 pb-1">
                     <Link
                       to="/and/hr-services"
-                      className="block px-3.5 py-1.5 text-xs font-semibold text-[#1e5bc6] hover:underline"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A859] hover:text-[#008F4C]"
                     >
-                      View All HR Practices →
+                      <span>Explore All HR Services</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Training Dropdown */}
+            {/* Training & Development Dropdown */}
             <div
               className="relative"
               onMouseEnter={handleTrainingEnter}
@@ -122,97 +145,87 @@ export default function Navbar() {
             >
               <Link
                 to="/and/courses"
-                className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors py-2 ${
-                  isActive('/and/courses') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+                className={`inline-flex items-center gap-1.5 text-[15px] font-semibold transition-colors py-2 relative ${
+                  isActive('/and/courses') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
                 }`}
               >
                 <span>Training & Development</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${trainingDropdownOpen ? 'rotate-180 text-[#1e5bc6]' : 'text-[#5b6b85]'}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform ${trainingDropdownOpen ? 'rotate-180 text-[#00A859]' : 'text-[#5E6874]'}`} />
+                {isActive('/and/courses') && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+                )}
               </Link>
 
               {trainingDropdownOpen && (
-                <div className="absolute top-full left-0 w-72 bg-white rounded-lg shadow-lg border border-[#e3e8f0] py-2 mt-1">
-                  <div className="px-3.5 py-1.5 text-[11px] font-bold text-[#5b6b85] uppercase tracking-wider border-b border-[#e3e8f0] mb-1">
-                    Programmes & Tracks
+                <div className="absolute top-full left-0 w-80 bg-white rounded-md shadow-xl border border-[#E5E7EB] py-2 mt-1 animate-fadeIn">
+                  <div className="px-4 py-2 text-[11px] font-bold text-[#5E6874] uppercase tracking-wider border-b border-[#E5E7EB] mb-1 bg-[#F8F9FA]">
+                    Technical Training Tracks
                   </div>
                   {siteData.courses.map((course) => (
                     <Link
                       key={course.id}
                       to={`/and/courses/${course.slug}`}
-                      className="block px-3.5 py-2 text-sm text-[#00184a] hover:bg-[#f7f9fc] hover:text-[#1e5bc6] transition-colors"
+                      className="block px-4 py-2.5 text-sm text-[#16191D] hover:bg-[#EAF7EE] hover:text-[#00A859] transition-colors"
                     >
-                      <div className="font-medium">{course.title}</div>
-                      <div className="text-xs text-[#5b6b85]">{course.category} • {course.duration}</div>
+                      <div className="font-semibold">{course.title}</div>
+                      <div className="text-xs text-[#5E6874]">{course.category} • {course.duration}</div>
                     </Link>
                   ))}
-                  <div className="border-t border-[#e3e8f0] mt-1 pt-1">
+                  <div className="border-t border-[#E5E7EB] mt-1 pt-2 px-4 pb-1">
                     <Link
                       to="/and/courses"
-                      className="block px-3.5 py-1.5 text-xs font-semibold text-[#1e5bc6] hover:underline"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A859] hover:text-[#008F4C]"
                     >
-                      View All Programmes →
+                      <span>Explore All Programs</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* About */}
-            <Link
-              to="/and/about"
-              className={`text-[15px] font-medium transition-colors ${
-                isActive('/and/about') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
-              }`}
-            >
-              About
-            </Link>
-
-            {/* Why Us */}
+            {/* Find a Role (or Why Us) */}
             <Link
               to="/and/why-us"
-              className={`text-[15px] font-medium transition-colors ${
-                isActive('/and/why-us') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              className={`text-[15px] font-semibold transition-colors py-2 relative ${
+                isActive('/and/why-us') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
               }`}
             >
-              Why Us
-            </Link>
-
-            {/* Testimonials */}
-            <Link
-              to="/and/testimonials"
-              className={`text-[15px] font-medium transition-colors ${
-                isActive('/and/testimonials') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
-              }`}
-            >
-              Testimonials
+              <span>Why Us</span>
+              {isActive('/and/why-us') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+              )}
             </Link>
 
             {/* Contact */}
             <Link
               to="/and/contact"
-              className={`text-[15px] font-medium transition-colors ${
-                isActive('/and/contact') ? 'text-[#1e5bc6] font-semibold' : 'text-[#00184a] hover:text-[#1e5bc6]'
+              className={`text-[15px] font-semibold transition-colors py-2 relative ${
+                isActive('/and/contact') ? 'text-[#00A859]' : 'text-[#16191D] hover:text-[#00A859]'
               }`}
             >
-              Contact
+              <span>Contact</span>
+              {isActive('/and/contact') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A859] rounded-full" />
+              )}
             </Link>
           </nav>
 
-          {/* Right Action Buttons matching reference */}
-          <div className="hidden lg:flex items-center space-x-3">
-            <a
-              href={`tel:${siteData.brand.rawPhone}`}
-              className="text-xs font-medium text-[#5b6b85] hover:text-[#00184a] px-2 py-1 inline-flex items-center gap-1.5"
+          {/* Right Action Buttons matching Template: Client Login + Talk to Us */}
+          <div className="hidden lg:flex items-center space-x-5">
+            <Link
+              to="/and/contact"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#5E6874] hover:text-[#00A859] transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-[#1e5bc6]" />
-              <span>{siteData.brand.phone}</span>
-            </a>
+              <User className="w-3.5 h-3.5" />
+              <span>Client Login</span>
+            </Link>
 
             <Link
               to="/and/contact"
-              className="btn-orange"
+              className="btn-green"
             >
-              Talk to us
+              Talk to Us
             </Link>
           </div>
 
@@ -220,10 +233,10 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#00184a] hover:bg-[#f7f9fc] rounded-md transition-colors"
+              className="p-2 text-[#16191D] hover:bg-[#F8F9FA] rounded-md transition-colors"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-[#00A859]" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -231,28 +244,35 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#e3e8f0] bg-white px-4 py-5 space-y-3">
+        <div className="lg:hidden border-t border-[#E5E7EB] bg-white px-4 py-5 space-y-3">
           <Link
             to="/and"
-            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+            className="block py-2 text-base font-semibold text-[#16191D] hover:text-[#00A859]"
           >
             Home
+          </Link>
+
+          <Link
+            to="/and/about"
+            className="block py-2 text-base font-semibold text-[#16191D] hover:text-[#00A859]"
+          >
+            About
           </Link>
 
           {/* Mobile HR Services Accordion */}
           <div>
             <button
               onClick={() => setMobileHrOpen(!mobileHrOpen)}
-              className="w-full flex items-center justify-between py-2 text-base font-medium text-[#00184a]"
+              className="w-full flex items-center justify-between py-2 text-base font-semibold text-[#16191D]"
             >
               <span>HR Consulting</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileHrOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileHrOpen ? 'rotate-180 text-[#00A859]' : ''}`} />
             </button>
             {mobileHrOpen && (
-              <div className="pl-4 py-1 space-y-2 border-l-2 border-[#1e5bc6]/20 mt-1">
+              <div className="pl-4 py-1 space-y-2 border-l-2 border-[#00A859] mt-1 bg-[#F8F9FA] rounded-r-md">
                 <Link
                   to="/and/hr-services"
-                  className="block text-sm font-semibold text-[#1e5bc6] py-1"
+                  className="block text-sm font-bold text-[#00A859] py-1"
                 >
                   All HR Services →
                 </Link>
@@ -260,7 +280,7 @@ export default function Navbar() {
                   <Link
                     key={svc.id}
                     to={`/and/hr-services/${svc.slug}`}
-                    className="block text-sm text-[#5b6b85] hover:text-[#00184a] py-1"
+                    className="block text-sm text-[#5E6874] hover:text-[#00A859] py-1"
                   >
                     {svc.title}
                   </Link>
@@ -273,16 +293,16 @@ export default function Navbar() {
           <div>
             <button
               onClick={() => setMobileTrainingOpen(!mobileTrainingOpen)}
-              className="w-full flex items-center justify-between py-2 text-base font-medium text-[#00184a]"
+              className="w-full flex items-center justify-between py-2 text-base font-semibold text-[#16191D]"
             >
               <span>Training & Development</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileTrainingOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileTrainingOpen ? 'rotate-180 text-[#00A859]' : ''}`} />
             </button>
             {mobileTrainingOpen && (
-              <div className="pl-4 py-1 space-y-2 border-l-2 border-[#f6650a]/20 mt-1">
+              <div className="pl-4 py-1 space-y-2 border-l-2 border-[#00A859] mt-1 bg-[#F8F9FA] rounded-r-md">
                 <Link
                   to="/and/courses"
-                  className="block text-sm font-semibold text-[#f6650a] py-1"
+                  className="block text-sm font-bold text-[#00A859] py-1"
                 >
                   All Training Programmes →
                 </Link>
@@ -290,7 +310,7 @@ export default function Navbar() {
                   <Link
                     key={course.id}
                     to={`/and/courses/${course.slug}`}
-                    className="block text-sm text-[#5b6b85] hover:text-[#00184a] py-1"
+                    className="block text-sm text-[#5E6874] hover:text-[#00A859] py-1"
                   >
                     {course.title}
                   </Link>
@@ -300,39 +320,25 @@ export default function Navbar() {
           </div>
 
           <Link
-            to="/and/about"
-            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
-          >
-            About
-          </Link>
-
-          <Link
             to="/and/why-us"
-            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+            className="block py-2 text-base font-semibold text-[#16191D] hover:text-[#00A859]"
           >
             Why Us
           </Link>
 
           <Link
-            to="/and/testimonials"
-            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
-          >
-            Testimonials
-          </Link>
-
-          <Link
             to="/and/contact"
-            className="block py-2 text-base font-medium text-[#00184a] hover:text-[#1e5bc6]"
+            className="block py-2 text-base font-semibold text-[#16191D] hover:text-[#00A859]"
           >
             Contact
           </Link>
 
-          <div className="pt-4 border-t border-[#e3e8f0] flex flex-col gap-2.5">
+          <div className="pt-4 border-t border-[#E5E7EB] flex flex-col gap-2.5">
             <Link
               to="/and/contact"
-              className="btn-orange w-full text-center"
+              className="btn-green w-full text-center"
             >
-              Talk to us
+              Talk to Us
             </Link>
             <a
               href={`tel:${siteData.brand.rawPhone}`}

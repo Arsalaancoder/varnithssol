@@ -16,7 +16,7 @@ function ScrollToTop() {
 
 export default function Layout() {
   return (
-    <div className="min-h-screen bg-white text-[#00184a] flex flex-col justify-between selection:bg-[#1e5bc6] selection:text-white">
+    <div className="min-h-screen bg-white text-[#16191D] flex flex-col justify-between selection:bg-[#00A859] selection:text-white">
       <ScrollToTop />
       <Navbar />
       <main className="flex-grow">
