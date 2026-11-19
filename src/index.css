@@ -1,146 +1,88 @@
+@font-face {
+  font-family: 'Familjen Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/FamiljenGrotesk-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Familjen Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/FamiljenGrotesk-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Familjen Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/FamiljenGrotesk-Bold.ttf') format('truetype');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-sans: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --corporate-navy: #063568;
-  --corporate-navy-hover: #04274d;
-  --corporate-navy-dark: #031E3D;
-  --corporate-lavender: #F2F3FC;
-  --ink: #171717;
-  --muted: #5E6874;
-  --surface: #ffffff;
-  --surface-alt: #F2F3FC;
-  --border: #E2E6F0;
-}
-
 @layer base {
+  :root {
+    --color-navy: #0A3857;
+    --color-navy-dark: #07273D;
+    --color-blue: #127DC4;
+    --color-blue-light: #F4F7F9;
+    --color-charcoal: #1E293B;
+    --color-slate-text: #475569;
+    --color-border: #E2E8F0;
+  }
+
   html {
-    font-family: var(--font-sans);
-    background-color: #ffffff;
-    color: var(--ink);
     scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1E293B;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    font-family: var(--font-sans);
-    background-color: #ffffff;
-    color: var(--ink);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
-    color: var(--ink);
+    color: #0A3857;
     font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-  }
-
-  p, span, a, button, input, select, textarea, label, nav {
-    font-family: var(--font-sans);
-  }
-
-  ::selection {
-    background-color: var(--corporate-navy);
-    color: #ffffff;
+    letter-spacing: -0.02em;
   }
 }
 
-/* Standard Rectangular Corporate Buttons matching Lumintu Reference */
-.btn-primary,
-.btn-navy,
-.btn-green {
-  background-color: #063568;
-  color: #ffffff;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 10px 22px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-  border: 1px solid #063568;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-.btn-primary:hover,
-.btn-navy:hover,
-.btn-green:hover {
-  background-color: #04274d;
-  border-color: #04274d;
-  color: #ffffff;
+@layer utilities {
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-medium px-5 py-2.5 rounded-md text-white bg-[#0A3857] hover:bg-[#07273D] transition-colors duration-150 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#0A3857] focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-medium px-5 py-2.5 rounded-md text-[#0A3857] bg-white border border-slate-300 hover:bg-slate-50 transition-colors duration-150 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#0A3857] focus:ring-offset-2;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center font-medium px-5 py-2.5 rounded-md text-white bg-[#127DC4] hover:bg-[#0E659F] transition-colors duration-150 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#127DC4] focus:ring-offset-2;
+  }
+
+  .card-minimal {
+    @apply bg-white border border-[#E2E8F0] rounded-lg p-6 lg:p-8 transition-all duration-200 hover:border-slate-300 hover:shadow-xs;
+  }
 }
 
-.btn-outline,
-.btn-outline-navy,
-.btn-outline-green {
-  background-color: #ffffff;
-  color: #063568;
-  border: 1px solid #063568;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 9px 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  cursor: pointer;
-}
-.btn-outline:hover,
-.btn-outline-navy:hover,
-.btn-outline-green:hover {
-  background-color: #F2F3FC;
-  color: #04274d;
-  border-color: #04274d;
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.btn-dark {
-  background-color: #171717;
-  color: #ffffff;
-  border: 1px solid #171717;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 10px 22px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  cursor: pointer;
-}
-.btn-dark:hover {
-  background-color: #063568;
-  border-color: #063568;
-  color: #ffffff;
-}
-
-/* Backward compatibility aliases */
-.btn-blue {
-  @apply btn-navy;
-}
-.btn-orange {
-  @apply btn-navy;
-}
-
-/* Subtle corporate card */
-.corporate-card {
-  background-color: #ffffff;
-  border: 1px solid #E2E6F0;
-  border-radius: 6px;
-  transition: all 0.25s ease;
-}
-.corporate-card:hover {
-  border-color: #063568;
-  box-shadow: 0 10px 25px -5px rgba(6, 53, 104, 0.08);
-}

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { type HTMLMotionProps, type Variants, motion } from "motion/react"
+import { HTMLMotionProps, Variants, motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
@@ -29,6 +29,7 @@ interface CardCurtainRevealContextValue {
 const CardCurtainRevealContext = React.createContext<
   CardCurtainRevealContextValue | undefined
 >(undefined)
+
 function useCardCurtainRevealContext() {
   const context = React.useContext(CardCurtainRevealContext)
   if (!context) {

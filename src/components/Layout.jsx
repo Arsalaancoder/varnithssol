@@ -2,28 +2,22 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import FloatingContactWidget from './FloatingContactWidget';
 
-function ScrollToTop() {
+export default function Layout() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo(0, 0);
   }, [pathname]);
 
-  return null;
-}
-
-export default function Layout() {
   return (
-    <div className="min-h-screen bg-white text-[#16191D] flex flex-col justify-between selection:bg-[#063568] selection:text-white">
-      <ScrollToTop />
+    <div className="min-h-screen flex flex-col bg-white text-[#1E293B]">
       <Navbar />
-      <main className="flex-grow">
+      <main className="grow">
         <Outlet />
       </main>
       <Footer />
-      <FloatingContactWidget />
     </div>
   );
 }
+

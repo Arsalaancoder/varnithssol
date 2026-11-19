@@ -1,47 +1,56 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import StatisticsBanner from '../components/StatisticsBanner';
-import HRServices from '../components/HRServices';
-import LearningJourney from '../components/LearningJourney';
-import WhoWeHireFor from '../components/WhoWeHireFor';
-import WhyChooseUs from '../components/WhyChooseUs';
-import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
-import Contact from '../components/Contact';
+import HeroSection from '../components/home/HeroSection';
+import HighlightsSection from '../components/home/HighlightsSection';
+import ChallengesSection from '../components/home/ChallengesSection';
+import SolutionSection from '../components/home/SolutionSection';
+import HowWeHelpSection from '../components/home/HowWeHelpSection';
+import ServicesSection from '../components/home/ServicesSection';
+import ConnectedSection from '../components/home/ConnectedSection';
+import HowWeHireSection from '../components/home/HowWeHireSection';
+import WhoWeHireSection from '../components/home/WhoWeHireSection';
+import WorkingWithUsSection from '../components/home/WorkingWithUsSection';
+import FAQSection from '../components/home/FAQSection';
+import ContactCtaSection from '../components/home/ContactCtaSection';
 
 export default function Home() {
   return (
-    <>
-      {/* 01. Homepage Hero Slider matching Template */}
-      <Hero />
+    <div className="bg-white">
+      {/* SECTION 1: HERO */}
+      <HeroSection />
 
-      {/* 02. Welcome / About Section with Overlapping Green Statistics Card */}
-      <About />
+      {/* SECTION 2: COMPANY HIGHLIGHTS */}
+      <HighlightsSection />
 
-      {/* 03. Acuvic Full-Width Corporate Green Statistics Banner */}
-      <StatisticsBanner />
+      {/* SECTION 3: COMMON CHALLENGES */}
+      <ChallengesSection />
 
-      {/* 04. Business Shaped Solutions — Comprehensive Service Offerings */}
-      <HRServices />
+      {/* SECTION 4: OUR SOLUTION */}
+      <SolutionSection />
 
-      {/* 05. How We Hire — 8-Stage Recruitment Methodology */}
-      <LearningJourney />
+      {/* SECTION 5: HOW WE HELP */}
+      <HowWeHelpSection />
 
-      {/* 06. Who We Hire For — 6 Enterprise Technical Specializations */}
-      <WhoWeHireFor />
+      {/* SECTION 6: SERVICES */}
+      <ServicesSection />
 
-      {/* 07. Why Choose Varnith — 4 Core Commitments & Verified SLAs */}
-      <WhyChooseUs />
+      {/* SECTION 7: CONNECTED BY PEOPLE */}
+      <ConnectedSection />
 
-      {/* 08. Client & Alumni Testimonials */}
-      <Testimonials />
+      {/* SECTION 8: HOW WE HIRE */}
+      <HowWeHireSection />
 
-      {/* 09. Frequently Asked Questions */}
-      <FAQ />
+      {/* SECTION 9: WHO WE HIRE FOR */}
+      <WhoWeHireSection />
 
-      {/* 10. Traditional Corporate Contact Section */}
-      <Contact />
-    </>
+      {/* SECTION 10: WHAT WORKING WITH US FEELS LIKE */}
+      <WorkingWithUsSection />
+
+      {/* SECTION 11: FAQ */}
+      <FAQSection />
+
+      {/* SECTION 12: CONTACT CTA */}
+      <ContactCtaSection />
+    </div>
   );
 }
+

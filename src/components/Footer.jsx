@@ -1,188 +1,196 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, ShieldCheck, User } from 'lucide-react';
 import { siteData } from '../data/siteData';
-
-const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="bg-[#031E3D] text-white pt-16 pb-8 border-t border-[#063568]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+    <footer className="bg-[#0A3857] text-white pt-16 pb-12 border-t border-[#07273D]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-700/60">
           
-          {/* Brand & Registered Office Column (Col-span 4) */}
-          <div className="lg:col-span-4 space-y-4">
-            <Link to="/and" className="inline-block">
-              <img
-                src="/assets/varnith-logo-white-ref.svg"
-                alt="Varnith Technologies Private Limited"
-                className="h-9 w-auto"
-              />
+          {/* Column 1: Company Info */}
+          <div className="lg:col-span-2 space-y-4">
+            <Link to="/" className="inline-block focus:outline-none">
+              <div className="bg-white p-2 rounded-md inline-block">
+                <img
+                  src="/assets/varnith-logo-ref.svg"
+                  alt="Varnith Technologies Private Limited"
+                  className="h-8 w-auto"
+                />
+              </div>
             </Link>
-
-            <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
-              Empowering technology organizations through strategic talent acquisition, and helping ambitious professionals grow through industry-aligned IT training.
+            <p className="text-slate-300 text-sm max-w-sm leading-relaxed">
+              {siteData.brand.tagline}
             </p>
-
-            <div className="pt-2 space-y-2 text-xs text-gray-300 border-t border-white/10 max-w-sm">
-              <p className="font-semibold text-white">Varnith Technologies Private Limited</p>
-              <p className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#60A5FA] shrink-0 mt-0.5" />
-                <span>1-90/B/C/1, Flat No. 102, Bhanu Elite, Madhapur, Shaikpet, Hyderabad – 500081, Telangana, India</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#60A5FA] shrink-0" />
+            <p className="text-slate-300 text-sm max-w-sm leading-relaxed">
+              {siteData.brand.aboutShort}
+            </p>
+            
+            <div className="pt-2 space-y-2 text-xs text-slate-300">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#127DC4] shrink-0 mt-0.5" />
+                <span>{siteData.brand.address.full}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-[#127DC4] shrink-0" />
                 <a href={`tel:${siteData.brand.rawPhone}`} className="hover:text-white transition-colors">
                   {siteData.brand.phone}
                 </a>
-              </p>
-              <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#60A5FA] shrink-0" />
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#127DC4] shrink-0" />
                 <a href={`mailto:${siteData.brand.email}`} className="hover:text-white transition-colors">
                   {siteData.brand.email}
                 </a>
-              </p>
-              <p className="text-[11px] text-gray-400 pt-1">CIN: U62013TS2026PTC223247</p>
+              </div>
+              <div className="text-slate-400">
+                <span>CIN: {siteData.brand.cin}</span>
+              </div>
             </div>
           </div>
 
-          {/* Quick Links Column (Col-span 2) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                <Link to="/and" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Home</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/and/about" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>About Us</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/and/why-us" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Why Choose Us</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/and/testimonials" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Testimonials</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/and/contact" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Contact Us</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* HR Consulting Links Column (Col-span 3) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2">
+          {/* Column 2: HR Consulting */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold tracking-wider text-white uppercase">
               HR Consulting
             </h3>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-slate-300">
               <li>
-                <Link to="/and/hr-services" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Talent Acquisition</span>
+                <Link to="/hire#talent-acquisition" className="hover:text-white transition-colors">
+                  Talent Acquisition
                 </Link>
               </li>
               <li>
-                <Link to="/and/hr-services" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Executive Search</span>
+                <Link to="/hire#rpo" className="hover:text-white transition-colors">
+                  RPO Solutions
                 </Link>
               </li>
               <li>
-                <Link to="/and/hr-services" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Contract Staffing</span>
+                <Link to="/hire#executive-hiring" className="hover:text-white transition-colors">
+                  Executive Hiring
                 </Link>
               </li>
               <li>
-                <Link to="/and/hr-services" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>HR Advisory & Strategy</span>
+                <Link to="/hire#dei-hiring" className="hover:text-white transition-colors">
+                  DE&I Hiring
                 </Link>
               </li>
               <li>
-                <Link to="/and/hr-services" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Recruitment Outsourcing</span>
+                <Link to="/hire#talent-intelligence" className="hover:text-white transition-colors">
+                  Talent Intelligence
+                </Link>
+              </li>
+              <li>
+                <Link to="/hire#hr-advisory" className="hover:text-white transition-colors">
+                  HR Advisory
+                </Link>
+              </li>
+              <li>
+                <Link to="/hire#contract-staffing" className="hover:text-white transition-colors">
+                  Contract Staffing
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Training Links Column (Col-span 3) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white border-b border-white/10 pb-2">
-              Training Tracks
+          {/* Column 3: Training & Development */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold tracking-wider text-white uppercase">
+              Training & Academy
             </h3>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-slate-300">
               <li>
-                <Link to="/and/courses/sap-basis-security" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>SAP Basis Security</span>
+                <Link to="/academy/sap-basis-security" className="hover:text-white transition-colors">
+                  SAP Basis Security
                 </Link>
               </li>
               <li>
-                <Link to="/and/courses/sap-grc" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>SAP GRC 12.0</span>
+                <Link to="/academy/sap-grc" className="hover:text-white transition-colors">
+                  SAP GRC Access Control
                 </Link>
               </li>
               <li>
-                <Link to="/and/courses/devops" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>DevOps & Cloud</span>
+                <Link to="/academy/college-programmes" className="hover:text-white transition-colors">
+                  College Engagements
                 </Link>
               </li>
               <li>
-                <Link to="/and/courses/testing" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Quality Engineering / QA</span>
+                <Link to="/academy#programmes" className="hover:text-white transition-colors">
+                  Technology Training
                 </Link>
               </li>
               <li>
-                <Link to="/and/courses/python" className="hover:text-[#60A5FA] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3 h-3 text-[#60A5FA]" />
-                  <span>Python & Automation</span>
+                <Link to="/academy#how-it-works" className="hover:text-white transition-colors">
+                  Career Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/academy#batch-enquiry" className="hover:text-white transition-colors">
+                  Batch & Syllabus Enquiry
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Column 4: Quick Navigation & Portal */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold tracking-wider text-white uppercase">
+              Company & Roles
+            </h3>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li>
+                <Link to="/about" className="hover:text-white transition-colors">
+                  About Varnith
+                </Link>
+              </li>
+              <li>
+                <Link to="/industries" className="hover:text-white transition-colors">
+                  Who We Hire For
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="hover:text-white transition-colors">
+                  Find a Role (Candidates)
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-white transition-colors">
+                  Contact & Support
+                </Link>
+              </li>
+            </ul>
+            
+            <div className="pt-3">
+              <Link
+                to="/hire"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#127DC4] hover:text-white transition-colors"
+              >
+                <span>Hire with Varnith</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Legal & Copyright Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>
-            © {CURRENT_YEAR} Varnith Technologies Private Limited. All rights reserved.
-          </p>
+        {/* Bottom Legal & Copyright Strip */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>
+            © {new Date().getFullYear()} Varnith Technologies Private Limited. All rights reserved.
+          </div>
+          
           <div className="flex flex-wrap items-center gap-6">
-            <Link to="/and/contact" className="hover:text-white transition-colors">
+            <Link to="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/and/contact" className="hover:text-white transition-colors">
+            <Link to="/terms" className="hover:text-white transition-colors">
               Terms of Use
             </Link>
-            <Link to="/and/contact" className="hover:text-white transition-colors">
+            <Link to="/grievance" className="hover:text-white transition-colors">
               Grievance Redressal
-            </Link>
-            <Link to="/and/contact" className="hover:text-white transition-colors">
-              Corporate Governance
             </Link>
           </div>
         </div>
@@ -191,3 +199,4 @@ export default function Footer() {
     </footer>
   );
 }
+

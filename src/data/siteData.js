@@ -1,805 +1,516 @@
 export const siteData = {
   brand: {
-    name: "Varnith Global",
+    name: "Varnith Technologies",
     legalName: "Varnith Technologies Private Limited",
     tagline: "Empowering People. Strengthening Businesses.",
-    eyebrow: "STRATEGIC HR SOLUTIONS • IT TRAINING",
-    heroDescription: "Delivering strategic HR solutions, exceptional talent acquisition and workforce consulting to help businesses build stronger teams and achieve sustainable growth.",
-    phone: "(+91) 7995483137",
+    eyebrow: "HR CONSULTING • SAP & IT TRAINING",
+    heroHeadline: "We find people. Talent. Leaders. We grow skills. Careers. Confidence.",
+    heroDescription: "Behind every good team is a good hire, and behind every good career is the right skill. We help software organisations find their people, and help people build the skills to grow.",
+    phone: "+91 79954 83137",
     rawPhone: "+917995483137",
-    whatsapp: "https://wa.me/917995483137?text=Hi%20Varnith%20Global%2C%20I%20would%20like%20to%20know%20more%20about%20your%20programs.",
+    whatsapp: "https://wa.me/917995483137?text=Hi%20Varnith%20Technologies%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services%20and%20programmes.",
     email: "info@varnithglobal.com",
+    cin: "U62013TS2026PTC223247",
     address: {
-      line1: "1-90/B/C/1 Flat No 102, Bhanu Elite",
-      line2: "Madhapur, Shaikpet, Hyderabad – 500081, Telangana",
-      building: "Bhanu Elite",
-      flatNo: "Flat No 102",
-      plotNo: "1-90/B/C/1",
-      area: "Madhapur",
-      mandal: "Shaikpet",
+      line1: "1-90/B/C/1, Flat No. 102, Bhanu Elite",
+      line2: "Madhapur, Hyderabad – 500081, Telangana, India",
       city: "Hyderabad",
       state: "Telangana",
       pincode: "500081",
-      full: "1-90/B/C/1 Flat No 102, Bhanu Elite, Madhapur, Shaikpet, Hyderabad – 500081, Telangana"
+      full: "1-90/B/C/1, Flat No. 102, Bhanu Elite, Madhapur, Hyderabad – 500081, Telangana, India"
     },
     hours: "Monday – Saturday: 9:00 AM – 7:00 PM IST",
-    aboutText: "Varnith Global is your partner for career development in Hyderabad. With expert guidance, comprehensive solutions and a deep understanding of the local job market, we help individuals achieve their career aspirations and organizations build stronger teams. Benefit from our experienced instructors, tailored curriculum, and hands-on learning opportunities."
+    aboutShort: "Varnith Technologies is a young Hyderabad company with an old-fashioned belief: people matter most. We help software organisations hire well, and we help people build the skills those organisations need."
   },
 
   navLinks: [
-    { label: "Home", href: "/and" },
-    { label: "About", href: "/and/about" },
-    { label: "Courses", href: "/and/courses" },
-    { label: "Why Us", href: "/and/why-us" },
-    { label: "HR Services", href: "/and/hr-services" },
-    { label: "Testimonials", href: "/and/testimonials" },
-    { label: "Contact", href: "/and/contact" }
+    { label: "Home", href: "/" },
+    { label: "HR Consulting", href: "/hire" },
+    { label: "Training & Development", href: "/academy" },
+    { label: "Find a Role", href: "/careers" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" }
   ],
 
-  heroSlides: [
+  highlights: [
     {
-      id: 1,
-      image: "/assets/hr_carousel_1.jpg",
-      badge: "Strategic Talent Acquisition & HR Solutions",
-      caption: "Sourcing pre-screened technical and leadership talent for high-growth enterprises."
+      title: "HR Consulting",
+      subtitle: "Tailored hiring solutions across India for product companies, GCCs, and enterprises."
     },
     {
-      id: 2,
-      image: "/assets/hr_carousel_2.jpg",
-      badge: "Workforce Consulting & RPO Advisory",
-      caption: "Tailored executive search, workforce planning, and organizational talent strategy."
+      title: "Talent Acquisition",
+      subtitle: "Screened, vetted engineering and leadership shortlists calibrated to your exact tech stack."
     },
     {
-      id: 3,
-      image: "/assets/hr_carousel_3.jpg",
-      badge: "Industry-Aligned IT Training Division",
-      caption: "Empowering software engineers with live enterprise labs and career mentorship."
+      title: "SAP Training",
+      subtitle: "Live interactive online tracks in SAP Basis Security and SAP GRC for working professionals."
+    },
+    {
+      title: "College Engagements",
+      subtitle: "Practical industry-readiness workshops bridging the gap between campus and first tech jobs."
     }
   ],
 
-  courses: [
+  challenges: [
     {
-      id: "devops",
-      slug: "devops",
       number: "01",
-      stepLabel: "Track 01",
-      title: "DevOps",
-      fullTitle: "DevOps Engineering & Cloud Infrastructure",
-      category: "Cloud & Infrastructure",
-      badge: "High Industry Demand",
-      duration: "12 Weeks",
-      level: "All Levels Welcome",
-      image: "/assets/course_devops_new.png",
-      description: "Software development and IT operations for faster, more reliable delivery. Master CI/CD pipelines, containerization, and cloud orchestration.",
-      panelTheme: {
-        bg: "bg-[#FEF8E7]", // Soft warm yellow
-        border: "border-[#F2C94C]/30",
-        tabBg: "bg-[#FEF8E7]",
-        text: "text-[#183629]",
-        accent: "#DFAE22"
-      },
-      highlights: [
-        "CI/CD Pipeline Automation (Jenkins, GitHub Actions)",
-        "Docker Containerization & Kubernetes Orchestration",
-        "Infrastructure as Code (Terraform & Ansible)",
-        "AWS Cloud Architecture, VPC, IAM & Monitoring (Prometheus/Grafana)",
-        "Linux System Administration & Shell Scripting",
-        "Git Branching Strategies & GitOps Workflows"
-      ],
-      careerOutcomes: ["DevOps Engineer", "Cloud Infrastructure Engineer", "Site Reliability Engineer (SRE)", "Build & Release Engineer"],
-      targetAudience: "Aspiring Cloud Engineers, SysAdmins, Developers and CS graduates seeking a high-growth DevOps transition.",
-      certification: "Varnith Enterprise Certified DevOps Specialist & Industry Exam Readiness"
+      title: "Finding the Right Talent",
+      description: "Requirements change and skill sets evolve rapidly. It is easy to fall behind on critical hiring deadlines without dedicated sourcing."
     },
     {
-      id: "sap-basis-security",
-      slug: "sap-basis-security",
       number: "02",
-      stepLabel: "Track 02",
-      title: "SAP Basis Security",
-      fullTitle: "SAP Basis Administration & Enterprise Security",
-      category: "Enterprise ERP",
-      badge: "Mission Critical",
-      duration: "10 Weeks",
-      level: "Intermediate",
-      image: "/assets/course_sap_new.png",
-      description: "Learn SAP system administration and security fundamentals. Master user administration, role design, authorizations, and system hardening.",
-      panelTheme: {
-        bg: "bg-[#FAF6EE]", // Pale cream
-        border: "border-[#899C75]/25",
-        tabBg: "bg-[#FAF6EE]",
-        text: "text-[#102A21]",
-        accent: "#899C75"
-      },
-      highlights: [
-        "SAP NetWeaver Architecture, Kernel Patching & Client Administration",
-        "Role Administration & Authorization Concepts (PFCG)",
-        "User Lifecycle Management (SU01, SU10, SU24, SU53)",
-        "Transport Management System (TMS) Configuration",
-        "Audit Information System (AIS) & Security Baseline Hardening",
-        "Single Sign-On (SSO) & Secure Network Communications (SNC)"
+      title: "Recruitment Challenges",
+      description: "Without structured screening and technical vetting, hiring becomes inconsistent, slow, and expensive for engineering managers."
+    },
+    {
+      number: "03",
+      title: "Technology Skills Gaps",
+      description: "Teams need hands-on practitioners who understand real enterprise environments, not just theoretical concepts on a CV."
+    },
+    {
+      number: "04",
+      title: "Career Development",
+      description: "Ambitious engineers and fresh graduates often struggle to find practical, mentor-led guidance to master mission-critical enterprise systems."
+    }
+  ],
+
+  solution: {
+    heading: "People and Skills, Under One Roof.",
+    description: "Because we hire for software teams, we know the skills they look for. That shapes everything we teach.",
+    bulletPoints: [
+      "In-depth market intelligence across software stacks and enterprise ERP.",
+      "Dual perspective: we understand what companies require and how candidates learn.",
+      "Hands-on practical training that builds genuine job-ready confidence.",
+      "Single trusted partner for both workforce expansion and internal capability building."
+    ]
+  },
+
+  howWeHelp: [
+    {
+      step: "01",
+      title: "Understand Your Requirements",
+      description: "We thoroughly assess your unique situation, tech stack, team culture, and delivery milestones. A detailed analysis ensures we address all aspects of your talent or skill concerns comprehensively.",
+      image: "/assets/experience_discussion.jpg",
+      badge: "Discovery Phase"
+    },
+    {
+      step: "02",
+      title: "Define the Right Approach",
+      description: "We outline precise action steps and clear role briefs. Whether creating an executive search mandate, a dedicated RPO pod, or a tailored training curriculum, you get a structured roadmap detailing every stage.",
+      image: "/assets/experience_collab.jpg",
+      badge: "Action Roadmap"
+    },
+    {
+      step: "03",
+      title: "Deliver the Right Solution",
+      description: "We execute with precision: sourcing rigorously vetted engineering candidates or delivering mentor-led live online classes with hands-on practice labs. We prioritize quality over raw volume at every step.",
+      image: "/assets/hero_team_meeting.jpg",
+      badge: "Tailored Delivery"
+    },
+    {
+      step: "04",
+      title: "Stay Connected",
+      description: "Our commitment does not end at an offer acceptance or course completion. We maintain continuous support through the 90-day onboarding window and post-course career mentoring to ensure lasting success.",
+      image: "/assets/experience_presentation.jpg",
+      badge: "Ongoing Partnership"
+    }
+  ],
+
+  servicesHR: [
+    {
+      id: "talent-acquisition",
+      title: "Talent Acquisition",
+      tagline: "Hiring for what the role truly needs – not for keywords on a CV.",
+      description: "Full-lifecycle permanent technical hiring matching enterprise software demands with vetted, high-caliber talent across India. We evaluate candidates for genuine hands-on ability before presentation.",
+      features: [
+        "Pre-screened technical candidate dossiers",
+        "Passive talent mapping across India tech hubs",
+        "Role-specific competency & problem-solving audit",
+        "Notice-period engagement & offer closure support"
       ],
-      careerOutcomes: ["SAP Basis Consultant", "SAP Security Administrator", "SAP Technical Lead", "ERP Systems Engineer"],
-      targetAudience: "IT Administrators, SAP Trainees, and Security Analysts seeking enterprise ERP expertise.",
-      certification: "Varnith Certified SAP Basis Security Practitioner"
+      href: "/hire#talent-acquisition"
+    },
+    {
+      id: "rpo",
+      title: "Recruitment Process Outsourcing (RPO)",
+      tagline: "Hand us all of your hiring, or just the part that is holding you back.",
+      description: "Dedicated recruiter pods and scalable talent delivery embedded within your team. We manage requisitions, candidate attraction, interview scheduling, and pipeline velocity under strict SLAs.",
+      features: [
+        "Dedicated full-time technical recruiting pods",
+        "Seamless integration with your ATS and workflows",
+        "Transparent weekly metrics and pipeline conversion data",
+        "Elastic scalability during rapid hiring sprints"
+      ],
+      href: "/hire#rpo"
+    },
+    {
+      id: "executive-hiring",
+      title: "Executive Hiring",
+      tagline: "Quiet, careful search for the leaders who will shape your company.",
+      description: "Confidential and specialized headhunting for Directors of Engineering, VPs, Principal Architects, and technology executives who drive organizational vision and technical excellence.",
+      features: [
+        "Discreet, confidential market representation",
+        "Extensive 360-degree referencing and leadership audits",
+        "Compensation and equity package benchmarking",
+        "Extended executive placement warranty"
+      ],
+      href: "/hire#executive-hiring"
+    },
+    {
+      id: "dei-hiring",
+      title: "DE&I Hiring",
+      tagline: "Hiring that widens your talent pool and reduces bias in the process.",
+      description: "Structured inclusive sourcing and bias-free evaluation frameworks that connect companies with high-performing diverse engineering talent and women in tech leadership.",
+      features: [
+        "Objective competency-based screening",
+        "Partnerships with specialized tech communities",
+        "Diverse shortlist representation benchmarks",
+        "Workplace culture and inclusion advisory"
+      ],
+      href: "/hire#dei-hiring"
+    },
+    {
+      id: "talent-intelligence",
+      title: "Talent Intelligence",
+      tagline: "Know the market before you make the offer.",
+      description: "Actionable market data on compensation benchmarks, competitor talent movements, tech stack availability, and location analytics across Hyderabad, Bengaluru, Pune, and major tech hubs.",
+      features: [
+        "Real-time salary and variable pay benchmarking",
+        "Competitor organizational stack mapping",
+        "Talent density and attrition risk indicators",
+        "Offer acceptance likelihood analytics"
+      ],
+      href: "/hire#talent-intelligence"
+    },
+    {
+      id: "hr-advisory",
+      title: "HR Advisory",
+      tagline: "Practical advice on hiring processes, job architecture and HR policies.",
+      description: "Strategic workplace advisory helping growth-stage software companies establish clean job banding, performance review frameworks, and compliant HR operational handbooks.",
+      features: [
+        "Engineering leveling and career ladders",
+        "Performance management & OKR framework design",
+        "Statutory compliance & employment documentation health checks",
+        "Employee retention and engagement audits"
+      ],
+      href: "/hire#hr-advisory"
+    },
+    {
+      id: "contract-staffing",
+      title: "Contract Staffing",
+      tagline: "The right skills for the months you need them.",
+      description: "Flexible engineering contractors and contract-to-hire specialists ready to deploy on critical delivery milestones, with complete payroll and statutory compliance managed by us.",
+      features: [
+        "Rapid contractor deployment within 72 hours",
+        "Smooth contract-to-hire transition options",
+        "Complete payroll, PF, ESI, and statutory compliance coverage",
+        "Flexible milestone-based staffing contracts"
+      ],
+      href: "/hire#contract-staffing"
+    }
+  ],
+
+  servicesTraining: [
+    {
+      id: "sap-basis-security",
+      title: "SAP Basis Security",
+      tagline: "Secure SAP systems: users, roles, authorisations and audits.",
+      description: "Comprehensive live online programme covering user lifecycle management, PFCG role administration, authorization concepts, audit logging, and system hardening on real enterprise systems.",
+      features: [
+        "Live interactive online sessions with SAP practitioners",
+        "Hands-on access to SAP NetWeaver and sandbox systems",
+        "Real enterprise security audit scenarios",
+        "Batch schedule suited to working professionals"
+      ],
+      href: "/academy/sap-basis-security"
     },
     {
       id: "sap-grc",
-      slug: "sap-grc",
-      number: "03",
-      stepLabel: "Track 03",
       title: "SAP GRC",
-      fullTitle: "SAP Governance, Risk & Compliance (GRC Access Control)",
-      category: "Governance & Risk",
-      badge: "Compliance Track",
-      duration: "10 Weeks",
-      level: "Intermediate to Advanced",
-      image: "/assets/course_sap_new.png",
-      description: "Understand governance, risk and compliance in SAP environments. Mitigate access risks, Segregation of Duties (SoD) conflicts, and automate compliance audits.",
-      panelTheme: {
-        bg: "bg-[#EEF4EC]", // Muted sage
-        border: "border-[#173B2C]/20",
-        tabBg: "bg-[#EEF4EC]",
-        text: "text-[#173B2C]",
-        accent: "#173B2C"
-      },
-      highlights: [
-        "Access Risk Analysis (ARA) & SoD Rule Set Customization",
-        "Access Request Management (ARM) Automated Provisioning",
-        "Emergency Access Management (EAM / Firefighter ID Setup)",
-        "Business Role Management (BRM) Methodology",
-        "Continuous Compliance Monitoring & Audit Readiness",
-        "Integration with SAP S/4HANA & Fiori Environments"
+      tagline: "Access governance, risk management and audit compliance in SAP.",
+      description: "Master SAP Governance, Risk & Compliance Access Control. Learn Segregation of Duties (SoD) risk analysis (ARA), emergency access management (EAM / Firefighter), and automated user provisioning (ARM).",
+      features: [
+        "In-depth Access Risk Analysis (ARA) rule sets",
+        "Emergency Access Management (EAM) setup and audits",
+        "Access Request Management (ARM) workflow configuration",
+        "Business Role Management (BRM) compliance methodologies"
       ],
-      careerOutcomes: ["SAP GRC Consultant", "IT Compliance Auditor", "Information Security Risk Analyst", "SAP Authorization Lead"],
-      targetAudience: "Internal Auditors, SAP Consultants, Risk Analysts & Security Architects.",
-      certification: "Varnith GRC Enterprise Practitioner Certificate"
+      href: "/academy/sap-grc"
     },
     {
-      id: "data-analyst",
-      slug: "data-analyst",
-      number: "04",
-      stepLabel: "Track 04",
-      title: "Data Analyst",
-      fullTitle: "Data Analytics & Business Intelligence",
-      category: "Data & Analytics",
-      badge: "Beginner Friendly",
-      duration: "12 Weeks",
-      level: "All Backgrounds",
-      image: "/assets/course_data_new.jpg",
-      description: "Develop analytical skills to uncover insights and support better decisions. Harness SQL, Python, Excel, and Power BI dashboards to transform data into business value.",
-      panelTheme: {
-        bg: "bg-[#FEF5EC]", // Soft warm peach
-        border: "border-[#DFAE22]/30",
-        tabBg: "bg-[#FEF5EC]",
-        text: "text-[#183629]",
-        accent: "#DFAE22"
-      },
-      highlights: [
-        "Advanced SQL: Window Functions, CTEs, Joins & Optimization",
-        "Power BI & Tableau Interactive Dashboarding & DAX Calculations",
-        "Exploratory Data Analysis with Python (Pandas, NumPy, Matplotlib)",
-        "Statistical Thinking, Hypothesis Testing & KPI Frameworks",
-        "Data Cleaning, ETL Pipelines & Excel Modeling",
-        "Real-World Business Case Studies & Executive Stakeholder Reporting"
+      id: "college-engagements",
+      title: "College Engagements",
+      tagline: "Closing the gap between campus and the first job.",
+      description: "Collaborative training partnerships with engineering colleges and universities across India, delivering structured enterprise technology tracks, practical workshops, and career readiness seminars.",
+      features: [
+        "Custom technical curriculum for pre-final and final year students",
+        "Practical hands-on lab sessions on industry stacks",
+        "Mock interviews and resume coaching by active recruiters",
+        "Campus drive preparation and employer referrals"
       ],
-      careerOutcomes: ["Data Analyst", "Business Intelligence Analyst", "Reporting Specialist", "Product Analytics Associate"],
-      targetAudience: "Fresh Graduates, Non-technical professionals, Career Switchers, and Business Analysts.",
-      certification: "Certified Data & Business Intelligence Professional"
+      href: "/academy/college-programmes"
     },
     {
-      id: "software-testing",
-      slug: "software-testing",
-      number: "05",
-      stepLabel: "Track 05",
-      title: "Software Testing",
-      fullTitle: "Software Quality Assurance (Manual & Automation)",
-      category: "Quality Engineering",
-      badge: "Practical Lab Focus",
-      duration: "10 Weeks",
-      level: "All Levels",
-      image: "/assets/course_testing_new.png",
-      description: "Explore manual testing, automation testing and API testing. Build production-grade test suites using Selenium WebDriver, Postman, and TestNG.",
-      panelTheme: {
-        bg: "bg-[#F3F6ED]", // Very light olive
-        border: "border-[#899C75]/25",
-        tabBg: "bg-[#F3F6ED]",
-        text: "text-[#102A21]",
-        accent: "#899C75"
-      },
-      highlights: [
-        "SDLC, STLC & Agile Scrum QA Methodologies",
-        "Test Case Design, Boundary Value Analysis & Equivalence Partitioning",
-        "Selenium WebDriver Automation Framework with Java/Python",
-        "REST API Testing with Postman & Newman Automation",
-        "Defect Lifecycle Management with Jira & TestRail",
-        "CI/CD Integration with Jenkins for Automated Test Runs"
+      id: "technology-training",
+      title: "Technology Training",
+      tagline: "Practical software engineering skills for modern teams.",
+      description: "Focused training modules in DevOps pipelines, cloud infrastructure, Python development, and software quality engineering designed to cross-skill internal teams and new graduates.",
+      features: [
+        "CI/CD, Docker, Kubernetes, and AWS cloud basics",
+        "Python backend and test automation frameworks",
+        "Interactive live coding drills and project work",
+        "Continuous feedback from engineering mentors"
       ],
-      careerOutcomes: ["QA Automation Engineer", "Manual Test Analyst", "API Test Specialist", "SDET (Software Development Engineer in Test)"],
-      targetAudience: "Career Switchers, QA Aspirants, and CS Graduates seeking rapid entry into IT.",
-      certification: "Certified Quality Assurance & Test Automation Specialist"
+      href: "/academy#programmes"
     },
     {
-      id: "python",
-      slug: "python",
-      number: "06",
-      stepLabel: "Track 06",
-      title: "Python",
-      fullTitle: "Python Full-Stack & Automation Engineering",
-      category: "Programming & Backend",
-      badge: "Core Foundation",
-      duration: "10 Weeks",
-      level: "Beginner to Advanced",
-      image: "/assets/course_python_new.png",
-      description: "Learn Python programming and its applications in software development, backend APIs, data handling, and automation scripting.",
-      panelTheme: {
-        bg: "bg-[#FEF9ED]", // Soft cream yellow
-        border: "border-[#F2C94C]/30",
-        tabBg: "bg-[#FEF9ED]",
-        text: "text-[#183629]",
-        accent: "#DFAE22"
-      },
-      highlights: [
-        "Core Python Syntax, Data Structures & Object-Oriented Design",
-        "Web Backend Development with FastAPI & Django Frameworks",
-        "Database Architecture & ORM with PostgreSQL / SQLite",
-        "RESTful API Development & JWT Authentication",
-        "Task Automation & Web Scraping with BeautifulSoup & Selenium",
-        "Unit Testing with PyTest & Deployment to Cloud"
+      id: "career-development",
+      title: "Career Development",
+      tagline: "Portfolio reviews, mock interviews, and career progression.",
+      description: "Individual guidance helping learners translate technical competencies into compelling professional profiles, interview readiness, and long-term tech career acceleration.",
+      features: [
+        "One-on-one portfolio and GitHub / resume review",
+        "Technical and behavioral mock interview sessions",
+        "Direct connection to hiring software companies",
+        "Ongoing mentor check-ins during your job search"
       ],
-      careerOutcomes: ["Python Backend Developer", "Software Engineer", "Automation Engineer", "Full-Stack Python Engineer"],
-      targetAudience: "Beginners, College Students, Professionals aiming for Software Engineering roles.",
-      certification: "Varnith Certified Python Software Developer"
+      href: "/academy#how-it-works"
+    },
+    {
+      id: "sap-s4hana-security",
+      title: "SAP S/4HANA Security & Fiori Authorizations",
+      tagline: "Next-gen ERP access control, business catalogs, and Fiori security.",
+      description: "Hands-on training in S/4HANA authorization concepts, SAP Fiori Launchpad security, OData service authorizations, and transitioning security architectures from ECC to S/4HANA.",
+      features: [
+        "Fiori tile, catalog, and space authorization design",
+        "CDS view security and analytical privilege administration",
+        "ECC to S/4HANA security migration best practices",
+        "Live system configuration drills & case studies"
+      ],
+      href: "/academy/sap-basis-security"
+    },
+    {
+      id: "cloud-devsecops",
+      title: "Enterprise Cloud & DevSecOps",
+      tagline: "Secure CI/CD pipelines, IAM compliance, and cloud infrastructure.",
+      description: "Industry-standard curriculum covering automated security scanning, secrets management, infrastructure as code (Terraform), and cloud identity architectures across AWS and Azure.",
+      features: [
+        "Pipeline security integration (SAST / DAST tools)",
+        "Zero-trust IAM policies and cloud posture management",
+        "Container security with Docker and Kubernetes RBAC",
+        "Real-world enterprise compliance audit preparation"
+      ],
+      href: "/academy#programmes"
     }
   ],
 
-  hrServices: [
+  connectedConcept: {
+    heading: "Connected by People",
+    subheading: "Recruitment and technical training do not live in silos. At Varnith, each informs the other.",
+    leftTitle: "What We Learn from Hiring",
+    leftDescription: "Every week we speak directly with engineering managers, CTOs, and founders about their delivery pain points. We know exactly which skills are in demand and where traditional candidates fall short in interviews.",
+    rightTitle: "What Shapes What We Teach",
+    rightDescription: "We feed real-time employer expectations straight into our training curriculum. Our learners don't study outdated theory; they practice solving the exact architectural, security, and coding challenges companies hire for.",
+    bridgeText: "When software organisations hire through Varnith, they gain practitioners trained for the real job. When learners upskill with Varnith, they learn what teams actually value."
+  },
+
+  recruitmentStages: [
     {
-      id: "recruitment",
-      slug: "recruitment",
-      aliases: ["talent-acquisition"],
-      number: "01",
-      title: "Recruitment & Talent Acquisition",
-      fullTitle: "Enterprise Recruitment & Technical Talent Acquisition",
-      badge: "Core Practice",
-      shortDescription: "End-to-end recruitment matching enterprise hiring demands with pre-assessed, high-caliber tech talent in Hyderabad and pan-India.",
-      description: "End-to-end permanent recruitment matching enterprise tech demands with pre-assessed, high-caliber talent evaluated on live cloud labs.",
-      image: "/assets/hr_carousel_1.jpg",
-      stats: [
-        { label: "Average Time-to-Hire", value: "< 14 Days" },
-        { label: "Technical Pass Rate", value: "96.4%" },
-        { label: "First-Year Retention", value: "94.2%" }
-      ],
-      features: [
-        "Live Lab Technical Pre-Screening",
-        "Custom Enterprise Sourcing Pipelines",
-        "Role-Specific Competency Mapping",
-        "Behavioral & Culture Alignment Audits",
-        "Rapid 14-Day Delivery SLA",
-        "Post-Placement Replacement Guarantee"
-      ],
-      whatItIncludes: [
-        {
-          title: "Technical Code & Sandbox Vetting",
-          description: "Candidates solve real-world architectural challenges and deploy on live cloud workstations before interview presentation."
-        },
-        {
-          title: "Deep Passive Talent Mapping",
-          description: "Direct outreach to top 15% engineers across Hyderabad, Bengaluru, Pune, and pan-India tech ecosystems."
-        },
-        {
-          title: "Comprehensive Candidate Dossiers",
-          description: "Every shortlisted profile includes sandbox evaluation scorecards, peer feedback, and compensation expectations."
-        },
-        {
-          title: "End-to-End Interview Coordination",
-          description: "Dedicated account managers schedule technical rounds, manage candidate communication, and ensure zero offer drops."
-        },
-        {
-          title: "Counter-Offer & Joining Assurance",
-          description: "Active engagement during the 60-90 day notice window to minimize dropouts and accelerate start dates."
-        },
-        {
-          title: "90-Day Performance Guarantee",
-          description: "Full replacement warranty within the first 90 days ensuring complete hiring peace of mind."
-        }
-      ],
-      deliveryModel: [
-        { step: "01", title: "Technical Alignment", desc: "We interview hiring managers to map stack requirements, team culture, and business milestones." },
-        { step: "02", title: "Targeted Sourcing", desc: "AI-assisted search combined with our proprietary database of 45,000+ verified tech professionals." },
-        { step: "03", title: "Practical Lab Audit", desc: "Every engineer is vetted inside our hands-on IT labs to verify genuine hands-on ability." },
-        { step: "04", title: "Offer & Onboarding", desc: "Offer advisory, notice period engagement, and seamless enterprise day-one integration." }
-      ],
-      businessBenefits: [
-        { metric: "68%", title: "Reduction in Hiring Time", desc: "Fill critical engineering roles in under 14 business days." },
-        { metric: "4.5x", title: "Interview-to-Offer Ratio", desc: "Stop wasting engineering manager time on unvetted resumes." },
-        { metric: "94%", title: "Long-Term Retention", desc: "Hires stay, contribute, and advance within your organization." }
-      ],
-      faqs: [
-        { q: "How does Varnith Global evaluate candidate technical ability?", a: "Unlike conventional agencies that rely solely on keyword matching, candidates must demonstrate practical delivery inside live sandbox environments before recommendation." },
-        { q: "What is your typical turnaround time for senior roles?", a: "First calibrated shortlists are delivered within 48 to 72 hours. Placements typically close in 10 to 14 business days." },
-        { q: "Do you offer placement replacement guarantees?", a: "Yes. All permanent placements include a comprehensive 90-day replacement warranty." },
-        { q: "Can you support bulk hiring drives?", a: "Yes. We regularly execute dedicated recruitment sprint campaigns for enterprise scale-ups." }
-      ]
+      step: "01",
+      name: "Requirement",
+      title: "Understand Requirements",
+      description: "We meet with your engineering and HR leaders to map the role, tech stack, team dynamics, compensation bands, and business milestones."
     },
     {
-      id: "staffing",
-      slug: "staffing",
-      aliases: ["rpo"],
-      number: "02",
-      title: "Staffing & RPO Solutions",
-      fullTitle: "Scalable Contract Staffing & Recruitment Process Outsourcing",
-      badge: "Enterprise Scale",
-      shortDescription: "Scalable recruitment outsourcing and contract staffing taking over part or all of your talent acquisition to reduce cost and time-to-hire.",
-      description: "Flexible contract-to-hire staffing, project teams, and scalable Recruitment Process Outsourcing (RPO) to dramatically cut time-to-hire.",
-      image: "/assets/hr_carousel_2.jpg",
-      stats: [
-        { label: "Cost Per Hire Reduction", value: "35% – 45%" },
-        { label: "SLA Adherence Rate", value: "99.1%" },
-        { label: "Scalability Window", value: "72 Hours" }
-      ],
-      features: [
-        "Dedicated Onsite / Offsite Recruiting Pods",
-        "Contract & Contract-to-Hire IT Staffing",
-        "Applicant Tracking System Integration",
-        "Employer Brand & Candidate Experience Management",
-        "Transparent SLA & Metrics Dashboards",
-        "Direct Payroll & Compliance Coverage"
-      ],
-      whatItIncludes: [
-        {
-          title: "Full Lifecycle RPO",
-          description: "End-to-end management from requisition approval, candidate attraction, screening, to offer rollout and onboarding."
-        },
-        {
-          title: "Project-Based Staffing Sprints",
-          description: "Rapid deployment of 10 to 50+ specialized software engineers for time-sensitive enterprise client deliveries."
-        },
-        {
-          title: "Enterprise ATS & Pipeline Integration",
-          description: "Seamless workflows directly inside your Workday, Greenhouse, Lever, or BambooHR ecosystems."
-        },
-        {
-          title: "Dedicated Talent Acquisition Pods",
-          description: "Full-time senior recruiters, sourcers, and technical interviewers embedded directly with your team."
-        },
-        {
-          title: "Contract-to-Hire Flexibility",
-          description: "Evaluate engineering contractors in production before making long-term permanent commitments."
-        },
-        {
-          title: "Real-Time Analytics & Reporting",
-          description: "Weekly dashboards tracking pipeline conversion, time-to-fill, cost savings, and candidate satisfaction."
-        }
-      ],
-      deliveryModel: [
-        { step: "01", title: "Audit & Architecture", desc: "Detailed diagnostic of your current recruitment bottlenecks, tooling, and cost structures." },
-        { step: "02", title: "Pod Deployment", desc: "Deploy dedicated tech recruiters trained on your brand identity and technical stacks." },
-        { step: "03", title: "Execution Sprints", desc: "High-velocity sourcing, screening, and scheduling according to committed SLAs." },
-        { step: "04", title: "Continuous Optimization", desc: "Iterative analytics reviews to reduce cost-per-hire and elevate hiring quality." }
-      ],
-      businessBenefits: [
-        { metric: "40%", title: "Cost-Per-Hire Savings", desc: "Eliminate expensive ad-hoc placement agency fees." },
-        { metric: "72h", title: "Contract Deployment", desc: "Deploy pre-vetted contractors on active projects in days." },
-        { metric: "100%", title: "Compliance Assurance", desc: "Zero statutory or labor regulation risk for your organization." }
-      ],
-      faqs: [
-        { q: "What is the difference between RPO and standard staffing?", a: "Standard staffing fills individual openings on contingency. RPO embeds dedicated talent experts into your company, managing your entire hiring function with guaranteed SLAs and measurable cost reductions." },
-        { q: "Can we transition contract staff to full-time employees?", a: "Yes, our contract-to-hire model features seamless transition clauses with no surprise conversion fees." },
-        { q: "How quickly can you deploy a dedicated recruitment pod?", a: "A tailored pod of recruiters can be fully integrated and operational within 5 business days." },
-        { q: "Do you handle contractor payroll and statutory benefits?", a: "Yes, we handle complete contractor payroll, statutory filings, insurances, and compliance." }
-      ]
+      step: "02",
+      name: "Role Brief",
+      title: "Written Role Brief",
+      description: "We write a clear, comprehensive role specification before beginning any search, ensuring complete alignment on what success looks like."
     },
     {
-      id: "executive-search",
-      slug: "executive-search",
-      aliases: ["executive-hiring"],
-      number: "03",
-      title: "Executive Search & Leadership Hiring",
-      fullTitle: "Confidential Executive Search & Technology Leadership Headhunting",
-      badge: "C-Suite & Directors",
-      shortDescription: "Confidential and specialized headhunting for leadership positions, IT directors, architects, and C-suite innovators.",
-      description: "Confidential and specialized headhunting for VP of Engineering, IT Directors, Chief Technology Officers, and senior management leaders.",
-      image: "/assets/hr_carousel_3.jpg",
-      stats: [
-        { label: "Search Success Rate", value: "98.5%" },
-        { label: "Leadership Network", value: "12,000+" },
-        { label: "Confidentiality Rating", value: "100%" }
-      ],
-      features: [
-        "Confidential C-Suite Headhunting",
-        "Competitor Market & Organizational Mapping",
-        "Architectural & Strategic Competency Assessment",
-        "Compensation Benchmarking & Equity Advisory",
-        "Discreet Outreach & Brand Protection",
-        "One-Year Leadership Success Warranty"
-      ],
-      whatItIncludes: [
-        {
-          title: "Comprehensive Market Mapping",
-          description: "Detailed breakdown of leadership structures across top enterprise competitors and growth firms."
-        },
-        {
-          title: "Discreet Confidential Outreach",
-          description: "White-glove executive representation preserving confidentiality for sensitive organizational transitions."
-        },
-        {
-          title: "Leadership Competency Benchmarking",
-          description: "Rigorous assessment of strategic vision, technical architecture stewardship, and team leadership history."
-        },
-        {
-          title: "Executive Compensation Structuring",
-          description: "Market-calibrated structuring of fixed compensation, performance bonuses, and equity/ESOP packages."
-        },
-        {
-          title: "Extensive 360-Degree Referencing",
-          description: "Unfiltered references from past board members, peer executives, and direct engineering reports."
-        },
-        {
-          title: "Executive Onboarding Support",
-          description: "Structured integration advisory across the first 180 days to maximize executive impact."
-        }
-      ],
-      deliveryModel: [
-        { step: "01", title: "Mandate Briefing", desc: "Confidential strategy session with Founders, Board members, or HR Leadership." },
-        { step: "02", title: "Market Intelligence", desc: "Mapping target companies, active leaders, and evaluating availability indicators." },
-        { step: "03", title: "Discreet Dialogues", desc: "Engaging senior executives directly on strategic alignment and career milestones." },
-        { step: "04", title: "Offer & Integration", desc: "Package negotiation, governance alignment, and long-term onboarding support." }
-      ],
-      businessBenefits: [
-        { metric: "100%", title: "Discretion Guaranteed", desc: "Completely protected confidential corporate searches." },
-        { metric: "12k+", title: "Executive Network", desc: "Direct relationships with proven technology leaders across India." },
-        { metric: "1 Yr", title: "Leadership Warranty", desc: "Extended placement warranty on all C-suite and Director roles." }
-      ],
-      faqs: [
-        { q: "What leadership levels do you recruit for?", a: "We specialize in VP of Engineering, CTO, Chief Information Security Officer (CISO), Enterprise Architects, Head of Product, and Senior Directors." },
-        { q: "How do you protect organizational confidentiality?", a: "All executive searches operate under strict NDAs, presenting opportunities blindly until mutual interest and credentials are confirmed." },
-        { q: "How long does a typical executive search take?", a: "Shortlists of exceptional finalists are typically presented in 3 to 4 weeks, with offers finalized in 6 to 8 weeks." },
-        { q: "What is your leadership warranty?", a: "We offer an industry-leading 1-year replacement warranty on senior executive placements." }
-      ]
+      step: "03",
+      name: "Sourcing",
+      title: "Targeted Sourcing",
+      description: "We tap our proprietary database of verified software professionals, direct industry networks, and passive engineer communities across India."
     },
     {
-      id: "hr-consulting",
-      slug: "hr-consulting",
-      aliases: ["hr-strategy"],
-      number: "04",
-      title: "HR Consulting & Strategy",
-      fullTitle: "Strategic HR Advisory, Organizational Design & Policy Frameworks",
-      badge: "Strategic Advisory",
-      shortDescription: "Comprehensive workplace advisory: organizational design, performance appraisal frameworks, HR policy creation, and compliance audits.",
-      description: "Strategic workplace advisory helping growing companies establish scalable HR systems, modern workplace policies, and high-performance cultures.",
-      image: "/assets/hr_carousel_4.jpg",
-      stats: [
-        { label: "Client Retainers", value: "85+" },
-        { label: "Policy Compliance", value: "100%" },
-        { label: "Performance Uplift", value: "28%" }
-      ],
-      features: [
-        "Organizational Structure & Hierarchy Design",
-        "Performance Management & OKR Systems",
-        "Statutory HR Compliance & Labor Audits",
-        "Compensation & Benefits Frameworks",
-        "Employee Handbook & Policy Architecture",
-        "Workplace Culture & Engagement Diagnostic"
-      ],
-      whatItIncludes: [
-        {
-          title: "Organizational Design & Banding",
-          description: "Clear career ladders, role hierarchies, and competency matrices that inspire employee growth."
-        },
-        {
-          title: "Modern Performance Appraisal Systems",
-          description: "Design and rollout of OKR frameworks, 360-degree feedback reviews, and merit-based compensation structures."
-        },
-        {
-          title: "Comprehensive HR Policy Playbooks",
-          description: "Legally compliant, employee-friendly handbooks covering POSH, leave, remote work, code of conduct, and IP protection."
-        },
-        {
-          title: "Statutory Compliance Audit",
-          description: "Thorough health checks ensuring 100% compliance with labor laws, employment agreements, and state regulations."
-        },
-        {
-          title: "Culture & Retention Strategy",
-          description: "Diagnostic surveys, engagement initiatives, and leadership coaching to build resilient company culture."
-        },
-        {
-          title: "Change Management Advisory",
-          description: "Navigating team restructuring, mergers, acquisitions, and rapid scale-up transitions smoothly."
-        }
-      ],
-      deliveryModel: [
-        { step: "01", title: "Diagnostic Audit", desc: "Comprehensive review of current HR policies, workflows, compliance, and team sentiment." },
-        { step: "02", title: "Strategic Roadmap", desc: "Co-creating tailored solutions aligned directly with your enterprise business goals." },
-        { step: "03", title: "System Rollout", desc: "Hands-on implementation of policies, manager training, and modern HR software tools." },
-        { step: "04", title: "Audit & Evolution", desc: "Quarterly health-checks to adapt policies as your business expands." }
-      ],
-      businessBenefits: [
-        { metric: "100%", title: "Labor Law Compliance", desc: "Eliminate statutory fines, litigation risks, and regulatory penalties." },
-        { metric: "30%", title: "Productivity Increase", desc: "Clear OKRs and structured role ladders align teams to business objectives." },
-        { metric: "Zero", title: "Policy Ambiguity", desc: "Transparent guidelines reduce friction and foster high workplace trust." }
-      ],
-      faqs: [
-        { q: "Is this consulting service suitable for startups?", a: "Yes. We help fast-growing startups build their initial HR architecture, employment contracts, and employee handbooks from ground zero." },
-        { q: "How long does an HR compliance audit take?", a: "A complete statutory and operational HR compliance audit is typically completed within 7 to 10 business days." },
-        { q: "Can you help us implement an OKR or performance system?", a: "Yes. We design customized performance frameworks and train team leads and managers on effective implementation." },
-        { q: "Do you provide ongoing monthly HR advisory?", a: "Yes. Many enterprise clients engage us on a retained fractional Chief Human Resources Officer (CHRO) model." }
-      ]
+      step: "04",
+      name: "Screening",
+      title: "Hands-on Screening",
+      description: "Candidates are evaluated for technical fundamentals, real production experience, communication, and culture alignment before being recommended."
     },
     {
-      id: "workforce-management",
-      slug: "workforce-management",
-      aliases: ["dei-hiring"],
-      number: "05",
-      title: "Workforce Management & DE&I",
-      fullTitle: "Workforce Planning, Attrition Mitigation & Inclusive Hiring",
-      badge: "Culture & Retention",
-      shortDescription: "Capacity planning, skills gap audits, attrition mitigation, and inclusive hiring frameworks ensuring 94%+ long-term retention.",
-      description: "Data-driven workforce optimization, talent retention architecture, and diversity hiring strategies for high-performance workplaces.",
-      image: "/assets/hr_carousel_5.jpg",
-      stats: [
-        { label: "Retention Rate", value: "94.2%" },
-        { label: "DE&I Placement Ratio", value: "38%" },
-        { label: "Productivity Boost", value: "+24%" }
-      ],
-      features: [
-        "Workforce Capacity & Skills Gap Audits",
-        "Attrition Risk Prediction & Mitigation",
-        "Inclusive Sourcing & Bias-Free Screening",
-        "Women in Tech & Diversity Hiring Drives",
-        "Employee Retention & Engagement Architecture",
-        "Succession Planning & Leadership Pipelines"
-      ],
-      whatItIncludes: [
-        {
-          title: "Workforce Capacity Planning",
-          description: "Forecasting talent needs 6-12 months ahead to prevent delivery bottlenecks and understaffing."
-        },
-        {
-          title: "Targeted Diversity Hiring Campaigns",
-          description: "Dedicated pipelines to source and place skilled female engineers and diverse talent in leadership."
-        },
-        {
-          title: "Attrition Root-Cause Analysis",
-          description: "Actionable diagnostics uncovering why key performers leave and establishing interventions that retain them."
-        },
-        {
-          title: "Internal Skills Upgrading Alignment",
-          description: "Leveraging our in-house IT training division to cross-skill existing employees for emerging stack demands."
-        },
-        {
-          title: "Workplace Belonging Frameworks",
-          description: "Designing mentorship circles, employee resource groups (ERGs), and inclusive leadership practices."
-        },
-        {
-          title: "Succession & Continuity Planning",
-          description: "Identifying and grooming internal champions to protect vital business knowledge and delivery continuity."
-        }
-      ],
-      deliveryModel: [
-        { step: "01", title: "Talent Inventory", desc: "Detailed audit of existing workforce skills, attrition trends, and diversity ratios." },
-        { step: "02", title: "Capacity Blueprint", desc: "Modeling hiring needs against product roadmaps and enterprise client commitments." },
-        { step: "03", title: "Inclusive Sourcing", desc: "Engaging specialized candidate communities and executing unbiased evaluations." },
-        { step: "04", title: "Retention Monitoring", desc: "Tracking quarterly retention and team engagement metrics to ensure lasting outcomes." }
-      ],
-      businessBenefits: [
-        { metric: "94%", title: "Employee Stability", desc: "Drastically reduce the disruptive costs of team turnover." },
-        { metric: "2.8x", title: "Innovation Output", desc: "Diverse, balanced engineering teams solve complex problems faster." },
-        { metric: "Zero", title: "Delivery Gaps", desc: "Proactive capacity forecasting keeps enterprise projects on schedule." }
-      ],
-      faqs: [
-        { q: "What is your approach to DE&I hiring?", a: "We believe diversity must be paired with technical excellence. All candidates are evaluated on objective sandbox performance while expanding recruitment channels to underrepresented groups." },
-        { q: "How can you help reduce engineering attrition?", a: "We conduct deep confidential exit diagnostics, benchmark compensation, and design growth ladders that give employees clear incentives to stay." },
-        { q: "Can our existing staff benefit from Varnith's IT training?", a: "Yes. Our unique advantage is our in-house IT academy, allowing us to upskill and cross-train your current workforce." },
-        { q: "What metrics are tracked during workforce planning?", a: "We track utilization rates, skill gaps, time-to-productivity, turnover risk scores, and team diversity benchmarks." }
-      ]
+      step: "05",
+      name: "Shortlist",
+      title: "Calibrated Shortlist",
+      description: "You receive 3 to 5 high-fit candidate dossiers complete with technical assessment notes and compensation expectations – no bulk resume dumps."
     },
     {
-      id: "payroll",
-      slug: "payroll",
-      aliases: ["payroll-administration", "talent-intelligence"],
-      number: "06",
-      title: "Payroll & HR Administration",
-      fullTitle: "End-to-End Payroll Processing, Statutory Compliance & HR Operations",
-      badge: "Operations & Compliance",
-      shortDescription: "End-to-end payroll processing, statutory compliance (PF, ESI, TDS, PT), attendance automation, and employee self-service governance.",
-      description: "Error-free payroll execution, statutory regulatory filings, and digitized employee lifecycle administration for organizations of all sizes.",
-      image: "/assets/hr_carousel_6.jpg",
-      stats: [
-        { label: "Payroll Accuracy", value: "99.9%" },
-        { label: "On-Time Disbursement", value: "100%" },
-        { label: "Statutory Filing SLA", value: "Zero Delay" }
-      ],
-      features: [
-        "100% Error-Free Monthly Payroll Processing",
-        "Statutory PF, ESI, TDS, & PT Compliance Filings",
-        "Attendance, Shift & Leave Management Integration",
-        "Digital Payslip Distribution & Tax Deduction Forms (Form 16)",
-        "Employee Reimbursement & Expense Audits",
-        "Dedicated Helpdesk for Employee Payroll Inquiries"
-      ],
-      whatItIncludes: [
-        {
-          title: "Automated Monthly Payroll Execution",
-          description: "Accurate salary calculations, variable pay, deductions, bonuses, and direct bank disbursement files."
-        },
-        {
-          title: "Complete Statutory Compliance Filings",
-          description: "Timely monthly filing of Provident Fund (PF), Employee State Insurance (ESI), Professional Tax (PT), and TDS."
-        },
-        {
-          title: "Employee Tax Computations & Form 16",
-          description: "Investment declaration portals, proof verification, tax computation sheets, and automated year-end Form 16 generation."
-        },
-        {
-          title: "Attendance & Leave System Integration",
-          description: "Seamless synchronization with biometric devices, Slack/Teams check-ins, and HRMS platforms."
-        },
-        {
-          title: "Expense Claims & Reimbursement Auditing",
-          description: "Policy verification and automated processing for travel, equipment, and health reimbursements."
-        },
-        {
-          title: "Full & Final Settlement (FnF) Governance",
-          description: "Prompt, compliant exit calculations, gratuity payouts, leave encashment, and documentation."
-        }
-      ],
-      deliveryModel: [
-        { step: "01", title: "Setup & Integration", desc: "Configuring company salary structures, tax slabs, pay cycles, and statutory registries." },
-        { step: "02", title: "Monthly Cutoff Run", desc: "Processing attendance, incentives, and deductions with multi-tier validation checks." },
-        { step: "03", title: "Disbursement & Payslips", desc: "Bank file generation and secure instant delivery of payslips to employee inboxes." },
-        { step: "04", title: "Statutory Remittance", desc: "Submitting challans and filing returns with government authorities prior to deadlines." }
-      ],
-      businessBenefits: [
-        { metric: "99.98%", title: "Payroll Accuracy", desc: "Eliminate costly salary calculation errors and disputes." },
-        { metric: "100%", title: "Statutory Protection", desc: "Never miss a PF, ESI, or tax filing deadline again." },
-        { metric: "40 hrs", title: "Admin Time Saved", desc: "Free your internal finance and HR teams to focus on business growth." }
-      ],
-      faqs: [
-        { q: "How do you ensure data confidentiality and bank security?", a: "We utilize banking-grade 256-bit encryption, strict role-based access control, and ISO-compliant data protection protocols." },
-        { q: "Can you handle payroll for multiple state entities in India?", a: "Yes. We manage multi-state professional tax, local labor welfare funds, and state-specific statutory registrations." },
-        { q: "How do employees access their payslips and tax sheets?", a: "Employees receive encrypted PDF payslips directly via email and have access to a secure digital self-service portal." },
-        { q: "Do you assist during statutory inspections and audits?", a: "Yes. Our compliance specialists handle documentation, records reconciliation, and representation during PF/ESI audits." }
-      ]
+      step: "06",
+      name: "Interviews",
+      title: "Interview Coordination",
+      description: "We coordinate scheduling, prepare candidates, gather detailed feedback after every round, and maintain momentum to prevent candidate drop-off."
+    },
+    {
+      step: "07",
+      name: "Offer",
+      title: "Offer & Negotiation",
+      description: "We help structure competitive offers, manage counter-offer risks, and maintain close contact during the notice period to ensure joining."
+    },
+    {
+      step: "08",
+      name: "Onboarding",
+      title: "Onboarding & Follow-Through",
+      description: "We check in during day-one integration and stay engaged through the first 90 days with our replacement warranty backing every placement."
+    }
+  ],
+
+  whoWeHireFor: [
+    {
+      title: "Software Engineering",
+      roles: "Front-end, back-end, full-stack, and mobile engineers across React, Node.js, Python, Java, and modern enterprise frameworks.",
+      icon: "Code2"
+    },
+    {
+      title: "Cloud and DevOps",
+      roles: "Cloud architects, DevOps, Site Reliability Engineers (SRE), platform engineers, Terraform, Kubernetes, and CI/CD specialists.",
+      icon: "Cloud"
+    },
+    {
+      title: "Data and AI",
+      roles: "Data engineers, business intelligence analysts, data scientists, pipeline architects, and machine learning practitioners.",
+      icon: "Database"
+    },
+    {
+      title: "Quality Engineering",
+      roles: "Manual QA, automation test engineers, SDETs, performance testing, and API test specialists using Selenium, Playwright, and Postman.",
+      icon: "CheckCircle2"
+    },
+    {
+      title: "SAP & Enterprise Applications",
+      roles: "SAP Basis Security, SAP GRC Access Control, NetWeaver administration, enterprise ERP specialists, and functional consultants.",
+      icon: "ShieldCheck"
+    },
+    {
+      title: "Technology Leadership",
+      roles: "Engineering Managers, Technical Leads, Directors of Engineering, Heads of Product, VPs of Technology, and CTOs.",
+      icon: "Users"
     }
   ],
 
   differentiators: [
     {
       number: "01",
-      title: "Expert-Led Learning",
-      description: "Learn directly from active industry practitioners with 10+ years of corporate experience in IT hubs.",
-      tag: "Real Mentors"
+      title: "One Point of Contact",
+      description: "You work directly with a dedicated consultant who understands your technology stack, company culture, and long-term hiring strategy."
     },
     {
       number: "02",
-      title: "Hands-On Practical Experience",
-      description: "Theory is only 20% of the equation. 80% is dedicated to live terminals, real code, and actual software setups.",
-      tag: "Lab Centric"
+      title: "Written Role Brief Before Sourcing",
+      description: "We confirm the requirements and hiring criteria in writing before starting our search, preventing misunderstandings and wasted rounds."
     },
     {
       number: "03",
-      title: "Live Project Exposure",
-      description: "Work on genuine enterprise project scenarios that give you tangible portfolio pieces for technical interviews.",
-      tag: "Portfolio Grade"
+      title: "Screened Shortlists Only",
+      description: "We never flood your inbox with raw keywords. You only receive candidates who have passed our rigorous technical and background pre-screening."
     },
     {
       number: "04",
-      title: "Course Completion Certification",
-      description: "Earn recognized credentials verifying your hands-on competencies and real project milestones.",
-      tag: "Verified Credentials"
-    },
-    {
-      number: "05",
-      title: "Career Guidance & Mock Interviews",
-      description: "Resume crafting, LinkedIn optimization, behavioral coaching, and mock tech rounds with feedback.",
-      tag: "Interview Ready"
-    },
-    {
-      number: "06",
-      title: "Direct HR & Recruitment Placement",
-      description: "Our in-house HR consultancy connects graduating learners directly with hiring managers across Hyderabad.",
-      tag: "Placement Highway"
-    }
-  ],
-
-  learningStages: [
-    {
-      step: "01",
-      title: "Discover Your Potential",
-      description: "Explore learning opportunities and identify your professional goals through dedicated 1-on-1 counseling.",
-      detail: "We evaluate your background, interests, and target roles to map out the ideal learning track suited to your ambitions.",
-      tag: "Orientation & Roadmap"
-    },
-    {
-      step: "02",
-      title: "Learn From Experts",
-      description: "Build knowledge with experienced trainers, structured modules, and deeply curated real-world curriculum.",
-      detail: "Engage in live interactive sessions where complex concepts are broken down into intuitive, practical building blocks.",
-      tag: "Rigorous Instruction"
-    },
-    {
-      step: "03",
-      title: "Apply Your Skills",
-      description: "Gain practical experience through structured lab exercises, troubleshooting drills, and capstone projects.",
-      detail: "Apply code, configure servers, audit security policies, and build dashboards just like an active engineer on the job.",
-      tag: "Hands-on Immersion"
-    },
-    {
-      step: "04",
-      title: "Move Forward",
-      description: "Build confidence and prepare for your next career opportunity with dedicated placement assistance.",
-      detail: "Step into tech interviews prepared with an industry-grade portfolio, verified certification, and active HR referrals.",
-      tag: "Placement & Growth"
-    }
-  ],
-
-  testimonials: [
-    {
-      id: "rahul",
-      name: "Rahul Radhirao",
-      role: "Software Testing Professional",
-      course: "Software Testing",
-      image: "/assets/student_male_1.avif",
-      quote: "I've taken several testing courses before, but Varnith Global has been the best by far. The trainers have real-world experience and share practical tips that I can apply immediately. I've already seen a significant improvement in my testing efficiency.",
-      rating: 5,
-      location: "Hyderabad"
-    },
-    {
-      id: "priya",
-      name: "Priya Bhaskar",
-      role: "SAP Security Specialist",
-      course: "SAP Basis Security",
-      image: "/assets/student_female_1.avif",
-      quote: "I was looking for a course that would give me a deep dive into SAP Basis Security, and Varnith Global delivered. The curriculum is comprehensive and the trainers are experts in their field. I've already implemented some of the best practices I learned in my daily work.",
-      rating: 5,
-      location: "Hyderabad"
-    },
-    {
-      id: "ravi",
-      name: "Ravi Theja",
-      role: "Associate Data Analyst",
-      course: "Data Analyst",
-      image: "/assets/student_male_2.avif",
-      quote: "As a beginner in data science, I was a bit intimidated, but Varnith Global made me feel right at home. The instructors are patient and supportive, and the course materials are well-structured. I've gained a solid foundation and I'm excited to continue my learning journey.",
-      rating: 5,
-      location: "Hyderabad"
-    },
-    {
-      id: "manasa",
-      name: "Manasa Chowdary",
-      role: "DevOps Engineer",
-      course: "DevOps",
-      image: "/assets/student_female_2.avif",
-      quote: "Varnith Global has been institute for my DevOps career. Their courses are packed with practical knowledge and hands-on exercises that really stick. The instructors are super knowledgeable and always supports to help students understand complex concepts.",
-      rating: 5,
-      location: "Hyderabad"
+      title: "Regular Updates Without Chasing",
+      description: "Transparent weekly pipeline reports and proactive updates keep you fully informed at every stage of the recruitment process."
     }
   ],
 
   faqs: [
     {
-      question: "What is the format of your courses?",
-      answer: "Our courses are a mix of live online classes, recorded lectures, and hands-on exercises. We also provide access to course materials and resources."
+      q: "Are your SAP training classes live or recorded?",
+      a: "All of our SAP Basis Security and SAP GRC classes are conducted live online with experienced industry practitioners. Recorded session archives are provided after every class so you can revisit complex topics at your own pace."
     },
     {
-      question: "Do I need prior experience for the DevOps course?",
-      answer: "While some prior experience in IT or software development is helpful, our DevOps course is designed to be accessible to learners of all levels."
+      q: "Do I need prior SAP experience to join the SAP Basis Security course?",
+      a: "While prior experience in IT administration, Linux, databases, or enterprise software is helpful, our curriculum starts with foundational SAP NetWeaver architecture and security principles, making it accessible to committed technical learners."
     },
     {
-      question: "Is the Data Science course suitable for non-technical professionals?",
-      answer: "Yes, our Data Science course is designed to be accessible to individuals with a non-technical background. We provide a solid foundation in data analysis and programming concepts."
+      q: "Will I receive a course completion certificate?",
+      a: "Yes. Upon completing the course modules, hands-on lab exercises, and practical assessment, you will receive a verified Certificate of Completion from Varnith Technologies."
     },
     {
-      question: "How do I enroll in a course?",
-      answer: "You can enroll in a course by visiting our website and follow the registration process. We accept online payments through secure gateways."
+      q: "What are the course fees and payment options?",
+      a: "Programme fees depend on the specific track, batch schedule, and lab access duration. Please submit an enquiry via our form or contact our team directly to receive the latest syllabus and fee structure."
     },
     {
-      question: "What is the certification process?",
-      answer: "Upon successful completion of the course, you will receive a certificate of completion from RV Consultings. Some courses may also offer industry-recognized certifications."
+      q: "When does the next training batch start?",
+      a: "We start new batches regularly with flexible options including weekend batches and weekday evening sessions designed specifically for working professionals and university students."
     },
     {
-      question: "Do you offer flexible learning options?",
-      answer: "Yes, we offer flexible learning options to accommodate different schedules. Our courses are typically self-paced, allowing you to learn at your own convenience."
+      q: "Do you provide job placement assistance after course completion?",
+      a: "Yes. Because Varnith also operates an active HR consulting and recruitment division, our qualified learners receive direct resume reviews, mock technical interview preparation, and placement referrals to software organisations across India."
+    },
+    {
+      q: "How does Varnith evaluate candidate technical ability for recruitment?",
+      a: "Unlike traditional agencies that rely on keyword searches, our recruiters understand software stacks and evaluate candidates on real hands-on scenarios, project delivery history, and architectural fundamentals before presenting a shortlist."
+    },
+    {
+      q: "Can Varnith handle dedicated RPO or bulk hiring drives?",
+      a: "Yes. We regularly assemble dedicated recruiting pods and execute high-velocity hiring sprints for technology startups, scale-ups, and enterprise client expansions across India."
+    }
+  ],
+
+  sampleRoles: [
+    {
+      id: "role-1",
+      title: "Full-Stack Software Engineer",
+      team: "Product Engineering",
+      location: "Hyderabad / Hybrid",
+      experience: "3 – 6 Years",
+      stack: "React, Node.js, TypeScript, PostgreSQL, AWS",
+      type: "Full-Time"
+    },
+    {
+      id: "role-2",
+      title: "Cloud & Platform Engineer",
+      team: "Infrastructure & DevOps",
+      location: "Bengaluru / Remote",
+      experience: "4 – 8 Years",
+      stack: "Kubernetes, Terraform, Docker, AWS, CI/CD",
+      type: "Full-Time"
+    },
+    {
+      id: "role-3",
+      title: "Data Platform Engineer",
+      team: "Data Analytics",
+      location: "Hyderabad / On-site",
+      experience: "3 – 5 Years",
+      stack: "Python, PySpark, Snowflake, SQL, Airflow",
+      type: "Full-Time"
+    },
+    {
+      id: "role-4",
+      title: "Automation Quality Engineer",
+      team: "Quality Engineering",
+      location: "Pune / Hybrid",
+      experience: "3 – 6 Years",
+      stack: "Selenium WebDriver, Java / Python, TestNG, Postman",
+      type: "Full-Time"
+    },
+    {
+      id: "role-5",
+      title: "SAP Security & GRC Consultant",
+      team: "Enterprise Applications",
+      location: "Hyderabad / Hybrid",
+      experience: "4 – 7 Years",
+      stack: "SAP Basis Security, GRC 12.0, ARA, ARM, EAM, S/4HANA",
+      type: "Full-Time"
+    },
+    {
+      id: "role-6",
+      title: "Engineering Manager",
+      team: "Technology Leadership",
+      location: "Bengaluru / Hybrid",
+      experience: "8 – 12 Years",
+      stack: "Microservices Architecture, People Management, Agile delivery",
+      type: "Full-Time"
     }
   ]
 };
+

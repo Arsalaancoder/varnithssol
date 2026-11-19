@@ -7,6 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
+        bluspark: {
+          navy: '#0D5C91',
+          blue: '#056EB5',
+          teal: '#269C85',
+          bg: '#EDF3F5',
+        },
         corporate: {
           green: '#00A859',
           greenHover: '#008F4C',
@@ -32,9 +38,10 @@ export default {
         softBorder: '#E5E7EB',
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        heading: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        body: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['"Familjen Grotesk"', '"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        familjen: ['"Familjen Grotesk"', 'sans-serif'],
+        heading: ['"Familjen Grotesk"', '"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        body: ['"Familjen Grotesk"', '"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       maxWidth: {
         canvas: '1440px',
