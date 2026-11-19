@@ -6,7 +6,6 @@ import {
   Code2, 
   CheckCircle2, 
   Rocket, 
-  MousePointer, 
   ChevronRight 
 } from 'lucide-react';
 import { siteData } from '../../data/siteData';
@@ -84,34 +83,6 @@ export default function HowWeHelpSection() {
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-['Familjen_Grotesk']">
               A proven process designed to transform complex workflows into scalable systems — efficiently and strategically.
             </p>
-
-            {/* Clickable Step Pills */}
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
-              <div className="inline-flex items-center gap-1.5 text-xs text-slate-400 font-medium mr-2 font-['Familjen_Grotesk']">
-                <MousePointer className="w-3.5 h-3.5 text-[#056EB5]" />
-                <span>Click or scroll stages:</span>
-              </div>
-
-              {siteData.howWeHelp.map((item, idx) => {
-                const stepNum = idx + 1;
-                const isActive = activeStep === stepNum;
-                return (
-                  <button
-                    key={item.step}
-                    type="button"
-                    onClick={() => handleStepClick(stepNum)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold font-['Familjen_Grotesk'] transition-all flex items-center gap-1.5 cursor-pointer ${
-                      isActive
-                        ? 'bg-[#056EB5] text-white shadow-xs scale-105'
-                        : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
-                    }`}
-                  >
-                    <span>0{stepNum}</span>
-                    <span className="hidden sm:inline font-normal opacity-90">{item.badge}</span>
-                  </button>
-                );
-              })}
-            </div>
           </div>
 
           {/* Central Vertical Process Bar Timeline */}

@@ -25,13 +25,6 @@ export default function SolutionSection() {
                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
               />
             </div>
-            
-            {/* Minimal Stat Box with Light Blue & Light Orange Glass */}
-            <div className="mt-4 p-4.5 backdrop-blur-md bg-gradient-to-br from-blue-50/80 via-white/95 to-orange-50/70 border-2 border-slate-200/90 rounded-2xl flex items-center justify-between text-xs sm:text-sm shadow-xs relative overflow-hidden">
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#056EB5] via-[#38BDF8] to-[#F48A25] opacity-85" />
-              <div className="font-bold text-[#0D5C91] font-['Familjen_Grotesk']">Two practices, one integrated vision</div>
-              <div className="text-slate-500 font-semibold font-['Familjen_Grotesk']">Recruitment &amp; SAP Training</div>
-            </div>
           </motion.div>
 
           {/* Right Column: Heading, Description, Checklist, CTA */}
@@ -66,12 +59,23 @@ export default function SolutionSection() {
             </div>
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Link to="/hire" className="btn-primary text-sm font-semibold">
-                <span>Explore HR Consulting</span>
-                <ArrowRight className="w-4 h-4 ml-1.5" />
+              <Link
+                to="/hire"
+                className="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm backdrop-blur-md bg-[#056EB5] text-white border-2 border-transparent shadow-md shadow-blue-500/20 hover:bg-gradient-to-r hover:from-orange-100/95 hover:via-orange-50 hover:to-orange-100/90 hover:text-[#C2410C] hover:border-orange-300/80 hover:shadow-lg hover:shadow-orange-400/25 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden group font-['Familjen_Grotesk'] cursor-pointer"
+              >
+                {/* Glass reflection shimmer */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
+                <span className="relative z-10">Explore HR Consulting</span>
+                <ArrowRight className="w-4 h-4 ml-1 relative z-10 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <Link to="/academy" className="btn-secondary text-sm font-semibold">
-                <span>Explore Programmes</span>
+
+              <Link
+                to="/academy"
+                className="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm backdrop-blur-md bg-white/80 text-[#0A3857] border-2 border-slate-200/90 shadow-xs hover:bg-gradient-to-r hover:from-orange-100/95 hover:via-orange-50 hover:to-orange-100/90 hover:text-[#C2410C] hover:border-orange-300/80 hover:shadow-lg hover:shadow-orange-400/25 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden group font-['Familjen_Grotesk'] cursor-pointer"
+              >
+                {/* Glass reflection shimmer */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
+                <span className="relative z-10">Explore Programmes</span>
               </Link>
             </div>
           </motion.div>
